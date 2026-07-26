@@ -80,6 +80,7 @@ If a new page introduces its own hardcoded `#fff`/`rgba(255,255,255,*)` "card" b
 
 ```
 node server.js
+and ngrok is: ngrok start server --config ngrok.yml
 ```
 
 Opens at `http://localhost:3000`. The server reads the `ROUTES` map (kept in sync with `routes.yml`) so clean URLs like `/bounce-house-rentals/` resolve to `classic-bounce-houses.html`.

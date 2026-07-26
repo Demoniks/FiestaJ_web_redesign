@@ -18,7 +18,7 @@ html {
   font-size: 16px;
   -webkit-text-size-adjust: 100%;
   /* Prevent horizontal scroll on mobile. overflow-x: hidden (alone) makes the
-     other axis an implicit scroll container, which breaks position:sticky
+    other axis an implicit scroll container, which breaks position:sticky
      on descendants like .site-header — overflow-x: clip avoids that. */
   overflow-x: hidden;
   overflow-x: clip;
@@ -2781,6 +2781,27 @@ a.ftr-sm-link:hover {
   margin-bottom: 24px;
 }
 
+/* Includes — optional per-product callout (e.g. combo units that ship with
+   extra accessories). Hidden unless the product sets data-includes. */
+.prod-modal-includes {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-size: 13px;
+  color: var(--ink3);
+  padding: 10px 16px;
+  background: var(--orange-lt);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  margin-bottom: 24px;
+}
+
+.includes-label {
+  font-weight: 700;
+  color: var(--ink);
+}
+
 .prod-modal-specs {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -2907,17 +2928,96 @@ a.ftr-sm-link:hover {
 .prod-modal-trust {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 12px;
   margin-bottom: 24px;
 }
 
-.prod-modal-trust span {
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--ink3);
+/* Badge row — confidence signals, shown first */
+.trust-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  list-style: none;
+  margin: 0;
+  padding: 12px 16px;
+  background: var(--green-lt);
+  border: 1px solid #E3F2C4;
+  border-radius: var(--r-lg);
+}
+
+.trust-badges li {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #4C7A00;
+}
+
+.trust-ico {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--green);
+  color: var(--white);
+  font-size: 10px;
+  font-weight: 900;
+}
+
+/* Requirements — what the customer needs to prep */
+.trust-requirements {
   display: flex;
   align-items: center;
   gap: 8px;
+  flex-wrap: wrap;
+  font-size: 13px;
+  color: var(--ink3);
+  padding: 10px 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+}
+
+.trust-requirements-label {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.just-dark{
+  color: black;
+}
+
+/* Rain policy — quiet fine-print note */
+.trust-notice {
+  font-size: 12.5px;
+  color: black;
+  margin: 0;
+}
+
+/* Coupon nudge — last, styled to invite a click */
+.trust-coupon {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  align-self: flex-start;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--orange-dk);
+  background: var(--orange-lt);
+  border: 1px dashed var(--orange);
+  border-radius: var(--r-full);
+  padding: 8px 14px;
+  text-decoration: none;
+  transition: all var(--t1);
+}
+
+.trust-coupon:hover {
+  background: var(--orange);
+  color: var(--white);
 }
 
 @media(max-width:480px) {
@@ -2951,4 +3051,4 @@ a.ftr-sm-link:hover {
   .prod-modal-cta {
     padding: 12px 20px;
   }
-}
+}

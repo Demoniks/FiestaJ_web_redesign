@@ -1,22 +1,24 @@
 <!-- ══ PRODUCT MODAL ══════════════════════════════════════════ -->
 <div class="prod-modal-overlay" id="prodModalOverlay" aria-hidden="true">
-  <div class="prod-modal-content" id="prodModalContent" role="dialog" aria-modal="true" aria-labelledby="prodModalTitle">
-    
+  <div class="prod-modal-content" id="prodModalContent" role="dialog" aria-modal="true"
+    aria-labelledby="prodModalTitle">
+
     <!-- Close Button -->
     <button class="prod-modal-close" id="prodModalClose" aria-label="Close modal">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+        stroke-linejoin="round">
         <line x1="18" y1="6" x2="6" y2="18"></line>
         <line x1="6" y1="6" x2="18" y2="18"></line>
       </svg>
     </button>
-    
+
     <!-- Modal Body -->
     <div class="prod-modal-body">
       <!-- Image / Icon Header -->
       <div class="prod-modal-hero" id="prodModalHero">
         <span class="prod-modal-emoji" id="prodModalEmoji">🏰</span>
       </div>
-      
+
       <!-- Content -->
       <div class="prod-modal-info">
         <div class="prod-modal-title-row">
@@ -24,15 +26,21 @@
           <span class="prod-modal-badge" id="prodModalBadge" style="display: none;"></span>
         </div>
         <p class="prod-modal-desc" id="prodModalDesc">Product description goes here.</p>
-        
+
+        <!-- Includes — optional, only shown when a product sets data-includes -->
+        <div class="prod-modal-includes" id="prodModalIncludes" style="display: none;">
+          <span class="includes-label">📦 Includes</span>
+          <span class="includes-value" id="prodModalIncludesText"></span>
+        </div>
+
         <!-- Details Grid -->
         <div class="prod-modal-specs">
           <div class="spec-item">
-            <span class="spec-label">Dimensions</span>
+            <span class="spec-label">Product Dimensions</span>
             <strong class="spec-value" id="prodModalDims">15' x 15' x 16'</strong>
           </div>
           <div class="spec-item">
-            <span class="spec-label">Setup Area</span>
+            <span class="spec-label">Area Required</span>
             <strong class="spec-value" id="prodModalArea">17' x 17' x 18'</strong>
           </div>
           <div class="spec-item">
@@ -40,11 +48,11 @@
             <strong class="spec-value" id="prodModalCap">Up to 6 kids</strong>
           </div>
           <div class="spec-item">
-            <span class="spec-label">Power Req.</span>
+            <span class="spec-label">Outlet Req.</span>
             <strong class="spec-value" id="prodModalPower">1 Standard Outlet (110v)</strong>
           </div>
         </div>
-        
+
         <!-- Cross-Selling -->
         <div class="prod-modal-addons">
           <span class="addon-title">Recommended Add-ons:</span>
@@ -56,26 +64,38 @@
 
         <!-- Trust Checklist -->
         <div class="prod-modal-trust">
-          <span>✅ Guaranteed On-Time</span>
-          <span>✅ Cleaned & Sanitized</span>
-          <span>✅ Professional Setup</span>
+          <ul class="trust-badges">
+            <li><span class="trust-ico">✓</span>Professional Setup</li>
+            <li><span class="trust-ico">✓</span>Cleaned &amp; Sanitized</li>
+            <li><span class="trust-ico">✓</span>Guaranteed On-Time</li>
+            <li><span>🥳</span>Lots of Fun</li>
+          </ul>
+
+          <div class="trust-requirements">
+            <span class="trust-requirements-label">🔌 What you need</span>
+            <span class="just-dark" id="prodModalRequirement">Electric outlet within 50 feet of setup area</span>
+          </div>
+
+          <p class="trust-notice">🌧️ Maximum 24-hour notice for rain reschedule</p>
+
+          <a href="https://fiestajumps.com/coupon-form/" class="trust-coupon">🎟️ Click here for available coupons</a>
         </div>
-        
+
         <!-- Price & CTA -->
         <div class="prod-modal-footer">
           <div class="prod-price-box">
-            <span class="price-label">Starting at</span>
+            <span class="price-label">Price</span>
             <strong class="price-value" id="prodModalPrice">$150 / day</strong>
           </div>
           <a href="#" class="btn btn-orange btn-lg fj-link prod-modal-cta" id="prodModalCta">
             Book Now
             <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
-              <path d="M4.5 10h11m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M4.5 10h11m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                stroke-linejoin="round"></path>
             </svg>
           </a>
         </div>
       </div>
     </div>
-    
   </div>
 </div>

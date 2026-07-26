@@ -6,16 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Set theme before first paint so there's no flash of the wrong theme -->
     <script>(function () { try { var t = localStorage.getItem('fj-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); document.documentElement.setAttribute('data-theme', t); } catch (e) { } })();</script>
-    <title>Dry Slide Rentals in Santa Barbara, CA | Fiesta Jumps</title>
+    <title>Water Slide Rentals in Santa Barbara, CA | Fiesta Jumps</title>
     <meta name="description"
-        content="Rent dry slides in Santa Barbara, CA. Fiesta Jumps offers single and double-lane dry slides for parties and events — delivered, set up, and ready to go.">
+        content="Rent water slides in Santa Barbara, CA. Fiesta Jumps offers giant water slides, dunk tanks, and water games for parties and events — delivered, set up, and ready to go.">
     <meta name="robots" content="index, follow">
     <!-- Open Graph -->
-    <meta property="og:title" content="Dry Slide Rentals — Fiesta Jumps Santa Barbara">
+    <meta property="og:title" content="Water Slide Rentals — Fiesta Jumps Santa Barbara">
     <meta property="og:description"
-        content="Santa Barbara's #1 party rental company. Dry slides for any event — licensed, insured, and ready year-round.">
+        content="Santa Barbara's #1 party rental company. Water slides for any event — licensed, insured, and ready for summer fun.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://fiestajumps.com/dry-slide-rentals/">
+    <meta property="og:url" content="https://fiestajumps.com/water-slides-rentals/">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -54,13 +54,13 @@
     <!--@include partials/category-hero.html
     {
         "crumbMiddle": "<a href=\"/#rentals\" class=\"fj-link\">Rentals</a><span class=\"bc-sep\">›</span>",
-        "breadcrumbCurrent": "Dry Slides",
-        "catTag": "🎢 Dry Slide Rentals",
-        "title": "Dry Slide <em>Rentals</em> in Santa Barbara",
-        "desc": "Looking for the thrill of a slide without the water? Our dry slides bring big air and big smiles to any party — perfect for cooler days or whenever you want the fun without the splash.",
+        "breadcrumbCurrent": "Water Slides",
+        "catTag": "💧 Water Slide Rentals",
+        "title": "Water Slide <em>Rentals</em> in Santa Barbara",
+        "desc": "Beat the heat with our giant water slides, dunk tanks, and water games — perfect for hot summer days and unforgettable backyard splash parties.",
         "badges": [
             "✅ Delivery &amp; Setup Included",
-            "☀️ Fun Rain or Shine",
+            "💦 Perfect for Hot Days",
             "🛡️ Licensed &amp; Insured",
             "🧹 Clean &amp; Inspected"
         ],
@@ -86,7 +86,7 @@
     <!-- ══ PRODUCTS GRID ════════════════════════════════════════ -->
     <section class="products-wrap" id="products">
         <div class="container">
-            <div class="products-grid" id="productsGrid">
+            <div class="products-grid" id="productsGrid" data-requirement="Water source and water hose">
 
         <!-- ─────────────────────────────────────────────────────
         PRODUCT CARDS
@@ -99,91 +99,124 @@
         ───────────────────────────────────────────────────── -->
 
                 <!-- Dunk Tank -->
-                <div class="pcard" data-filter="large" data-aos="fade-up" style="--d:0ms">
+                <div class="pcard" data-filter="standard" data-aos="fade-up" style="--d:0ms">
                     <div class="pcard-img" style="background:linear-gradient(135deg,#EBF5FF,#BFDBFE)">
-                        <!-- SWAP: <img src="https://fiestajumps.com/wp-content/uploads/hot-air-balloon.jpg" alt="Hot Air Balloon Bouncer"> -->
-                        <div class="pcard-emoji">🎈</div>
-                        <span class="pcard-badge">Large Unit</span>
+                        <div class="pcard-emoji">🎯</div>
+                        <span class="pcard-badge">⏳ Limited</span>
                         <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
                     </div>
                     <div class="pcard-body">
                         <h3>Dunk Tank</h3>
-                        <p>A duck tank.</p>
+                        <p>A classic dunk tank rental — perfect for games and events. Send someone splashing into the
+                            water with a well-aimed throw.</p>
                         <div class="pcard-meta">
-                            <span class="pcard-tag pcard-tag--blue">📐 Large</span>
-                            <span class="pcard-tag pcard-tag--green">✅ Available</span>
+                            <span class="pcard-tag pcard-tag--blue">📐 Standard</span>
                         </div>
                     </div>
                     <div class="pcard-actions">
-                        <!-- ✅ AJAX PREFETCH — Get Quote and Details use fj-link for prefetch -->
-                        <a href="/book-now/?item=hot-air-balloon" class="pcard-btn pcard-btn--primary fj-link">Get
+                        <a href="/book-now/?item=dunk-tank" class="pcard-btn pcard-btn--primary fj-link">Get
                             Quote</a>
-                        <a href="/bounce-house-rentals/hot-air-balloon/"
-                            class="pcard-btn pcard-btn--outline fj-link">Details</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal"
+                            data-badge="⏳ Limited"
+                            data-emoji="🎯"
+                            data-title="Dunk Tank"
+                            data-desc="A classic dunk tank rental — perfect for games and events. Send someone splashing into the water with a well-aimed throw."
+                            data-price="from $450.00"
+                            data-dims="10'W x 10'L x 7'H"
+                            data-area="15'W x 12'L x 10'H"
+                            data-cap="1 person per ride"
+                            data-includes="4 game ball"
+                            data-book="/book-now/?item=dunk-tank">Details</a>
                     </div>
                 </div>
 
-                <!-- Giant dual water slide -->
-                <div class="pcard" data-filter="basketball large" data-aos="fade-up" style="--d:60ms">
-                    <div class="pcard-img" style="background:linear-gradient(135deg,#FFF7ED,#FED7AA)">
-                        <div class="pcard-emoji">🏰</div>
-                        <span class="pcard-badge">⭐ Popular</span>
+                <!-- Giant Dual Water Slide -->
+                <div class="pcard" data-filter="large" data-aos="fade-up" style="--d:60ms">
+                    <div class="pcard-img" style="background:linear-gradient(135deg,#EFF6FF,#93C5FD)">
+                        <div class="pcard-emoji">🌊</div>
+                        <span class="pcard-badge">⏳ Limited</span>
                         <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
                     </div>
                     <div class="pcard-body">
                         <h3>Giant Dual Water Slide</h3>
-                        <p>a water slide.</p>
+                        <p>A large dual-lane water slide, great for cooling off and racing friends on hot summer
+                            days.</p>
                         <div class="pcard-meta">
-                            <span class="pcard-tag pcard-tag--blue">📐 16′ × 16′</span>
-                            <span class="pcard-tag pcard-tag--warm">🏀 Hoop Included</span>
+                            <span class="pcard-tag pcard-tag--blue">📐 Large</span>
+                            
                         </div>
                     </div>
                     <div class="pcard-actions">
-                        <a href="/book-now/?item=lava-castle" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
-                        <a href="/bounce-house-rentals/lava-castle/"
-                            class="pcard-btn pcard-btn--outline fj-link">Details</a>
+                        <a href="/book-now/?item=giant-dual-water-slide" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal"
+                            data-badge="⏳ Limited"
+                            data-emoji="🌊"
+                            data-title="Giant Dual Water Slide"
+                            data-desc="A large dual-lane water slide, great for cooling off and racing friends on hot summer days."
+                            data-price="from $499.00"
+                            data-dims="36'W x 17'L x 20'H"
+                            data-area="40'W x 20'L x 21'H"
+                            data-cap="6-8 persons"
+                            data-power="1 Standard Outlet"
+                            data-book="/book-now/?item=giant-dual-water-slide">Details</a>
                     </div>
                 </div>
 
-                <!-- Tropical water slide -->
-                <div class="pcard" data-filter="standard" data-aos="fade-up" style="--d:120ms">
+                <!-- Tropical Water Slide -->
+                <div class="pcard" data-filter="themed" data-aos="fade-up" style="--d:120ms">
                     <div class="pcard-img" style="background:linear-gradient(135deg,#F0FDF4,#A7F3D0)">
-                        <div class="pcard-emoji">🏯</div>
+                        <div class="pcard-emoji">🌴</div>
                         <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
                     </div>
                     <div class="pcard-body">
                         <h3>Tropical Water Slide</h3>
-                        <p>Tropical.</p>
+                        <p>A tropical-themed water slide for splash-filled summer fun.</p>
                         <div class="pcard-meta">
-                            <span class="pcard-tag pcard-tag--blue">📐 9′ × 9′</span>
-                            <span class="pcard-tag pcard-tag--green">✅ Available</span>
+                            <span class="pcard-tag pcard-tag--blue">📐 Standard</span>
+                            <span class="pcard-tag pcard-tag--warm">🌴 Themed</span>
                         </div>
                     </div>
                     <div class="pcard-actions">
-                        <a href="/book-now/?item=mini-castle" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
-                        <a href="/bounce-house-rentals/mini-castle/"
-                            class="pcard-btn pcard-btn--outline fj-link">Details</a>
+                        <a href="/book-now/?item=tropical-water-slide" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal"
+                            data-emoji="🌴"
+                            data-title="Tropical Water Slide"
+                            data-desc="A tropical-themed water slide for splash-filled summer fun."
+                            data-price="from $399.00"
+                            data-dims="26'W x 14'L x 16'H"
+                            data-area="30'W x 18'L x 18'H"
+                            data-cap="6-8 persons"
+                            data-power="1 Standard Outlet"
+                            data-book="/book-now/?item=tropical-water-slide">Details</a>
                     </div>
                 </div>
 
                 <!-- Water Tag Maze -->
-                <div class="pcard" data-filter="themed" data-aos="fade-up" style="--d:0ms">
-                    <div class="pcard-img" style="background:linear-gradient(135deg,#FDF2F8,#FBCFE8)">
-                        <div class="pcard-emoji">🎀</div>
+                <div class="pcard" data-filter="standard" data-aos="fade-up" style="--d:0ms">
+                    <div class="pcard-img" style="background:linear-gradient(135deg,#EFF6FF,#BFDBFE)">
+                        <div class="pcard-emoji">💦</div>
                         <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
                     </div>
                     <div class="pcard-body">
                         <h3>Water Tag Maze</h3>
-                        <p>Lazer fun.</p>
+                        <p>An interactive water tag maze for active, splash-filled group play.</p>
                         <div class="pcard-meta">
                             <span class="pcard-tag pcard-tag--blue">📐 Standard</span>
-                            <span class="pcard-tag pcard-tag--warm">🎀 Themed</span>
                         </div>
                     </div>
                     <div class="pcard-actions">
-                        <a href="/book-now/?item=pink-castle" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
-                        <a href="/bounce-house-rentals/pink-castle/"
-                            class="pcard-btn pcard-btn--outline fj-link">Details</a>
+                        <a href="/book-now/?item=water-tag-maze" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal"
+                            data-emoji="💦"
+                            data-title="Water Tag Maze"
+                            data-desc="An interactive water tag maze for active, splash-filled group play."
+                            data-price="from $349.00"
+                            data-includes="6 Water soakers, 6 Water vest and water container included."
+                            data-dims="18'W x 20'L x 7'H"
+                            data-area="22'W x 4'L x 9'H"
+                            data-cap="6-8 persons"
+                            data-power="1 Standard Outlet"
+                            data-book="/book-now/?item=water-tag-maze">Details</a>
                     </div>
                 </div>
 
@@ -459,6 +492,7 @@
         </div>
     </aside>
 
+    <!--@include partials/product-modal.html-->
     <script src="/main.js"></script>
     <script>
         /* ── Filter pills ───────────────────────────────────────── */

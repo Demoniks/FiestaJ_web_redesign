@@ -5,7 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Set theme before first paint so there's no flash of the wrong theme -->
-    <script>(function () { try { var t = localStorage.getItem('fj-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); document.documentElement.setAttribute('data-theme', t); } catch (e) { } })();</script>
+    <script>(function () {
+            try {
+                var t =
+                    localStorage.getItem('fj-theme')
+                    || (
+                        matchMedia('(prefers-color-scheme: dark)').matches
+                            ? 'dark'
+                            : 'light'
+                    );
+                document.documentElement.setAttribute('data-theme', t);
+            } catch (e) { }
+        })();
+    </script>
     <title>Foam Cannon Rentals in Santa Barbara, CA | Fiesta Jumps</title>
     <meta name="description"
         content="Rent a foam cannon in Santa Barbara, CA. Fiesta Jumps brings mess-free foam party fun, delivered and set up for your event.">
@@ -82,7 +94,8 @@
     <!-- ══ PRODUCTS GRID ════════════════════════════════════════ -->
     <section class="products-wrap" id="products">
         <div class="container">
-            <div class="products-grid" id="productsGrid">
+            <div class="products-grid" id="productsGrid" data-power="1 Standard Outlet"
+                data-requirement="Water faucet, water hose and 20 watts circuit">
 
                 <!-- ─────────────────────────────────────────────────────
         PRODUCT CARDS
@@ -98,7 +111,9 @@
                     <div class="pcard-img" style="background:linear-gradient(135deg,#EBF5FF,#BFDBFE)">
                         <!-- SWAP: <img src="https://fiestajumps.com/wp-content/uploads/hot-air-balloon.jpg" alt="Hot Air Balloon Bouncer"> -->
                         <div class="pcard-emoji">🎈</div>
-                        <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
+                        <div class="pcard-overlay">
+                            <span class="pcard-overlay-text">Quick View</span>
+                        </div>
                     </div>
                     <div class="pcard-body">
                         <h3>Foamtastik Cannon</h3>
@@ -108,15 +123,20 @@
                         </p>
                         <div class="pcard-meta">
                             <span class="pcard-tag pcard-tag--blue">⏳ 2 hours foam party</span>
-                            <span class="pcard-tag pcard-tag--green">✅ Available</span>
                         </div>
                     </div>
                     <div class="pcard-actions">
                         <!-- ✅ AJAX PREFETCH — Get Quote and Details use fj-link for prefetch -->
-                        <a href="/book-now/?item=hot-air-balloon" class="pcard-btn pcard-btn--primary fj-link">Get
-                            Quote</a>
-                        <a href="/bounce-house-rentals/hot-air-balloon/"
-                            class="pcard-btn pcard-btn--outline fj-link">Details</a>
+                        <a href="/book-now/?item=foamtastik-cannon" class="pcard-btn pcard-btn--primary fj-link">
+                            Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal" data-emoji="🎈"
+                            data-title="Foamtastik Cannon" data-desc="With its cool design and fun functionality, this device sends
+                            out a stream of foamy goodness that entertains and surprises."
+                            data-includes="Supplies for 2 hours foam party." data-price="from $399.00"
+                            data-book="/book-now/?item=foamtastik-cannon" data-dims="20'W x 16'L x 16'H"
+                            data-area="22'W x 18'L x 16'H">
+                            Details
+                        </a>
                     </div>
                 </div>
 
@@ -392,6 +412,7 @@
         </div>
     </aside>
 
+    <!--@include partials/product-modal.html-->
     <script src="/main.js"></script>
     <script>
         /* ── Filter pills ───────────────────────────────────────── */

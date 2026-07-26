@@ -930,7 +930,9 @@
   function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(link => {
       link.addEventListener('click', e => {
-        const target = document.querySelector(link.getAttribute('href'));
+        const href = link.getAttribute('href');
+        if (href.length <= 1) return; // bare "#" (e.g. modal triggers) — not an in-page anchor
+        const target = document.querySelector(href);
         if (!target) return;
         e.preventDefault();
         const offset = (siteHeader?.offsetHeight ?? 0) + 16;
@@ -993,7 +995,10 @@
     document.body.style.left = '';
     document.body.style.right = '';
     document.body.style.width = '';
-    window.scrollTo(0, lockedScrollY);
+    // { behavior: 'instant' } is required here — html has scroll-behavior:
+    // smooth globally, so the two-argument scrollTo(0, y) form would animate
+    // from the top back down, looking like the whole page reset and re-scrolled.
+    window.scrollTo({ top: lockedScrollY, left: 0, behavior: 'instant' });
   }
 
   function debounce(fn, wait) {
@@ -1011,12 +1016,15 @@
     const mTitle = document.getElementById('prodModalTitle');
     const mBadge = document.getElementById('prodModalBadge');
     const mDesc = document.getElementById('prodModalDesc');
+    const mIncludes = document.getElementById('prodModalIncludes');
+    const mIncludesText = document.getElementById('prodModalIncludesText');
     const mDims = document.getElementById('prodModalDims');
     const mArea = document.getElementById('prodModalArea');
     const mCap = document.getElementById('prodModalCap');
     const mPower = document.getElementById('prodModalPower');
     const mPrice = document.getElementById('prodModalPrice');
     const mCta = document.getElementById('prodModalCta');
+    const mRequirement = document.getElementById('prodModalRequirement');
 
     function openModal(data) {
       if (mEmoji) mEmoji.textContent = data.emoji || '🏰';
@@ -1032,12 +1040,23 @@
       }
 
       if (mDesc) mDesc.textContent = data.desc || '';
+
+      if (mIncludes && mIncludesText) {
+        if (data.includes) {
+          mIncludesText.textContent = data.includes;
+          mIncludes.style.display = 'flex';
+        } else {
+          mIncludes.style.display = 'none';
+        }
+      }
+
       if (mDims) mDims.textContent = data.dims || 'N/A';
       if (mArea) mArea.textContent = data.area || 'N/A';
       if (mCap) mCap.textContent = data.cap || 'N/A';
       if (mPower) mPower.textContent = data.power || 'N/A';
       if (mPrice) mPrice.textContent = data.price || 'N/A';
       if (mCta) mCta.href = data.book || '#';
+      if (mRequirement) mRequirement.textContent = data.requirement || 'Electric outlet within 50 feet of setup area';
 
       overlay.classList.add('open');
       overlay.setAttribute('aria-hidden', 'false');
@@ -1054,7 +1073,12 @@
       const trigger = e.target.closest('.js-open-modal');
       if (trigger) {
         e.preventDefault();
-        openModal(trigger.dataset);
+        // Category-wide defaults (e.g. data-cap="5-6 kids" on the whole
+        // .products-grid) fill in any field a specific product doesn't set
+        // itself — set it once per page instead of repeating it per card.
+        const grid = trigger.closest('.products-grid');
+        const data = grid ? { ...grid.dataset, ...trigger.dataset } : trigger.dataset;
+        openModal(data);
       }
     });
 

@@ -77,200 +77,445 @@
                 <button class="filter-pill" data-filter="themed">Themed</button>
                 <button class="filter-pill" data-filter="basketball">w/ Basketball</button>
             </fieldset>
-            <span class="filter-count" id="filterCount" aria-live="polite">8 units available</span>
+            <span class="filter-count" id="filterCount" aria-live="polite">13 units available</span>
         </div>
     </nav>
 
     <!-- ══ PRODUCTS GRID ════════════════════════════════════════ -->
     <section class="products-wrap" id="products">
         <div class="container">
-            <div class="products-grid" id="productsGrid">
+            <div class="products-grid" id="productsGrid" data-power="1 Standard Outlet" data-cap="6-24 persons">
 
-                <!-- ─────────────────────────────────────────────────────
-           PRODUCT CARDS
-           To use a real photo: replace the <div class="pcard-emoji">
-           with <img src="YOUR-URL" alt="Product name">
-           inside <div class="pcard-img">
-
-           EventHawk booking URL format:
-           href="/book-now/?item=PRODUCT-SLUG"
-           ───────────────────────────────────────────────────── -->
-
-                <div class="pcard" data-filter="large" data-aos="fade-up" style="--d:0ms">
-                    <div class="pcard-img" style="background:linear-gradient(135deg,#EBF5FF,#BFDBFE)">
-                        <!-- SWAP: <img src="https://fiestajumps.com/wp-content/uploads/hot-air-balloon.jpg" alt="Hot Air Balloon Bouncer"> -->
-                        <div class="pcard-emoji">🎈</div>
-                        <span class="pcard-badge">Large Unit</span>
-                        <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
-                    </div>
-                    <div class="pcard-body">
-                        <h3>Hot Air Balloon Bouncer Large</h3>
-                        <p>A colorful and exciting large bounce house shaped like a hot air balloon — a guaranteed
-                            showstopper at any party.</p>
-                        <div class="pcard-meta">
-                            <span class="pcard-tag pcard-tag--blue">📐 Large</span>
-                            <span class="pcard-tag pcard-tag--green">✅ Available</span>
-                        </div>
-                    </div>
-                    <div class="pcard-actions">
-                        <!-- ✅ AJAX PREFETCH — Get Quote and Details use fj-link for prefetch -->
-                        <a href="/book-now/?item=hot-air-balloon" class="pcard-btn pcard-btn--primary fj-link">Get
-                            Quote</a>
-                        <a href="/bounce-house-rentals/hot-air-balloon/"
-                            class="pcard-btn pcard-btn--outline fj-link">Details</a>
-                    </div>
-                </div>
-
-                <div class="pcard" data-filter="basketball large" data-aos="fade-up" style="--d:60ms">
-                    <div class="pcard-img" style="background:linear-gradient(135deg,#FFF7ED,#FED7AA)">
-                        <div class="pcard-emoji">🏰</div>
-                        <span class="pcard-badge">⭐ Popular</span>
-                        <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
-                    </div>
-                    <div class="pcard-body">
-                        <h3>Lava Castle 16′ × 16′ w/ Basketball Hoop</h3>
-                        <p>Classic castle design with an integrated basketball hoop — bounce and shoot in one exciting
-                            unit.</p>
-                        <div class="pcard-meta">
-                            <span class="pcard-tag pcard-tag--blue">📐 16′ × 16′</span>
-                            <span class="pcard-tag pcard-tag--warm">🏀 Hoop Included</span>
-                        </div>
-                    </div>
-                    <div class="pcard-actions">
-                        <a href="/book-now/?item=lava-castle" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
-                        <a href="/bounce-house-rentals/lava-castle/"
-                            class="pcard-btn pcard-btn--outline fj-link">Details</a>
-                    </div>
-                </div>
-
-                <div class="pcard" data-filter="standard" data-aos="fade-up" style="--d:120ms">
-                    <div class="pcard-img" style="background:linear-gradient(135deg,#F0FDF4,#A7F3D0)">
-                        <div class="pcard-emoji">🏯</div>
-                        <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
-                    </div>
-                    <div class="pcard-body">
-                        <h3>Mini Castle 9′ × 9′</h3>
-                        <p>Perfect for smaller yards and younger children. Safe, fun, and easy to set up in tight
-                            spaces.</p>
-                        <div class="pcard-meta">
-                            <span class="pcard-tag pcard-tag--blue">📐 9′ × 9′</span>
-                            <span class="pcard-tag pcard-tag--green">✅ Available</span>
-                        </div>
-                    </div>
-                    <div class="pcard-actions">
-                        <a href="/book-now/?item=mini-castle" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
-                        <a href="/bounce-house-rentals/mini-castle/"
-                            class="pcard-btn pcard-btn--outline fj-link">Details</a>
-                    </div>
-                </div>
-
-                <div class="pcard" data-filter="themed" data-aos="fade-up" style="--d:0ms">
-                    <div class="pcard-img" style="background:linear-gradient(135deg,#FDF2F8,#FBCFE8)">
-                        <div class="pcard-emoji">🎀</div>
-                        <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
-                    </div>
-                    <div class="pcard-body">
-                        <h3>Pink Castle</h3>
-                        <p>A beautiful pink princess castle — the ultimate themed bouncer for girls' birthday parties
-                            and princess events.</p>
-                        <div class="pcard-meta">
-                            <span class="pcard-tag pcard-tag--blue">📐 Standard</span>
-                            <span class="pcard-tag pcard-tag--warm">🎀 Themed</span>
-                        </div>
-                    </div>
-                    <div class="pcard-actions">
-                        <a href="/book-now/?item=pink-castle" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
-                        <a href="/bounce-house-rentals/pink-castle/"
-                            class="pcard-btn pcard-btn--outline fj-link">Details</a>
-                    </div>
-                </div>
-
-                <div class="pcard" data-filter="themed large" data-aos="fade-up" style="--d:60ms">
-                    <div class="pcard-img" style="background:linear-gradient(135deg,#FDF2F8,#FBCFE8)">
-                        <div class="pcard-emoji">🏰</div>
-                        <span class="pcard-badge pcard-badge--blue">Large</span>
-                        <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
-                    </div>
-                    <div class="pcard-body">
-                        <h3>Pink Castle Large Bounce House</h3>
-                        <p>The larger version of our beloved Pink Castle — more room, more fun for bigger parties and
-                            events.</p>
-                        <div class="pcard-meta">
-                            <span class="pcard-tag pcard-tag--blue">📐 Large Unit</span>
-                            <span class="pcard-tag pcard-tag--warm">🎀 Themed</span>
-                        </div>
-                    </div>
-                    <div class="pcard-actions">
-                        <a href="/book-now/?item=pink-castle-large" class="pcard-btn pcard-btn--primary fj-link">Get
-                            Quote</a>
-                        <a href="/bounce-house-rentals/pink-castle-large/"
-                            class="pcard-btn pcard-btn--outline fj-link">Details</a>
-                    </div>
-                </div>
-
-                <div class="pcard" data-filter="standard large" data-aos="fade-up" style="--d:120ms">
-                    <div class="pcard-img" style="background:linear-gradient(135deg,#EFF6FF,#BFDBFE)">
-                        <div class="pcard-emoji">🌈</div>
-                        <span class="pcard-badge pcard-badge--green">🔥 Best Seller</span>
-                        <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
-                    </div>
-                    <div class="pcard-body">
-                        <h3>Rainbow Castle Large Bouncer</h3>
-                        <p>Our most popular model — bigger space and vivid colors make this the go-to for large parties
-                            and events.</p>
-                        <div class="pcard-meta">
-                            <span class="pcard-tag pcard-tag--blue">📐 Large Unit</span>
-                            <span class="pcard-tag pcard-tag--green">✅ Available</span>
-                        </div>
-                    </div>
-                    <div class="pcard-actions">
-                        <a href="/book-now/?item=rainbow-castle-large" class="pcard-btn pcard-btn--primary fj-link">Get
-                            Quote</a>
-                        <a href="/bounce-house-rentals/rainbow-castle-large/"
-                            class="pcard-btn pcard-btn--outline fj-link">Details</a>
-                    </div>
-                </div>
-
+                <!-- Mini Obstacle Course 35ft -->
                 <div class="pcard" data-filter="standard" data-aos="fade-up" style="--d:0ms">
-                    <div class="pcard-img" style="background:linear-gradient(135deg,#EFF6FF,#BFDBFE)">
-                        <div class="pcard-emoji">🌈</div>
+                    <div class="pcard-img" style="background:linear-gradient(135deg,#EBF5FF,#BFDBFE)">
+                        <div class="pcard-emoji">🎯</div>
+                        <div class="pcard-badges">
+                            <span class="pcard-badge">⏳ Limited</span>
+                        </div>
                         <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
                     </div>
                     <div class="pcard-body">
-                        <h3>Rainbow Castle Bounce House</h3>
-                        <p>A vibrant multi-color castle with classic bounce design — loved by kids of all ages at every
-                            party.</p>
+                        <h3>Mini Obstacle Course 35ft</h3>
+                        <p>A compact inflatable obstacle course perfect for younger children to race and jump
+                            through hoops and push obstacles. Colorful and fun for smaller events.</p>
                         <div class="pcard-meta">
-                            <span class="pcard-tag pcard-tag--blue">📐 Standard</span>
-                            <span class="pcard-tag pcard-tag--green">✅ Available</span>
+                            <span class="pcard-tag pcard-tag--blue">📐 35ft</span>
                         </div>
                     </div>
                     <div class="pcard-actions">
-                        <a href="/book-now/?item=rainbow-castle" class="pcard-btn pcard-btn--primary fj-link">Get
+                        <a href="/book-now/?item=mini-obstacle-course-35ft" class="pcard-btn pcard-btn--primary fj-link">Get
                             Quote</a>
-                        <a href="/bounce-house-rentals/rainbow-castle/"
-                            class="pcard-btn pcard-btn--outline fj-link">Details</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal"
+                            data-badge="⏳ Limited"
+                            data-emoji="🎯"
+                            data-title="Mini Obstacle Course 35ft"
+                            data-desc="A compact inflatable obstacle course perfect for younger children to race and jump through hoops and push obstacles. Colorful and fun for smaller events."
+                            data-dims="38'W x 15'L x 8'H"
+                            data-area="40'W x 17'L x 9'H"
+                            data-price="from $399.00"
+                            data-book="/book-now/?item=mini-obstacle-course-35ft">Details</a>
                     </div>
                 </div>
 
-                <div class="pcard" data-filter="standard" data-aos="fade-up" style="--d:60ms">
-                    <div class="pcard-img" style="background:linear-gradient(135deg,#FEF2F2,#FCA5A5)">
-                        <div class="pcard-emoji">🔴</div>
+                <!-- 40ft High Voltage Mini Obstacle Course -->
+                <div class="pcard" data-filter="standard themed" data-aos="fade-up" style="--d:60ms">
+                    <div class="pcard-img" style="background:linear-gradient(135deg,#FFF7ED,#FED7AA)">
+                        <div class="pcard-emoji">⚡</div>
+                        <div class="pcard-badges">
+                            <span class="pcard-badge">⏳ Limited</span>
+                        </div>
                         <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
                     </div>
                     <div class="pcard-body">
-                        <h3>Red Castle Bounce House</h3>
-                        <p>A bold, bright red castle that stands out at any event and excites every guest who sees it.
-                        </p>
+                        <h3>40ft High Voltage Mini Obstacle Course</h3>
+                        <p>A compact inflatable obstacle course featuring twists, climbs and slides. It's perfect
+                            for kids to race one another and burn off energy at your event.</p>
                         <div class="pcard-meta">
-                            <span class="pcard-tag pcard-tag--blue">📐 Standard</span>
-                            <span class="pcard-tag pcard-tag--green">✅ Available</span>
+                            <span class="pcard-tag pcard-tag--blue">📐 40ft</span>
+                            <span class="pcard-tag pcard-tag--warm">⚡ Themed</span>
                         </div>
                     </div>
                     <div class="pcard-actions">
-                        <a href="/book-now/?item=red-castle" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
-                        <a href="/bounce-house-rentals/red-castle/"
-                            class="pcard-btn pcard-btn--outline fj-link">Details</a>
+                        <a href="/book-now/?item=40ft-high-voltage-mini-obstacle-course" class="pcard-btn pcard-btn--primary fj-link">Get
+                            Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal"
+                            data-badge="⏳ Limited"
+                            data-emoji="⚡"
+                            data-title="40ft High Voltage Mini Obstacle Course"
+                            data-desc="A compact inflatable obstacle course featuring twists, climbs and slides. It's perfect for kids to race one another and burn off energy at your event."
+                            data-dims="40'W x 15'L x 13'H"
+                            data-area="42'W x 17'L x 14'H"
+                            data-price="from $499.00"
+                            data-book="/book-now/?item=40ft-high-voltage-mini-obstacle-course">Details</a>
+                    </div>
+                </div>
+
+                <!-- 40ft Wacky Obstacle Course -->
+                <div class="pcard" data-filter="standard themed" data-aos="fade-up" style="--d:120ms">
+                    <div class="pcard-img" style="background:linear-gradient(135deg,#F0FDF4,#A7F3D0)">
+                        <div class="pcard-emoji">🤪</div>
+                        <div class="pcard-badges">
+                            <span class="pcard-badge">⏳ Limited</span>
+                        </div>
+                        <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
+                    </div>
+                    <div class="pcard-body">
+                        <h3>40ft Wacky Obstacle Course</h3>
+                        <p>A colorful inflatable course made of durable materials with reinforced seams. It offers
+                            engaging fun for children with climbs, crawls and slides.</p>
+                        <div class="pcard-meta">
+                            <span class="pcard-tag pcard-tag--blue">📐 40ft</span>
+                            <span class="pcard-tag pcard-tag--warm">🤪 Themed</span>
+                        </div>
+                    </div>
+                    <div class="pcard-actions">
+                        <a href="/book-now/?item=40ft-wacky-obstacle-course" class="pcard-btn pcard-btn--primary fj-link">Get
+                            Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal"
+                            data-badge="⏳ Limited"
+                            data-emoji="🤪"
+                            data-title="40ft Wacky Obstacle Course"
+                            data-desc="A colorful inflatable course made of durable materials with reinforced seams. It offers engaging fun for children with climbs, crawls and slides."
+                            data-dims="40'W x 15'L x 13'H"
+                            data-area="42'W x 17'L x 14'H"
+                            data-price="from $450.00"
+                            data-book="/book-now/?item=40ft-wacky-obstacle-course">Details</a>
+                    </div>
+                </div>
+
+                <!-- 50ft Wacky Obstacle Course -->
+                <div class="pcard" data-filter="standard themed" data-aos="fade-up" style="--d:0ms">
+                    <div class="pcard-img" style="background:linear-gradient(135deg,#FDF2F8,#FBCFE8)">
+                        <div class="pcard-emoji">🤪</div>
+                        <div class="pcard-badges">
+                            <span class="pcard-badge">⏳ Limited</span>
+                        </div>
+                        <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
+                    </div>
+                    <div class="pcard-body">
+                        <h3>50ft Wacky Obstacle Course</h3>
+                        <p>An interactive inflatable obstacle course that lets children race through twists, turns,
+                            climbs and slides. Built tough for endless hours of fun.</p>
+                        <div class="pcard-meta">
+                            <span class="pcard-tag pcard-tag--blue">📐 50ft</span>
+                            <span class="pcard-tag pcard-tag--warm">🤪 Themed</span>
+                        </div>
+                    </div>
+                    <div class="pcard-actions">
+                        <a href="/book-now/?item=50ft-wacky-obstacle-course" class="pcard-btn pcard-btn--primary fj-link">Get
+                            Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal"
+                            data-badge="⏳ Limited"
+                            data-emoji="🤪"
+                            data-title="50ft Wacky Obstacle Course"
+                            data-desc="An interactive inflatable obstacle course that lets children race through twists, turns, climbs and slides. Built tough for endless hours of fun."
+                            data-dims="55'W x 16'L x 20'H"
+                            data-area="57'W x 18'L x 21'H"
+                            data-includes="16' Slide"
+                            data-price="from $550.00"
+                            data-book="/book-now/?item=50ft-wacky-obstacle-course">Details</a>
+                    </div>
+                </div>
+
+                <!-- 50ft High Voltage Obstacle Course -->
+                <div class="pcard" data-filter="standard themed" data-aos="fade-up" style="--d:60ms">
+                    <div class="pcard-img" style="background:linear-gradient(135deg,#EFF6FF,#93C5FD)">
+                        <div class="pcard-emoji">⚡</div>
+                        <div class="pcard-badges">
+                            <span class="pcard-badge">⏳ Limited</span>
+                        </div>
+                        <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
+                    </div>
+                    <div class="pcard-body">
+                        <h3>50ft High Voltage Obstacle Course</h3>
+                        <p>An energetic inflatable course with reinforced seams for durability. Perfect for kids and
+                            teens to race one another through a variety of obstacles.</p>
+                        <div class="pcard-meta">
+                            <span class="pcard-tag pcard-tag--blue">📐 50ft</span>
+                            <span class="pcard-tag pcard-tag--warm">⚡ Themed</span>
+                        </div>
+                    </div>
+                    <div class="pcard-actions">
+                        <a href="/book-now/?item=50ft-high-voltage-obstacle-course" class="pcard-btn pcard-btn--primary fj-link">Get
+                            Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal"
+                            data-badge="⏳ Limited"
+                            data-emoji="⚡"
+                            data-title="50ft High Voltage Obstacle Course"
+                            data-desc="An energetic inflatable course with reinforced seams for durability. Perfect for kids and teens to race one another through a variety of obstacles."
+                            data-dims="55'W x 15'L x 20'H"
+                            data-area="57'W x 17'L x 21'H"
+                            data-includes="16' High Slide"
+                            data-price="from $550.00"
+                            data-book="/book-now/?item=50ft-high-voltage-obstacle-course">Details</a>
+                    </div>
+                </div>
+
+                <!-- 50ft Ocean Obstacle Course -->
+                <div class="pcard" data-filter="standard themed" data-aos="fade-up" style="--d:120ms">
+                    <div class="pcard-img" style="background:linear-gradient(135deg,#EFF6FF,#BFDBFE)">
+                        <div class="pcard-emoji">🌊</div>
+                        <div class="pcard-badges">
+                            <span class="pcard-badge">⏳ Limited</span>
+                        </div>
+                        <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
+                    </div>
+                    <div class="pcard-body">
+                        <h3>50ft Ocean Obstacle Course</h3>
+                        <p>A themed inflatable obstacle course made of tough materials, offering climbs, crawls and
+                            slides for hours of engaging fun.</p>
+                        <div class="pcard-meta">
+                            <span class="pcard-tag pcard-tag--blue">📐 50ft</span>
+                            <span class="pcard-tag pcard-tag--warm">🌊 Themed</span>
+                        </div>
+                    </div>
+                    <div class="pcard-actions">
+                        <a href="/book-now/?item=50ft-ocean-obstacle-course" class="pcard-btn pcard-btn--primary fj-link">Get
+                            Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal"
+                            data-badge="⏳ Limited"
+                            data-emoji="🌊"
+                            data-title="50ft Ocean Obstacle Course"
+                            data-desc="A themed inflatable obstacle course made of tough materials, offering climbs, crawls and slides for hours of engaging fun."
+                            data-dims="55'W x 15'L x 7'H"
+                            data-area="57'W x 17'L x 8'H"
+                            data-includes="Small slide, perfect for little ones"
+                            data-price="from $450.00"
+                            data-book="/book-now/?item=50ft-ocean-obstacle-course">Details</a>
+                    </div>
+                </div>
+
+                <!-- 55ft Obstacle Course -->
+                <div class="pcard" data-filter="standard" data-aos="fade-up" style="--d:0ms">
+                    <div class="pcard-img" style="background:linear-gradient(135deg,#FEF2F2,#FCA5A5)">
+                        <div class="pcard-emoji">🏁</div>
+                        <div class="pcard-badges">
+                            <span class="pcard-badge">⏳ Limited</span>
+                        </div>
+                        <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
+                    </div>
+                    <div class="pcard-body">
+                        <h3>55ft Obstacle Course</h3>
+                        <p>An interactive inflatable obstacle course with reinforced seams, providing turning,
+                            twisting, climbs and slides for kids of all ages.</p>
+                        <div class="pcard-meta">
+                            <span class="pcard-tag pcard-tag--blue">📐 55ft</span>
+                        </div>
+                    </div>
+                    <div class="pcard-actions">
+                        <a href="/book-now/?item=55ft-obstacle-course" class="pcard-btn pcard-btn--primary fj-link">Get
+                            Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal"
+                            data-badge="⏳ Limited"
+                            data-emoji="🏁"
+                            data-title="55ft Obstacle Course"
+                            data-desc="An interactive inflatable obstacle course with reinforced seams, providing turning, twisting, climbs and slides for kids of all ages."
+                            data-dims="55'W x 15'L x 10'H"
+                            data-area="57'W x 17'L x 11'H"
+                            data-price="from $499.00"
+                            data-book="/book-now/?item=55ft-obstacle-course">Details</a>
+                    </div>
+                </div>
+
+                <!-- 65ft Obstacle Course -->
+                <div class="pcard" data-filter="large" data-aos="fade-up" style="--d:60ms">
+                    <div class="pcard-img" style="background:linear-gradient(135deg,#EBF5FF,#BFDBFE)">
+                        <div class="pcard-emoji">🏁</div>
+                        <div class="pcard-badges">
+                            <span class="pcard-badge">⏳ Limited</span>
+                        </div>
+                        <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
+                    </div>
+                    <div class="pcard-body">
+                        <h3>65ft Obstacle Course</h3>
+                        <p>Provides various activities including climbing, push-throughs, crawl-throughs, a race
+                            platform and slides. A crowdpleaser that's fun for kids of all ages.</p>
+                        <div class="pcard-meta">
+                            <span class="pcard-tag pcard-tag--blue">📐 65ft</span>
+                            
+                        </div>
+                    </div>
+                    <div class="pcard-actions">
+                        <a href="/book-now/?item=65ft-obstacle-course" class="pcard-btn pcard-btn--primary fj-link">Get
+                            Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal"
+                            data-badge="⏳ Limited"
+                            data-emoji="🏁"
+                            data-title="65ft Obstacle Course"
+                            data-desc="Provides various activities including climbing, push-throughs, crawl-throughs, a race platform and slides. A crowdpleaser that's fun for kids of all ages."
+                            data-dims="70'W x 18'L x 20'H"
+                            data-area="72'W x 20'L x 21'H"
+                            data-includes="16ft Climbing Wall and Slide"
+                            data-price="from $650.00"
+                            data-book="/book-now/?item=65ft-obstacle-course">Details</a>
+                    </div>
+                </div>
+
+                <!-- 75ft Obstacle Course -->
+                <div class="pcard" data-filter="large" data-aos="fade-up" style="--d:120ms">
+                    <div class="pcard-img" style="background:linear-gradient(135deg,#FFF7ED,#FED7AA)">
+                        <div class="pcard-emoji">🏁</div>
+                        <div class="pcard-badges">
+                            <span class="pcard-badge">⏳ Limited</span>
+                        </div>
+                        <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
+                    </div>
+                    <div class="pcard-body">
+                        <h3>75ft Obstacle Course</h3>
+                        <p>A large inflatable obstacle course built with durable reinforced materials, offering
+                            endless hours of climbs, twists and slides for racing fun.</p>
+                        <div class="pcard-meta">
+                            <span class="pcard-tag pcard-tag--blue">📐 75ft</span>
+                        </div>
+                    </div>
+                    <div class="pcard-actions">
+                        <a href="/book-now/?item=75ft-obstacle-course" class="pcard-btn pcard-btn--primary fj-link">Get
+                            Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal"
+                            data-badge="⏳ Limited"
+                            data-emoji="🏁"
+                            data-title="75ft Obstacle Course"
+                            data-desc="A large inflatable obstacle course built with durable reinforced materials, offering endless hours of climbs, twists and slides for racing fun."
+                            data-dims="85'W x 16'L x 20'H"
+                            data-area="87'W x 18'L x 21'H"
+                            data-includes="16' Slide"
+                            data-price="from $799.00"
+                            data-book="/book-now/?item=75ft-obstacle-course">Details</a>
+                    </div>
+                </div>
+
+                <!-- 90ft High Voltage Obstacle Challenge -->
+                <div class="pcard" data-filter="large themed" data-aos="fade-up" style="--d:0ms">
+                    <div class="pcard-img" style="background:linear-gradient(135deg,#F0FDF4,#A7F3D0)">
+                        <div class="pcard-emoji">⚡</div>
+                        <div class="pcard-badges">
+                            <span class="pcard-badge">⏳ Limited</span>
+                        </div>
+                        <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
+                    </div>
+                    <div class="pcard-body">
+                        <h3>90ft High Voltage Obstacle Challenge</h3>
+                        <p>A large interactive inflatable course featuring a variety of obstacles for high-energy
+                            racing and competition.</p>
+                        <div class="pcard-meta">
+                            <span class="pcard-tag pcard-tag--blue">📐 90ft</span>
+                            <span class="pcard-tag pcard-tag--warm">⚡ Themed</span>
+                        </div>
+                    </div>
+                    <div class="pcard-actions">
+                        <a href="/book-now/?item=90ft-high-voltage-obstacle-challenge" class="pcard-btn pcard-btn--primary fj-link">Get
+                            Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal"
+                            data-badge="⏳ Limited"
+                            data-emoji="⚡"
+                            data-title="90ft High Voltage Obstacle Challenge"
+                            data-desc="A large interactive inflatable course featuring a variety of obstacles for high-energy racing and competition."
+                            data-dims="95'W x 16'L x 20'H"
+                            data-area="97'W x 18'L x 21'H"
+                            data-price="from $950.00"
+                            data-book="/book-now/?item=90ft-high-voltage-obstacle-challenge">Details</a>
+                    </div>
+                </div>
+
+                <!-- 90ft Wacky Obstacle Challenge Course -->
+                <div class="pcard" data-filter="large themed" data-aos="fade-up" style="--d:60ms">
+                    <div class="pcard-img" style="background:linear-gradient(135deg,#FDF2F8,#FBCFE8)">
+                        <div class="pcard-emoji">🤪</div>
+                        <div class="pcard-badges">
+                            <span class="pcard-badge">⏳ Limited</span>
+                        </div>
+                        <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
+                    </div>
+                    <div class="pcard-body">
+                        <h3>90ft Wacky Obstacle Challenge Course</h3>
+                        <p>A colorful, large inflatable obstacle course built tough with reinforced seams for
+                            endless twists, climbs and slides.</p>
+                        <div class="pcard-meta">
+                            <span class="pcard-tag pcard-tag--blue">📐 90ft</span>
+                            <span class="pcard-tag pcard-tag--warm">🤪 Themed</span>
+                        </div>
+                    </div>
+                    <div class="pcard-actions">
+                        <a href="/book-now/?item=90ft-wacky-obstacle-challenge-course" class="pcard-btn pcard-btn--primary fj-link">Get
+                            Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal"
+                            data-badge="⏳ Limited"
+                            data-emoji="🤪"
+                            data-title="90ft Wacky Obstacle Challenge Course"
+                            data-desc="A colorful, large inflatable obstacle course built tough with reinforced seams for endless twists, climbs and slides."
+                            data-dims="95'W x 16'L x 20'H"
+                            data-area="97'W x 18'L x 21'H"
+                            data-includes="16' Slide"
+                            data-price="from $899.00"
+                            data-book="/book-now/?item=90ft-wacky-obstacle-challenge-course">Details</a>
+                    </div>
+                </div>
+
+                <!-- 100ft Ultimate Obstacle Challenge -->
+                <div class="pcard" data-filter="large" data-aos="fade-up" style="--d:120ms">
+                    <div class="pcard-img" style="background:linear-gradient(135deg,#EFF6FF,#93C5FD)">
+                        <div class="pcard-emoji">🏆</div>
+                        <div class="pcard-badges">
+                            <span class="pcard-badge">🔥 Best Seller</span>
+                        </div>
+                        <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
+                    </div>
+                    <div class="pcard-body">
+                        <h3>100ft Ultimate Obstacle Challenge</h3>
+                        <p>A large interactive inflatable obstacle course made with tough, reinforced materials for
+                            durability. It offers endless hours of turning, twisting, climbs and slides, and is a
+                            great way for kids and teens to race one another.</p>
+                        <div class="pcard-meta">
+                            <span class="pcard-tag pcard-tag--blue">📐 100ft</span>
+                        </div>
+                    </div>
+                    <div class="pcard-actions">
+                        <a href="/book-now/?item=100ft-ultimate-obstacle-challenge" class="pcard-btn pcard-btn--primary fj-link">Get
+                            Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal"
+                            data-badge="🔥 Best Seller"
+                            data-emoji="🏆"
+                            data-title="100ft Ultimate Obstacle Challenge"
+                            data-desc="A large interactive inflatable obstacle course made with tough, reinforced materials for durability. It offers endless hours of turning, twisting, climbs and slides, and is a great way for kids and teens to race one another."
+                            data-dims="110'W x 18'L x 20'H"
+                            data-area="112'W x 20'L x 21'H"
+                            data-price="from $999.00"
+                            data-book="/book-now/?item=100ft-ultimate-obstacle-challenge">Details</a>
+                    </div>
+                </div>
+
+                <!-- 150ft Ultra Obstacle Course -->
+                <div class="pcard" data-filter="large" data-aos="fade-up" style="--d:0ms">
+                    <div class="pcard-img" style="background:linear-gradient(135deg,#F0FDF4,#86EFAC)">
+                        <div class="pcard-emoji">🚀</div>
+                        <div class="pcard-badges">
+                            <span class="pcard-badge">⏳ Limited</span>
+                        </div>
+                        <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
+                    </div>
+                    <div class="pcard-body">
+                        <h3>150ft Ultra Obstacle Course</h3>
+                        <p>An extra-large inflatable obstacle course built with reinforced seams for added
+                            durability. It provides a fun, high-energy racing experience for kids and teens of all
+                            ages.</p>
+                        <div class="pcard-meta">
+                            <span class="pcard-tag pcard-tag--blue">📐 150ft</span>
+                            
+                        </div>
+                    </div>
+                    <div class="pcard-actions">
+                        <a href="/book-now/?item=150ft-ultra-obstacle-course" class="pcard-btn pcard-btn--primary fj-link">Get
+                            Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal"
+                            data-badge="⏳ Limited"
+                            data-emoji="🚀"
+                            data-title="150ft Ultra Obstacle Course"
+                            data-desc="An extra-large inflatable obstacle course built with reinforced seams for added durability. It provides a fun, high-energy racing experience for kids and teens of all ages."
+                            data-dims="155'W x 16'L x 20'H"
+                            data-area="157'W x 18'L x 21'H"
+                            data-price="from $1,300.00"
+                            data-book="/book-now/?item=150ft-ultra-obstacle-course">Details</a>
                     </div>
                 </div>
 
@@ -546,6 +791,7 @@
         </div>
     </aside>
 
+    <!--@include partials/product-modal.html-->
     <script src="/main.js"></script>
     <script>
         /* ── Filter pills ───────────────────────────────────────── */

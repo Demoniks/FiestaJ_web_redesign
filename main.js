@@ -977,8 +977,8 @@
 
   /* ══ UTIL ═══════════════════════════════════════════════════ */
   /* body { overflow: hidden } alone doesn't stop touch-drag scrolling on
-     mobile Safari/Chrome — it only blocks mouse-wheel scroll on desktop.
-     Pinning body with position:fixed (and restoring scroll position after)
+    mobile Safari/Chrome — it only blocks mouse-wheel scroll on desktop.
+    Pinning body with position:fixed (and restoring scroll position after)
      is what actually locks the background while a drawer/sidebar is open. */
   let lockedScrollY = 0;
   function lockBodyScroll() {

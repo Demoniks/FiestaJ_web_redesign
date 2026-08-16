@@ -32,6 +32,7 @@
     <style>
         /* ── Train Page Color Tokens ── */
         .hero-red {
+            position: relative;
             background: linear-gradient(135deg, #C41E2A 0%, #8B0000 50%, #6B0F1A 100%) !important;
         }
 
@@ -42,6 +43,24 @@
             background: radial-gradient(ellipse at 20% 50%, rgba(255, 255, 255, 0.08) 0%, transparent 60%),
                 radial-gradient(ellipse at 80% 20%, rgba(76, 175, 80, 0.1) 0%, transparent 50%);
             pointer-events: none;
+            z-index: 2;
+        }
+
+        .hero-red-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+            opacity: 0.35;
+            pointer-events: none;
+        }
+
+        .hero-red-inner {
+            position: relative;
+            z-index: 3 !important;
         }
 
         .hero-red-title em {
@@ -56,6 +75,7 @@
 
         .hero-red-wave {
             color: var(--off-white) !important;
+            z-index: 3 !important;
         }
 
         /* White button hover: green instead of yellow */
@@ -264,6 +284,10 @@
 
     <!-- 1. RED HERO SECTION -->
     <section class="hero-red">
+        <video class="hero-red-video" autoplay loop muted playsinline>
+            <source src="https://res.cloudinary.com/gakkz0oz/video/upload/v1785695092/DJI_20260404_124216_329_video_emgrjb.mp4" type="video/mp4">
+            <source src="https://res.cloudinary.com/gakkz0oz/video/upload/v1785695092/DJI_20260404_124216_329_video_emgrjb.mov" type="video/quicktime">
+        </video>
         <div class="container hero-red-inner" data-aos="fade-up">
             <span class="hero-red-badge">🌟 Exclusive Attraction</span>
             <h1 class="hero-red-title">The Famous <em>SB Trackless Train</em></h1>
@@ -287,7 +311,7 @@
         <div class="container train-history-grid">
             <div class="train-history-img" data-aos="fade-right">
                 <!-- Using placeholder, user will replace with actual train image -->
-                <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=900&q=80"
+                <img src="https://res.cloudinary.com/gakkz0oz/image/upload/f_auto,q_auto/DJI_20260704_103323_034_oowpx0"
                     alt="SB Trackless Train History" loading="lazy" class="history-photo">
                 <div class="history-floating-badge">
                     <span>🥇 #1 in SB</span>
@@ -340,17 +364,17 @@
                 data-aos-delay="100">
                 <div class="hc-track" id="trainHcTrack">
                     <div class="hc-slide">
-                        <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=900&q=80"
+                        <img src="https://res.cloudinary.com/gakkz0oz/image/upload/f_auto,q_auto/DJI_20260404_104734_474_snj1t5"
                             alt="Train at a festival" loading="lazy">
                         <div class="hc-label">🎪 Festivals & Fairs</div>
                     </div>
                     <div class="hc-slide">
-                        <img src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=900&q=80"
+                        <img src="https://res.cloudinary.com/gakkz0oz/image/upload/v1785693596/DJI_20260404_124157_263_nm5cgl.jpg"
                             alt="Train at a birthday" loading="lazy">
                         <div class="hc-label">🎂 Birthday Parties</div>
                     </div>
                     <div class="hc-slide">
-                        <img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?w=900&q=80"
+                        <img src="https://res.cloudinary.com/gakkz0oz/image/upload/v1785693398/DJI_20260704_181947_753_mwv8my.jpg"
                             alt="Train at a school" loading="lazy">
                         <div class="hc-label">🏫 School Events</div>
                     </div>
@@ -395,23 +419,22 @@
                     </div>
                     <div class="social-feed">
                         <div class="social-post"><img
-                                src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=400&q=80"
+                                src="https://res.cloudinary.com/gakkz0oz/image/upload/v1785693979/DJI_20260704_181956_979_hm2r6x.jpg"
                                 alt="Insta 1"></div>
                         <div class="social-post"><img
-                                src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=400&q=80"
+                                src="https://res.cloudinary.com/gakkz0oz/image/upload/v1785693975/DJI_20260404_123946_456_ze5wjr.jpg"
                                 alt="Insta 2"></div>
                         <div class="social-post"><img
-                                src="https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=400&q=80"
+                                src="https://res.cloudinary.com/gakkz0oz/image/upload/v1785693963/DJI_20260704_103401_248_jxe97s.jpg"
                                 alt="Insta 3"></div>
                         <div class="social-post"><img
-                                src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?w=400&q=80"
+                                src="https://res.cloudinary.com/gakkz0oz/image/upload/v1785693952/DJI_20260404_124542_309_pm202j.jpg"
                                 alt="Insta 4"></div>
                     </div>
                     <a href="https://www.instagram.com/sbtracklesstrain?igsh=NTc4MTIwNjQ2YQ%3D%3D&utm_source=qr"
                         target="_blank" class="btn btn-outline"
                         style="width: 100%; margin-top: 1rem;">sbtracklesstrain</a>
                 </div>
-
                 <!-- TikTok Column -->
                 <div class="social-col tiktok-col" data-aos="fade-left">
                     <div class="social-hdr">
@@ -454,7 +477,8 @@
                 <!-- TYPE 1 -->
                 <div class="pc" data-aos="fade-up" style="--d:0ms">
                     <div class="pc-img" style="background:linear-gradient(135deg,#FFEAEA,#F5A3A3)">
-                        <div class="pc-emoji">🚂</div>
+                        
+                        <!-- <div class="pc-emoji">🚂</div> -->
                         <span class="pc-badge">Popular</span>
                     </div>
                     <div class="pc-body">

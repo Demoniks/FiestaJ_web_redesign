@@ -2746,7 +2746,7 @@ a.ftr-sm-link:hover {
 }
 
 .prod-modal-hero {
-  height: 180px;
+  height: 220px;
   background: var(--grad-hero);
   display: flex;
   align-items: center;
@@ -2756,9 +2756,28 @@ a.ftr-sm-link:hover {
   overflow: hidden;
 }
 
+/* Real product image inside modal hero */
+.prod-modal-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: var(--r-xl) var(--r-xl) 0 0;
+  transition: transform 0.4s ease;
+}
+
+.prod-modal-content:hover .prod-modal-img {
+  transform: scale(1.03);
+}
+
 .prod-modal-emoji {
   font-size: 80px;
   filter: drop-shadow(0 8px 16px rgba(0,0,0,0.1));
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .prod-modal-info {

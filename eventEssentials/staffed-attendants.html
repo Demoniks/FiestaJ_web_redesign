@@ -84,193 +84,251 @@
     <!-- ══ PRODUCTS GRID ════════════════════════════════════════ -->
     <section class="products-wrap" id="products">
         <div class="container">
-            <div class="products-grid" id="productsGrid">
+            <div class="products-grid" id="productsGrid" data-power="No power required" data-cap="Varies by package">
 
-                <!-- ─────────────────────────────────────────────────────
-           PRODUCT CARDS
-           To use a real photo: replace the <div class="pcard-emoji">
-           with <img src="YOUR-URL" alt="Product name">
-           inside <div class="pcard-img">
+                <!-- PRODUCT CARDS — Staffed Attendants -->
 
-           EventHawk booking URL format:
-           href="/book-now/?item=PRODUCT-SLUG"
-           ───────────────────────────────────────────────────── -->
-
-                <div class="pcard" data-filter="large" data-aos="fade-up" style="--d:0ms">
-                    <div class="pcard-img" style="background:linear-gradient(135deg,#EBF5FF,#BFDBFE)">
-                        <!-- SWAP: <img src="https://fiestajumps.com/wp-content/uploads/hot-air-balloon.jpg" alt="Hot Air Balloon Bouncer"> -->
-                        <div class="pcard-emoji">🎈</div>
-                        <span class="pcard-badge">Large Unit</span>
+                <div class="pcard" data-filter="standard" data-aos="fade-up" style="--d:0ms">
+                    <div class="pcard-img" style="background:linear-gradient(135deg,#EDE9FE,#C4B5FD)">
+                        <div class="pcard-emoji">👨‍🎭</div>
+                        <span class="pcard-badge pcard-badge--green">🔥 Most Popular</span>
                         <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
                     </div>
                     <div class="pcard-body">
-                        <h3>Hot Air Balloon Bouncer Large</h3>
-                        <p>A colorful and exciting large bounce house shaped like a hot air balloon — a guaranteed
-                            showstopper at any party.</p>
+                        <h3>Bounce House Attendant (4 Hours)</h3>
+                        <p>A trained and friendly attendant stationed at your bounce house to ensure safe play,
+                            assist guests, and follow all safety protocols throughout your event.</p>
                         <div class="pcard-meta">
-                            <span class="pcard-tag pcard-tag--blue">📐 Large</span>
-                            <span class="pcard-tag pcard-tag--green">✅ Available</span>
+                            <span class="pcard-tag pcard-tag--blue">🕒 4 Hours</span>
+                            <span class="pcard-tag pcard-tag--warm">👥 Safety Certified</span>
                         </div>
                     </div>
                     <div class="pcard-actions">
-                        <!-- ✅ AJAX PREFETCH — Get Quote and Details use fj-link for prefetch -->
-                        <a href="/book-now/?item=hot-air-balloon" class="pcard-btn pcard-btn--primary fj-link">Get
-                            Quote</a>
-                        <a href="/bounce-house-rentals/hot-air-balloon/"
-                            class="pcard-btn pcard-btn--outline fj-link">Details</a>
+                        <a href="/book-now/?item=attendant-4hr" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal"
+                            data-emoji="👨‍🎭"
+                            data-title="Bounce House Attendant (4 Hours)"
+                            data-desc="A trained attendant stationed at your bounce house to ensure safe play, assist guests, and follow all safety protocols."
+                            data-includes="1 certified attendant for up to 4 consecutive hours."
+                            data-dims="N/A"
+                            data-area="N/A"
+                            data-cap="1 bounce house unit"
+                            data-power="No power required"
+                            data-price="from $99.00"
+                            data-book="/book-now/?item=attendant-4hr">Details</a>
                     </div>
                 </div>
 
-                <div class="pcard" data-filter="basketball large" data-aos="fade-up" style="--d:60ms">
+                <div class="pcard" data-filter="standard large" data-aos="fade-up" style="--d:60ms">
                     <div class="pcard-img" style="background:linear-gradient(135deg,#FFF7ED,#FED7AA)">
-                        <div class="pcard-emoji">🏰</div>
+                        <div class="pcard-emoji">👨‍🎭</div>
                         <span class="pcard-badge">⭐ Popular</span>
                         <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
                     </div>
                     <div class="pcard-body">
-                        <h3>Lava Castle 16′ × 16′ w/ Basketball Hoop</h3>
-                        <p>Classic castle design with an integrated basketball hoop — bounce and shoot in one exciting
-                            unit.</p>
+                        <h3>Bounce House Attendant (6 Hours)</h3>
+                        <p>Extended 6-hour attendant service for longer events like birthday parties, school
+                            events, or corporate picnics. Same certified attendant all day.</p>
                         <div class="pcard-meta">
-                            <span class="pcard-tag pcard-tag--blue">📐 16′ × 16′</span>
-                            <span class="pcard-tag pcard-tag--warm">🏀 Hoop Included</span>
+                            <span class="pcard-tag pcard-tag--blue">🕒 6 Hours</span>
+                            <span class="pcard-tag pcard-tag--warm">💪 All-Day Ready</span>
                         </div>
                     </div>
                     <div class="pcard-actions">
-                        <a href="/book-now/?item=lava-castle" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
-                        <a href="/bounce-house-rentals/lava-castle/"
-                            class="pcard-btn pcard-btn--outline fj-link">Details</a>
+                        <a href="/book-now/?item=attendant-6hr" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal"
+                            data-emoji="👨‍🎭"
+                            data-title="Bounce House Attendant (6 Hours)"
+                            data-desc="Extended 6-hour attendant service for longer events like birthday parties, school events, or corporate picnics."
+                            data-includes="1 certified attendant for up to 6 consecutive hours."
+                            data-dims="N/A"
+                            data-area="N/A"
+                            data-cap="1 bounce house unit"
+                            data-power="No power required"
+                            data-price="from $139.00"
+                            data-book="/book-now/?item=attendant-6hr">Details</a>
                     </div>
                 </div>
 
-                <div class="pcard" data-filter="standard" data-aos="fade-up" style="--d:120ms">
+                <div class="pcard" data-filter="large" data-aos="fade-up" style="--d:120ms">
                     <div class="pcard-img" style="background:linear-gradient(135deg,#F0FDF4,#A7F3D0)">
-                        <div class="pcard-emoji">🏯</div>
+                        <div class="pcard-emoji">👩‍🎭</div>
                         <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
                     </div>
                     <div class="pcard-body">
-                        <h3>Mini Castle 9′ × 9′</h3>
-                        <p>Perfect for smaller yards and younger children. Safe, fun, and easy to set up in tight
-                            spaces.</p>
+                        <h3>Multi-Attraction Attendant Team (2 Staff)</h3>
+                        <p>Two certified attendants for events with multiple inflatables or activity stations.
+                            Ensures smooth, safe operation across your entire setup.</p>
                         <div class="pcard-meta">
-                            <span class="pcard-tag pcard-tag--blue">📐 9′ × 9′</span>
-                            <span class="pcard-tag pcard-tag--green">✅ Available</span>
+                            <span class="pcard-tag pcard-tag--blue">👥 2-Person Team</span>
+                            <span class="pcard-tag pcard-tag--warm">⚽ Multi-Station</span>
                         </div>
                     </div>
                     <div class="pcard-actions">
-                        <a href="/book-now/?item=mini-castle" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
-                        <a href="/bounce-house-rentals/mini-castle/"
-                            class="pcard-btn pcard-btn--outline fj-link">Details</a>
+                        <a href="/book-now/?item=attendant-team-2" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal"
+                            data-emoji="👩‍🎭"
+                            data-title="Multi-Attraction Attendant Team (2 Staff)"
+                            data-desc="Two certified attendants for events with multiple inflatables or activity stations. Ensures smooth, safe operation across your entire setup."
+                            data-includes="2 certified attendants for up to 4 hours. Extended hours available."
+                            data-dims="N/A"
+                            data-area="N/A"
+                            data-cap="2 bounce house units or activity stations"
+                            data-power="No power required"
+                            data-price="from $179.00"
+                            data-book="/book-now/?item=attendant-team-2">Details</a>
                     </div>
                 </div>
 
-                <div class="pcard" data-filter="themed" data-aos="fade-up" style="--d:0ms">
+                <div class="pcard" data-filter="standard" data-aos="fade-up" style="--d:0ms">
+                    <div class="pcard-img" style="background:linear-gradient(135deg,#EBF5FF,#BFDBFE)">
+                        <div class="pcard-emoji">🎪</div>
+                        <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
+                    </div>
+                    <div class="pcard-body">
+                        <h3>Carnival Game Attendant</h3>
+                        <p>A trained game attendant to run carnival-style game stations — keeps the fun
+                            going, explains rules, and manages the flow of guests at each station.</p>
+                        <div class="pcard-meta">
+                            <span class="pcard-tag pcard-tag--blue">🎪 Game Host</span>
+                            <span class="pcard-tag pcard-tag--warm">🕒 Per Event</span>
+                        </div>
+                    </div>
+                    <div class="pcard-actions">
+                        <a href="/book-now/?item=attendant-carnival" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal"
+                            data-emoji="🎪"
+                            data-title="Carnival Game Attendant"
+                            data-desc="A trained game attendant to run carnival-style game stations — keeps the fun going, explains rules, and manages the flow of guests."
+                            data-includes="1 game host for up to 3 carnival game stations, up to 4 hours."
+                            data-dims="N/A"
+                            data-area="N/A"
+                            data-cap="Up to 3 game stations"
+                            data-power="No power required"
+                            data-price="from $89.00"
+                            data-book="/book-now/?item=attendant-carnival">Details</a>
+                    </div>
+                </div>
+
+                <div class="pcard" data-filter="themed" data-aos="fade-up" style="--d:60ms">
                     <div class="pcard-img" style="background:linear-gradient(135deg,#FDF2F8,#FBCFE8)">
-                        <div class="pcard-emoji">🎀</div>
+                        <div class="pcard-emoji">📸</div>
+                        <span class="pcard-badge pcard-badge--blue">Premium</span>
                         <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
                     </div>
                     <div class="pcard-body">
-                        <h3>Pink Castle</h3>
-                        <p>A beautiful pink princess castle — the ultimate themed bouncer for girls' birthday parties
-                            and princess events.</p>
+                        <h3>Photo Booth Attendant</h3>
+                        <p>A friendly and professional attendant dedicated to your photo booth — helps guests
+                            with props, ensures great shots, and manages photo printing.</p>
                         <div class="pcard-meta">
-                            <span class="pcard-tag pcard-tag--blue">📐 Standard</span>
-                            <span class="pcard-tag pcard-tag--warm">🎀 Themed</span>
+                            <span class="pcard-tag pcard-tag--blue">📸 Photo Booth</span>
+                            <span class="pcard-tag pcard-tag--warm">✨ Premium Service</span>
                         </div>
                     </div>
                     <div class="pcard-actions">
-                        <a href="/book-now/?item=pink-castle" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
-                        <a href="/bounce-house-rentals/pink-castle/"
-                            class="pcard-btn pcard-btn--outline fj-link">Details</a>
+                        <a href="/book-now/?item=attendant-photo-booth" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal"
+                            data-emoji="📸"
+                            data-title="Photo Booth Attendant"
+                            data-desc="A friendly attendant dedicated to your photo booth — helps guests with props, ensures great shots, and manages photo printing."
+                            data-includes="1 photo booth attendant for up to 4 hours."
+                            data-dims="N/A"
+                            data-area="N/A"
+                            data-cap="1 photo booth unit"
+                            data-power="No power required"
+                            data-price="from $99.00"
+                            data-book="/book-now/?item=attendant-photo-booth">Details</a>
                     </div>
                 </div>
 
-                <div class="pcard" data-filter="themed large" data-aos="fade-up" style="--d:60ms">
-                    <div class="pcard-img" style="background:linear-gradient(135deg,#FDF2F8,#FBCFE8)">
-                        <div class="pcard-emoji">🏰</div>
-                        <span class="pcard-badge pcard-badge--blue">Large</span>
+                <div class="pcard" data-filter="themed large" data-aos="fade-up" style="--d:120ms">
+                    <div class="pcard-img" style="background:linear-gradient(135deg,#FFFBEB,#FDE68A)">
+                        <div class="pcard-emoji">🎊</div>
+                        <span class="pcard-badge pcard-badge--green">🔥 Best Value</span>
                         <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
                     </div>
                     <div class="pcard-body">
-                        <h3>Pink Castle Large Bounce House</h3>
-                        <p>The larger version of our beloved Pink Castle — more room, more fun for bigger parties and
-                            events.</p>
+                        <h3>Full Event Staffing Package</h3>
+                        <p>Complete event staffing solution — includes dedicated attendants for inflatables,
+                            games, and photo booth. Perfect for large corporate or community events.</p>
                         <div class="pcard-meta">
-                            <span class="pcard-tag pcard-tag--blue">📐 Large Unit</span>
-                            <span class="pcard-tag pcard-tag--warm">🎀 Themed</span>
+                            <span class="pcard-tag pcard-tag--blue">👥 Full Team</span>
+                            <span class="pcard-tag pcard-tag--warm">💰 Best Value</span>
                         </div>
                     </div>
                     <div class="pcard-actions">
-                        <a href="/book-now/?item=pink-castle-large" class="pcard-btn pcard-btn--primary fj-link">Get
-                            Quote</a>
-                        <a href="/bounce-house-rentals/pink-castle-large/"
-                            class="pcard-btn pcard-btn--outline fj-link">Details</a>
-                    </div>
-                </div>
-
-                <div class="pcard" data-filter="standard large" data-aos="fade-up" style="--d:120ms">
-                    <div class="pcard-img" style="background:linear-gradient(135deg,#EFF6FF,#BFDBFE)">
-                        <div class="pcard-emoji">🌈</div>
-                        <span class="pcard-badge pcard-badge--green">🔥 Best Seller</span>
-                        <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
-                    </div>
-                    <div class="pcard-body">
-                        <h3>Rainbow Castle Large Bouncer</h3>
-                        <p>Our most popular model — bigger space and vivid colors make this the go-to for large parties
-                            and events.</p>
-                        <div class="pcard-meta">
-                            <span class="pcard-tag pcard-tag--blue">📐 Large Unit</span>
-                            <span class="pcard-tag pcard-tag--green">✅ Available</span>
-                        </div>
-                    </div>
-                    <div class="pcard-actions">
-                        <a href="/book-now/?item=rainbow-castle-large" class="pcard-btn pcard-btn--primary fj-link">Get
-                            Quote</a>
-                        <a href="/bounce-house-rentals/rainbow-castle-large/"
-                            class="pcard-btn pcard-btn--outline fj-link">Details</a>
+                        <a href="/book-now/?item=staffing-package" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal"
+                            data-emoji="🎊"
+                            data-title="Full Event Staffing Package"
+                            data-desc="Complete staffing solution with dedicated attendants for inflatables, games, and photo booth. Perfect for large events."
+                            data-includes="3 certified attendants for up to 6 hours. Covers inflatables, games, and photo booth."
+                            data-dims="N/A"
+                            data-area="N/A"
+                            data-cap="Multiple stations"
+                            data-power="No power required"
+                            data-price="from $299.00"
+                            data-book="/book-now/?item=staffing-package">Details</a>
                     </div>
                 </div>
 
                 <div class="pcard" data-filter="standard" data-aos="fade-up" style="--d:0ms">
                     <div class="pcard-img" style="background:linear-gradient(135deg,#EFF6FF,#BFDBFE)">
-                        <div class="pcard-emoji">🌈</div>
+                        <div class="pcard-emoji">🤝</div>
                         <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
                     </div>
                     <div class="pcard-body">
-                        <h3>Rainbow Castle Bounce House</h3>
-                        <p>A vibrant multi-color castle with classic bounce design — loved by kids of all ages at every
-                            party.</p>
+                        <h3>Event Setup Crew (2 Staff)</h3>
+                        <p>Two crew members to assist with general event setup and breakdown — arranging
+                            tables, chairs, and activity areas so your event starts smoothly.</p>
                         <div class="pcard-meta">
-                            <span class="pcard-tag pcard-tag--blue">📐 Standard</span>
-                            <span class="pcard-tag pcard-tag--green">✅ Available</span>
+                            <span class="pcard-tag pcard-tag--blue">👥 2-Person Crew</span>
+                            <span class="pcard-tag pcard-tag--warm">⏱️ Setup Only</span>
                         </div>
                     </div>
                     <div class="pcard-actions">
-                        <a href="/book-now/?item=rainbow-castle" class="pcard-btn pcard-btn--primary fj-link">Get
-                            Quote</a>
-                        <a href="/bounce-house-rentals/rainbow-castle/"
-                            class="pcard-btn pcard-btn--outline fj-link">Details</a>
+                        <a href="/book-now/?item=setup-crew" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal"
+                            data-emoji="🤝"
+                            data-title="Event Setup Crew (2 Staff)"
+                            data-desc="Two crew members to assist with general event setup and breakdown — arranging tables, chairs, and activity areas."
+                            data-includes="2 crew members for setup + breakdown. Approx. 2-hour service window."
+                            data-dims="N/A"
+                            data-area="N/A"
+                            data-cap="Full event area"
+                            data-power="No power required"
+                            data-price="from $79.00"
+                            data-book="/book-now/?item=setup-crew">Details</a>
                     </div>
                 </div>
 
                 <div class="pcard" data-filter="standard" data-aos="fade-up" style="--d:60ms">
                     <div class="pcard-img" style="background:linear-gradient(135deg,#FEF2F2,#FCA5A5)">
-                        <div class="pcard-emoji">🔴</div>
+                        <div class="pcard-emoji">👮</div>
                         <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
                     </div>
                     <div class="pcard-body">
-                        <h3>Red Castle Bounce House</h3>
-                        <p>A bold, bright red castle that stands out at any event and excites every guest who sees it.
-                        </p>
+                        <h3>On-Site Event Supervisor</h3>
+                        <p>A senior supervisor to oversee all rentals and staff on-site throughout your event —
+                            ideal for large events or corporate clients who need a single point of contact.</p>
                         <div class="pcard-meta">
-                            <span class="pcard-tag pcard-tag--blue">📐 Standard</span>
-                            <span class="pcard-tag pcard-tag--green">✅ Available</span>
+                            <span class="pcard-tag pcard-tag--blue">👮 Supervisor</span>
+                            <span class="pcard-tag pcard-tag--warm">📞 Point of Contact</span>
                         </div>
                     </div>
                     <div class="pcard-actions">
-                        <a href="/book-now/?item=red-castle" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
-                        <a href="/bounce-house-rentals/red-castle/"
-                            class="pcard-btn pcard-btn--outline fj-link">Details</a>
+                        <a href="/book-now/?item=event-supervisor" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal"
+                            data-emoji="👮"
+                            data-title="On-Site Event Supervisor"
+                            data-desc="A senior supervisor to oversee all rentals and staff on-site throughout your event. Ideal for large or corporate events."
+                            data-includes="1 senior supervisor for full event duration."
+                            data-dims="N/A"
+                            data-area="N/A"
+                            data-cap="Full event oversight"
+                            data-power="No power required"
+                            data-price="from $149.00"
+                            data-book="/book-now/?item=event-supervisor">Details</a>
                     </div>
                 </div>
 
@@ -529,6 +587,8 @@
             </div>
         </div>
     </aside>
+
+    <!--@include partials/product-modal.html-->
 
     <script src="/main.js"></script>
     <script>

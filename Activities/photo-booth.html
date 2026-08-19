@@ -84,193 +84,247 @@
     <!-- ══ PRODUCTS GRID ════════════════════════════════════════ -->
     <section class="products-wrap" id="products">
         <div class="container">
-            <div class="products-grid" id="productsGrid">
+            <div class="products-grid" id="productsGrid" data-power="1 Standard Outlet" data-cap="Unlimited guests">
 
-                <!-- ─────────────────────────────────────────────────────
-           PRODUCT CARDS
-           To use a real photo: replace the <div class="pcard-emoji">
-           with <img src="YOUR-URL" alt="Product name">
-           inside <div class="pcard-img">
-
-           EventHawk booking URL format:
-           href="/book-now/?item=PRODUCT-SLUG"
-           ───────────────────────────────────────────────────── -->
+                <!-- PRODUCT CARDS — Photo Booth
+                     EventHawk booking URL: href="/book-now/?item=PRODUCT-SLUG" -->
 
                 <div class="pcard" data-filter="large" data-aos="fade-up" style="--d:0ms">
-                    <div class="pcard-img" style="background:linear-gradient(135deg,#EBF5FF,#BFDBFE)">
-                        <!-- SWAP: <img src="https://fiestajumps.com/wp-content/uploads/hot-air-balloon.jpg" alt="Hot Air Balloon Bouncer"> -->
-                        <div class="pcard-emoji">🎈</div>
-                        <span class="pcard-badge">Large Unit</span>
+                    <div class="pcard-img" style="background:linear-gradient(135deg,#EDE9FE,#C4B5FD)">
+                        <div class="pcard-emoji">📸</div>
+                        <span class="pcard-badge pcard-badge--green">🔥 Most Popular</span>
                         <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
                     </div>
                     <div class="pcard-body">
-                        <h3>Hot Air Balloon Bouncer Large</h3>
-                        <p>A colorful and exciting large bounce house shaped like a hot air balloon — a guaranteed
-                            showstopper at any party.</p>
+                        <h3>Open-Air Photo Booth</h3>
+                        <p>Sleek open-air setup with instant digital and print photos, fun props, and a custom
+                            digital backdrop. Perfect for any event size.</p>
                         <div class="pcard-meta">
-                            <span class="pcard-tag pcard-tag--blue">📐 Large</span>
-                            
+                            <span class="pcard-tag pcard-tag--blue">📸 Instant Prints</span>
+                            <span class="pcard-tag pcard-tag--warm">🎈 Props Included</span>
                         </div>
                     </div>
                     <div class="pcard-actions">
-                        <!-- ✅ AJAX PREFETCH — Get Quote and Details use fj-link for prefetch -->
-                        <a href="/book-now/?item=hot-air-balloon" class="pcard-btn pcard-btn--primary fj-link">Get
-                            Quote</a>
-                        <a href="/bounce-house-rentals/hot-air-balloon/"
-                            class="pcard-btn pcard-btn--outline fj-link">Details</a>
+                        <!-- ✅ AJAX PREFETCH -->
+                        <a href="/book-now/?item=open-air-photo-booth" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal"
+                            data-emoji="📸"
+                            data-title="Open-Air Photo Booth"
+                            data-desc="Sleek open-air setup with instant digital and print photos, fun props, and a custom digital backdrop. Perfect for any event size."
+                            data-includes="Props kit, custom digital backdrop, unlimited prints for 4 hours."
+                            data-dims="5' x 5' x 7'"
+                            data-area="8' x 8'"
+                            data-cap="Unlimited guests"
+                            data-power="1 Standard Outlet (110v)"
+                            data-price="from $499.00"
+                            data-book="/book-now/?item=open-air-photo-booth">Details</a>
                     </div>
                 </div>
 
-                <div class="pcard" data-filter="basketball large" data-aos="fade-up" style="--d:60ms">
+                <div class="pcard" data-filter="large" data-aos="fade-up" style="--d:60ms">
                     <div class="pcard-img" style="background:linear-gradient(135deg,#FFF7ED,#FED7AA)">
-                        <div class="pcard-emoji">🏰</div>
-                        <span class="pcard-badge">⭐ Popular</span>
+                        <div class="pcard-emoji">🥳</div>
+                        <span class="pcard-badge">⭐ Fan Favorite</span>
                         <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
                     </div>
                     <div class="pcard-body">
-                        <h3>Lava Castle 16′ × 16′ w/ Basketball Hoop</h3>
-                        <p>Classic castle design with an integrated basketball hoop — bounce and shoot in one exciting
-                            unit.</p>
+                        <h3>360° Video Booth</h3>
+                        <p>Guests step on the platform and a camera arm rotates around them, creating a stunning
+                            slow-motion video clip they can share instantly.</p>
                         <div class="pcard-meta">
-                            <span class="pcard-tag pcard-tag--blue">📐 16′ × 16′</span>
-                            <span class="pcard-tag pcard-tag--warm">🏀 Hoop Included</span>
+                            <span class="pcard-tag pcard-tag--blue">🌀 360° Video</span>
+                            <span class="pcard-tag pcard-tag--warm">📱 Shareable</span>
                         </div>
                     </div>
                     <div class="pcard-actions">
-                        <a href="/book-now/?item=lava-castle" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
-                        <a href="/bounce-house-rentals/lava-castle/"
-                            class="pcard-btn pcard-btn--outline fj-link">Details</a>
+                        <a href="/book-now/?item=360-video-booth" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal"
+                            data-emoji="🥳"
+                            data-title="360° Video Booth"
+                            data-desc="Guests step on the platform and a camera arm rotates around them, creating a stunning slow-motion video clip they can share instantly."
+                            data-dims="5' diameter platform"
+                            data-area="10' x 10'"
+                            data-cap="1-6 guests per session"
+                            data-power="1 Standard Outlet (110v)"
+                            data-price="from $699.00"
+                            data-book="/book-now/?item=360-video-booth">Details</a>
                     </div>
                 </div>
 
                 <div class="pcard" data-filter="standard" data-aos="fade-up" style="--d:120ms">
                     <div class="pcard-img" style="background:linear-gradient(135deg,#F0FDF4,#A7F3D0)">
-                        <div class="pcard-emoji">🏯</div>
+                        <div class="pcard-emoji">🔲</div>
                         <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
                     </div>
                     <div class="pcard-body">
-                        <h3>Mini Castle 9′ × 9′</h3>
-                        <p>Perfect for smaller yards and younger children. Safe, fun, and easy to set up in tight
-                            spaces.</p>
+                        <h3>Classic Enclosed Booth</h3>
+                        <p>Step inside a traditional curtained booth for a private, nostalgic photo experience
+                            with a classic strip print format.</p>
                         <div class="pcard-meta">
-                            <span class="pcard-tag pcard-tag--blue">📐 9′ × 9′</span>
-                            
+                            <span class="pcard-tag pcard-tag--blue">📸 Strip Prints</span>
+                            <span class="pcard-tag pcard-tag--warm">🎭 Nostalgic</span>
                         </div>
                     </div>
                     <div class="pcard-actions">
-                        <a href="/book-now/?item=mini-castle" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
-                        <a href="/bounce-house-rentals/mini-castle/"
-                            class="pcard-btn pcard-btn--outline fj-link">Details</a>
+                        <a href="/book-now/?item=classic-enclosed-booth" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal"
+                            data-emoji="🔲"
+                            data-title="Classic Enclosed Booth"
+                            data-desc="Step inside a traditional curtained booth for a private, nostalgic photo experience with a classic strip print format."
+                            data-dims="3' x 4' x 7'"
+                            data-area="5' x 5'"
+                            data-cap="1-4 guests per session"
+                            data-power="1 Standard Outlet (110v)"
+                            data-price="from $399.00"
+                            data-book="/book-now/?item=classic-enclosed-booth">Details</a>
                     </div>
                 </div>
 
                 <div class="pcard" data-filter="themed" data-aos="fade-up" style="--d:0ms">
                     <div class="pcard-img" style="background:linear-gradient(135deg,#FDF2F8,#FBCFE8)">
-                        <div class="pcard-emoji">🎀</div>
+                        <div class="pcard-emoji">🌟</div>
                         <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
                     </div>
                     <div class="pcard-body">
-                        <h3>Pink Castle</h3>
-                        <p>A beautiful pink princess castle — the ultimate themed bouncer for girls' birthday parties
-                            and princess events.</p>
+                        <h3>GIF Booth</h3>
+                        <p>Captures a short looping GIF animation in seconds. Guests get a fun, shareable digital
+                            memory delivered directly to their phone.</p>
                         <div class="pcard-meta">
-                            <span class="pcard-tag pcard-tag--blue">📐 Standard</span>
-                            <span class="pcard-tag pcard-tag--warm">🎀 Themed</span>
+                            <span class="pcard-tag pcard-tag--blue">🌀 Animated GIF</span>
+                            <span class="pcard-tag pcard-tag--warm">📱 Digital</span>
                         </div>
                     </div>
                     <div class="pcard-actions">
-                        <a href="/book-now/?item=pink-castle" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
-                        <a href="/bounce-house-rentals/pink-castle/"
-                            class="pcard-btn pcard-btn--outline fj-link">Details</a>
+                        <a href="/book-now/?item=gif-booth" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal"
+                            data-emoji="🌟"
+                            data-title="GIF Booth"
+                            data-desc="Captures a short looping GIF animation in seconds. Guests get a fun, shareable digital memory delivered directly to their phone."
+                            data-dims="4' x 4' x 7'"
+                            data-area="6' x 6'"
+                            data-cap="Unlimited guests"
+                            data-power="1 Standard Outlet (110v)"
+                            data-price="from $449.00"
+                            data-book="/book-now/?item=gif-booth">Details</a>
                     </div>
                 </div>
 
                 <div class="pcard" data-filter="themed large" data-aos="fade-up" style="--d:60ms">
-                    <div class="pcard-img" style="background:linear-gradient(135deg,#FDF2F8,#FBCFE8)">
-                        <div class="pcard-emoji">🏰</div>
-                        <span class="pcard-badge pcard-badge--blue">Large</span>
+                    <div class="pcard-img" style="background:linear-gradient(135deg,#FFFBEB,#FDE68A)">
+                        <div class="pcard-emoji">🌟</div>
+                        <span class="pcard-badge pcard-badge--blue">Premium</span>
                         <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
                     </div>
                     <div class="pcard-body">
-                        <h3>Pink Castle Large Bounce House</h3>
-                        <p>The larger version of our beloved Pink Castle — more room, more fun for bigger parties and
-                            events.</p>
+                        <h3>Mirror Photo Booth</h3>
+                        <p>Full-length interactive mirror booth with fun animations, touch-screen interface, and
+                            high-quality prints. A premium addition to weddings and galas.</p>
                         <div class="pcard-meta">
-                            <span class="pcard-tag pcard-tag--blue">📐 Large Unit</span>
-                            <span class="pcard-tag pcard-tag--warm">🎀 Themed</span>
+                            <span class="pcard-tag pcard-tag--blue">📸 Full-Length</span>
+                            <span class="pcard-tag pcard-tag--warm">✨ Premium</span>
                         </div>
                     </div>
                     <div class="pcard-actions">
-                        <a href="/book-now/?item=pink-castle-large" class="pcard-btn pcard-btn--primary fj-link">Get
-                            Quote</a>
-                        <a href="/bounce-house-rentals/pink-castle-large/"
-                            class="pcard-btn pcard-btn--outline fj-link">Details</a>
+                        <a href="/book-now/?item=mirror-booth" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal"
+                            data-emoji="😍"
+                            data-title="Mirror Photo Booth"
+                            data-desc="Full-length interactive mirror booth with fun animations, touch-screen interface, and high-quality prints. A premium addition to weddings and galas."
+                            data-dims="2' x 2' x 6.5'"
+                            data-area="5' x 5'"
+                            data-cap="Unlimited guests"
+                            data-power="1 Standard Outlet (110v)"
+                            data-price="from $799.00"
+                            data-book="/book-now/?item=mirror-booth">Details</a>
                     </div>
                 </div>
 
                 <div class="pcard" data-filter="standard large" data-aos="fade-up" style="--d:120ms">
                     <div class="pcard-img" style="background:linear-gradient(135deg,#EFF6FF,#BFDBFE)">
-                        <div class="pcard-emoji">🌈</div>
-                        <span class="pcard-badge pcard-badge--green">🔥 Best Seller</span>
+                        <div class="pcard-emoji">📷</div>
+                        <span class="pcard-badge pcard-badge--green">🔥 Best Value</span>
                         <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
                     </div>
                     <div class="pcard-body">
-                        <h3>Rainbow Castle Large Bouncer</h3>
-                        <p>Our most popular model — bigger space and vivid colors make this the go-to for large parties
-                            and events.</p>
+                        <h3>Photo Booth + Backdrop Bundle</h3>
+                        <p>Our open-air photo booth paired with your choice of custom printed backdrop — the
+                            ultimate branded photo experience for corporate events.</p>
                         <div class="pcard-meta">
-                            <span class="pcard-tag pcard-tag--blue">📐 Large Unit</span>
-                            
+                            <span class="pcard-tag pcard-tag--blue">📸 Custom Backdrop</span>
+                            <span class="pcard-tag pcard-tag--warm">📦 Bundle Deal</span>
                         </div>
                     </div>
                     <div class="pcard-actions">
-                        <a href="/book-now/?item=rainbow-castle-large" class="pcard-btn pcard-btn--primary fj-link">Get
-                            Quote</a>
-                        <a href="/bounce-house-rentals/rainbow-castle-large/"
-                            class="pcard-btn pcard-btn--outline fj-link">Details</a>
+                        <a href="/book-now/?item=photo-booth-backdrop-bundle" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal"
+                            data-emoji="📷"
+                            data-title="Photo Booth + Backdrop Bundle"
+                            data-desc="Our open-air photo booth paired with your choice of custom printed backdrop — the ultimate branded photo experience for corporate events."
+                            data-includes="Open-air photo booth, custom backdrop, props kit, unlimited prints."
+                            data-dims="6' x 6' x 7'"
+                            data-area="10' x 10'"
+                            data-cap="Unlimited guests"
+                            data-power="1 Standard Outlet (110v)"
+                            data-price="from $599.00"
+                            data-book="/book-now/?item=photo-booth-backdrop-bundle">Details</a>
                     </div>
                 </div>
 
                 <div class="pcard" data-filter="standard" data-aos="fade-up" style="--d:0ms">
-                    <div class="pcard-img" style="background:linear-gradient(135deg,#EFF6FF,#BFDBFE)">
-                        <div class="pcard-emoji">🌈</div>
+                    <div class="pcard-img" style="background:linear-gradient(135deg,#FEF3C7,#FDE68A)">
+                        <div class="pcard-emoji">👥</div>
                         <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
                     </div>
                     <div class="pcard-body">
-                        <h3>Rainbow Castle Bounce House</h3>
-                        <p>A vibrant multi-color castle with classic bounce design — loved by kids of all ages at every
-                            party.</p>
+                        <h3>Selfie Station</h3>
+                        <p>Simple, elegant iPad-based selfie station with digital sharing to email or social
+                            media. Great as a low-cost add-on to any package.</p>
                         <div class="pcard-meta">
-                            <span class="pcard-tag pcard-tag--blue">📐 Standard</span>
-                            
+                            <span class="pcard-tag pcard-tag--blue">📱 Digital Only</span>
                         </div>
                     </div>
                     <div class="pcard-actions">
-                        <a href="/book-now/?item=rainbow-castle" class="pcard-btn pcard-btn--primary fj-link">Get
-                            Quote</a>
-                        <a href="/bounce-house-rentals/rainbow-castle/"
-                            class="pcard-btn pcard-btn--outline fj-link">Details</a>
+                        <a href="/book-now/?item=selfie-station" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal"
+                            data-emoji="🤳"
+                            data-title="Selfie Station"
+                            data-desc="Simple, elegant iPad-based selfie station with digital sharing to email or social media. Great as a low-cost add-on to any package."
+                            data-dims="2' x 2' x 5'"
+                            data-area="4' x 4'"
+                            data-cap="Unlimited guests"
+                            data-power="1 Standard Outlet (110v)"
+                            data-price="from $249.00"
+                            data-book="/book-now/?item=selfie-station">Details</a>
                     </div>
                 </div>
 
                 <div class="pcard" data-filter="standard" data-aos="fade-up" style="--d:60ms">
                     <div class="pcard-img" style="background:linear-gradient(135deg,#FEF2F2,#FCA5A5)">
-                        <div class="pcard-emoji">🔴</div>
+                        <div class="pcard-emoji">🎀</div>
                         <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
                     </div>
                     <div class="pcard-body">
-                        <h3>Red Castle Bounce House</h3>
-                        <p>A bold, bright red castle that stands out at any event and excites every guest who sees it.
-                        </p>
+                        <h3>Party Photo Bundle</h3>
+                        <p>Combine an open-air booth, themed props, and a dedicated attendant for a complete
+                            photography experience from start to finish.</p>
                         <div class="pcard-meta">
-                            <span class="pcard-tag pcard-tag--blue">📐 Standard</span>
-                            
+                            <span class="pcard-tag pcard-tag--blue">📦 Full Package</span>
+                            <span class="pcard-tag pcard-tag--warm">💰 Best Value</span>
                         </div>
                     </div>
                     <div class="pcard-actions">
-                        <a href="/book-now/?item=red-castle" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
-                        <a href="/bounce-house-rentals/red-castle/"
-                            class="pcard-btn pcard-btn--outline fj-link">Details</a>
+                        <a href="/book-now/?item=party-photo-bundle" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal"
+                            data-emoji="🎀"
+                            data-title="Party Photo Bundle"
+                            data-desc="Combine an open-air booth, themed props, and a dedicated attendant for a complete photography experience from start to finish."
+                            data-includes="Open-air photo booth, themed props, dedicated attendant, 5-hour rental."
+                            data-dims="5' x 5' x 7'"
+                            data-area="8' x 8'"
+                            data-cap="Unlimited guests"
+                            data-power="1 Standard Outlet (110v)"
+                            data-price="from $749.00"
+                            data-book="/book-now/?item=party-photo-bundle">Details</a>
                     </div>
                 </div>
 
@@ -529,6 +583,8 @@
             </div>
         </div>
     </aside>
+
+    <!--@include partials/product-modal.html-->
 
     <script src="/main.js"></script>
     <script>

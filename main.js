@@ -1013,6 +1013,7 @@
     if (!overlay) return;
 
     const mEmoji = document.getElementById('prodModalEmoji');
+    const mImg   = document.getElementById('prodModalImg');
     const mTitle = document.getElementById('prodModalTitle');
     const mBadge = document.getElementById('prodModalBadge');
     const mDesc = document.getElementById('prodModalDesc');
@@ -1027,7 +1028,19 @@
     const mRequirement = document.getElementById('prodModalRequirement');
 
     function openModal(data) {
-      if (mEmoji) mEmoji.textContent = data.emoji || '🏰';
+      // ── Hero: image vs emoji ──────────────────────────────────
+      if (data.img && mImg && mEmoji) {
+        mImg.src = data.img;
+        mImg.alt = data.title || '';
+        mImg.style.display = 'block';
+        mEmoji.style.display = 'none';
+      } else {
+        if (mImg) mImg.style.display = 'none';
+        if (mEmoji) {
+          mEmoji.style.display = 'flex';
+          mEmoji.textContent = data.emoji || '🏰';
+        }
+      }
       if (mTitle) mTitle.textContent = data.title || '';
       
       if (mBadge) {
@@ -1077,7 +1090,22 @@
         // .products-grid) fill in any field a specific product doesn't set
         // itself — set it once per page instead of repeating it per card.
         const grid = trigger.closest('.products-grid');
-        const data = grid ? { ...grid.dataset, ...trigger.dataset } : trigger.dataset;
+        const data = grid
+          ? { ...grid.dataset, ...trigger.dataset }
+          : { ...trigger.dataset };
+
+        // ── Auto-inherit the card's photo ──────────────────────────────
+        // If the Details button has no data-img, automatically pull the src
+        // from the .pcard-photo <img> inside the same card.
+        // This way the image URL is defined only once — on the card itself.
+        if (!data.img) {
+          const card    = trigger.closest('.pcard, .pc');
+          const cardImg = card && card.querySelector('img.pcard-photo, img.pc-photo');
+          if (cardImg && cardImg.src) {
+            data.img = cardImg.src;
+          }
+        }
+
         openModal(data);
       }
     });

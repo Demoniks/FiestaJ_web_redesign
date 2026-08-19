@@ -16,6 +16,11 @@
     <div class="prod-modal-body">
       <!-- Image / Icon Header -->
       <div class="prod-modal-hero" id="prodModalHero">
+        <!-- Image shown when data-img is set on the trigger button -->
+        <img class="prod-modal-img" id="prodModalImg" src="" alt="" loading="lazy"
+          style="display:none;width:100%;height:100%;object-fit:cover;position:absolute;inset:0;"
+          onerror="this.style.display='none';document.getElementById('prodModalEmoji').style.display='flex';">
+        <!-- Emoji fallback shown when no data-img is provided -->
         <span class="prod-modal-emoji" id="prodModalEmoji">🏰</span>
       </div>
 

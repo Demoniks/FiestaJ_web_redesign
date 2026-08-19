@@ -84,193 +84,244 @@
     <!-- ══ PRODUCTS GRID ════════════════════════════════════════ -->
     <section class="products-wrap" id="products">
         <div class="container">
-            <div class="products-grid" id="productsGrid">
+            <div class="products-grid" id="productsGrid" data-power="No power required" data-cap="Varies by tent size">
 
-                <!-- ─────────────────────────────────────────────────────
-           PRODUCT CARDS
-           To use a real photo: replace the <div class="pcard-emoji">
-           with <img src="YOUR-URL" alt="Product name">
-           inside <div class="pcard-img">
+                <!-- PRODUCT CARDS — Tent Rentals -->
 
-           EventHawk booking URL format:
-           href="/book-now/?item=PRODUCT-SLUG"
-           ───────────────────────────────────────────────────── -->
-
-                <div class="pcard" data-filter="large" data-aos="fade-up" style="--d:0ms">
-                    <div class="pcard-img" style="background:linear-gradient(135deg,#EBF5FF,#BFDBFE)">
-                        <!-- SWAP: <img src="https://fiestajumps.com/wp-content/uploads/hot-air-balloon.jpg" alt="Hot Air Balloon Bouncer"> -->
-                        <div class="pcard-emoji">🎈</div>
-                        <span class="pcard-badge">Large Unit</span>
+                <div class="pcard" data-filter="standard" data-aos="fade-up" style="--d:0ms">
+                    <div class="pcard-img" style="background:linear-gradient(135deg,#F0FDF4,#A7F3D0)">
+                        <div class="pcard-emoji">⛺</div>
+                        <span class="pcard-badge pcard-badge--green">🔥 Most Popular</span>
                         <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
                     </div>
                     <div class="pcard-body">
-                        <h3>Hot Air Balloon Bouncer Large</h3>
-                        <p>A colorful and exciting large bounce house shaped like a hot air balloon — a guaranteed
-                            showstopper at any party.</p>
+                        <h3>10' x 10' Canopy Tent</h3>
+                        <p>Our most popular size — perfect for small backyard parties, vendor booths, and intimate
+                            outdoor gatherings with up to 20 guests.</p>
                         <div class="pcard-meta">
-                            <span class="pcard-tag pcard-tag--blue">📐 Large</span>
-                            <span class="pcard-tag pcard-tag--green">✅ Available</span>
+                            <span class="pcard-tag pcard-tag--blue">📐 10' x 10'</span>
+                            <span class="pcard-tag pcard-tag--warm">👥 Up to 20</span>
                         </div>
                     </div>
                     <div class="pcard-actions">
-                        <!-- ✅ AJAX PREFETCH — Get Quote and Details use fj-link for prefetch -->
-                        <a href="/book-now/?item=hot-air-balloon" class="pcard-btn pcard-btn--primary fj-link">Get
-                            Quote</a>
-                        <a href="/bounce-house-rentals/hot-air-balloon/"
-                            class="pcard-btn pcard-btn--outline fj-link">Details</a>
+                        <a href="/book-now/?item=tent-10x10" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal"
+                            data-emoji="⛺"
+                            data-title="10' x 10' Canopy Tent"
+                            data-desc="Our most popular size — perfect for small backyard parties, vendor booths, and intimate outdoor gatherings."
+                            data-dims="10' x 10'"
+                            data-area="12' x 12' setup space"
+                            data-cap="Up to 20 guests"
+                            data-power="No power required"
+                            data-price="from $99.00"
+                            data-book="/book-now/?item=tent-10x10">Details</a>
                     </div>
                 </div>
 
-                <div class="pcard" data-filter="basketball large" data-aos="fade-up" style="--d:60ms">
-                    <div class="pcard-img" style="background:linear-gradient(135deg,#FFF7ED,#FED7AA)">
-                        <div class="pcard-emoji">🏰</div>
+                <div class="pcard" data-filter="standard large" data-aos="fade-up" style="--d:60ms">
+                    <div class="pcard-img" style="background:linear-gradient(135deg,#EBF5FF,#BFDBFE)">
+                        <div class="pcard-emoji">⛺</div>
                         <span class="pcard-badge">⭐ Popular</span>
                         <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
                     </div>
                     <div class="pcard-body">
-                        <h3>Lava Castle 16′ × 16′ w/ Basketball Hoop</h3>
-                        <p>Classic castle design with an integrated basketball hoop — bounce and shoot in one exciting
-                            unit.</p>
+                        <h3>10' x 20' Canopy Tent</h3>
+                        <p>Ideal for medium-sized outdoor events — covers a buffet table, seating area, or
+                            activity station for up to 40 guests comfortably.</p>
                         <div class="pcard-meta">
-                            <span class="pcard-tag pcard-tag--blue">📐 16′ × 16′</span>
-                            <span class="pcard-tag pcard-tag--warm">🏀 Hoop Included</span>
+                            <span class="pcard-tag pcard-tag--blue">📐 10' x 20'</span>
+                            <span class="pcard-tag pcard-tag--warm">👥 Up to 40</span>
                         </div>
                     </div>
                     <div class="pcard-actions">
-                        <a href="/book-now/?item=lava-castle" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
-                        <a href="/bounce-house-rentals/lava-castle/"
-                            class="pcard-btn pcard-btn--outline fj-link">Details</a>
+                        <a href="/book-now/?item=tent-10x20" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal"
+                            data-emoji="⛺"
+                            data-title="10' x 20' Canopy Tent"
+                            data-desc="Ideal for medium-sized outdoor events — covers a buffet table, seating area, or activity station for up to 40 guests comfortably."
+                            data-dims="10' x 20'"
+                            data-area="12' x 22' setup space"
+                            data-cap="Up to 40 guests"
+                            data-power="No power required"
+                            data-price="from $149.00"
+                            data-book="/book-now/?item=tent-10x20">Details</a>
                     </div>
                 </div>
 
-                <div class="pcard" data-filter="standard" data-aos="fade-up" style="--d:120ms">
-                    <div class="pcard-img" style="background:linear-gradient(135deg,#F0FDF4,#A7F3D0)">
-                        <div class="pcard-emoji">🏯</div>
+                <div class="pcard" data-filter="large" data-aos="fade-up" style="--d:120ms">
+                    <div class="pcard-img" style="background:linear-gradient(135deg,#FFF7ED,#FED7AA)">
+                        <div class="pcard-emoji">⛺</div>
                         <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
                     </div>
                     <div class="pcard-body">
-                        <h3>Mini Castle 9′ × 9′</h3>
-                        <p>Perfect for smaller yards and younger children. Safe, fun, and easy to set up in tight
-                            spaces.</p>
+                        <h3>20' x 20' Frame Tent</h3>
+                        <p>Our large frame tent is perfect for birthday parties, quinceañeras, and community events.
+                            No center poles for maximum usable space.</p>
                         <div class="pcard-meta">
-                            <span class="pcard-tag pcard-tag--blue">📐 9′ × 9′</span>
-                            <span class="pcard-tag pcard-tag--green">✅ Available</span>
+                            <span class="pcard-tag pcard-tag--blue">📐 20' x 20'</span>
+                            <span class="pcard-tag pcard-tag--warm">👥 Up to 60</span>
                         </div>
                     </div>
                     <div class="pcard-actions">
-                        <a href="/book-now/?item=mini-castle" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
-                        <a href="/bounce-house-rentals/mini-castle/"
-                            class="pcard-btn pcard-btn--outline fj-link">Details</a>
+                        <a href="/book-now/?item=tent-20x20" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal"
+                            data-emoji="⛺"
+                            data-title="20' x 20' Frame Tent"
+                            data-desc="Our large frame tent is perfect for birthday parties, quinceaneras, and community events. No center poles for maximum usable space."
+                            data-dims="20' x 20'"
+                            data-area="24' x 24' setup space"
+                            data-cap="Up to 60 guests"
+                            data-power="No power required"
+                            data-price="from $249.00"
+                            data-book="/book-now/?item=tent-20x20">Details</a>
                     </div>
                 </div>
 
-                <div class="pcard" data-filter="themed" data-aos="fade-up" style="--d:0ms">
+                <div class="pcard" data-filter="large" data-aos="fade-up" style="--d:0ms">
+                    <div class="pcard-img" style="background:linear-gradient(135deg,#EDE9FE,#DDD6FE)">
+                        <div class="pcard-emoji">🏪</div>
+                        <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
+                    </div>
+                    <div class="pcard-body">
+                        <h3>20' x 40' Pole Tent</h3>
+                        <p>Our largest tent option — ideal for school field days, corporate picnics, and
+                            large outdoor celebrations with 80–120+ guests.</p>
+                        <div class="pcard-meta">
+                            <span class="pcard-tag pcard-tag--blue">📐 20' x 40'</span>
+                            <span class="pcard-tag pcard-tag--warm">👥 Up to 120</span>
+                        </div>
+                    </div>
+                    <div class="pcard-actions">
+                        <a href="/book-now/?item=tent-20x40" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal"
+                            data-emoji="🏪"
+                            data-title="20' x 40' Pole Tent"
+                            data-desc="Our largest tent option — ideal for school field days, corporate picnics, and large outdoor celebrations."
+                            data-dims="20' x 40'"
+                            data-area="24' x 44' setup space"
+                            data-cap="Up to 120 guests"
+                            data-power="No power required"
+                            data-price="from $449.00"
+                            data-book="/book-now/?item=tent-20x40">Details</a>
+                    </div>
+                </div>
+
+                <div class="pcard" data-filter="themed" data-aos="fade-up" style="--d:60ms">
                     <div class="pcard-img" style="background:linear-gradient(135deg,#FDF2F8,#FBCFE8)">
                         <div class="pcard-emoji">🎀</div>
+                        <span class="pcard-badge pcard-badge--blue">Themed</span>
                         <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
                     </div>
                     <div class="pcard-body">
-                        <h3>Pink Castle</h3>
-                        <p>A beautiful pink princess castle — the ultimate themed bouncer for girls' birthday parties
-                            and princess events.</p>
+                        <h3>Hexagonal Gazebo Tent</h3>
+                        <p>Elegant hexagonal canopy structure perfect for bar areas, gift tables, or photo
+                            stations. Adds a premium look to any outdoor event.</p>
                         <div class="pcard-meta">
-                            <span class="pcard-tag pcard-tag--blue">📐 Standard</span>
-                            <span class="pcard-tag pcard-tag--warm">🎀 Themed</span>
+                            <span class="pcard-tag pcard-tag--blue">📐 12' Diameter</span>
+                            <span class="pcard-tag pcard-tag--warm">✨ Premium Look</span>
                         </div>
                     </div>
                     <div class="pcard-actions">
-                        <a href="/book-now/?item=pink-castle" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
-                        <a href="/bounce-house-rentals/pink-castle/"
-                            class="pcard-btn pcard-btn--outline fj-link">Details</a>
+                        <a href="/book-now/?item=tent-gazebo" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal"
+                            data-emoji="🎀"
+                            data-title="Hexagonal Gazebo Tent"
+                            data-desc="Elegant hexagonal canopy structure perfect for bar areas, gift tables, or photo stations. Adds a premium look to any outdoor event."
+                            data-dims="12' diameter"
+                            data-area="15' diameter setup space"
+                            data-cap="Up to 20 guests"
+                            data-power="No power required"
+                            data-price="from $199.00"
+                            data-book="/book-now/?item=tent-gazebo">Details</a>
                     </div>
                 </div>
 
-                <div class="pcard" data-filter="themed large" data-aos="fade-up" style="--d:60ms">
-                    <div class="pcard-img" style="background:linear-gradient(135deg,#FDF2F8,#FBCFE8)">
-                        <div class="pcard-emoji">🏰</div>
-                        <span class="pcard-badge pcard-badge--blue">Large</span>
+                <div class="pcard" data-filter="themed large" data-aos="fade-up" style="--d:120ms">
+                    <div class="pcard-img" style="background:linear-gradient(135deg,#FFFBEB,#FDE68A)">
+                        <div class="pcard-emoji">🏠</div>
+                        <span class="pcard-badge pcard-badge--green">🔥 Best Value</span>
                         <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
                     </div>
                     <div class="pcard-body">
-                        <h3>Pink Castle Large Bounce House</h3>
-                        <p>The larger version of our beloved Pink Castle — more room, more fun for bigger parties and
-                            events.</p>
+                        <h3>Tent + Tables &amp; Chairs Bundle</h3>
+                        <p>Get a 10' x 20' tent bundled with 6 folding tables and 48 chairs at a discounted
+                            package rate — everything you need for an outdoor event.</p>
                         <div class="pcard-meta">
-                            <span class="pcard-tag pcard-tag--blue">📐 Large Unit</span>
-                            <span class="pcard-tag pcard-tag--warm">🎀 Themed</span>
+                            <span class="pcard-tag pcard-tag--blue">📦 Bundle Deal</span>
+                            <span class="pcard-tag pcard-tag--warm">💰 Save More</span>
                         </div>
                     </div>
                     <div class="pcard-actions">
-                        <a href="/book-now/?item=pink-castle-large" class="pcard-btn pcard-btn--primary fj-link">Get
-                            Quote</a>
-                        <a href="/bounce-house-rentals/pink-castle-large/"
-                            class="pcard-btn pcard-btn--outline fj-link">Details</a>
-                    </div>
-                </div>
-
-                <div class="pcard" data-filter="standard large" data-aos="fade-up" style="--d:120ms">
-                    <div class="pcard-img" style="background:linear-gradient(135deg,#EFF6FF,#BFDBFE)">
-                        <div class="pcard-emoji">🌈</div>
-                        <span class="pcard-badge pcard-badge--green">🔥 Best Seller</span>
-                        <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
-                    </div>
-                    <div class="pcard-body">
-                        <h3>Rainbow Castle Large Bouncer</h3>
-                        <p>Our most popular model — bigger space and vivid colors make this the go-to for large parties
-                            and events.</p>
-                        <div class="pcard-meta">
-                            <span class="pcard-tag pcard-tag--blue">📐 Large Unit</span>
-                            <span class="pcard-tag pcard-tag--green">✅ Available</span>
-                        </div>
-                    </div>
-                    <div class="pcard-actions">
-                        <a href="/book-now/?item=rainbow-castle-large" class="pcard-btn pcard-btn--primary fj-link">Get
-                            Quote</a>
-                        <a href="/bounce-house-rentals/rainbow-castle-large/"
-                            class="pcard-btn pcard-btn--outline fj-link">Details</a>
+                        <a href="/book-now/?item=tent-table-chair-bundle" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal"
+                            data-emoji="🏠"
+                            data-title="Tent + Tables & Chairs Bundle"
+                            data-desc="Get a 10' x 20' tent bundled with 6 folding tables and 48 chairs at a discounted package rate — everything you need for an outdoor event."
+                            data-includes="10' x 20' canopy tent, 6 folding tables (6' each), 48 folding chairs."
+                            data-dims="10' x 20' tent"
+                            data-area="12' x 22' setup space"
+                            data-cap="Up to 48 seated guests"
+                            data-power="No power required"
+                            data-price="from $299.00"
+                            data-book="/book-now/?item=tent-table-chair-bundle">Details</a>
                     </div>
                 </div>
 
                 <div class="pcard" data-filter="standard" data-aos="fade-up" style="--d:0ms">
-                    <div class="pcard-img" style="background:linear-gradient(135deg,#EFF6FF,#BFDBFE)">
-                        <div class="pcard-emoji">🌈</div>
+                    <div class="pcard-img" style="background:linear-gradient(135deg,#F0FDF4,#A7F3D0)">
+                        <div class="pcard-emoji">🌧️</div>
                         <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
                     </div>
                     <div class="pcard-body">
-                        <h3>Rainbow Castle Bounce House</h3>
-                        <p>A vibrant multi-color castle with classic bounce design — loved by kids of all ages at every
-                            party.</p>
+                        <h3>Pop-Up Shade Tent (10x10)</h3>
+                        <p>Quick-deploy pop-up canopy tent — great as an add-on shade station next to bounce
+                            houses or food service areas. No tools required.</p>
                         <div class="pcard-meta">
-                            <span class="pcard-tag pcard-tag--blue">📐 Standard</span>
-                            <span class="pcard-tag pcard-tag--green">✅ Available</span>
+                            <span class="pcard-tag pcard-tag--blue">📐 10' x 10'</span>
                         </div>
                     </div>
                     <div class="pcard-actions">
-                        <a href="/book-now/?item=rainbow-castle" class="pcard-btn pcard-btn--primary fj-link">Get
-                            Quote</a>
-                        <a href="/bounce-house-rentals/rainbow-castle/"
-                            class="pcard-btn pcard-btn--outline fj-link">Details</a>
+                        <a href="/book-now/?item=pop-up-tent" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal"
+                            data-emoji="🌧️"
+                            data-title="Pop-Up Shade Tent (10x10)"
+                            data-desc="Quick-deploy pop-up canopy tent — great as an add-on shade station next to bounce houses or food service areas."
+                            data-dims="10' x 10'"
+                            data-area="12' x 12'"
+                            data-cap="Up to 20 guests (shade only)"
+                            data-power="No power required"
+                            data-price="from $75.00"
+                            data-book="/book-now/?item=pop-up-tent">Details</a>
                     </div>
                 </div>
 
                 <div class="pcard" data-filter="standard" data-aos="fade-up" style="--d:60ms">
                     <div class="pcard-img" style="background:linear-gradient(135deg,#FEF2F2,#FCA5A5)">
-                        <div class="pcard-emoji">🔴</div>
+                        <div class="pcard-emoji">📦</div>
                         <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
                     </div>
                     <div class="pcard-body">
-                        <h3>Red Castle Bounce House</h3>
-                        <p>A bold, bright red castle that stands out at any event and excites every guest who sees it.
-                        </p>
+                        <h3>Tent + Generator Package</h3>
+                        <p>Perfect for remote outdoor events — includes a standard canopy tent and a quiet
+                            generator to power fans, lights, or small equipment.</p>
                         <div class="pcard-meta">
-                            <span class="pcard-tag pcard-tag--blue">📐 Standard</span>
-                            <span class="pcard-tag pcard-tag--green">✅ Available</span>
+                            <span class="pcard-tag pcard-tag--blue">📦 Full Package</span>
+                            <span class="pcard-tag pcard-tag--warm">⚡ Power Included</span>
                         </div>
                     </div>
                     <div class="pcard-actions">
-                        <a href="/book-now/?item=red-castle" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
-                        <a href="/bounce-house-rentals/red-castle/"
-                            class="pcard-btn pcard-btn--outline fj-link">Details</a>
+                        <a href="/book-now/?item=tent-generator-package" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal"
+                            data-emoji="📦"
+                            data-title="Tent + Generator Package"
+                            data-desc="Perfect for remote outdoor events — includes a standard canopy tent and a quiet generator to power fans, lights, or small equipment."
+                            data-includes="10' x 20' canopy tent and 3500W portable generator."
+                            data-dims="10' x 20' tent"
+                            data-area="12' x 22'"
+                            data-cap="Up to 40 guests"
+                            data-power="Generator included"
+                            data-price="from $249.00"
+                            data-book="/book-now/?item=tent-generator-package">Details</a>
                     </div>
                 </div>
 
@@ -529,6 +580,8 @@
             </div>
         </div>
     </aside>
+
+    <!--@include partials/product-modal.html-->
 
     <script src="/main.js"></script>
     <script>

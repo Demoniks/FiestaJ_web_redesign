@@ -6,10 +6,35 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Set theme before first paint so there's no flash of the wrong theme -->
-  <script>(function () { try { var t = localStorage.getItem('fj-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); document.documentElement.setAttribute('data-theme', t); } catch (e) { } })();</script>
-  <title>Fiesta Jumps – Best Party Rentals in Santa Barbara, CA</title>
+    <script>(function () {
+            try {
+                var t =
+                    localStorage.getItem('fj-theme')
+                    || (
+                        matchMedia('(prefers-color-scheme: dark)').matches
+                            ? 'dark'
+                            : 'light'
+                    );
+                document.documentElement.setAttribute('data-theme', t);
+            } catch (e) {
+                void e; /* storage blocked / private mode */
+            }
+            document.documentElement.classList.add('fj-booting');
+            if (!document.getElementById('fj-boot-style')) {
+                var _s = document.createElement('style');
+                _s.id = 'fj-boot-style';
+                _s.textContent =
+                    'html.fj-booting::before{content:"";position:fixed;' +
+                    'inset:0;background:#1C1410;z-index:99999;' +
+                    'pointer-events:none';
+                (document.head || document.documentElement)
+                    .appendChild(_s);
+            }
+        })();
+    </script>
+  <title>Fiesta Jumps | Best Party Rentals in Santa Barbara, CA</title>
   <meta name="description"
-    content="Fiesta Jumps — Santa Barbara's #1 bounce house, water slide, obstacle course, and party rental company for 26 years. Licensed, insured, city park approved.">
+    content="Fiesta Jumps, Santa Barbara's #1 bounce house, water slide, obstacle course, and party rental company for 26 years. Licensed, insured, city park approved.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -17,7 +42,7 @@
     rel="stylesheet">
   <link rel="stylesheet" href="/FiestaJ_web_redesign/style.css">
   <link rel="stylesheet" href="/FiestaJ_web_redesign/dark-mode.css">
-  <!-- router.js MUST load before main.js — resolves clean slugs to .html filenames locally -->
+  <!-- router.js MUST load before main.js, resolves clean slugs to .html filenames locally -->
   <script src="/FiestaJ_web_redesign/router.js"></script>
   <!-- Static prefetch hints for most-visited next pages from homepage -->
 </head>
@@ -27,28 +52,23 @@
   <!-- ══ PAGE TRANSITION CURTAIN ════════════════════════════════ -->
   <div class="pt-curtain" id="ptCurtain" aria-hidden="true"></div>
 
-  <!-- ══ ANNOUNCEMENT BAR ══════════════════════════════════════ -->
+  <!-- == ANNOUNCEMENT BAR == -->
 <div class="ann-bar" aria-label="Discounts and promotions">
-    <div class="ann-track" aria-hidden="true">
-        <span>🎉 10% off — First Responders &amp; Military</span><span class="ann-dot">·</span>
-        <span>🎓 Teacher Discount Available</span><span class="ann-dot">·</span>
-        <span>🔁 Return Customers Save 10%</span><span class="ann-dot">·</span>
-        <span>💚 Non-Profit Discounts</span><span class="ann-dot">·</span>
-        <span>📦 Second Item 20% Off</span><span class="ann-dot">·</span>
-        <span>📅 Second Day Rental 50% Off</span><span class="ann-dot">·</span>
-        <span>☀️ Weekday Rental 15% Off</span><span class="ann-dot">·</span>
-        <span>🎉 10% off — First Responders &amp; Military</span><span class="ann-dot">·</span>
-        <span>🎓 Teacher Discount Available</span><span class="ann-dot">·</span>
-        <span>🔁 Return Customers Save 10%</span><span class="ann-dot">·</span>
-        <span>💚 Non-Profit Discounts</span><span class="ann-dot">·</span>
-        <span>📦 Second Item 20% Off</span><span class="ann-dot">·</span>
-        <span>📅 Second Day Rental 50% Off</span><span class="ann-dot">·</span>
-        <span>☀️ Weekday Rental 15% Off</span><span class="ann-dot">·</span>
+    <div class="ann-track" id="annTrack">
+        <div class="ann-group">
+            <span>🎉 10% off for First Responders &amp; Military</span><span class="ann-dot" aria-hidden="true">·</span>
+            <span>🎓 Teacher Discount Available</span><span class="ann-dot" aria-hidden="true">·</span>
+            <span>🔁 Return Customers Save 10%</span><span class="ann-dot" aria-hidden="true">·</span>
+            <span>💚 Non-Profit Discounts</span><span class="ann-dot" aria-hidden="true">·</span>
+            <span>📦 Second Item 20% Off</span><span class="ann-dot" aria-hidden="true">·</span>
+            <span>📅 Second Day Rental 50% Off</span><span class="ann-dot" aria-hidden="true">·</span>
+            <span>☀️ Weekday Rental 15% Off</span><span class="ann-dot" aria-hidden="true">·</span>
+        </div>
     </div>
 </div>
 
 
-    <!-- ══ HEADER ════════════════════════════════════════════════ -->
+  <!-- ══ HEADER ════════════════════════════════════════════════ -->
 <header class="site-header" id="siteHeader">
     <div class="hdr-inner">
 
@@ -62,7 +82,7 @@
 
                 <li class="hdr-nav-item has-drop">
                     <button class="hdr-nav-btn" aria-haspopup="true" aria-expanded="false">
-                        Bounce Houses
+                        Party Rentals
                         <svg class="drop-caret" viewBox="0 0 16 16" fill="none">
                             <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
                                 stroke-linejoin="round" />
@@ -162,6 +182,15 @@
             </ul>
         </nav>
 
+        <!-- Centered location badge — desktop only (hidden below 1240px, where it would collide with nav/actions) -->
+        <p class="hdr-tagline">
+            <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <path d="M10 18s6-5.2 6-10a6 6 0 10-12 0c0 4.8 6 10 6 10z" fill="currentColor" />
+                <circle cx="10" cy="8" r="2.2" fill="#fff" />
+            </svg>
+            <span>Locally owned in <strong>Santa Barbara, CA</strong></span>
+        </p>
+
         <div class="hdr-actions">
             <a href="tel:+18055630870" class="hdr-phone" aria-label="Call us">
                 <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
@@ -191,8 +220,8 @@
                         stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
             </button>
-            <!-- ✅ AJAX PREFETCH — fj-link triggers hover prefetch to /book-now/ -->
-            <a href="/FiestaJ_web_redesign/book-now/" class="btn btn-orange btn-sm fj-link">Book Now</a>
+            <!-- ✅ AJAX PREFETCH — fj-link triggers hover prefetches /contact/ -->
+            <a href="/FiestaJ_web_redesign/contact/" class="btn btn-orange btn-sm fj-link">Book Now</a>
             <button class="hdr-burger" id="burgerBtn" aria-label="Open menu" aria-expanded="false">
                 <span></span><span></span><span></span>
             </button>
@@ -235,14 +264,14 @@
             </div>
             <div class="mob-ctas">
                 <a href="tel:+18055630870" class="btn btn-outline btn-full">📞 (805) 563-0870</a>
-                <a href="/FiestaJ_web_redesign/book-now/" class="btn btn-orange btn-full fj-link">Book Your Event</a>
+                <a href="/FiestaJ_web_redesign/contact/" class="btn btn-orange btn-full fj-link">Book Your Event</a>
             </div>
         </div>
     </div>
 </header>
 
 
-    <!-- ══ HERO ══════════════════════════════════════════════════ -->
+  <!-- ══ HERO ══════════════════════════════════════════════════ -->
   <section class="hero" id="hero">
     <!-- Decorative blobs -->
     <div class="hero-blob hero-blob-1" aria-hidden="true"></div>
@@ -386,7 +415,7 @@
     LIVE SCORE: JS fetches the rating live from Google Places API.
     Fallback hardcoded values show if the API call fails.
     To enable live score: add your Google Places API key below
-    (see comment in main.js — search for GOOGLE_PLACES_API_KEY).
+    (see comment in main.js, search for GOOGLE_PLACES_API_KEY).
     The Place ID for Fiesta Jumps is: ChIJY8mn6qcVTIYRicmj6qcVTIYR
     (confirm at: maps.google.com → search "Fiesta Jumps Santa Barbara"
       → share → copy link → the ID is after "place/")
@@ -403,11 +432,11 @@
           <strong class="rev-score" id="revScoreLive" aria-label="Google rating">4.9</strong>
           <!-- Review count: updated live -->
           <span class="rev-count" id="revCountLive">· Google Reviews</span>
-          <!-- ✅ REAL review link — direct to Fiesta Jumps Google review page -->
+          <!-- ✅ REAL review link, direct to Fiesta Jumps Google review page -->
           <a href="https://g.page/r/CYnJo-qnFQEMEAE/review" class="btn btn-outline btn-sm" target="_blank"
-            rel="noopener noreferrer" aria-label="Leave a review on Google for Fiesta Jumps">⭐ Leave a Google Review</a>
+            rel="noopener noreferrer">⭐ Leave a Google Review</a>
         </div>
-        <!-- Live score badge — shown when API fetch succeeds -->
+        <!-- Live score badge, shown when API fetch succeeds -->
         <div class="rev-live-badge" id="revLiveBadge" style="display:none" aria-live="polite">
           <span class="rev-live-dot"></span>
           Live score from Google
@@ -537,7 +566,7 @@
 
       <!-- See all reviews link -->
       <div style="text-align:center;margin-top:24px">
-        <a href="https://www.google.com/search?q=Fiesta+Jumps+Reviews+Santa+Barbara" class="btn btn-ghost-white btn-sm"
+        <a href="https://www.google.com/search?q=Fiesta+Jumps+Reviews+Santa+Barbara#sv=CAESzQEKuQEStgEKd0FKaVQ0dEtqTGpyT1JTMXU2R1hNbWFGX3UtZnVxWXhqVWJRYTEzcnhIS044cVNSdzJzYVFWMFdSQmJpRmlKSU1KcjA5TVE5clRCM2FZam5mVzk5dVpFS3dhQlh1SnA0OVR6dXhOc0k3TzRxWTF5R1VsUTB4d21JEhdzVTZ3YW9Ya0ZvQzZrUElQMFBLdHVRaxoiQURzcjlmUkVxc2ZXN2dNUW1IYV9KZU1qZmhXQjBRODdFQRIEODA1MRoBMyoAMAA4AUAAGAAgu_yPVkoCEAE" class="btn btn-ghost-white btn-sm"
           target="_blank" rel="noopener noreferrer">See All Reviews on Google →</a>
       </div>
     </div>
@@ -581,14 +610,13 @@
       </div>
 
       <!-- ══════════════════════════════════════════════════════
-         TAB PANEL: ALL UNITS (overview category cards)
+      TAB PANEL: ALL UNITS (overview category cards)
     ══════════════════════════════════════════════════════ -->
       <div id="tab-all" class="rtab-panel active" role="tabpanel">
         <div class="cats-grid">
 
           <a href="/FiestaJ_web_redesign/bounce-house-rentals/" class="cat-card fj-link" onclick="switchTab('classic');return false;">
             <div class="cat-card-img" style="background:linear-gradient(135deg,#EBF5FF,#BFDBFE)">
-              <!-- SWAP IMAGE: replace the span below with <img src="YOUR-URL" alt="..."> -->
               <span class="cat-emoji">🏰</span>
             </div>
             <div class="cat-card-body">
@@ -604,7 +632,7 @@
             </div>
             <div class="cat-card-body">
               <h3>Combo Bounce Houses</h3>
-              <p>Bounce, climb, and slide in one inflatable — great for bigger parties and longer playtime.</p>
+              <p>Bounce, climb, and slide in one inflatable, great for bigger parties and longer playtime.</p>
               <span class="cat-cta">Browse →</span>
             </div>
           </a>
@@ -704,54 +732,51 @@
         </div>
       </div><!-- /tab-all -->
 
-      <!-- ══════════════════════════════════════════════════════
-         TAB PANEL: CLASSIC BOUNCE HOUSES
-         ── HOW TO ADD YOUR OWN PRODUCTS ──────────────────────
-         Each product uses the .pc card structure:
-         1. Change the emoji OR replace <span class="pc-emoji"> with <img>
-         2. Update the h3 name, p description, pc-size badge
-         3. Update the href links to your EventHawk booking URL
-         4. Duplicate/delete cards to match your actual inventory
-    ══════════════════════════════════════════════════════ -->
+      <!-- Tab panel: classic bounce houses -->
       <div id="tab-classic" class="rtab-panel" role="tabpanel">
         <div class="pc-grid">
 
           <div class="pc">
             <div class="pc-img" style="background:linear-gradient(135deg,#EBF5FF,#BFDBFE)">
-              <!-- YOUR IMAGE: <img src="URL" alt="Hot Air Balloon Bouncer"> -->
-              <span class="pc-emoji">🎈</span>
+              <img class="pc-photo" src="https://fiestajumps.com/wp-content/uploads/2026/04/IMG_4376_1777434384-1.png" alt="Hot Air Balloon Bouncer Large" loading="lazy">
             </div>
             <div class="pc-body">
               <h3>Hot Air Balloon Bouncer Large</h3>
-              <p>A colorful and exciting large bounce house shaped like a hot air balloon — a guaranteed party
+              <p>A colorful and exciting large bounce house shaped like a hot air balloon, a guaranteed party
                 showstopper.</p>
               <span class="pc-size">📐 Large Unit</span>
             </div>
             <div class="pc-actions">
               <a href="/FiestaJ_web_redesign/book-now/?item=hot-air-balloon" class="pc-btn pc-btn--primary fj-link">Get Quote</a>
-              <a href="/FiestaJ_web_redesign/bounce-house-rentals/hot-air-balloon/" class="pc-btn pc-btn--outline fj-link">Details</a>
+              <a href="#" class="pc-btn pc-btn--outline fj-link js-open-modal" data-emoji="🎈"
+                data-title="Hot Air Balloon Bouncer Large"
+                data-desc="A colorful and exciting large bounce house shaped like a hot air balloon, a guaranteed party showstopper."
+                data-dims="Large Unit" data-price="$150 / day" data-book="/book-now/?item=hot-air-balloon">Details</a>
             </div>
           </div>
 
           <div class="pc">
             <div class="pc-img" style="background:linear-gradient(135deg,#FFF7ED,#FED7AA)">
-              <span class="pc-emoji">🏰</span>
+              <img class="pc-photo" src="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e5e8fe2e782cbc4124.png" alt="Lava Castle 16′ × 16′ w/ Basketball Hoop" loading="lazy">
               <span class="pc-badge">Popular</span>
             </div>
             <div class="pc-body">
               <h3>Lava Castle 16′ × 16′ w/ Basketball Hoop</h3>
-              <p>Classic castle design with an integrated basketball hoop — bounce and shoot in one unit.</p>
+              <p>Classic castle design with an integrated basketball hoop, bounce and shoot in one unit.</p>
               <span class="pc-size">📐 16′ × 16′</span>
             </div>
             <div class="pc-actions">
               <a href="/FiestaJ_web_redesign/book-now/?item=lava-castle" class="pc-btn pc-btn--primary fj-link">Get Quote</a>
-              <a href="/FiestaJ_web_redesign/bounce-house-rentals/lava-castle/" class="pc-btn pc-btn--outline fj-link">Details</a>
+              <a href="#" class="pc-btn pc-btn--outline fj-link js-open-modal" data-emoji="🏰"
+                data-title="Lava Castle 16′ × 16′ w/ Basketball Hoop"
+                data-desc="Classic castle design with an integrated basketball hoop, bounce and shoot in one unit."
+                data-dims="16′ × 16′" data-price="$160 / day" data-book="/book-now/?item=lava-castle">Details</a>
             </div>
           </div>
 
           <div class="pc">
             <div class="pc-img" style="background:linear-gradient(135deg,#F0FDF4,#86EFAC)">
-              <span class="pc-emoji">🏯</span>
+              <img class="pc-photo" src="https://fiestajumps.com/wp-content/uploads/2026/04/IMG_4337_1776883544.jpg" alt="Mini Castle 9′ × 9′" loading="lazy">
             </div>
             <div class="pc-body">
               <h3>Mini Castle 9′ × 9′</h3>
@@ -760,53 +785,65 @@
             </div>
             <div class="pc-actions">
               <a href="/FiestaJ_web_redesign/book-now/?item=mini-castle" class="pc-btn pc-btn--primary fj-link">Get Quote</a>
-              <a href="/FiestaJ_web_redesign/bounce-house-rentals/mini-castle/" class="pc-btn pc-btn--outline fj-link">Details</a>
+              <a href="#" class="pc-btn pc-btn--outline fj-link js-open-modal" data-emoji="🏯"
+                data-title="Mini Castle 9′ × 9′"
+                data-desc="Perfect for smaller yards and younger children. Safe, fun, and easy to set up in tight spaces."
+                data-dims="9′ × 9′" data-price="$120 / day" data-book="/book-now/?item=mini-castle">Details</a>
             </div>
           </div>
 
           <div class="pc">
             <div class="pc-img" style="background:linear-gradient(135deg,#FDF2F8,#FBCFE8)">
-              <span class="pc-emoji">🎀</span>
+              <img class="pc-photo" src="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e5421e24961b7c0afb.png" alt="Pink Castle" loading="lazy">
             </div>
             <div class="pc-body">
               <h3>Pink Castle</h3>
-              <p>A beautiful pink princess castle — the ultimate themed bouncer for girls' birthday parties.</p>
+              <p>A beautiful pink princess castle, the ultimate themed bouncer for girls' birthday parties.</p>
               <span class="pc-size">📐 Standard</span>
             </div>
             <div class="pc-actions">
               <a href="/FiestaJ_web_redesign/book-now/?item=pink-castle" class="pc-btn pc-btn--primary fj-link">Get Quote</a>
-              <a href="/FiestaJ_web_redesign/bounce-house-rentals/pink-castle/" class="pc-btn pc-btn--outline fj-link">Details</a>
+              <a href="#" class="pc-btn pc-btn--outline fj-link js-open-modal" data-emoji="🎀" data-title="Pink Castle"
+                data-desc="A beautiful pink princess castle, the ultimate themed bouncer for girls' birthday parties."
+                data-dims="Standard" data-price="$140 / day" data-book="/book-now/?item=pink-castle">Details</a>
             </div>
           </div>
 
           <div class="pc">
             <div class="pc-img" style="background:linear-gradient(135deg,#FDF2F8,#FBCFE8)">
-              <span class="pc-emoji">🏰</span>
+              <img class="pc-photo" src="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e53201b01a0f94ea49.png" alt="Pink Castle Large Bounce House" loading="lazy">
             </div>
             <div class="pc-body">
               <h3>Pink Castle Large Bounce House</h3>
-              <p>The larger version of our beloved Pink Castle — more room, more fun for bigger parties.</p>
+              <p>The larger version of our beloved Pink Castle, more room, more fun for bigger parties.</p>
               <span class="pc-size">📐 Large Unit</span>
             </div>
             <div class="pc-actions">
               <a href="/FiestaJ_web_redesign/book-now/?item=pink-castle-large" class="pc-btn pc-btn--primary fj-link">Get Quote</a>
-              <a href="/FiestaJ_web_redesign/bounce-house-rentals/pink-castle-large/" class="pc-btn pc-btn--outline fj-link">Details</a>
+              <a href="#" class="pc-btn pc-btn--outline fj-link js-open-modal" data-emoji="🏰"
+                data-title="Pink Castle Large Bounce House"
+                data-desc="The larger version of our beloved Pink Castle, more room, more fun for bigger parties."
+                data-dims="Large Unit" data-price="$160 / day" data-book="/book-now/?item=pink-castle-large">Details</a>
             </div>
           </div>
 
           <div class="pc">
             <div class="pc-img" style="background:linear-gradient(135deg,#EFF6FF,#BFDBFE)">
-              <span class="pc-emoji">🌈</span>
+              <img class="pc-photo" src="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e522e1ed9a7ff3caf4.png" alt="Rainbow Castle Large Bouncer" loading="lazy">
               <span class="pc-badge">Best Seller</span>
             </div>
             <div class="pc-body">
               <h3>Rainbow Castle Large Bouncer</h3>
-              <p>Our most popular model — bigger space and vivid colors make this the go-to for large parties.</p>
+              <p>Our most popular model, bigger space and vivid colors make this the go-to for large parties.</p>
               <span class="pc-size">📐 Large Unit</span>
             </div>
             <div class="pc-actions">
               <a href="/FiestaJ_web_redesign/book-now/?item=rainbow-castle-large" class="pc-btn pc-btn--primary fj-link">Get Quote</a>
-              <a href="/FiestaJ_web_redesign/bounce-house-rentals/rainbow-castle-large/" class="pc-btn pc-btn--outline fj-link">Details</a>
+              <a href="#" class="pc-btn pc-btn--outline fj-link js-open-modal" data-emoji="🌈"
+                data-title="Rainbow Castle Large Bouncer"
+                data-desc="Our most popular model, bigger space and vivid colors make this the go-to for large parties."
+                data-dims="Large Unit" data-price="$160 / day"
+                data-book="/book-now/?item=rainbow-castle-large">Details</a>
             </div>
           </div>
 
@@ -824,12 +861,12 @@
 
           <div class="pc">
             <div class="pc-img" style="background:linear-gradient(135deg,#F5F3FF,#DDD6FE)">
-              <span class="pc-emoji">🎠</span>
+              <img class="pc-photo" src="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e5421e24c7317c0afa.png" alt="Combo Bounce House w/ Slide" loading="lazy">
               <span class="pc-badge">Popular</span>
             </div>
             <div class="pc-body">
               <h3>Combo Bounce House w/ Slide</h3>
-              <p>Combines bouncing and sliding in one unit — kids can bounce and race down the slide for hours.</p>
+              <p>Combines bouncing and sliding in one unit, kids can bounce and race down the slide for hours.</p>
               <span class="pc-size">📐 Standard Combo</span>
             </div>
             <div class="pc-actions">
@@ -840,11 +877,11 @@
 
           <div class="pc">
             <div class="pc-img" style="background:linear-gradient(135deg,#EFF6FF,#BFDBFE)">
-              <span class="pc-emoji">🏰</span>
+              <img class="pc-photo" src="https://fiestajumps.com/wp-content/uploads/2026/04/DJI_20260314_123004_924201_1776880729_big.jpeg" alt="Combo Castle w/ Basketball Hoop" loading="lazy">
             </div>
             <div class="pc-body">
               <h3>Combo Castle w/ Basketball Hoop</h3>
-              <p>Castle-style combo with a built-in basketball hoop — bounce and shoot for maximum fun.</p>
+              <p>Castle-style combo with a built-in basketball hoop, bounce and shoot for maximum fun.</p>
               <span class="pc-size">📐 Standard Combo</span>
             </div>
             <div class="pc-actions">
@@ -855,11 +892,11 @@
 
           <div class="pc">
             <div class="pc-img" style="background:linear-gradient(135deg,#FDF2F8,#FBCFE8)">
-              <span class="pc-emoji">🌸</span>
+              <img class="pc-photo" src="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e54a4efa0b9910b4c2.png" alt="Pink Combo Bouncer" loading="lazy">
             </div>
             <div class="pc-body">
               <h3>Pink Combo Bouncer</h3>
-              <p>The pink princess combo — perfect for girls' birthday parties with a slide and bounce area.</p>
+              <p>The pink princess combo, perfect for girls' birthday parties with a slide and bounce area.</p>
               <span class="pc-size">📐 Standard Combo</span>
             </div>
             <div class="pc-actions">
@@ -882,12 +919,12 @@
 
           <div class="pc">
             <div class="pc-img" style="background:linear-gradient(135deg,#ECFEFF,#A5F3FC)">
-              <span class="pc-emoji">💧</span>
+              <img class="pc-photo" src="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e552ad3b080cdf7b85.png" alt="Tropical Water Slide" loading="lazy">
               <span class="pc-badge">Summer Hit</span>
             </div>
             <div class="pc-body">
               <h3>Tropical Water Slide</h3>
-              <p>Giant tropical-themed water slide — cool off and have a blast at any summer party.</p>
+              <p>Giant tropical-themed water slide, cool off and have a blast at any summer party.</p>
               <span class="pc-size">📐 Large</span>
             </div>
             <div class="pc-actions">
@@ -898,11 +935,11 @@
 
           <div class="pc">
             <div class="pc-img" style="background:linear-gradient(135deg,#EFF6FF,#BFDBFE)">
-              <span class="pc-emoji">🌊</span>
+              <img class="pc-photo" src="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e57794bf274348584b.png" alt="Giant Dual Water Slides" loading="lazy">
             </div>
             <div class="pc-body">
               <h3>Giant Dual Water Slides</h3>
-              <p>Two slides side by side so kids can race each other — double the fun for bigger groups.</p>
+              <p>Two slides side by side so kids can race each other, double the fun for bigger groups.</p>
               <span class="pc-size">📐 Dual Lane</span>
             </div>
             <div class="pc-actions">
@@ -913,11 +950,11 @@
 
           <div class="pc">
             <div class="pc-img" style="background:linear-gradient(135deg,#FFF7ED,#FED7AA)">
-              <span class="pc-emoji">🎢</span>
+              <img class="pc-photo" src="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e522e1edfe82f3caf2.png" alt="Dry Slide Rental" loading="lazy">
             </div>
             <div class="pc-body">
               <h3>Dry Slide Rental</h3>
-              <p>Year-round slide fun without water — great for parks, schools, and indoor venues.</p>
+              <p>Year-round slide fun without water, great for parks, schools, and indoor venues.</p>
               <span class="pc-size">📐 Large</span>
             </div>
             <div class="pc-actions">
@@ -928,11 +965,11 @@
 
           <div class="pc">
             <div class="pc-img" style="background:linear-gradient(135deg,#F0FDF4,#86EFAC)">
-              <span class="pc-emoji">🏊</span>
+              <img class="pc-photo" src="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e5e8fe2e2eaebc4125.png" alt="Water Tag Maze" loading="lazy">
             </div>
             <div class="pc-body">
               <h3>Water Tag Maze</h3>
-              <p>An interactive water maze where guests battle with water tag guns — epic for summer events.</p>
+              <p>An interactive water maze where guests battle with water tag guns, epic for summer events.</p>
               <span class="pc-size">📐 Group Activity</span>
             </div>
             <div class="pc-actions">
@@ -943,11 +980,11 @@
 
           <div class="pc">
             <div class="pc-img" style="background:linear-gradient(135deg,#EFF6FF,#BFDBFE)">
-              <span class="pc-emoji">🚿</span>
+              <img class="pc-photo" src="https://fiestajumps.com/wp-content/uploads/2026/05/6B9B10C2-E8DB-4AA7-AE31-E6F3C0B25774_1777778150_big.jpg" alt="Dunk Tank" loading="lazy">
             </div>
             <div class="pc-body">
               <h3>Dunk Tank</h3>
-              <p>The classic dunk tank — always a crowd favorite at schools, carnivals, and corporate events.</p>
+              <p>The classic dunk tank, always a crowd favorite at schools, carnivals, and corporate events.</p>
               <span class="pc-size">📐 Single Station</span>
             </div>
             <div class="pc-actions">
@@ -970,12 +1007,12 @@
 
           <div class="pc">
             <div class="pc-img" style="background:linear-gradient(135deg,#FFF7ED,#FED7AA)">
-              <span class="pc-emoji">🏁</span>
+              <img class="pc-photo" src="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e53ce89e7fc14ff287.png" alt="Obstacle Course Rental" loading="lazy">
               <span class="pc-badge">Most Popular</span>
             </div>
             <div class="pc-body">
               <h3>Obstacle Course Rental</h3>
-              <p>Epic inflatable obstacle course — perfect for schools, field days, festivals, and corporate events.</p>
+              <p>Epic inflatable obstacle course, perfect for schools, field days, festivals, and corporate events.</p>
               <span class="pc-size">📐 Full Course</span>
             </div>
             <div class="pc-actions">
@@ -986,11 +1023,11 @@
 
           <div class="pc">
             <div class="pc-img" style="background:linear-gradient(135deg,#FEF2F2,#FCA5A5)">
-              <span class="pc-emoji">⚡</span>
+              <img class="pc-photo" src="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e55ebd4935176fed12.png" alt="Dual Lane Obstacle Course" loading="lazy">
             </div>
             <div class="pc-body">
               <h3>Dual Lane Obstacle Course</h3>
-              <p>Two racers, one winner — a side-by-side course where guests challenge each other head to head.</p>
+              <p>Two racers, one winner, a side-by-side course where guests challenge each other head to head.</p>
               <span class="pc-size">📐 Dual Lane</span>
             </div>
             <div class="pc-actions">
@@ -1013,7 +1050,7 @@
 
           <div class="pc">
             <div class="pc-img" style="background:linear-gradient(135deg,#FDF2F8,#FBCFE8)">
-              <span class="pc-emoji">🎯</span>
+              <img class="pc-photo" src="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e5e8fe2e498ebc4122.png" alt="Interactive Game Rentals" loading="lazy">
             </div>
             <div class="pc-body">
               <h3>Interactive Game Rentals</h3>
@@ -1028,11 +1065,11 @@
 
           <div class="pc">
             <div class="pc-img" style="background:linear-gradient(135deg,#ECFEFF,#A5F3FC)">
-              <span class="pc-emoji">🫧</span>
+              <img class="pc-photo" src="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e59619ac0a22927c25.png" alt="Foam Cannon Rental" loading="lazy">
             </div>
             <div class="pc-body">
               <h3>Foam Cannon Rental</h3>
-              <p>Foam party fun that kids and adults both love — a crowd favorite at every event.</p>
+              <p>Foam party fun that kids and adults both love, a crowd favorite at every event.</p>
               <span class="pc-size">📐 Single Cannon</span>
             </div>
             <div class="pc-actions">
@@ -1043,11 +1080,11 @@
 
           <div class="pc">
             <div class="pc-img" style="background:linear-gradient(135deg,#F9FAFB,#E5E7EB)">
-              <span class="pc-emoji">📸</span>
+              <img class="pc-photo" src="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/6a1e6d4ad53fc25488fc3af9.png" alt="Photo Booth Rental" loading="lazy">
             </div>
             <div class="pc-body">
               <h3>Photo Booth Rental</h3>
-              <p>Capture every smile and memory at your event — prints on-site for instant keepsakes.</p>
+              <p>Capture every smile and memory at your event, prints on-site for instant keepsakes.</p>
               <span class="pc-size">📐 Self-Contained</span>
             </div>
             <div class="pc-actions">
@@ -1070,11 +1107,11 @@
 
           <div class="pc">
             <div class="pc-img" style="background:linear-gradient(135deg,#FFFBEB,#FDE68A)">
-              <span class="pc-emoji">🍿</span>
+              <img class="pc-photo" src="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e5d76c0d35101ac63c.png" alt="Popcorn Machine" loading="lazy">
             </div>
             <div class="pc-body">
               <h3>Popcorn Machine</h3>
-              <p>Classic movie-style popcorn machine — fresh, hot popcorn for all your guests all day long.</p>
+              <p>Classic movie-style popcorn machine, fresh, hot popcorn for all your guests all day long.</p>
               <span class="pc-size">📐 Machine + Supplies</span>
             </div>
             <div class="pc-actions">
@@ -1085,11 +1122,11 @@
 
           <div class="pc">
             <div class="pc-img" style="background:linear-gradient(135deg,#FDF2F8,#FBCFE8)">
-              <span class="pc-emoji">🍭</span>
+              <img class="pc-photo" src="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e5421e243a237c0af9.png" alt="Cotton Candy Machine" loading="lazy">
             </div>
             <div class="pc-body">
               <h3>Cotton Candy Machine</h3>
-              <p>Fluffy, colorful cotton candy that brings out the kid in everyone — a party favorite.</p>
+              <p>Fluffy, colorful cotton candy that brings out the kid in everyone, a party favorite.</p>
               <span class="pc-size">📐 Machine + Supplies</span>
             </div>
             <div class="pc-actions">
@@ -1100,11 +1137,11 @@
 
           <div class="pc">
             <div class="pc-img" style="background:linear-gradient(135deg,#ECFEFF,#A5F3FC)">
-              <span class="pc-emoji">🧊</span>
+              <img class="pc-photo" src="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e57794bf86cc48584e.png" alt="Snow Cone Machine" loading="lazy">
             </div>
             <div class="pc-body">
               <h3>Snow Cone Machine</h3>
-              <p>Refreshing icy snow cones in any flavor — perfect for hot Santa Barbara summer days.</p>
+              <p>Refreshing icy snow cones in any flavor, perfect for hot Santa Barbara summer days.</p>
               <span class="pc-size">📐 Machine + Supplies</span>
             </div>
             <div class="pc-actions">
@@ -1127,11 +1164,11 @@
 
           <div class="pc">
             <div class="pc-img" style="background:linear-gradient(135deg,#F0FDF4,#86EFAC)">
-              <span class="pc-emoji">⛺</span>
+              <img class="pc-photo" src="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/6a1e6c6d282a51721af11c63.png" alt="Tent Rentals" loading="lazy">
             </div>
             <div class="pc-body">
               <h3>Tent Rentals</h3>
-              <p>Shade and shelter solutions for any outdoor event — available in multiple sizes.</p>
+              <p>Shade and shelter solutions for any outdoor event, available in multiple sizes.</p>
               <span class="pc-size">📐 Multiple Sizes</span>
             </div>
             <div class="pc-actions">
@@ -1142,11 +1179,11 @@
 
           <div class="pc">
             <div class="pc-img" style="background:linear-gradient(135deg,#F9FAFB,#E5E7EB)">
-              <span class="pc-emoji">🪑</span>
+              <img class="pc-photo" src="https://fiestajumps.com/wp-content/uploads/2025/04/Long20Table20620Ft_1743521294_big.jpg" alt="Tables, Chairs &amp; Linen" loading="lazy">
             </div>
             <div class="pc-body">
               <h3>Tables, Chairs &amp; Linen</h3>
-              <p>Complete seating and dining solutions — everything your guests need to sit, eat, and celebrate.</p>
+              <p>Complete seating and dining solutions, everything your guests need to sit, eat, and celebrate.</p>
               <span class="pc-size">📐 Per Unit or Package</span>
             </div>
             <div class="pc-actions">
@@ -1157,11 +1194,11 @@
 
           <div class="pc">
             <div class="pc-img" style="background:linear-gradient(135deg,#FFFBEB,#FDE68A)">
-              <span class="pc-emoji">⚡</span>
+              <img class="pc-photo" src="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/6aaf8a1ebdaa5e26a94c23a9.webp" alt="Generator Rental" loading="lazy">
             </div>
             <div class="pc-body">
               <h3>Generator Rental</h3>
-              <p>Reliable power for your event — ensures all inflatables and equipment run without interruption.</p>
+              <p>Reliable power for your event, ensures all inflatables and equipment run without interruption.</p>
               <span class="pc-size">📐 Per Day</span>
             </div>
             <div class="pc-actions">
@@ -1172,7 +1209,7 @@
 
           <div class="pc">
             <div class="pc-img" style="background:linear-gradient(135deg,#F9FAFB,#E5E7EB)">
-              <span class="pc-emoji">👷</span>
+              <img class="pc-photo" src="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/6a2545bcfc95b24549a910c0.png" alt="Staffed Attendants" loading="lazy">
             </div>
             <div class="pc-body">
               <h3>Staffed Attendants</h3>
@@ -1199,12 +1236,12 @@
 
           <div class="pc" style="border:2px solid #FFD700">
             <div class="pc-img" style="background:linear-gradient(135deg,#FFF8DC,#FFD700)">
-              <span class="pc-emoji">🎂</span>
+              <img class="pc-photo" src="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/6a13f23a6cc0eead5cd14743.webp" alt="Birthday Party Package" loading="lazy">
               <span class="pc-badge">Best Value</span>
             </div>
             <div class="pc-body">
               <h3>Birthday Party Package</h3>
-              <p>Bounce house + tables + chairs + linen — everything you need for the perfect birthday party.</p>
+              <p>Bounce house + tables + chairs + linen, everything you need for the perfect birthday party.</p>
               <span class="pc-size">📐 Complete Package</span>
             </div>
             <div class="pc-actions">
@@ -1215,11 +1252,11 @@
 
           <div class="pc" style="border:2px solid #FFD700">
             <div class="pc-img" style="background:linear-gradient(135deg,#FFF8DC,#FFD700)">
-              <span class="pc-emoji">🏢</span>
+              <img class="pc-photo" src="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/6a13f71fb3e0c02fe7edbd3d.webp" alt="Corporate Event Package" loading="lazy">
             </div>
             <div class="pc-body">
               <h3>Corporate Event Package</h3>
-              <p>Obstacle course + games + concessions + tents — a complete turnkey solution for large events.</p>
+              <p>Obstacle course + games + concessions + tents, a complete turnkey solution for large events.</p>
               <span class="pc-size">📐 Complete Package</span>
             </div>
             <div class="pc-actions">
@@ -1230,11 +1267,11 @@
 
           <div class="pc" style="border:2px solid #FFD700">
             <div class="pc-img" style="background:linear-gradient(135deg,#FFF8DC,#FFD700)">
-              <span class="pc-emoji">☀️</span>
+              <img class="pc-photo" src="https://fiestajumps.com/wp-content/uploads/2026/05/Gemini_Generated_Image_s4lllas4lllas4ll_1779378576_big.png" alt="Summer Water Package" loading="lazy">
             </div>
             <div class="pc-body">
               <h3>Summer Water Package</h3>
-              <p>Water slides + foam cannon + snow cone machine — the ultimate summer fun combo.</p>
+              <p>Water slides + foam cannon + snow cone machine, the ultimate summer fun combo.</p>
               <span class="pc-size">📐 Summer Bundle</span>
             </div>
             <div class="pc-actions">
@@ -1260,7 +1297,7 @@
           <p class="section-label">Featured Attraction</p>
           <h2 class="section-title">SB Trackless Train</h2>
           <p class="section-sub">Santa Barbara's most beloved event attraction. The Fiesta Jumps Trackless Train brings
-            joy to every age — from the smallest kids to grandparents. Perfect for schools, festivals, community events,
+            joy to every age, from the smallest kids to grandparents. Perfect for schools, festivals, community events,
             churches, corporate picnics, and nonprofits.</p>
           <ul class="train-features">
             <li><span>🎡</span> Schools &amp; Field Days</li>
@@ -1331,7 +1368,7 @@
           aria-label="Elings Park">
           <div class="partner-logo-wrap">
             <img src="https://elingspark.org/wp-content/uploads/2020/01/elings-park-logo.png" alt="Elings Park logo"
-              loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+              loading="lazy" class="partner-logo">
             <div class="partner-logo-fallback" style="display:none">🌳</div>
           </div>
           <span class="partner-name">Elings Park</span>
@@ -1341,7 +1378,7 @@
           aria-label="Santa Barbara Zoo">
           <div class="partner-logo-wrap">
             <img src="https://www.sbzoo.org/wp-content/uploads/2020/04/sbzoo-logo.png" alt="Santa Barbara Zoo logo"
-              loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+              loading="lazy" class="partner-logo">
             <div class="partner-logo-fallback" style="display:none">🦁</div>
           </div>
           <span class="partner-name">Santa Barbara Zoo</span>
@@ -1350,8 +1387,7 @@
         <a href="https://www.countyofsb.org/parks" class="partner-card" target="_blank" rel="noopener noreferrer"
           aria-label="Santa Barbara County Parks">
           <div class="partner-logo-wrap">
-            <img src="https://www.countyofsb.org/Images/parks-logo.png" alt="SB County Parks logo" loading="lazy"
-              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <img src="https://www.countyofsb.org/Images/parks-logo.png" alt="SB County Parks logo" loading="lazy" class="partner-logo">
             <div class="partner-logo-fallback" style="display:none">🏞️</div>
           </div>
           <span class="partner-name">SB County Parks</span>
@@ -1399,14 +1435,14 @@
           <div class="diff-icon">🏆</div>
           <h3>Why Choose Us?</h3>
           <p>26 years of experience, a 4.9 Google rating, licensed and insured equipment, and a team that treats your
-            event like our own. Safety, reliability, and professionalism — every single time.</p>
+            event like our own. Safety, reliability, and professionalism, every single time.</p>
         </div>
 
         <div class="diff-card" data-aos="fade-up" style="--d:80ms">
           <div class="diff-icon">❤️</div>
           <h3>Our Mission</h3>
-          <p>Fiesta Jumps exists to make events easy, safe, and unforgettable. We handle every detail with care — from
-            delivery and setup to breakdown — so you can focus on enjoying the celebration.</p>
+          <p>Fiesta Jumps exists to make events easy, safe, and unforgettable. We handle every detail with care, from
+            delivery and setup to breakdown, so you can focus on enjoying the celebration.</p>
         </div>
 
         <div class="diff-card" data-aos="fade-up" style="--d:160ms">
@@ -1420,7 +1456,7 @@
           <div class="diff-icon">🎉</div>
           <h3>It's Party Time!</h3>
           <p>We have everything you need to throw unforgettable, once-in-a-lifetime events. Backyard birthday or huge
-            corporate event — we take pride in making it a fun, stress-free experience from start to finish.</p>
+            corporate event, we take pride in making it a fun, stress-free experience from start to finish.</p>
         </div>
       </div>
     </div>
@@ -1455,14 +1491,14 @@
                 d="M9.69 18.933l.003.001C9.89 19.02 10 19 10 19s.11.02.308-.066l.002-.001.006-.003.018-.008a5.741 5.741 0 00.281-.14c.186-.096.446-.24.757-.433.62-.384 1.445-.966 2.274-1.765C15.302 14.988 17 12.493 17 9A7 7 0 103 9c0 3.492 1.698 5.988 3.355 7.584a13.731 13.731 0 002.273 1.765 11.842 11.842 0 00.976.544l.062.029.018.008.006.003zM10 11.25a2.25 2.25 0 100-4.5 2.25 2.25 0 000 4.5z"
                 clip-rule="evenodd" fill="#FF6B00" />
             </svg>
-            <span id="mapGeoText">Your location was detected — we deliver to your area!</span>
+            <span id="mapGeoText">Your location was detected, we deliver to your area!</span>
           </div>
           <a href="/FiestaJ_web_redesign/book-now/" class="btn btn-orange fj-link">Check Availability →</a>
         </div>
         <div class="map-embed" data-aos="fade-left">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d212060.97408741462!2d-119.9!3d34.42!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80e914db89f2b32f%3A0xb8e41ef88e0ceb9!2sSanta%20Barbara%2C%20CA!5e0!3m2!1sen!2sus!4v1614900000000"
-            title="Fiesta Jumps Service Area — Santa Barbara, CA" allowfullscreen loading="lazy"
+            title="Fiesta Jumps Service Area, Santa Barbara, CA" allowfullscreen loading="lazy"
             referrerpolicy="no-referrer-when-downgrade">
           </iframe>
         </div>
@@ -1470,27 +1506,13 @@
     </div>
   </section>
 
-  <!-- ══ BOOKING CTA ════════════════════════════════════════════ -->
-  <!-- <section class="cta-banner">
-    <div class="container cta-inner">
-      <div>
-        <h2 class="cta-title">Ready to make your event unforgettable?</h2>
-        <p class="cta-sub">From backyard birthdays to huge corporate events — we handle every detail with care.</p>
-      </div>
-      <div class="cta-btns">
-        <a href="/FiestaJ_web_redesign/book-now/" class="btn btn-white btn-lg fj-link">Book Your Event</a>
-        <a href="tel:+18055630870" class="btn btn-ghost-white btn-lg">(805) 563-0870</a>
-      </div>
-    </div>
-  </section> -->
-
   <!-- ══ FOOTER ════════════════════════════════════════════════ -->
   <footer class="site-footer" id="siteFooter">
     <div class="container ftr-grid">
       <div class="ftr-brand">
         <a href="/FiestaJ_web_redesign/" class="hdr-logo fj-link" aria-label="Fiesta Jumps">
-          <img src="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/6a2545bcfc95b24549a910c0.png"
-            alt="" class="hdr-logo-icon">
+          <img src="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/6a2545bcfc95b24549a910c0.png" alt=""
+            class="hdr-logo-icon">
           <span class="hdr-logo-text" style="color:#fff">Fiesta<em>Jumps</em></span>
         </a>
         <p class="ftr-tagline">Santa Barbara's most trusted bounce house &amp; party rental company since 1999.</p>
@@ -1608,6 +1630,108 @@
     </div>
   </aside>
 
+  <!-- ══ PRODUCT MODAL ══════════════════════════════════════════ -->
+<div class="prod-modal-overlay" id="prodModalOverlay" aria-hidden="true">
+  <div class="prod-modal-content" id="prodModalContent" role="dialog" aria-modal="true"
+    aria-labelledby="prodModalTitle">
+
+    <!-- Close Button -->
+    <button class="prod-modal-close" id="prodModalClose" aria-label="Close modal">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+        stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+
+    <!-- Modal Body -->
+    <div class="prod-modal-body">
+      <!-- Image / Icon Header -->
+      <div class="prod-modal-hero" id="prodModalHero">
+        <img id="prodModalPhoto" class="prod-modal-photo" alt="" hidden>
+        <span class="prod-modal-emoji" id="prodModalEmoji">🏰</span>
+      </div>
+
+      <!-- Content -->
+      <div class="prod-modal-info">
+        <div class="prod-modal-title-row">
+          <h2 class="prod-modal-title" id="prodModalTitle">Product Title</h2>
+          <span class="prod-modal-badge" id="prodModalBadge" style="display: none;"></span>
+        </div>
+        <p class="prod-modal-desc" id="prodModalDesc">Product description goes here.</p>
+
+        <!-- Includes — optional, only shown when a product sets data-includes -->
+        <div class="prod-modal-includes" id="prodModalIncludes" style="display: none;">
+          <span class="includes-label">📦 Includes</span>
+          <span class="includes-value" id="prodModalIncludesText"></span>
+        </div>
+
+        <!-- Details Grid -->
+        <div class="prod-modal-specs">
+          <div class="spec-item">
+            <span class="spec-label">Product Dimensions</span>
+            <strong class="spec-value" id="prodModalDims">15' x 15' x 16'</strong>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Area Required</span>
+            <strong class="spec-value" id="prodModalArea">17' x 17' x 18'</strong>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Capacity</span>
+            <strong class="spec-value" id="prodModalCap">Up to 6 kids</strong>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Outlet Req.</span>
+            <strong class="spec-value" id="prodModalPower">1 Standard Outlet (110v)</strong>
+          </div>
+        </div>
+
+        <!-- Cross-Selling -->
+        <div class="prod-modal-addons">
+          <span class="addon-title">Recommended Add-ons:</span>
+          <div class="addon-list">
+            <a href="/FiestaJ_web_redesign/concessions-machine/" class="addon-item">🍿 Popcorn Machine</a>
+            <a href="/FiestaJ_web_redesign/tables-chairs-linen/" class="addon-item">🪑 Tables & Chairs</a>
+          </div>
+        </div>
+
+        <!-- Trust Checklist -->
+        <div class="prod-modal-trust">
+          <ul class="trust-badges">
+            <li><span class="trust-ico">✓</span>Professional Setup</li>
+            <li><span class="trust-ico">✓</span>Cleaned &amp; Sanitized</li>
+            <li><span class="trust-ico">✓</span>Guaranteed On-Time</li>
+            <li><span>🥳</span>Lots of Fun</li>
+          </ul>
+
+          <div class="trust-requirements">
+            <span class="trust-requirements-label">🔌 What you need</span>
+            <span class="just-dark" id="prodModalRequirement">Electric outlet within 50 feet of setup area</span>
+          </div>
+
+          <p class="trust-notice">🌧️ Maximum 24-hour notice for rain reschedule</p>
+
+          <a href="https://fiestajumps.com/coupon-form/" class="trust-coupon">🎟️ Click here for available coupons</a>
+        </div>
+
+        <!-- Price & CTA -->
+        <div class="prod-modal-footer">
+          <div class="prod-price-box">
+            <span class="price-label">Price</span>
+            <strong class="price-value" id="prodModalPrice">$150 / day</strong>
+          </div>
+          <a href="#" class="btn btn-orange btn-lg fj-link prod-modal-cta" id="prodModalCta">
+            Book Now
+            <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M4.5 10h11m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                stroke-linejoin="round"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
   <script src="/FiestaJ_web_redesign/main.js"></script>
 </body>
 

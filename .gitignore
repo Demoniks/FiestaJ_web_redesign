@@ -1,5 +1,20 @@
+# secrets and local config
 ngrok.yml
 .env
 .env.local
 keys.md
+
+# local tooling (Claude Code, graphify knowledge graph, Python venv)
 .claude/
+CLAUDE.md
+graphify-out/
+.venv/
+
+# dependencies, logs, OS junk
+node_modules/
+*.log
+.DS_Store
+Thumbs.db
+
+# source documents that the site does not use (prices now come from the Google Sheet)
+price list fj.pdf

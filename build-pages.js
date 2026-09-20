@@ -78,7 +78,10 @@ function main() {
   // Tell GitHub Pages to skip Jekyll processing (plain static site).
   fs.writeFileSync(path.join(OUT, '.nojekyll'), '');
 
-  console.log(`\n✅ Built ${Object.keys(ROUTES).length} pages + ${STATIC_FILES.length} assets into docs/\n`);
+  console.log(
+    `\n✅ Built ${Object.keys(ROUTES).length} pages + ` +
+      `${STATIC_FILES.length} assets into docs/\n`
+  );
   console.log('   Next: commit docs/, then in GitHub Settings → Pages, set');
   console.log('   Branch: main (or your branch) / Folder: /docs\n');
 }

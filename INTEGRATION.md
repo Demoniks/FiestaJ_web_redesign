@@ -289,10 +289,9 @@ if (function_exists('acf_add_options_page')) {
 
 - `/` — Homepage (index.html)
 - `/about-us/` — About
-- `/contact/` — Contact + GHL Form
+- `/contact/` � Contact + GHL Form (interim Book Now CTA target)
 - `/service-area/` — Service area with map
 - `/coupons/` — Discounts page
-- `/book-now/` — EventHawk booking page
 
 ### Rental Categories
 

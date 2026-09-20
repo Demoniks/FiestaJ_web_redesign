@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Set theme before first paint so there's no flash of the wrong theme -->
-    <script>(function () { try { var t = localStorage.getItem('fj-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); document.documentElement.setAttribute('data-theme', t); } catch (e) { } })();</script>
-    <title>Bundle Deals in Santa Barbara, CA | Fiesta Jumps</title>
-    <meta name="description" content="Save with party rental bundle deals in Santa Barbara, CA. Fiesta Jumps combines bounce houses, slides, and extras into one easy package.">
+    <script>(function () { try { var t = localStorage.getItem('fj-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); document.documentElement.setAttribute('data-theme', t); } catch (e) { } document.documentElement.classList.add('fj-booting'); if (!document.getElementById('fj-boot-style')) { var _s = document.createElement('style'); _s.id = 'fj-boot-style'; _s.textContent = 'html.fj-booting::before{content:"";position:fixed;inset:0;background:#1C1410;z-index:99999;pointer-events:none}'; (document.head || document.documentElement).appendChild(_s); } })();</script>
+    <title>Bundle Deals | Fiesta Jumps Santa Barbara</title>
+    <meta name="description" content="Save with Fiesta Jumps party packages that combine inflatables, seating, shade, and concessions. Basic, Deluxe, Corporate, and Wet packages.">
     <meta name="robots" content="index, follow">
     <!-- Open Graph -->
-    <meta property="og:title" content="Bundle Deals — Fiesta Jumps Santa Barbara">
+    <meta property="og:title" content="Bundle Deals | Fiesta Jumps Santa Barbara">
     <meta property="og:description" content="Santa Barbara's #1 party rental company. Save big by bundling bounce houses, slides, and extras into one package.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://fiestajumps.com/bundle-deals/">
@@ -36,7 +36,7 @@
     <link rel="prefetch" href="/combo-bounce-house-rentals/" as="document">
     <link rel="prefetch" href="/water-slides-rentals/" as="document">
     <link rel="prefetch" href="/bundle-deals/" as="document">
-    <link rel="prefetch" href="/book-now/" as="document">
+    <link rel="prefetch" href="/contact/" as="document">
 
 </head>
 
@@ -54,30 +54,32 @@
         "crumbMiddle": "<a href=\"/#rentals\" class=\"fj-link\">Rentals</a><span class=\"bc-sep\">›</span>",
         "breadcrumbCurrent": "Bundle Deals",
         "catTag": "📦 Bundle Deals",
-        "title": "Save Big with <em>Bundle</em> Deals",
-        "desc": "Combine bounce houses, slides, games, and event essentials into one easy package — and save. Our bundles take the guesswork out of planning while keeping more money in your pocket.",
+        "title": "Party <em>Bundle</em> Deals",
+        "desc": "Save with party packages that combine inflatables, seating, shade, and concessions. Four live packages: Basic, Deluxe, Corporate, and Wet.",
         "badges": [
             "📦 Save on Full Packages",
             "✅ Delivery &amp; Setup Included",
             "🛡️ Licensed &amp; Insured",
             "🧹 Clean &amp; Inspected"
         ],
-        "ctaPrimaryText": "Set Event Date",
-        "ctaPrimaryHref": "/book-now/"
+        "ctaPrimaryText": "Get a Quote",
+        "ctaPrimaryHref": "/contact/",
+        "ctaSecondaryText": "Call (805) 563-0870",
+        "ctaSecondaryHref": "tel:+18055630870"
     }
     -->
 
-    <!-- ══ FILTER BAR ═══════════════════════════════════════════ -->
-    <nav class="filter-bar" aria-label="Filter bounce houses">
+    <!-- Source: https://fiestajumps.com/rentals/bundle-deals/ — only these 4 live packages; package filter (not bounce-house filters). Quotes go to /contact/?item=SLUG. -->
+    <nav class="filter-bar" aria-label="Filter packages">
         <div class="container filter-bar-inner">
             <fieldset class="filter-pills" aria-label="Filter options">
-                <button class="filter-pill active" data-filter="all">All Units</button>
-                <button class="filter-pill" data-filter="standard">Standard</button>
-                <button class="filter-pill" data-filter="large">Large</button>
-                <button class="filter-pill" data-filter="themed">Themed</button>
-                <button class="filter-pill" data-filter="basketball">w/ Basketball</button>
+                <button class="filter-pill active" data-filter="all">All Packages</button>
+                <button class="filter-pill" data-filter="basic">Basic</button>
+                <button class="filter-pill" data-filter="deluxe">Deluxe</button>
+                <button class="filter-pill" data-filter="corporate">Corporate</button>
+                <button class="filter-pill" data-filter="wet">Wet</button>
             </fieldset>
-            <span class="filter-count" id="filterCount" aria-live="polite">4 units available</span>
+            <span class="filter-count" id="filterCount" data-count-noun="package" aria-live="polite">4 packages available</span>
         </div>
     </nav>
 
@@ -86,129 +88,125 @@
         <div class="container">
             <div class="products-grid" id="productsGrid">
 
-                <!-- ─────────────────────────────────────────────────────
-           PRODUCT CARDS
-           To use a real photo: replace the <div class="pcard-emoji">
-           with <img src="YOUR-URL" alt="Product name">
-           inside <div class="pcard-img">
+                <!-- Bundle package cards from audit-bundle-deals.json. Emoji/gradient placeholders only. -->
 
-           EventHawk booking URL format:
-           href="/book-now/?item=PRODUCT-SLUG"
-           ───────────────────────────────────────────────────── -->
-
-                <!-- Basic Package -->
-                <div class="pcard" data-filter="standard" data-aos="fade-up" style="--d:0ms">
+                <!-- BASIC PACKAGE: SAVE $56.00 -->
+                <div class="pcard" data-filter="basic" data-aos="fade-up" style="--d:0ms">
                     <div class="pcard-img" style="background:linear-gradient(135deg,#EBF5FF,#BFDBFE)">
-                        <div class="pcard-emoji">📦</div>
+                        <img class="pcard-photo" src="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/6a13f23a6cc0eead5cd14743.webp" alt="BASIC PACKAGE: SAVE $56.00" loading="lazy">
                         <span class="pcard-badge">💰 Save $56</span>
                         <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
                     </div>
                     <div class="pcard-body">
-                        <h3>Basic Package</h3>
-                        <p>Our starter bundle — mix and match a bounce house with a couple of essentials for an easy,
-                            affordable party setup.</p>
+                        <h3>BASIC PACKAGE: SAVE $56.00</h3>
+                        <p>Our starter party package with bounce house, tables, chairs, and a pop-up tent.</p>
                         <div class="pcard-meta">
                             <span class="pcard-tag pcard-tag--blue">📦 Bundle</span>
                             <span class="pcard-tag pcard-tag--green">💰 Save $56</span>
+                            <span class="pcard-tag pcard-tag--green">From $319</span>
                         </div>
+                        <p style="font-size:.85rem;margin:.5rem 0 0;opacity:.85">3 tables · 16 chairs · Bounce house (choose from available inventory; options include Mini Castle 9x9 and 13x13 castles such as Rainbow Castle, Red Castle, Tropical Bounce House)…</p>
                     </div>
                     <div class="pcard-actions">
-                        <a href="/book-now/?item=basic-package" class="pcard-btn pcard-btn--primary fj-link">Get
-                            Quote</a>
-                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal"
+                        <a href="/contact/?item=basic-package-save-56-00" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal" data-image="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/6a13f23a6cc0eead5cd14743.webp"
                             data-badge="💰 Save $56"
                             data-emoji="📦"
-                            data-title="Basic Package"
-                            data-desc="Our starter bundle — mix and match a bounce house with a couple of essentials for an easy, affordable party setup."
+                            data-title="BASIC PACKAGE: SAVE $56.00"
+                            data-desc="Our starter party package with bounce house, tables, chairs, and a pop-up tent."
+                            data-includes="3 tables · 16 chairs · Bounce house (choose from available inventory; options include Mini Castle 9x9 and 13x13 castles such as Rainbow Castle, Red Castle, Tropical Bounce House) · Pop up tent 10x10"
                             data-price="from $319.00"
-                            data-book="/book-now/?item=basic-package">Details</a>
+                            data-book="/contact/?item=basic-package-save-56-00">Details</a>
                     </div>
                 </div>
 
-                <!-- Corporate Package -->
-                <div class="pcard" data-filter="large" data-aos="fade-up" style="--d:60ms">
+                <!-- DELUXE PACKAGE SAVE $100 -->
+                <div class="pcard" data-filter="deluxe" data-aos="fade-up" style="--d:60ms">
+                    <div class="pcard-img" style="background:linear-gradient(135deg,#FFF7ED,#FED7AA)">
+                        <img class="pcard-photo" src="https://fiestajumps.com/wp-content/uploads/2026/03/Gemini_Generated_Image_1wb0w71wb0w71wb0_1774547698_big.png" alt="DELUXE PACKAGE SAVE $100" loading="lazy">
+                        <span class="pcard-badge">⭐ Popular · Save $100</span>
+                        <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
+                    </div>
+                    <div class="pcard-body">
+                        <h3>DELUXE PACKAGE SAVE $100</h3>
+                        <p>A bigger party package with more rentals bundled together to save you money.</p>
+                        <div class="pcard-meta">
+                            <span class="pcard-tag pcard-tag--blue">📦 Bundle</span>
+                            <span class="pcard-tag pcard-tag--green">💰 Save $100</span>
+                            <span class="pcard-tag pcard-tag--green">From $599</span>
+                        </div>
+                        <p style="font-size:.85rem;margin:.5rem 0 0;opacity:.85">3 tables · 16 chairs · 1 concession machine (choose cotton candy, popcorn, or snow cone)…</p>
+                    </div>
+                    <div class="pcard-actions">
+                        <a href="/contact/?item=deluxe-package-save-100" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal" data-image="https://fiestajumps.com/wp-content/uploads/2026/03/Gemini_Generated_Image_1wb0w71wb0w71wb0_1774547698_big.png"
+                            data-badge="⭐ Popular · Save $100"
+                            data-emoji="✨"
+                            data-title="DELUXE PACKAGE SAVE $100"
+                            data-desc="A bigger party package with more rentals bundled together to save you money."
+                            data-includes="3 tables · 16 chairs · 1 concession machine (choose cotton candy, popcorn, or snow cone) · 1 set of 50 servings/supplies for concession machine · 5-in-1 combo (choose from inventory: Blue Grey Castle, Dalmatian, or Wacky Castle) · Pop up tent 10x10"
+                            data-price="from $599.00"
+                            data-book="/contact/?item=deluxe-package-save-100">Details</a>
+                    </div>
+                </div>
+
+                <!-- CORPORATE PACKAGE SAVE $150 -->
+                <div class="pcard" data-filter="corporate" data-aos="fade-up" style="--d:120ms">
                     <div class="pcard-img" style="background:linear-gradient(135deg,#EFF6FF,#93C5FD)">
-                        <div class="pcard-emoji">💼</div>
+                        <img class="pcard-photo" src="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/6a13f71fb3e0c02fe7edbd3d.webp" alt="CORPORATE PACKAGE SAVE $150" loading="lazy">
                         <span class="pcard-badge">💰 Save $150</span>
                         <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
                     </div>
                     <div class="pcard-body">
-                        <h3>Corporate Package</h3>
-                        <p>Built for office parties and company events — a larger combination of attractions and
-                            event essentials, delivered and set up hassle-free.</p>
+                        <h3>CORPORATE PACKAGE SAVE $150</h3>
+                        <p>A larger package built for company events and big gatherings.</p>
                         <div class="pcard-meta">
                             <span class="pcard-tag pcard-tag--blue">📦 Bundle</span>
                             <span class="pcard-tag pcard-tag--green">💰 Save $150</span>
+                            <span class="pcard-tag pcard-tag--green">From $900</span>
                         </div>
+                        <p style="font-size:.85rem;margin:.5rem 0 0;opacity:.85">4 tables · 24 chairs · 1 carnival game (choices include Basket Toss, Stand The Bottle, Football Throw, 3 Milk Cans)…</p>
                     </div>
                     <div class="pcard-actions">
-                        <a href="/book-now/?item=corporate-package" class="pcard-btn pcard-btn--primary fj-link">Get
-                            Quote</a>
-                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal"
+                        <a href="/contact/?item=corporate-package-save-150" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal" data-image="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/6a13f71fb3e0c02fe7edbd3d.webp"
                             data-badge="💰 Save $150"
                             data-emoji="💼"
-                            data-title="Corporate Package"
-                            data-desc="Built for office parties and company events — a larger combination of attractions and event essentials, delivered and set up hassle-free."
+                            data-title="CORPORATE PACKAGE SAVE $150"
+                            data-desc="A larger package built for company events and big gatherings."
+                            data-includes="4 tables · 24 chairs · 1 carnival game (choices include Basket Toss, Stand The Bottle, Football Throw, 3 Milk Cans) · 1 concession station (1 table, 1 linen, 1 canopy &amp; 2 concessions) · 2 sets of 50 servings of supplies for concession machines · 50 ft Wacky Obstacle Course (with 16' slide; space required ~55'L x 16'W x 20'H)"
                             data-price="from $900.00"
-                            data-book="/book-now/?item=corporate-package">Details</a>
+                            data-book="/contact/?item=corporate-package-save-150">Details</a>
                     </div>
                 </div>
 
-                <!-- Deluxe Package -->
-                <div class="pcard" data-filter="large" data-aos="fade-up" style="--d:120ms">
-                    <div class="pcard-img" style="background:linear-gradient(135deg,#FFF7ED,#FED7AA)">
-                        <div class="pcard-emoji">✨</div>
-                        <span class="pcard-badge">⭐ Popular</span>
+                <!-- WET PACKAGE DEALS SAVE $126 -->
+                <div class="pcard" data-filter="wet" data-aos="fade-up" style="--d:0ms">
+                    <div class="pcard-img" style="background:linear-gradient(135deg,#ECFEFF,#A5F3FC)">
+                        <img class="pcard-photo" src="https://fiestajumps.com/wp-content/uploads/2026/05/Gemini_Generated_Image_s4lllas4lllas4ll_1779378576_big.png" alt="WET PACKAGE DEALS SAVE $126" loading="lazy">
+                        <span class="pcard-badge">🔥 Best Seller · Save $126</span>
                         <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
                     </div>
                     <div class="pcard-body">
-                        <h3>Deluxe Package</h3>
-                        <p>Our most complete package — combine bigger inflatables, slides, and extras for an
-                            unforgettable large-scale event.</p>
-                        <div class="pcard-meta">
-                            <span class="pcard-tag pcard-tag--blue">📦 Bundle</span>
-                            <span class="pcard-tag pcard-tag--green">💰 Save $100</span>
-                        </div>
-                    </div>
-                    <div class="pcard-actions">
-                        <a href="/book-now/?item=deluxe-package" class="pcard-btn pcard-btn--primary fj-link">Get
-                            Quote</a>
-                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal"
-                            data-badge="⭐ Popular"
-                            data-emoji="✨"
-                            data-title="Deluxe Package"
-                            data-desc="Our most complete package — combine bigger inflatables, slides, and extras for an unforgettable large-scale event."
-                            data-price="from $599.00"
-                            data-book="/book-now/?item=deluxe-package">Details</a>
-                    </div>
-                </div>
-
-                <!-- Wet Package Deals -->
-                <div class="pcard" data-filter="themed" data-aos="fade-up" style="--d:0ms">
-                    <div class="pcard-img" style="background:linear-gradient(135deg,#EFF6FF,#BFDBFE)">
-                        <div class="pcard-emoji">💦</div>
-                        <span class="pcard-badge">🔥 Best Seller</span>
-                        <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
-                    </div>
-                    <div class="pcard-body">
-                        <h3>Wet Package Deals</h3>
-                        <p>Beat the heat with a bundle built around our water slides and wet attractions — perfect
-                            for summer parties.</p>
+                        <h3>WET PACKAGE DEALS SAVE $126</h3>
+                        <p>A water-friendly package for hot-day parties and splash fun.</p>
                         <div class="pcard-meta">
                             <span class="pcard-tag pcard-tag--blue">📦 Bundle</span>
                             <span class="pcard-tag pcard-tag--green">💰 Save $126</span>
+                            <span class="pcard-tag pcard-tag--green">From $950</span>
                         </div>
+                        <p style="font-size:.85rem;margin:.5rem 0 0;opacity:.85">3 tables · 16 chairs · Snow cone machine…</p>
                     </div>
                     <div class="pcard-actions">
-                        <a href="/book-now/?item=wet-package-deals" class="pcard-btn pcard-btn--primary fj-link">Get
-                            Quote</a>
-                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal"
-                            data-badge="🔥 Best Seller"
+                        <a href="/contact/?item=wet-package-deals-save-126" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal" data-image="https://fiestajumps.com/wp-content/uploads/2026/05/Gemini_Generated_Image_s4lllas4lllas4ll_1779378576_big.png"
+                            data-badge="🔥 Best Seller · Save $126"
                             data-emoji="💦"
-                            data-title="Wet Package Deals"
-                            data-desc="Beat the heat with a bundle built around our water slides and wet attractions — perfect for summer parties."
+                            data-title="WET PACKAGE DEALS SAVE $126"
+                            data-desc="A water-friendly package for hot-day parties and splash fun."
+                            data-includes="3 tables · 16 chairs · Snow cone machine · 1 set of 50 servings/supplies for concession machine · Tropical Water Slide · Dunk Tank OR Foamtastik Cannon with 2 bottles (customer chooses)"
                             data-price="from $950.00"
-                            data-book="/book-now/?item=wet-package-deals">Details</a>
+                            data-book="/contact/?item=wet-package-deals-save-126">Details</a>
                     </div>
                 </div>
 
@@ -217,138 +215,38 @@
     </section>
 
     <!-- ══ WHY RENT FROM FIESTA JUMPS ════════════════════════════ -->
-    <section class="why-rent" id="whyRent">
-        <div class="container">
-            <div class="why-rent-grid">
-                <div class="why-rent-content" data-aos="fade-right">
-                    <p class="section-label">Why Fiesta Jumps?</p>
-                    <h2 class="section-title">Santa Barbara's most trusted bounce house company</h2>
-                    <p class="section-sub">For 26 years we've delivered clean, inspected equipment and stress-free setup
-                        for every type of event — from backyard birthdays to large school events.</p>
-
-                    <ul class="why-list">
-                        <li class="why-item">
-                            <div class="why-item-icon">🚚</div>
-                            <div class="why-item-text">
-                                <strong>Delivery &amp; Setup Included</strong>
-                                <span>We bring it, set it up, and pick it up. You don't lift a finger.</span>
-                            </div>
-                        </li>
-                        <li class="why-item">
-                            <div class="why-item-icon">🏅</div>
-                            <div class="why-item-text">
-                                <strong>City Park Approved</strong>
-                                <span>We're an approved vendor — no extra permits needed for SB city parks.</span>
-                            </div>
-                        </li>
-                        <li class="why-item">
-                            <div class="why-item-icon">🧹</div>
-                            <div class="why-item-text">
-                                <strong>Clean &amp; Inspected Every Time</strong>
-                                <span>All equipment is sanitized, inspected, and safe before every rental.</span>
-                            </div>
-                        </li>
-                        <li class="why-item">
-                            <div class="why-item-icon">💯</div>
-                            <div class="why-item-text">
-                                <strong>Satisfaction Guaranteed</strong>
-                                <span>If something isn't right, we fix it. Your event success is our priority.</span>
-                            </div>
-                        </li>
-                    </ul>
-
-                    <!-- ✅ AJAX PREFETCH — both CTAs trigger prefetch on hover via fj-link -->
-                    <div style="display:flex;gap:12px;flex-wrap:wrap">
-                        <a href="/book-now/" class="btn btn-white btn-lg fj-link">Book Your Event →</a>
-                        <a href="/about-us/" class="btn btn-ghost-white btn-lg fj-link">Our Story</a>
-                    </div>
-                </div>
-
-                <div class="why-stats" data-aos="fade-left">
-                    <div class="why-stat">
-                        <span class="why-stat-num">26+</span>
-                        <span class="why-stat-label">Years in Business</span>
-                    </div>
-                    <div class="why-stat">
-                        <span class="why-stat-num">4.9★</span>
-                        <span class="why-stat-label">Google Rating</span>
-                    </div>
-                    <div class="why-stat">
-                        <span class="why-stat-num">5k+</span>
-                        <span class="why-stat-label">Events Served</span>
-                    </div>
-                    <div class="why-stat">
-                        <span class="why-stat-num">100%</span>
-                        <span class="why-stat-label">Satisfaction Guaranteed</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!--@include partials/why-fiesta.html-->
 
     <!-- ══ SEO CONTENT + RELATED LINKS ══════════════════════════ -->
     <section class="seo-section">
         <div class="container">
             <div class="seo-grid">
 
-                <div class="seo-text">
-                    <h2>Classic Bounce House Rentals in Santa Barbara, CA</h2>
-                    <p>Inflatable bounce houses are the perfect centerpiece for any party or event. At Fiesta Jumps, we
-                        specialize in classic castle designs, themed bouncers, and units with built-in extras like
-                        basketball hoops. We serve Santa Barbara, Goleta, Montecito, Carpinteria, Santa Ynez, Los
-                        Olivos, and Buellton.</p>
-                    <p>All of our bounce houses are thoroughly cleaned and inspected before every rental. We handle
-                        delivery, professional setup, and breakdown — so you can focus entirely on enjoying your event.
-                        Our equipment is licensed, insured, and approved for use at Santa Barbara City Parks, so no
-                        extra permits are required.</p>
-                    <p>Whether it's a small backyard birthday party for 10 kids or a large school field day for 200
-                        students, we have the right bounce house for your event. <a href="/service-area/"
-                            class="fj-link">Check if we deliver to your area →</a></p>
+                                <div class="seo-text">
+                    <!-- SEO from audit-bundle-deals-seo.json (live: https://fiestajumps.com/rentals/bundle-deals/) -->
+                    <p class="section-label">Bundle &amp; Save</p>
+                    <h2>Party Rental Bundle Deals in Santa Barbara, CA</h2>
+                    <p>Fiesta Jumps bundle deals package inflatables, seating, shade, and concessions so you can book a complete party setup in one quote and save versus renting each piece separately.</p>
+                    <p>Choose Basic, Deluxe, Corporate, or Wet packages for backyard birthdays, school events, and larger corporate celebrations across Santa Barbara and the Central Coast.</p>
+                    <ul class="why-list" style="margin:16px 0 20px">
+                        <li>Four live packages with clear inclusions and published starting prices</li>
+                        <li>Delivery and professional setup available across our service area</li>
+                        <li>Mix seating, tents, concessions, and inflatables without a-la-carte guesswork</li>
+                        <li>Licensed, insured, and family-owned for 26+ years</li>
+                    </ul>
+                    <p><a href="/contact/" class="fj-link">Get a package quote →</a> or call <a href="tel:8055630870">(805) 563-0870</a>. <a href="/service-area/" class="fj-link">Check if we deliver to your area →</a></p>
 
                     <div class="seo-btn-row">
                         <!-- ✅ AJAX PREFETCH — all category chips use fj-link -->
+                        <a href="/bounce-house-rentals/" class="seo-chip fj-link">🏠 Bounce Houses</a>
                         <a href="/combo-bounce-house-rentals/" class="seo-chip fj-link">🎠 Combo Units</a>
                         <a href="/water-slides-rentals/" class="seo-chip fj-link">💧 Water Slides</a>
-                        <a href="/dry-slide-rentals/" class="seo-chip fj-link">🎢 Dry Slides</a>
                         <a href="/obstacle-course-rentals/" class="seo-chip fj-link">🏁 Obstacle Courses</a>
-                        <a href="/bundle-deals/" class="seo-chip fj-link">📦 Bundle Deals</a>
+                        <a href="/tent-rentals/" class="seo-chip fj-link">⛺ Tent Rentals</a>
                     </div>
                 </div>
 
-                <div>
-                    <!-- ✅ ALL RELATED LINKS USE fj-link — hover prefetch fires on each one -->
-                    <div class="related-card">
-                        <h4>Related Categories</h4>
-                        <a href="/combo-bounce-house-rentals/" class="related-link fj-link">Combo Bounce Houses <span
-                                class="related-link-arr">→</span></a>
-                        <a href="/water-slides-rentals/" class="related-link fj-link">Water Slide Rentals <span
-                                class="related-link-arr">→</span></a>
-                        <a href="/dry-slide-rentals/" class="related-link fj-link">Dry Slide Rentals <span
-                                class="related-link-arr">→</span></a>
-                        <a href="/obstacle-course-rentals/" class="related-link fj-link">Obstacle Courses <span
-                                class="related-link-arr">→</span></a>
-                        <a href="/foam-cannon-rentals/" class="related-link fj-link">Foam Cannon <span
-                                class="related-link-arr">→</span></a>
-                        <a href="/concessions-machine/" class="related-link fj-link">Concession Machines <span
-                                class="related-link-arr">→</span></a>
-                        <a href="/bundle-deals/" class="related-link related-link--featured fj-link">🔥 Bundle Deals —
-                            Save More <span class="related-link-arr">→</span></a>
-                    </div>
-
-                    <div class="related-card">
-                        <h4>Service Areas</h4>
-                        <a href="/service-area/#montecito" class="related-link fj-link">Montecito <span
-                                class="related-link-arr">→</span></a>
-                        <a href="/service-area/#goleta" class="related-link fj-link">Goleta <span
-                                class="related-link-arr">→</span></a>
-                        <a href="/service-area/#carpinteria" class="related-link fj-link">Carpinteria <span
-                                class="related-link-arr">→</span></a>
-                        <a href="/service-area/#santa-ynez" class="related-link fj-link">Santa Ynez <span
-                                class="related-link-arr">→</span></a>
-                        <a href="/service-area/#buellton" class="related-link fj-link">Buellton <span
-                                class="related-link-arr">→</span></a>
-                    </div>
-                </div>
+                <!--@include partials/related-sidebar.html-->
 
             </div>
         </div>
@@ -470,33 +368,7 @@
 
     <!--@include partials/product-modal.html-->
     <script src="/main.js"></script>
-    <script>
-        /* ── Filter pills ───────────────────────────────────────── */
-        const pills = document.querySelectorAll('.filter-pill');
-        const cards = document.querySelectorAll('.pcard[data-filter]');
-        const countEl = document.getElementById('filterCount');
 
-        pills.forEach(pill => {
-            pill.addEventListener('click', () => {
-                pills.forEach(p => p.classList.remove('active'));
-                pill.classList.add('active');
-
-                const f = pill.dataset.filter;
-                let vis = 0;
-
-                cards.forEach(card => {
-                    const cats = card.dataset.filter || '';
-                    const show = f === 'all' || cats.split(' ').includes(f);
-                    card.style.display = show ? '' : 'none';
-                    if (show) vis++;
-                });
-
-                if (countEl) {
-                    countEl.textContent = `${vis} unit${vis !== 1 ? 's' : ''} available`;
-                }
-            });
-        });
-    </script>
 
 </body>
 

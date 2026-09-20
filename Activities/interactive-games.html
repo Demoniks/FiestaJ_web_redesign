@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Set theme before first paint so there's no flash of the wrong theme -->
-    <script>(function () { try { var t = localStorage.getItem('fj-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); document.documentElement.setAttribute('data-theme', t); } catch (e) { } })();</script>
+    <script>(function () { try { var t = localStorage.getItem('fj-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); document.documentElement.setAttribute('data-theme', t); } catch (e) { } document.documentElement.classList.add('fj-booting'); if (!document.getElementById('fj-boot-style')) { var _s = document.createElement('style'); _s.id = 'fj-boot-style'; _s.textContent = 'html.fj-booting::before{content:"";position:fixed;inset:0;background:#1C1410;z-index:99999;pointer-events:none}'; (document.head || document.documentElement).appendChild(_s); } })();</script>
     <title>Interactive Game Rentals in Santa Barbara, CA | Fiesta Jumps</title>
     <meta name="description" content="Rent interactive carnival-style games in Santa Barbara, CA. Fiesta Jumps brings the midway fun straight to your event.">
     <meta name="robots" content="index, follow">
     <!-- Open Graph -->
-    <meta property="og:title" content="Interactive Game Rentals — Fiesta Jumps Santa Barbara">
+    <meta property="og:title" content="Interactive Game Rentals | Fiesta Jumps Santa Barbara">
     <meta property="og:description" content="Santa Barbara's #1 party rental company. Carnival-style interactive games for parties, festivals, and team events.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://fiestajumps.com/interactive-game-rentals/">
@@ -36,7 +36,7 @@
     <link rel="prefetch" href="/combo-bounce-house-rentals/" as="document">
     <link rel="prefetch" href="/water-slides-rentals/" as="document">
     <link rel="prefetch" href="/bundle-deals/" as="document">
-    <link rel="prefetch" href="/book-now/" as="document">
+    <link rel="prefetch" href="/contact/" as="document">
 
 </head>
 
@@ -55,7 +55,7 @@
         "breadcrumbCurrent": "Interactive Games",
         "catTag": "🎯 Interactive Game Rentals",
         "title": "Interactive <em>Carnival</em> Game Rentals",
-        "desc": "Bring the midway to your backyard. Our interactive games add carnival-style fun for guests of every age — great for birthdays, school carnivals, and company picnics.",
+        "desc": "Bring the midway to your backyard. Our interactive games add carnival-style fun for guests of every age. Great for birthdays, school carnivals, and company picnics.",
         "badges": [
             "✅ Delivery &amp; Setup Included",
             "🎯 Carnival-Style Fun",
@@ -63,21 +63,20 @@
             "🧹 Clean &amp; Inspected"
         ],
         "ctaPrimaryText": "Set Event Date",
-        "ctaPrimaryHref": "/book-now/"
+        "ctaPrimaryHref": "/contact/"
     }
     -->
 
-    <!-- ══ FILTER BAR ═══════════════════════════════════════════ -->
-    <nav class="filter-bar" aria-label="Filter bounce houses">
+    <!-- Source: https://fiestajumps.com/rentals/games/ · audit: /workspace/fiesta-content/audit-games.json · cards rendered from products[] -->
+    <nav class="filter-bar" aria-label="Filter interactive games">
         <div class="container filter-bar-inner">
             <fieldset class="filter-pills" aria-label="Filter options">
-                <button class="filter-pill active" data-filter="all">All Units</button>
-                <button class="filter-pill" data-filter="standard">Standard</button>
-                <button class="filter-pill" data-filter="large">Large</button>
-                <button class="filter-pill" data-filter="themed">Themed</button>
-                <button class="filter-pill" data-filter="basketball">w/ Basketball</button>
+                <button class="filter-pill active" data-filter="all">All Games</button>
+                <button class="filter-pill" data-filter="carnival">Carnival</button>
+                <button class="filter-pill" data-filter="inflatable">Inflatable</button>
+                <button class="filter-pill" data-filter="sports">Sports</button>
             </fieldset>
-            <span class="filter-count" id="filterCount" aria-live="polite">8 units available</span>
+            <span class="filter-count" id="filterCount" aria-live="polite">21 games available</span>
         </div>
     </nav>
 
@@ -86,191 +85,656 @@
         <div class="container">
             <div class="products-grid" id="productsGrid">
 
-                <!-- ─────────────────────────────────────────────────────
-           PRODUCT CARDS
-           To use a real photo: replace the <div class="pcard-emoji">
-           with <img src="YOUR-URL" alt="Product name">
-           inside <div class="pcard-img">
+                <!-- cards rendered from products[] in audit-games.json — emoji/gradient placeholders only; Get Quote → /contact/?item=SLUG -->
 
-           EventHawk booking URL format:
-           href="/book-now/?item=PRODUCT-SLUG"
-           ───────────────────────────────────────────────────── -->
-
-                <div class="pcard" data-filter="large" data-aos="fade-up" style="--d:0ms">
+                <!-- 15ft High Striker -->
+                <div class="pcard" data-filter="carnival" data-aos="fade-up" style="--d:0ms">
                     <div class="pcard-img" style="background:linear-gradient(135deg,#EBF5FF,#BFDBFE)">
-                        <!-- SWAP: <img src="https://fiestajumps.com/wp-content/uploads/hot-air-balloon.jpg" alt="Hot Air Balloon Bouncer"> -->
-                        <div class="pcard-emoji">🎈</div>
-                        <span class="pcard-badge">Large Unit</span>
+                        <img class="pcard-photo" src="https://fiestajumps.com/wp-content/uploads/2026/04/IMG_1009_1776970644_big.jpg" alt="15ft High Striker" loading="lazy">
                         <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
                     </div>
                     <div class="pcard-body">
-                        <h3>Hot Air Balloon Bouncer Large</h3>
-                        <p>A colorful and exciting large bounce house shaped like a hot air balloon — a guaranteed
-                            showstopper at any party.</p>
+                        <h3>15ft High Striker</h3>
+                        <p>15ft High Striker. A fun carnival-style game for your guests.</p>
                         <div class="pcard-meta">
-                            <span class="pcard-tag pcard-tag--blue">📐 Large</span>
-                            
+                            <span class="pcard-tag pcard-tag--warm">💵 from $250</span>
+                            <span class="pcard-tag pcard-tag--green">✨ Extension Cord</span>
                         </div>
                     </div>
                     <div class="pcard-actions">
-                        <!-- ✅ AJAX PREFETCH — Get Quote and Details use fj-link for prefetch -->
-                        <a href="/book-now/?item=hot-air-balloon" class="pcard-btn pcard-btn--primary fj-link">Get
-                            Quote</a>
-                        <a href="/bounce-house-rentals/hot-air-balloon/"
-                            class="pcard-btn pcard-btn--outline fj-link">Details</a>
+                        <a href="/contact/?item=15ft-high-striker" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal" data-image="https://fiestajumps.com/wp-content/uploads/2026/04/IMG_1009_1776970644_big.jpg"
+                            data-emoji="🔨"
+                            data-title="15ft High Striker"
+                            data-desc="15ft High Striker. A fun carnival-style game for your guests."
+                            data-dims="Ask for size"
+                            data-area="Confirm setup space when booking"
+                            data-cap="Confirm on booking"
+                            data-power="Confirm on booking"
+                            data-price="from $250"
+                            data-includes="Extension Cord · Blower · Safety Stakes to secure to ground"
+                            data-book="/contact/?item=15ft-high-striker"
+                            data-requirement="Confirm delivery space and site needs when booking">Details</a>
                     </div>
                 </div>
 
-                <div class="pcard" data-filter="basketball large" data-aos="fade-up" style="--d:60ms">
+                <!-- 3 Milk Cans -->
+                <div class="pcard" data-filter="carnival" data-aos="fade-up" style="--d:60ms">
                     <div class="pcard-img" style="background:linear-gradient(135deg,#FFF7ED,#FED7AA)">
-                        <div class="pcard-emoji">🏰</div>
-                        <span class="pcard-badge">⭐ Popular</span>
+                        <img class="pcard-photo" src="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e581e6bc1add705796.png" alt="3 Milk Cans" loading="lazy">
                         <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
                     </div>
                     <div class="pcard-body">
-                        <h3>Lava Castle 16′ × 16′ w/ Basketball Hoop</h3>
-                        <p>Classic castle design with an integrated basketball hoop — bounce and shoot in one exciting
-                            unit.</p>
+                        <h3>3 Milk Cans</h3>
+                        <p>3 Milk Cans. A fun carnival-style game for your guests.</p>
                         <div class="pcard-meta">
-                            <span class="pcard-tag pcard-tag--blue">📐 16′ × 16′</span>
-                            <span class="pcard-tag pcard-tag--warm">🏀 Hoop Included</span>
+                            <span class="pcard-tag pcard-tag--warm">💵 from $199</span>
+                            <span class="pcard-tag pcard-tag--green">✨ Extension Cord</span>
                         </div>
                     </div>
                     <div class="pcard-actions">
-                        <a href="/book-now/?item=lava-castle" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
-                        <a href="/bounce-house-rentals/lava-castle/"
-                            class="pcard-btn pcard-btn--outline fj-link">Details</a>
+                        <a href="/contact/?item=3-milk-cans" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal" data-image="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e581e6bc1add705796.png"
+                            data-emoji="🎪"
+                            data-title="3 Milk Cans"
+                            data-desc="3 Milk Cans. A fun carnival-style game for your guests."
+                            data-dims="Ask for size"
+                            data-area="Confirm setup space when booking"
+                            data-cap="Confirm on booking"
+                            data-power="Confirm on booking"
+                            data-price="from $199"
+                            data-includes="Extension Cord · Blower · Safety Stakes to secure to ground"
+                            data-book="/contact/?item=3-milk-cans"
+                            data-requirement="Confirm delivery space and site needs when booking">Details</a>
                     </div>
                 </div>
 
-                <div class="pcard" data-filter="standard" data-aos="fade-up" style="--d:120ms">
+                <!-- 6 FT KIDDIE STRIKER -->
+                <div class="pcard" data-filter="carnival" data-aos="fade-up" style="--d:120ms">
                     <div class="pcard-img" style="background:linear-gradient(135deg,#F0FDF4,#A7F3D0)">
-                        <div class="pcard-emoji">🏯</div>
+                        <img class="pcard-photo" src="https://fiestajumps.com/wp-content/uploads/2026/04/IMG_1010_1776970644_big.jpg" alt="6 ft Kiddie Striker" loading="lazy">
                         <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
                     </div>
                     <div class="pcard-body">
-                        <h3>Mini Castle 9′ × 9′</h3>
-                        <p>Perfect for smaller yards and younger children. Safe, fun, and easy to set up in tight
-                            spaces.</p>
+                        <h3>6 ft Kiddie Striker</h3>
+                        <p>6 ft Kiddie Striker. A fun carnival-style game for your guests.</p>
                         <div class="pcard-meta">
-                            <span class="pcard-tag pcard-tag--blue">📐 9′ × 9′</span>
-                            
+                            <span class="pcard-tag pcard-tag--warm">💵 from $160</span>
+                            <span class="pcard-tag pcard-tag--green">✨ Extension Cord</span>
                         </div>
                     </div>
                     <div class="pcard-actions">
-                        <a href="/book-now/?item=mini-castle" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
-                        <a href="/bounce-house-rentals/mini-castle/"
-                            class="pcard-btn pcard-btn--outline fj-link">Details</a>
+                        <a href="/contact/?item=6-ft-kiddie-striker-2" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal" data-image="https://fiestajumps.com/wp-content/uploads/2026/04/IMG_1010_1776970644_big.jpg"
+                            data-emoji="🔨"
+                            data-title="6 ft Kiddie Striker"
+                            data-desc="6 ft Kiddie Striker. A fun carnival-style game for your guests."
+                            data-dims="Ask for size"
+                            data-area="Confirm setup space when booking"
+                            data-cap="Confirm on booking"
+                            data-power="Confirm on booking"
+                            data-price="from $160"
+                            data-includes="Extension Cord · Blower · Safety Stakes to secure to ground"
+                            data-book="/contact/?item=6-ft-kiddie-striker-2"
+                            data-requirement="Confirm delivery space and site needs when booking">Details</a>
                     </div>
                 </div>
 
-                <div class="pcard" data-filter="themed" data-aos="fade-up" style="--d:0ms">
+                <!-- Basket Toss -->
+                <div class="pcard" data-filter="carnival" data-aos="fade-up" style="--d:0ms">
+                    <div class="pcard-img" style="background:linear-gradient(135deg,#FEF3C7,#FCD34D)">
+                        <img class="pcard-photo" src="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e57794bfc84948584c.png" alt="Basket Toss" loading="lazy">
+                        <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
+                    </div>
+                    <div class="pcard-body">
+                        <h3>Basket Toss</h3>
+                        <p>Basket Toss. A fun carnival-style game for your guests.</p>
+                        <div class="pcard-meta">
+                            <span class="pcard-tag pcard-tag--warm">💵 from $150</span>
+                            <span class="pcard-tag pcard-tag--green">✨ Extension Cord</span>
+                        </div>
+                    </div>
+                    <div class="pcard-actions">
+                        <a href="/contact/?item=basket-toss" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal" data-image="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e57794bfc84948584c.png"
+                            data-emoji="🎪"
+                            data-title="Basket Toss"
+                            data-desc="Basket Toss. A fun carnival-style game for your guests."
+                            data-dims="Ask for size"
+                            data-area="Confirm setup space when booking"
+                            data-cap="Confirm on booking"
+                            data-power="Confirm on booking"
+                            data-price="from $150"
+                            data-includes="Extension Cord · Blower · Safety Stakes to secure to ground"
+                            data-book="/contact/?item=basket-toss"
+                            data-requirement="Confirm delivery space and site needs when booking">Details</a>
+                    </div>
+                </div>
+
+                <!-- Basketball Shootout -->
+                <div class="pcard" data-filter="sports" data-aos="fade-up" style="--d:60ms">
                     <div class="pcard-img" style="background:linear-gradient(135deg,#FDF2F8,#FBCFE8)">
-                        <div class="pcard-emoji">🎀</div>
+                        <img class="pcard-photo" src="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e5e8fe2e498ebc4122.png" alt="Basketball Shootout" loading="lazy">
                         <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
                     </div>
                     <div class="pcard-body">
-                        <h3>Pink Castle</h3>
-                        <p>A beautiful pink princess castle — the ultimate themed bouncer for girls' birthday parties
-                            and princess events.</p>
+                        <h3>Basketball Shootout</h3>
+                        <p>Basketball Shootout. A fun carnival-style game for your guests.</p>
                         <div class="pcard-meta">
-                            <span class="pcard-tag pcard-tag--blue">📐 Standard</span>
-                            <span class="pcard-tag pcard-tag--warm">🎀 Themed</span>
+                            <span class="pcard-tag pcard-tag--warm">💵 from $299</span>
+                            <span class="pcard-tag pcard-tag--blue">📐 Space required</span>
                         </div>
                     </div>
                     <div class="pcard-actions">
-                        <a href="/book-now/?item=pink-castle" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
-                        <a href="/bounce-house-rentals/pink-castle/"
-                            class="pcard-btn pcard-btn--outline fj-link">Details</a>
+                        <a href="/contact/?item=basketball-shootout" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal" data-image="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e5e8fe2e498ebc4122.png"
+                            data-emoji="🏀"
+                            data-title="Basketball Shootout"
+                            data-desc="Basketball Shootout. A fun carnival-style game for your guests."
+                            data-dims="Space required"
+                            data-area="Confirm setup space when booking"
+                            data-cap="Confirm on booking"
+                            data-power="Confirm on booking"
+                            data-price="from $299"
+                            data-includes="Extension Cord · Blower · Safety Stakes to secure to ground"
+                            data-book="/contact/?item=basketball-shootout"
+                            data-requirement="Confirm delivery space and site needs when booking">Details</a>
                     </div>
                 </div>
 
-                <div class="pcard" data-filter="themed large" data-aos="fade-up" style="--d:60ms">
+                <!-- Boxing Ring -->
+                <div class="pcard" data-filter="inflatable" data-aos="fade-up" style="--d:120ms">
+                    <div class="pcard-img" style="background:linear-gradient(135deg,#EEF2FF,#C7D2FE)">
+                        <img class="pcard-photo" src="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e55ebd493f696fed13.png" alt="Boxing Ring" loading="lazy">
+                        <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
+                    </div>
+                    <div class="pcard-body">
+                        <h3>Boxing Ring</h3>
+                        <p>Boxing Ring. A fun carnival-style game for your guests.</p>
+                        <div class="pcard-meta">
+                            <span class="pcard-tag pcard-tag--warm">💵 from $299</span>
+                            <span class="pcard-tag pcard-tag--blue">📐 Space required</span>
+                        </div>
+                    </div>
+                    <div class="pcard-actions">
+                        <a href="/contact/?item=boxing-ring" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal" data-image="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e55ebd493f696fed13.png"
+                            data-emoji="🥊"
+                            data-title="Boxing Ring"
+                            data-desc="Boxing Ring. A fun carnival-style game for your guests."
+                            data-dims="Space required"
+                            data-area="Confirm setup space when booking"
+                            data-cap="Confirm on booking"
+                            data-power="Confirm on booking"
+                            data-price="from $299"
+                            data-includes="Extension Cord · Blower · Safety Stakes to secure to ground"
+                            data-book="/contact/?item=boxing-ring"
+                            data-requirement="Confirm delivery space and site needs when booking">Details</a>
+                    </div>
+                </div>
+
+                <!-- Bungee Run -->
+                <div class="pcard" data-filter="inflatable" data-aos="fade-up" style="--d:0ms">
+                    <div class="pcard-img" style="background:linear-gradient(135deg,#ECFEFF,#A5F3FC)">
+                        <img class="pcard-photo" src="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e5421e2482c37c0afe.png" alt="Bungee Run" loading="lazy">
+                        <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
+                    </div>
+                    <div class="pcard-body">
+                        <h3>Bungee Run</h3>
+                        <p>Bungee Run. A fun carnival-style game for your guests.</p>
+                        <div class="pcard-meta">
+                            <span class="pcard-tag pcard-tag--warm">💵 from $299</span>
+                            <span class="pcard-tag pcard-tag--blue">📐 Space required</span>
+                        </div>
+                    </div>
+                    <div class="pcard-actions">
+                        <a href="/contact/?item=bungee-run" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal" data-image="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e5421e2482c37c0afe.png"
+                            data-emoji="🏃"
+                            data-title="Bungee Run"
+                            data-desc="Bungee Run. A fun carnival-style game for your guests."
+                            data-dims="Space required"
+                            data-area="Confirm setup space when booking"
+                            data-cap="Confirm on booking"
+                            data-power="Confirm on booking"
+                            data-price="from $299"
+                            data-includes="Extension Cord · Blower · Safety Stakes to secure to ground"
+                            data-book="/contact/?item=bungee-run"
+                            data-requirement="Confirm delivery space and site needs when booking">Details</a>
+                    </div>
+                </div>
+
+                <!-- Dunk Tank -->
+                <div class="pcard" data-filter="inflatable" data-aos="fade-up" style="--d:60ms">
+                    <div class="pcard-img" style="background:linear-gradient(135deg,#FEE2E2,#FCA5A5)">
+                        <img class="pcard-photo" src="https://fiestajumps.com/wp-content/uploads/2020/01/dunk-tank.jpeg" alt="Dunk Tank" loading="lazy">
+                        <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
+                    </div>
+                    <div class="pcard-body">
+                        <h3>Dunk Tank</h3>
+                        <p>Classic dunk tank for parties, schools, and fundraisers.</p>
+                        <div class="pcard-meta">
+                            <span class="pcard-tag pcard-tag--warm">💵 from $450</span>
+                            <span class="pcard-tag pcard-tag--blue">📐 10'Wx10'Lx7'H</span>
+                        </div>
+                    </div>
+                    <div class="pcard-actions">
+                        <a href="/contact/?item=dunk-tank" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal" data-image="https://fiestajumps.com/wp-content/uploads/2020/01/dunk-tank.jpeg"
+                            data-emoji="💦"
+                            data-title="Dunk Tank"
+                            data-desc="Classic dunk tank for parties, schools, and fundraisers."
+                            data-dims="10'Wx10'Lx7'H"
+                            data-area="Confirm setup space when booking"
+                            data-cap="Confirm on booking"
+                            data-power="Confirm on booking"
+                            data-price="from $450"
+                            data-includes="Extension Cord · Blower · Safety Stakes to secure to ground"
+                            data-book="/contact/?item=dunk-tank"
+                            data-requirement="Confirm delivery space and site needs when booking">Details</a>
+                    </div>
+                </div>
+
+                <!-- Floor is Lava Wrecking Ball -->
+                <div class="pcard" data-filter="inflatable" data-aos="fade-up" style="--d:120ms">
+                    <div class="pcard-img" style="background:linear-gradient(135deg,#EBF5FF,#BFDBFE)">
+                        <img class="pcard-photo" src="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e5d76c0d877c1ac63a.png" alt="Floor is Lava Wrecking Ball" loading="lazy">
+                        <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
+                    </div>
+                    <div class="pcard-body">
+                        <h3>Floor is Lava Wrecking Ball</h3>
+                        <p>Floor is Lava Wrecking Ball. A fun carnival-style game for your guests.</p>
+                        <div class="pcard-meta">
+                            <span class="pcard-tag pcard-tag--warm">💵 from $450</span>
+                            <span class="pcard-tag pcard-tag--blue">📐 20'Wx20'Lx16'H</span>
+                        </div>
+                    </div>
+                    <div class="pcard-actions">
+                        <a href="/contact/?item=lava-is-floor-wrecking-ball" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal" data-image="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e5d76c0d877c1ac63a.png"
+                            data-emoji="🌋"
+                            data-title="Floor is Lava Wrecking Ball"
+                            data-desc="Floor is Lava Wrecking Ball. A fun carnival-style game for your guests."
+                            data-dims="20'Wx20'Lx16'H; space required: 25'Wx25'Lx17'H"
+                            data-area="Confirm setup space when booking"
+                            data-cap="Confirm on booking"
+                            data-power="Confirm on booking"
+                            data-price="from $450"
+                            data-includes="Extension Cord · Blower · Safety Stakes to secure to ground"
+                            data-book="/contact/?item=lava-is-floor-wrecking-ball"
+                            data-requirement="Confirm delivery space and site needs when booking">Details</a>
+                    </div>
+                </div>
+
+                <!-- Football Throw -->
+                <div class="pcard" data-filter="sports" data-aos="fade-up" style="--d:0ms">
+                    <div class="pcard-img" style="background:linear-gradient(135deg,#FFF7ED,#FED7AA)">
+                        <img class="pcard-photo" src="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e5146bc5a213e450dd.png" alt="Football Throw" loading="lazy">
+                        <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
+                    </div>
+                    <div class="pcard-body">
+                        <h3>Football Throw</h3>
+                        <p>Football Throw. A fun carnival-style game for your guests.</p>
+                        <div class="pcard-meta">
+                            <span class="pcard-tag pcard-tag--warm">💵 from $199</span>
+                            <span class="pcard-tag pcard-tag--blue">📐 Space required</span>
+                        </div>
+                    </div>
+                    <div class="pcard-actions">
+                        <a href="/contact/?item=football-throw" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal" data-image="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e5146bc5a213e450dd.png"
+                            data-emoji="🏈"
+                            data-title="Football Throw"
+                            data-desc="Football Throw. A fun carnival-style game for your guests."
+                            data-dims="Space required"
+                            data-area="Confirm setup space when booking"
+                            data-cap="Confirm on booking"
+                            data-power="Confirm on booking"
+                            data-price="from $199"
+                            data-includes="Extension Cord · Blower · Safety Stakes to secure to ground"
+                            data-book="/contact/?item=football-throw"
+                            data-requirement="Confirm delivery space and site needs when booking">Details</a>
+                    </div>
+                </div>
+
+                <!-- Hole in One -->
+                <div class="pcard" data-filter="sports" data-aos="fade-up" style="--d:60ms">
+                    <div class="pcard-img" style="background:linear-gradient(135deg,#F0FDF4,#A7F3D0)">
+                        <img class="pcard-photo" src="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e5146bc5a484e450d8.png" alt="Hole in One" loading="lazy">
+                        <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
+                    </div>
+                    <div class="pcard-body">
+                        <h3>Hole in One</h3>
+                        <p>Hole in One. A fun carnival-style game for your guests.</p>
+                        <div class="pcard-meta">
+                            <span class="pcard-tag pcard-tag--warm">💵 from $199</span>
+                            <span class="pcard-tag pcard-tag--green">✨ Extension Cord</span>
+                        </div>
+                    </div>
+                    <div class="pcard-actions">
+                        <a href="/contact/?item=hole-in-one" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal" data-image="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e5146bc5a484e450d8.png"
+                            data-emoji="⛳"
+                            data-title="Hole in One"
+                            data-desc="Hole in One. A fun carnival-style game for your guests."
+                            data-dims="Ask for size"
+                            data-area="Confirm setup space when booking"
+                            data-cap="Confirm on booking"
+                            data-power="Confirm on booking"
+                            data-price="from $199"
+                            data-includes="Extension Cord · Blower · Safety Stakes to secure to ground"
+                            data-book="/contact/?item=hole-in-one"
+                            data-requirement="Confirm delivery space and site needs when booking">Details</a>
+                    </div>
+                </div>
+
+                <!-- Joust Gladiator Arena -->
+                <div class="pcard" data-filter="inflatable" data-aos="fade-up" style="--d:120ms">
+                    <div class="pcard-img" style="background:linear-gradient(135deg,#FEF3C7,#FCD34D)">
+                        <img class="pcard-photo" src="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e5c2e4501751c83da1.png" alt="Joust Gladiator Arena" loading="lazy">
+                        <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
+                    </div>
+                    <div class="pcard-body">
+                        <h3>Joust Gladiator Arena</h3>
+                        <p>Joust Gladiator Arena. A fun carnival-style game for your guests.</p>
+                        <div class="pcard-meta">
+                            <span class="pcard-tag pcard-tag--warm">💵 from $399</span>
+                            <span class="pcard-tag pcard-tag--blue">📐 Space required</span>
+                        </div>
+                    </div>
+                    <div class="pcard-actions">
+                        <a href="/contact/?item=joust-gladiator-arena" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal" data-image="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e5c2e4501751c83da1.png"
+                            data-emoji="⚔️"
+                            data-title="Joust Gladiator Arena"
+                            data-desc="Joust Gladiator Arena. A fun carnival-style game for your guests."
+                            data-dims="Space required"
+                            data-area="Confirm setup space when booking"
+                            data-cap="Confirm on booking"
+                            data-power="Confirm on booking"
+                            data-price="from $399"
+                            data-includes="Extension Cord · Blower · Safety Stakes to secure to ground"
+                            data-book="/contact/?item=joust-gladiator-arena"
+                            data-requirement="Confirm delivery space and site needs when booking">Details</a>
+                    </div>
+                </div>
+
+                <!-- Jumping Frog -->
+                <div class="pcard" data-filter="carnival" data-aos="fade-up" style="--d:0ms">
                     <div class="pcard-img" style="background:linear-gradient(135deg,#FDF2F8,#FBCFE8)">
-                        <div class="pcard-emoji">🏰</div>
-                        <span class="pcard-badge pcard-badge--blue">Large</span>
+                        <img class="pcard-photo" src="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e581e6bc552b70579d.png" alt="Jumping Frog" loading="lazy">
                         <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
                     </div>
                     <div class="pcard-body">
-                        <h3>Pink Castle Large Bounce House</h3>
-                        <p>The larger version of our beloved Pink Castle — more room, more fun for bigger parties and
-                            events.</p>
+                        <h3>Jumping Frog</h3>
+                        <p>Jumping Frog. A fun carnival-style game for your guests.</p>
                         <div class="pcard-meta">
-                            <span class="pcard-tag pcard-tag--blue">📐 Large Unit</span>
-                            <span class="pcard-tag pcard-tag--warm">🎀 Themed</span>
+                            <span class="pcard-tag pcard-tag--warm">💵 from $199</span>
+                            <span class="pcard-tag pcard-tag--green">✨ Extension Cord</span>
                         </div>
                     </div>
                     <div class="pcard-actions">
-                        <a href="/book-now/?item=pink-castle-large" class="pcard-btn pcard-btn--primary fj-link">Get
-                            Quote</a>
-                        <a href="/bounce-house-rentals/pink-castle-large/"
-                            class="pcard-btn pcard-btn--outline fj-link">Details</a>
+                        <a href="/contact/?item=jumping-frog" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal" data-image="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e581e6bc552b70579d.png"
+                            data-emoji="🐸"
+                            data-title="Jumping Frog"
+                            data-desc="Jumping Frog. A fun carnival-style game for your guests."
+                            data-dims="Ask for size"
+                            data-area="Confirm setup space when booking"
+                            data-cap="Confirm on booking"
+                            data-power="Confirm on booking"
+                            data-price="from $199"
+                            data-includes="Extension Cord · Blower · Safety Stakes to secure to ground"
+                            data-book="/contact/?item=jumping-frog"
+                            data-requirement="Confirm delivery space and site needs when booking">Details</a>
                     </div>
                 </div>
 
-                <div class="pcard" data-filter="standard large" data-aos="fade-up" style="--d:120ms">
-                    <div class="pcard-img" style="background:linear-gradient(135deg,#EFF6FF,#BFDBFE)">
-                        <div class="pcard-emoji">🌈</div>
-                        <span class="pcard-badge pcard-badge--green">🔥 Best Seller</span>
+                <!-- Lazer Tag Maze -->
+                <div class="pcard" data-filter="inflatable" data-aos="fade-up" style="--d:60ms">
+                    <div class="pcard-img" style="background:linear-gradient(135deg,#EEF2FF,#C7D2FE)">
+                        <img class="pcard-photo" src="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e5e2498125ad1c534e.png" alt="Lazer Tag Maze" loading="lazy">
                         <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
                     </div>
                     <div class="pcard-body">
-                        <h3>Rainbow Castle Large Bouncer</h3>
-                        <p>Our most popular model — bigger space and vivid colors make this the go-to for large parties
-                            and events.</p>
+                        <h3>Lazer Tag Maze</h3>
+                        <p>Lazer Tag Maze. A fun carnival-style game for your guests.</p>
                         <div class="pcard-meta">
-                            <span class="pcard-tag pcard-tag--blue">📐 Large Unit</span>
-                            
+                            <span class="pcard-tag pcard-tag--warm">💵 from $399</span>
+                            <span class="pcard-tag pcard-tag--blue">📐 Space required</span>
                         </div>
                     </div>
                     <div class="pcard-actions">
-                        <a href="/book-now/?item=rainbow-castle-large" class="pcard-btn pcard-btn--primary fj-link">Get
-                            Quote</a>
-                        <a href="/bounce-house-rentals/rainbow-castle-large/"
-                            class="pcard-btn pcard-btn--outline fj-link">Details</a>
+                        <a href="/contact/?item=lazer-tag-maze" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal" data-image="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e5e2498125ad1c534e.png"
+                            data-emoji="🔫"
+                            data-title="Lazer Tag Maze"
+                            data-desc="Lazer Tag Maze. A fun carnival-style game for your guests."
+                            data-dims="Space required"
+                            data-area="Confirm setup space when booking"
+                            data-cap="Confirm on booking"
+                            data-power="Confirm on booking"
+                            data-price="from $399"
+                            data-includes="Extension Cord · Blower · Safety Stakes to secure to ground"
+                            data-book="/contact/?item=lazer-tag-maze"
+                            data-requirement="Confirm delivery space and site needs when booking">Details</a>
                     </div>
                 </div>
 
-                <div class="pcard" data-filter="standard" data-aos="fade-up" style="--d:0ms">
-                    <div class="pcard-img" style="background:linear-gradient(135deg,#EFF6FF,#BFDBFE)">
-                        <div class="pcard-emoji">🌈</div>
+                <!-- Marvels Game -->
+                <div class="pcard" data-filter="carnival" data-aos="fade-up" style="--d:120ms">
+                    <div class="pcard-img" style="background:linear-gradient(135deg,#ECFEFF,#A5F3FC)">
+                        <img class="pcard-photo" src="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e53ce89eb2d74ff288.png" alt="Marvels Game" loading="lazy">
                         <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
                     </div>
                     <div class="pcard-body">
-                        <h3>Rainbow Castle Bounce House</h3>
-                        <p>A vibrant multi-color castle with classic bounce design — loved by kids of all ages at every
-                            party.</p>
+                        <h3>Marvels Game</h3>
+                        <p>Marvels Game. A fun carnival-style game for your guests.</p>
                         <div class="pcard-meta">
-                            <span class="pcard-tag pcard-tag--blue">📐 Standard</span>
-                            
+                            <span class="pcard-tag pcard-tag--warm">💵 from $199</span>
+                            <span class="pcard-tag pcard-tag--green">✨ Extension Cord</span>
                         </div>
                     </div>
                     <div class="pcard-actions">
-                        <a href="/book-now/?item=rainbow-castle" class="pcard-btn pcard-btn--primary fj-link">Get
-                            Quote</a>
-                        <a href="/bounce-house-rentals/rainbow-castle/"
-                            class="pcard-btn pcard-btn--outline fj-link">Details</a>
+                        <a href="/contact/?item=marvels-game" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal" data-image="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e53ce89eb2d74ff288.png"
+                            data-emoji="🎪"
+                            data-title="Marvels Game"
+                            data-desc="Marvels Game. A fun carnival-style game for your guests."
+                            data-dims="Ask for size"
+                            data-area="Confirm setup space when booking"
+                            data-cap="Confirm on booking"
+                            data-power="Confirm on booking"
+                            data-price="from $199"
+                            data-includes="Extension Cord · Blower · Safety Stakes to secure to ground"
+                            data-book="/contact/?item=marvels-game"
+                            data-requirement="Confirm delivery space and site needs when booking">Details</a>
                     </div>
                 </div>
 
-                <div class="pcard" data-filter="standard" data-aos="fade-up" style="--d:60ms">
-                    <div class="pcard-img" style="background:linear-gradient(135deg,#FEF2F2,#FCA5A5)">
-                        <div class="pcard-emoji">🔴</div>
+                <!-- MECHANICAL BULL WITH MAT -->
+                <div class="pcard" data-filter="inflatable" data-aos="fade-up" style="--d:0ms">
+                    <div class="pcard-img" style="background:linear-gradient(135deg,#FEE2E2,#FCA5A5)">
+                        <div class="pcard-emoji">🐂</div>
                         <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
                     </div>
                     <div class="pcard-body">
-                        <h3>Red Castle Bounce House</h3>
-                        <p>A bold, bright red castle that stands out at any event and excites every guest who sees it.
-                        </p>
+                        <h3>Mechanical Bull With Mat</h3>
+                        <p>Mechanical Bull With Mat. A fun carnival-style game for your guests.</p>
                         <div class="pcard-meta">
-                            <span class="pcard-tag pcard-tag--blue">📐 Standard</span>
-                            
+                            <span class="pcard-tag pcard-tag--warm">💵 from $550</span>
+                            <span class="pcard-tag pcard-tag--green">✨ Extension Cord</span>
                         </div>
                     </div>
                     <div class="pcard-actions">
-                        <a href="/book-now/?item=red-castle" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
-                        <a href="/bounce-house-rentals/red-castle/"
-                            class="pcard-btn pcard-btn--outline fj-link">Details</a>
+                        <a href="/contact/?item=mechanical-bull-with-mat" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal"
+                            data-emoji="🐂"
+                            data-title="Mechanical Bull With Mat"
+                            data-desc="Mechanical Bull With Mat. A fun carnival-style game for your guests."
+                            data-dims="Ask for size"
+                            data-area="Confirm setup space when booking"
+                            data-cap="Confirm on booking"
+                            data-power="Confirm on booking"
+                            data-price="from $550"
+                            data-includes="Extension Cord · Blower · Safety Stakes to secure to ground"
+                            data-book="/contact/?item=mechanical-bull-with-mat"
+                            data-requirement="Confirm delivery space and site needs when booking">Details</a>
+                    </div>
+                </div>
+
+                <!-- Play-Around-Golf 3 Holes -->
+                <div class="pcard" data-filter="sports" data-aos="fade-up" style="--d:60ms">
+                    <div class="pcard-img" style="background:linear-gradient(135deg,#EBF5FF,#BFDBFE)">
+                        <img class="pcard-photo" src="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e55155105b41b598e0.png" alt="Play-Around-Golf 3 Holes" loading="lazy">
+                        <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
+                    </div>
+                    <div class="pcard-body">
+                        <h3>Play-Around-Golf 3 Holes</h3>
+                        <p>Play-Around-Golf 3 Holes. A fun carnival-style game for your guests.</p>
+                        <div class="pcard-meta">
+                            <span class="pcard-tag pcard-tag--warm">💵 from $299</span>
+                            <span class="pcard-tag pcard-tag--green">✨ Extension Cord</span>
+                        </div>
+                    </div>
+                    <div class="pcard-actions">
+                        <a href="/contact/?item=play-around-golf-3-holes" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal" data-image="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e55155105b41b598e0.png"
+                            data-emoji="⛳"
+                            data-title="Play-Around-Golf 3 Holes"
+                            data-desc="Play-Around-Golf 3 Holes. A fun carnival-style game for your guests."
+                            data-dims="Ask for size"
+                            data-area="Confirm setup space when booking"
+                            data-cap="Confirm on booking"
+                            data-power="Confirm on booking"
+                            data-price="from $299"
+                            data-includes="Extension Cord · Blower · Safety Stakes to secure to ground"
+                            data-book="/contact/?item=play-around-golf-3-holes"
+                            data-requirement="Confirm delivery space and site needs when booking">Details</a>
+                    </div>
+                </div>
+
+                <!-- Rock &amp; Joust -->
+                <div class="pcard" data-filter="inflatable" data-aos="fade-up" style="--d:120ms">
+                    <div class="pcard-img" style="background:linear-gradient(135deg,#FFF7ED,#FED7AA)">
+                        <img class="pcard-photo" src="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e5146bc52efde450dc.png" alt="Rock &amp;amp; Joust" loading="lazy">
+                        <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
+                    </div>
+                    <div class="pcard-body">
+                        <h3>Rock &amp; Joust</h3>
+                        <p>Rock &amp;amp; Joust. A fun carnival-style game for your guests.</p>
+                        <div class="pcard-meta">
+                            <span class="pcard-tag pcard-tag--warm">💵 from $399</span>
+                            <span class="pcard-tag pcard-tag--blue">📐 25'Wx25'Lx7'H</span>
+                        </div>
+                    </div>
+                    <div class="pcard-actions">
+                        <a href="/contact/?item=rock-joust" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal" data-image="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e5146bc52efde450dc.png"
+                            data-emoji="⚔️"
+                            data-title="Rock &amp; Joust"
+                            data-desc="Rock &amp; Joust. A fun carnival-style game for your guests."
+                            data-dims="25'Wx25'Lx7'H; space required: 30'Wx30'L"
+                            data-area="Confirm setup space when booking"
+                            data-cap="Confirm on booking"
+                            data-power="Confirm on booking"
+                            data-price="from $399"
+                            data-includes="Extension Cord · Blower · Safety Stakes to secure to ground"
+                            data-book="/contact/?item=rock-joust"
+                            data-requirement="Confirm delivery space and site needs when booking">Details</a>
+                    </div>
+                </div>
+
+                <!-- Stand The Bottle -->
+                <div class="pcard" data-filter="carnival" data-aos="fade-up" style="--d:0ms">
+                    <div class="pcard-img" style="background:linear-gradient(135deg,#F0FDF4,#A7F3D0)">
+                        <img class="pcard-photo" src="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e5421e24cba37c0afc.png" alt="Stand The Bottle" loading="lazy">
+                        <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
+                    </div>
+                    <div class="pcard-body">
+                        <h3>Stand The Bottle</h3>
+                        <p>Stand The Bottle. A fun carnival-style game for your guests.</p>
+                        <div class="pcard-meta">
+                            <span class="pcard-tag pcard-tag--warm">💵 from $150</span>
+                            <span class="pcard-tag pcard-tag--green">✨ Extension Cord</span>
+                        </div>
+                    </div>
+                    <div class="pcard-actions">
+                        <a href="/contact/?item=stand-the-bottle" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal" data-image="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e5421e24cba37c0afc.png"
+                            data-emoji="🎪"
+                            data-title="Stand The Bottle"
+                            data-desc="Stand The Bottle. A fun carnival-style game for your guests."
+                            data-dims="Ask for size"
+                            data-area="Confirm setup space when booking"
+                            data-cap="Confirm on booking"
+                            data-power="Confirm on booking"
+                            data-price="from $150"
+                            data-includes="Extension Cord · Blower · Safety Stakes to secure to ground"
+                            data-book="/contact/?item=stand-the-bottle"
+                            data-requirement="Confirm delivery space and site needs when booking">Details</a>
+                    </div>
+                </div>
+
+                <!-- Sumo Suits with Mat -->
+                <div class="pcard" data-filter="inflatable" data-aos="fade-up" style="--d:60ms">
+                    <div class="pcard-img" style="background:linear-gradient(135deg,#FEF3C7,#FCD34D)">
+                        <img class="pcard-photo" src="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e5da918aa30ec437d9.png" alt="Sumo Suits with Mat" loading="lazy">
+                        <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
+                    </div>
+                    <div class="pcard-body">
+                        <h3>Sumo Suits with Mat</h3>
+                        <p>Sumo Suits with Mat. A fun carnival-style game for your guests.</p>
+                        <div class="pcard-meta">
+                            <span class="pcard-tag pcard-tag--warm">💵 from $350</span>
+                            <span class="pcard-tag pcard-tag--blue">📐 Space Required</span>
+                        </div>
+                    </div>
+                    <div class="pcard-actions">
+                        <a href="/contact/?item=sumo-suits-with-mat" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal" data-image="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e5da918aa30ec437d9.png"
+                            data-emoji="🤼"
+                            data-title="Sumo Suits with Mat"
+                            data-desc="Sumo Suits with Mat. A fun carnival-style game for your guests."
+                            data-dims="Space Required"
+                            data-area="Confirm setup space when booking"
+                            data-cap="Confirm on booking"
+                            data-power="Confirm on booking"
+                            data-price="from $350"
+                            data-includes="Extension Cord · Blower · Safety Stakes to secure to ground"
+                            data-book="/contact/?item=sumo-suits-with-mat"
+                            data-requirement="Confirm delivery space and site needs when booking">Details</a>
+                    </div>
+                </div>
+
+                <!-- Velcro Wall -->
+                <div class="pcard" data-filter="inflatable" data-aos="fade-up" style="--d:120ms">
+                    <div class="pcard-img" style="background:linear-gradient(135deg,#FDF2F8,#FBCFE8)">
+                        <img class="pcard-photo" src="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e57f9c36a77aca9ead.png" alt="Velcro Wall" loading="lazy">
+                        <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
+                    </div>
+                    <div class="pcard-body">
+                        <h3>Velcro Wall</h3>
+                        <p>Velcro Wall. A fun carnival-style game for your guests.</p>
+                        <div class="pcard-meta">
+                            <span class="pcard-tag pcard-tag--warm">💵 from $349</span>
+                            <span class="pcard-tag pcard-tag--blue">📐 Space required</span>
+                        </div>
+                    </div>
+                    <div class="pcard-actions">
+                        <a href="/contact/?item=velcro-wall" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal" data-image="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e57f9c36a77aca9ead.png"
+                            data-emoji="🧱"
+                            data-title="Velcro Wall"
+                            data-desc="Velcro Wall. A fun carnival-style game for your guests."
+                            data-dims="Space required"
+                            data-area="Confirm setup space when booking"
+                            data-cap="Confirm on booking"
+                            data-power="Confirm on booking"
+                            data-price="from $349"
+                            data-includes="Extension Cord · Blower · Safety Stakes to secure to ground"
+                            data-book="/contact/?item=velcro-wall"
+                            data-requirement="Confirm delivery space and site needs when booking">Details</a>
                     </div>
                 </div>
 
@@ -279,93 +743,21 @@
     </section>
 
     <!-- ══ WHY RENT FROM FIESTA JUMPS ════════════════════════════ -->
-    <section class="why-rent" id="whyRent">
-        <div class="container">
-            <div class="why-rent-grid">
-                <div class="why-rent-content" data-aos="fade-right">
-                    <p class="section-label">Why Fiesta Jumps?</p>
-                    <h2 class="section-title">Santa Barbara's most trusted bounce house company</h2>
-                    <p class="section-sub">For 26 years we've delivered clean, inspected equipment and stress-free setup
-                        for every type of event — from backyard birthdays to large school events.</p>
-
-                    <ul class="why-list">
-                        <li class="why-item">
-                            <div class="why-item-icon">🚚</div>
-                            <div class="why-item-text">
-                                <strong>Delivery &amp; Setup Included</strong>
-                                <span>We bring it, set it up, and pick it up. You don't lift a finger.</span>
-                            </div>
-                        </li>
-                        <li class="why-item">
-                            <div class="why-item-icon">🏅</div>
-                            <div class="why-item-text">
-                                <strong>City Park Approved</strong>
-                                <span>We're an approved vendor — no extra permits needed for SB city parks.</span>
-                            </div>
-                        </li>
-                        <li class="why-item">
-                            <div class="why-item-icon">🧹</div>
-                            <div class="why-item-text">
-                                <strong>Clean &amp; Inspected Every Time</strong>
-                                <span>All equipment is sanitized, inspected, and safe before every rental.</span>
-                            </div>
-                        </li>
-                        <li class="why-item">
-                            <div class="why-item-icon">💯</div>
-                            <div class="why-item-text">
-                                <strong>Satisfaction Guaranteed</strong>
-                                <span>If something isn't right, we fix it. Your event success is our priority.</span>
-                            </div>
-                        </li>
-                    </ul>
-
-                    <!-- ✅ AJAX PREFETCH — both CTAs trigger prefetch on hover via fj-link -->
-                    <div style="display:flex;gap:12px;flex-wrap:wrap">
-                        <a href="/book-now/" class="btn btn-white btn-lg fj-link">Book Your Event →</a>
-                        <a href="/about-us/" class="btn btn-ghost-white btn-lg fj-link">Our Story</a>
-                    </div>
-                </div>
-
-                <div class="why-stats" data-aos="fade-left">
-                    <div class="why-stat">
-                        <span class="why-stat-num">26+</span>
-                        <span class="why-stat-label">Years in Business</span>
-                    </div>
-                    <div class="why-stat">
-                        <span class="why-stat-num">4.9★</span>
-                        <span class="why-stat-label">Google Rating</span>
-                    </div>
-                    <div class="why-stat">
-                        <span class="why-stat-num">5k+</span>
-                        <span class="why-stat-label">Events Served</span>
-                    </div>
-                    <div class="why-stat">
-                        <span class="why-stat-num">100%</span>
-                        <span class="why-stat-label">Satisfaction Guaranteed</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!--@include partials/why-fiesta.html-->
 
     <!-- ══ SEO CONTENT + RELATED LINKS ══════════════════════════ -->
     <section class="seo-section">
         <div class="container">
             <div class="seo-grid">
 
-                <div class="seo-text">
-                    <h2>Classic Bounce House Rentals in Santa Barbara, CA</h2>
-                    <p>Inflatable bounce houses are the perfect centerpiece for any party or event. At Fiesta Jumps, we
-                        specialize in classic castle designs, themed bouncers, and units with built-in extras like
-                        basketball hoops. We serve Santa Barbara, Goleta, Montecito, Carpinteria, Santa Ynez, Los
-                        Olivos, and Buellton.</p>
-                    <p>All of our bounce houses are thoroughly cleaned and inspected before every rental. We handle
-                        delivery, professional setup, and breakdown — so you can focus entirely on enjoying your event.
-                        Our equipment is licensed, insured, and approved for use at Santa Barbara City Parks, so no
-                        extra permits are required.</p>
-                    <p>Whether it's a small backyard birthday party for 10 kids or a large school field day for 200
-                        students, we have the right bounce house for your event. <a href="/service-area/"
-                            class="fj-link">Check if we deliver to your area →</a></p>
+                                <div class="seo-text">
+                    <!-- SEO from audit-seo-bleed-batch1.json (category-specific; was Classic Bounce bleed) -->
+                    <p class="section-label">Interactive Games</p>
+                    <h2>Interactive Game & Carnival Rentals in Santa Barbara, CA</h2>
+                    <p>Interactive and carnival games give guests a chance to compete, with everything from inflatable skill games to classic dunk tanks and party favorites.</p>
+                    <p>Safe, simple to install, and delivered across Santa Barbara and the Central Coast for parties, festivals, and school events.</p>
+                    <p>Browse games and request a package quote. <a href="/service-area/" class="fj-link">Check if we deliver to your area →</a></p>
+
 
                     <div class="seo-btn-row">
                         <!-- ✅ AJAX PREFETCH — all category chips use fj-link -->
@@ -377,40 +769,7 @@
                     </div>
                 </div>
 
-                <div>
-                    <!-- ✅ ALL RELATED LINKS USE fj-link — hover prefetch fires on each one -->
-                    <div class="related-card">
-                        <h4>Related Categories</h4>
-                        <a href="/combo-bounce-house-rentals/" class="related-link fj-link">Combo Bounce Houses <span
-                                class="related-link-arr">→</span></a>
-                        <a href="/water-slides-rentals/" class="related-link fj-link">Water Slide Rentals <span
-                                class="related-link-arr">→</span></a>
-                        <a href="/dry-slide-rentals/" class="related-link fj-link">Dry Slide Rentals <span
-                                class="related-link-arr">→</span></a>
-                        <a href="/obstacle-course-rentals/" class="related-link fj-link">Obstacle Courses <span
-                                class="related-link-arr">→</span></a>
-                        <a href="/foam-cannon-rentals/" class="related-link fj-link">Foam Cannon <span
-                                class="related-link-arr">→</span></a>
-                        <a href="/concessions-machine/" class="related-link fj-link">Concession Machines <span
-                                class="related-link-arr">→</span></a>
-                        <a href="/bundle-deals/" class="related-link related-link--featured fj-link">🔥 Bundle Deals —
-                            Save More <span class="related-link-arr">→</span></a>
-                    </div>
-
-                    <div class="related-card">
-                        <h4>Service Areas</h4>
-                        <a href="/service-area/#montecito" class="related-link fj-link">Montecito <span
-                                class="related-link-arr">→</span></a>
-                        <a href="/service-area/#goleta" class="related-link fj-link">Goleta <span
-                                class="related-link-arr">→</span></a>
-                        <a href="/service-area/#carpinteria" class="related-link fj-link">Carpinteria <span
-                                class="related-link-arr">→</span></a>
-                        <a href="/service-area/#santa-ynez" class="related-link fj-link">Santa Ynez <span
-                                class="related-link-arr">→</span></a>
-                        <a href="/service-area/#buellton" class="related-link fj-link">Buellton <span
-                                class="related-link-arr">→</span></a>
-                    </div>
-                </div>
+                <!--@include partials/related-sidebar.html-->
 
             </div>
         </div>
@@ -531,33 +890,7 @@
     </aside>
 
     <script src="/main.js"></script>
-    <script>
-        /* ── Filter pills ───────────────────────────────────────── */
-        const pills = document.querySelectorAll('.filter-pill');
-        const cards = document.querySelectorAll('.pcard[data-filter]');
-        const countEl = document.getElementById('filterCount');
 
-        pills.forEach(pill => {
-            pill.addEventListener('click', () => {
-                pills.forEach(p => p.classList.remove('active'));
-                pill.classList.add('active');
-
-                const f = pill.dataset.filter;
-                let vis = 0;
-
-                cards.forEach(card => {
-                    const cats = card.dataset.filter || '';
-                    const show = f === 'all' || cats.split(' ').includes(f);
-                    card.style.display = show ? '' : 'none';
-                    if (show) vis++;
-                });
-
-                if (countEl) {
-                    countEl.textContent = `${vis} unit${vis !== 1 ? 's' : ''} available`;
-                }
-            });
-        });
-    </script>
 
 </body>
 

@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Set theme before first paint so there's no flash of the wrong theme -->
-    <script>(function () { try { var t = localStorage.getItem('fj-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); document.documentElement.setAttribute('data-theme', t); } catch (e) { } })();</script>
+    <script>(function () { try { var t = localStorage.getItem('fj-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); document.documentElement.setAttribute('data-theme', t); } catch (e) { } document.documentElement.classList.add('fj-booting'); if (!document.getElementById('fj-boot-style')) { var _s = document.createElement('style'); _s.id = 'fj-boot-style'; _s.textContent = 'html.fj-booting::before{content:"";position:fixed;inset:0;background:#1C1410;z-index:99999;pointer-events:none}'; (document.head || document.documentElement).appendChild(_s); } })();</script>
     <title>Tent Rentals in Santa Barbara, CA | Fiesta Jumps</title>
     <meta name="description" content="Rent event tents in Santa Barbara, CA. Fiesta Jumps delivers shade and shelter for parties, weddings, and corporate events.">
     <meta name="robots" content="index, follow">
     <!-- Open Graph -->
-    <meta property="og:title" content="Tent Rentals — Fiesta Jumps Santa Barbara">
+    <meta property="og:title" content="Tent Rentals | Fiesta Jumps Santa Barbara">
     <meta property="og:description" content="Santa Barbara's #1 party rental company. Tent rentals for shade and shelter at any size event.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://fiestajumps.com/tent-rentals/">
@@ -36,7 +36,7 @@
     <link rel="prefetch" href="/combo-bounce-house-rentals/" as="document">
     <link rel="prefetch" href="/water-slides-rentals/" as="document">
     <link rel="prefetch" href="/bundle-deals/" as="document">
-    <link rel="prefetch" href="/book-now/" as="document">
+    <link rel="prefetch" href="/contact/" as="document">
 
 </head>
 
@@ -63,21 +63,20 @@
             "🧹 Clean &amp; Inspected"
         ],
         "ctaPrimaryText": "Set Event Date",
-        "ctaPrimaryHref": "/book-now/"
+        "ctaPrimaryHref": "/contact/"
     }
     -->
 
-    <!-- ══ FILTER BAR ═══════════════════════════════════════════ -->
-    <nav class="filter-bar" aria-label="Filter bounce houses">
+    <!-- Source: https://fiestajumps.com/rentals/tents/ · audit: /workspace/fiesta-content/audit-tents.json · cards rendered from products[] -->
+    <nav class="filter-bar" aria-label="Filter tents &amp; canopies">
         <div class="container filter-bar-inner">
             <fieldset class="filter-pills" aria-label="Filter options">
-                <button class="filter-pill active" data-filter="all">All Units</button>
-                <button class="filter-pill" data-filter="standard">Standard</button>
-                <button class="filter-pill" data-filter="large">Large</button>
-                <button class="filter-pill" data-filter="themed">Themed</button>
-                <button class="filter-pill" data-filter="basketball">w/ Basketball</button>
+                <button class="filter-pill active" data-filter="all">All Items</button>
+                <button class="filter-pill" data-filter="popup">Pop-Up</button>
+                <button class="filter-pill" data-filter="canopy">Canopy</button>
+                <button class="filter-pill" data-filter="large">20×30+</button>
             </fieldset>
-            <span class="filter-count" id="filterCount" aria-live="polite">8 units available</span>
+            <span class="filter-count" id="filterCount" aria-live="polite">6 items available</span>
         </div>
     </nav>
 
@@ -86,191 +85,191 @@
         <div class="container">
             <div class="products-grid" id="productsGrid">
 
-                <!-- ─────────────────────────────────────────────────────
-           PRODUCT CARDS
-           To use a real photo: replace the <div class="pcard-emoji">
-           with <img src="YOUR-URL" alt="Product name">
-           inside <div class="pcard-img">
+                <!-- cards rendered from products[] in audit-tents.json — emoji/gradient placeholders only; Get Quote → /contact/?item=SLUG -->
 
-           EventHawk booking URL format:
-           href="/book-now/?item=PRODUCT-SLUG"
-           ───────────────────────────────────────────────────── -->
-
-                <div class="pcard" data-filter="large" data-aos="fade-up" style="--d:0ms">
+                <!-- Carnival Canopy Red/White 9′ x 9′ -->
+                <div class="pcard" data-filter="canopy" data-aos="fade-up" style="--d:0ms">
                     <div class="pcard-img" style="background:linear-gradient(135deg,#EBF5FF,#BFDBFE)">
-                        <!-- SWAP: <img src="https://fiestajumps.com/wp-content/uploads/hot-air-balloon.jpg" alt="Hot Air Balloon Bouncer"> -->
-                        <div class="pcard-emoji">🎈</div>
-                        <span class="pcard-badge">Large Unit</span>
+                        <img class="pcard-photo" src="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e53201b0e72894ea44.png" alt="Carnival Canopy Red/White 9′ x 9′" loading="lazy">
                         <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
                     </div>
                     <div class="pcard-body">
-                        <h3>Hot Air Balloon Bouncer Large</h3>
-                        <p>A colorful and exciting large bounce house shaped like a hot air balloon — a guaranteed
-                            showstopper at any party.</p>
+                        <h3>Carnival Canopy Red/White 9′ x 9′</h3>
+                        <p>Carnival Canopy Red/White 9′ x 9′. Shade and cover for your event.</p>
                         <div class="pcard-meta">
-                            <span class="pcard-tag pcard-tag--blue">📐 Large</span>
-                            <span class="pcard-tag pcard-tag--green">✅ Available</span>
+                            <span class="pcard-tag pcard-tag--warm">💵 from $120</span>
+                            <span class="pcard-tag pcard-tag--blue">📐 10' x 10'</span>
                         </div>
                     </div>
                     <div class="pcard-actions">
-                        <!-- ✅ AJAX PREFETCH — Get Quote and Details use fj-link for prefetch -->
-                        <a href="/book-now/?item=hot-air-balloon" class="pcard-btn pcard-btn--primary fj-link">Get
-                            Quote</a>
-                        <a href="/bounce-house-rentals/hot-air-balloon/"
-                            class="pcard-btn pcard-btn--outline fj-link">Details</a>
+                        <a href="/contact/?item=carnival-canopy-red-white-9x9" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal" data-image="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e53201b0e72894ea44.png"
+                            data-emoji="🎪"
+                            data-title="Carnival Canopy Red/White 9′ x 9′"
+                            data-desc="Carnival Canopy Red/White 9′ x 9′. Shade and cover for your event."
+                            data-dims="10' x 10'"
+                            data-area="Confirm setup space when booking"
+                            data-cap="Confirm on booking"
+                            data-power="Confirm on booking"
+                            data-price="from $120"
+                            data-includes="Extension Cord · Blower · Safety Stakes to secure to ground"
+                            data-book="/contact/?item=carnival-canopy-red-white-9x9"
+                            data-requirement="Confirm delivery space and site needs when booking">Details</a>
                     </div>
                 </div>
 
-                <div class="pcard" data-filter="basketball large" data-aos="fade-up" style="--d:60ms">
+                <!-- Pop Up White Canopy 10′ x 10′ -->
+                <div class="pcard" data-filter="popup canopy" data-aos="fade-up" style="--d:60ms">
                     <div class="pcard-img" style="background:linear-gradient(135deg,#FFF7ED,#FED7AA)">
-                        <div class="pcard-emoji">🏰</div>
-                        <span class="pcard-badge">⭐ Popular</span>
+                        <img class="pcard-photo" src="https://fiestajumps.com/wp-content/uploads/2026/05/IMG_4696_1778867339_big.jpg" alt="Pop Up White Canopy 10′ x 10′" loading="lazy">
                         <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
                     </div>
                     <div class="pcard-body">
-                        <h3>Lava Castle 16′ × 16′ w/ Basketball Hoop</h3>
-                        <p>Classic castle design with an integrated basketball hoop — bounce and shoot in one exciting
-                            unit.</p>
+                        <h3>Pop Up White Canopy 10′ x 10′</h3>
+                        <p>Pop Up White Canopy 10′ x 10′. Shade and cover for your event.</p>
                         <div class="pcard-meta">
-                            <span class="pcard-tag pcard-tag--blue">📐 16′ × 16′</span>
-                            <span class="pcard-tag pcard-tag--warm">🏀 Hoop Included</span>
+                            <span class="pcard-tag pcard-tag--warm">💵 from $100</span>
+                            <span class="pcard-tag pcard-tag--blue">📐 A clean, white pop up canopy that provides a simple covered space for shade and shelter at your event. Sized at 10' W x 10' L x 7' H, it’s a practical choice for creating a small protected area for guests, tables, concessions, or supplies. Its classic look fits easily with a wide range of setups and works well as an accessory for package rentals or a concession station.</span>
                         </div>
                     </div>
                     <div class="pcard-actions">
-                        <a href="/book-now/?item=lava-castle" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
-                        <a href="/bounce-house-rentals/lava-castle/"
-                            class="pcard-btn pcard-btn--outline fj-link">Details</a>
+                        <a href="/contact/?item=instant-pop-up-white-canopy-10x10" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal" data-image="https://fiestajumps.com/wp-content/uploads/2026/05/IMG_4696_1778867339_big.jpg"
+                            data-emoji="⬜"
+                            data-title="Pop Up White Canopy 10′ x 10′"
+                            data-desc="Pop Up White Canopy 10′ x 10′. Shade and cover for your event."
+                            data-dims="A clean, white pop up canopy that provides a simple covered space for shade and shelter at your event. Sized at 10' W x 10' L x 7' H, it’s a practical choice for creating a small protected area for guests, tables, concessions, or supplies. Its classic look fits easily with a wide range of setups and works well as an accessory for package rentals or a concession station."
+                            data-area="Confirm setup space when booking"
+                            data-cap="Confirm on booking"
+                            data-power="Confirm on booking"
+                            data-price="from $100"
+                            data-includes="Extension Cord · Blower · Safety Stakes to secure to ground"
+                            data-book="/contact/?item=instant-pop-up-white-canopy-10x10"
+                            data-requirement="Confirm delivery space and site needs when booking">Details</a>
                     </div>
                 </div>
 
-                <div class="pcard" data-filter="standard" data-aos="fade-up" style="--d:120ms">
+                <!-- White Canopy 20′ x 20′ (Walls Included) -->
+                <div class="pcard" data-filter="canopy" data-aos="fade-up" style="--d:120ms">
                     <div class="pcard-img" style="background:linear-gradient(135deg,#F0FDF4,#A7F3D0)">
-                        <div class="pcard-emoji">🏯</div>
+                        <img class="pcard-photo" src="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/6a1e6c6d282a51721af11c63.png" alt="White Canopy 20′ x 20′ (Walls Included)" loading="lazy">
                         <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
                     </div>
                     <div class="pcard-body">
-                        <h3>Mini Castle 9′ × 9′</h3>
-                        <p>Perfect for smaller yards and younger children. Safe, fun, and easy to set up in tight
-                            spaces.</p>
+                        <h3>White Canopy 20′ x 20′ (Walls Included)</h3>
+                        <p>White Canopy 20′ x 20′ (Walls Included). Shade and cover for your event.</p>
                         <div class="pcard-meta">
-                            <span class="pcard-tag pcard-tag--blue">📐 9′ × 9′</span>
-                            <span class="pcard-tag pcard-tag--green">✅ Available</span>
+                            <span class="pcard-tag pcard-tag--warm">💵 from $299</span>
+                            <span class="pcard-tag pcard-tag--blue">📐 20' x 20'</span>
                         </div>
                     </div>
                     <div class="pcard-actions">
-                        <a href="/book-now/?item=mini-castle" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
-                        <a href="/bounce-house-rentals/mini-castle/"
-                            class="pcard-btn pcard-btn--outline fj-link">Details</a>
+                        <a href="/contact/?item=white-canopy-20x20-walls-included" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal" data-image="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/6a1e6c6d282a51721af11c63.png"
+                            data-emoji="⛺"
+                            data-title="White Canopy 20′ x 20′ (Walls Included)"
+                            data-desc="White Canopy 20′ x 20′ (Walls Included). Shade and cover for your event."
+                            data-dims="20' x 20'"
+                            data-area="Confirm setup space when booking"
+                            data-cap="Confirm on booking"
+                            data-power="Confirm on booking"
+                            data-price="from $299"
+                            data-includes="Extension Cord · Blower · Safety Stakes to secure to ground"
+                            data-book="/contact/?item=white-canopy-20x20-walls-included"
+                            data-requirement="Confirm delivery space and site needs when booking">Details</a>
                     </div>
                 </div>
 
-                <div class="pcard" data-filter="themed" data-aos="fade-up" style="--d:0ms">
+                <!-- White Canopy 20′ x 30′ (Walls Included) -->
+                <div class="pcard" data-filter="canopy" data-aos="fade-up" style="--d:0ms">
+                    <div class="pcard-img" style="background:linear-gradient(135deg,#FEF3C7,#FCD34D)">
+                        <img class="pcard-photo" src="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/6a1e6c6d282a51721af11c63.png" alt="White Canopy 20′ x 30′ (Walls Included)" loading="lazy">
+                        <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
+                    </div>
+                    <div class="pcard-body">
+                        <h3>White Canopy 20′ x 30′ (Walls Included)</h3>
+                        <p>White Canopy 20′ x 30′ (Walls Included). Shade and cover for your event.</p>
+                        <div class="pcard-meta">
+                            <span class="pcard-tag pcard-tag--warm">💵 from $350</span>
+                            <span class="pcard-tag pcard-tag--blue">📐 20' x 30'</span>
+                        </div>
+                    </div>
+                    <div class="pcard-actions">
+                        <a href="/contact/?item=white-canopy-20-x-30-walls-included" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal" data-image="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/6a1e6c6d282a51721af11c63.png"
+                            data-emoji="⛺"
+                            data-title="White Canopy 20′ x 30′ (Walls Included)"
+                            data-desc="White Canopy 20′ x 30′ (Walls Included). Shade and cover for your event."
+                            data-dims="20' x 30'"
+                            data-area="Confirm setup space when booking"
+                            data-cap="Confirm on booking"
+                            data-power="Confirm on booking"
+                            data-price="from $350"
+                            data-includes="Extension Cord · Blower · Safety Stakes to secure to ground"
+                            data-book="/contact/?item=white-canopy-20-x-30-walls-included"
+                            data-requirement="Confirm delivery space and site needs when booking">Details</a>
+                    </div>
+                </div>
+
+                <!-- WHITE CANOPY 20X30 TENT -->
+                <div class="pcard" data-filter="canopy large" data-aos="fade-up" style="--d:60ms">
                     <div class="pcard-img" style="background:linear-gradient(135deg,#FDF2F8,#FBCFE8)">
-                        <div class="pcard-emoji">🎀</div>
+                        <img class="pcard-photo" src="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/6a1e6c6d282a51721af11c63.png" alt="White Canopy 20X30 Tent" loading="lazy">
                         <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
                     </div>
                     <div class="pcard-body">
-                        <h3>Pink Castle</h3>
-                        <p>A beautiful pink princess castle — the ultimate themed bouncer for girls' birthday parties
-                            and princess events.</p>
+                        <h3>White Canopy 20X30 Tent</h3>
+                        <p>White Canopy 20X30 Tent. Shade and cover for your event.</p>
                         <div class="pcard-meta">
-                            <span class="pcard-tag pcard-tag--blue">📐 Standard</span>
-                            <span class="pcard-tag pcard-tag--warm">🎀 Themed</span>
+                            <span class="pcard-tag pcard-tag--warm">💵 from $399</span>
+                            <span class="pcard-tag pcard-tag--blue">📐 20' x 30'</span>
                         </div>
                     </div>
                     <div class="pcard-actions">
-                        <a href="/book-now/?item=pink-castle" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
-                        <a href="/bounce-house-rentals/pink-castle/"
-                            class="pcard-btn pcard-btn--outline fj-link">Details</a>
+                        <a href="/contact/?item=white-canopy-20x30-tent" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal" data-image="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/6a1e6c6d282a51721af11c63.png"
+                            data-emoji="⛺"
+                            data-title="White Canopy 20X30 Tent"
+                            data-desc="White Canopy 20X30 Tent. Shade and cover for your event."
+                            data-dims="20' x 30'"
+                            data-area="Confirm setup space when booking"
+                            data-cap="Confirm on booking"
+                            data-power="Confirm on booking"
+                            data-price="from $399"
+                            data-includes="Extension Cord · Blower · Safety Stakes to secure to ground"
+                            data-book="/contact/?item=white-canopy-20x30-tent"
+                            data-requirement="Confirm delivery space and site needs when booking">Details</a>
                     </div>
                 </div>
 
-                <div class="pcard" data-filter="themed large" data-aos="fade-up" style="--d:60ms">
-                    <div class="pcard-img" style="background:linear-gradient(135deg,#FDF2F8,#FBCFE8)">
-                        <div class="pcard-emoji">🏰</div>
-                        <span class="pcard-badge pcard-badge--blue">Large</span>
+                <!-- WHITE CANOPY 20X40 TENT -->
+                <div class="pcard" data-filter="canopy large" data-aos="fade-up" style="--d:120ms">
+                    <div class="pcard-img" style="background:linear-gradient(135deg,#EEF2FF,#C7D2FE)">
+                        <img class="pcard-photo" src="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/6a1e6c6d282a51721af11c63.png" alt="White Canopy 20X40 Tent" loading="lazy">
                         <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
                     </div>
                     <div class="pcard-body">
-                        <h3>Pink Castle Large Bounce House</h3>
-                        <p>The larger version of our beloved Pink Castle — more room, more fun for bigger parties and
-                            events.</p>
+                        <h3>White Canopy 20X40 Tent</h3>
+                        <p>White Canopy 20X40 Tent. Shade and cover for your event.</p>
                         <div class="pcard-meta">
-                            <span class="pcard-tag pcard-tag--blue">📐 Large Unit</span>
-                            <span class="pcard-tag pcard-tag--warm">🎀 Themed</span>
+                            <span class="pcard-tag pcard-tag--warm">💵 from $499</span>
+                            <span class="pcard-tag pcard-tag--blue">📐 20' x 40'</span>
                         </div>
                     </div>
                     <div class="pcard-actions">
-                        <a href="/book-now/?item=pink-castle-large" class="pcard-btn pcard-btn--primary fj-link">Get
-                            Quote</a>
-                        <a href="/bounce-house-rentals/pink-castle-large/"
-                            class="pcard-btn pcard-btn--outline fj-link">Details</a>
-                    </div>
-                </div>
-
-                <div class="pcard" data-filter="standard large" data-aos="fade-up" style="--d:120ms">
-                    <div class="pcard-img" style="background:linear-gradient(135deg,#EFF6FF,#BFDBFE)">
-                        <div class="pcard-emoji">🌈</div>
-                        <span class="pcard-badge pcard-badge--green">🔥 Best Seller</span>
-                        <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
-                    </div>
-                    <div class="pcard-body">
-                        <h3>Rainbow Castle Large Bouncer</h3>
-                        <p>Our most popular model — bigger space and vivid colors make this the go-to for large parties
-                            and events.</p>
-                        <div class="pcard-meta">
-                            <span class="pcard-tag pcard-tag--blue">📐 Large Unit</span>
-                            <span class="pcard-tag pcard-tag--green">✅ Available</span>
-                        </div>
-                    </div>
-                    <div class="pcard-actions">
-                        <a href="/book-now/?item=rainbow-castle-large" class="pcard-btn pcard-btn--primary fj-link">Get
-                            Quote</a>
-                        <a href="/bounce-house-rentals/rainbow-castle-large/"
-                            class="pcard-btn pcard-btn--outline fj-link">Details</a>
-                    </div>
-                </div>
-
-                <div class="pcard" data-filter="standard" data-aos="fade-up" style="--d:0ms">
-                    <div class="pcard-img" style="background:linear-gradient(135deg,#EFF6FF,#BFDBFE)">
-                        <div class="pcard-emoji">🌈</div>
-                        <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
-                    </div>
-                    <div class="pcard-body">
-                        <h3>Rainbow Castle Bounce House</h3>
-                        <p>A vibrant multi-color castle with classic bounce design — loved by kids of all ages at every
-                            party.</p>
-                        <div class="pcard-meta">
-                            <span class="pcard-tag pcard-tag--blue">📐 Standard</span>
-                            <span class="pcard-tag pcard-tag--green">✅ Available</span>
-                        </div>
-                    </div>
-                    <div class="pcard-actions">
-                        <a href="/book-now/?item=rainbow-castle" class="pcard-btn pcard-btn--primary fj-link">Get
-                            Quote</a>
-                        <a href="/bounce-house-rentals/rainbow-castle/"
-                            class="pcard-btn pcard-btn--outline fj-link">Details</a>
-                    </div>
-                </div>
-
-                <div class="pcard" data-filter="standard" data-aos="fade-up" style="--d:60ms">
-                    <div class="pcard-img" style="background:linear-gradient(135deg,#FEF2F2,#FCA5A5)">
-                        <div class="pcard-emoji">🔴</div>
-                        <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
-                    </div>
-                    <div class="pcard-body">
-                        <h3>Red Castle Bounce House</h3>
-                        <p>A bold, bright red castle that stands out at any event and excites every guest who sees it.
-                        </p>
-                        <div class="pcard-meta">
-                            <span class="pcard-tag pcard-tag--blue">📐 Standard</span>
-                            <span class="pcard-tag pcard-tag--green">✅ Available</span>
-                        </div>
-                    </div>
-                    <div class="pcard-actions">
-                        <a href="/book-now/?item=red-castle" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
-                        <a href="/bounce-house-rentals/red-castle/"
-                            class="pcard-btn pcard-btn--outline fj-link">Details</a>
+                        <a href="/contact/?item=white-canopy-20x40-tent" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal" data-image="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/6a1e6c6d282a51721af11c63.png"
+                            data-emoji="⛺"
+                            data-title="White Canopy 20X40 Tent"
+                            data-desc="White Canopy 20X40 Tent. Shade and cover for your event."
+                            data-dims="20' x 40'"
+                            data-area="Confirm setup space when booking"
+                            data-cap="Confirm on booking"
+                            data-power="Confirm on booking"
+                            data-price="from $499"
+                            data-includes="Extension Cord · Blower · Safety Stakes to secure to ground"
+                            data-book="/contact/?item=white-canopy-20x40-tent"
+                            data-requirement="Confirm delivery space and site needs when booking">Details</a>
                     </div>
                 </div>
 
@@ -279,93 +278,21 @@
     </section>
 
     <!-- ══ WHY RENT FROM FIESTA JUMPS ════════════════════════════ -->
-    <section class="why-rent" id="whyRent">
-        <div class="container">
-            <div class="why-rent-grid">
-                <div class="why-rent-content" data-aos="fade-right">
-                    <p class="section-label">Why Fiesta Jumps?</p>
-                    <h2 class="section-title">Santa Barbara's most trusted bounce house company</h2>
-                    <p class="section-sub">For 26 years we've delivered clean, inspected equipment and stress-free setup
-                        for every type of event — from backyard birthdays to large school events.</p>
-
-                    <ul class="why-list">
-                        <li class="why-item">
-                            <div class="why-item-icon">🚚</div>
-                            <div class="why-item-text">
-                                <strong>Delivery &amp; Setup Included</strong>
-                                <span>We bring it, set it up, and pick it up. You don't lift a finger.</span>
-                            </div>
-                        </li>
-                        <li class="why-item">
-                            <div class="why-item-icon">🏅</div>
-                            <div class="why-item-text">
-                                <strong>City Park Approved</strong>
-                                <span>We're an approved vendor — no extra permits needed for SB city parks.</span>
-                            </div>
-                        </li>
-                        <li class="why-item">
-                            <div class="why-item-icon">🧹</div>
-                            <div class="why-item-text">
-                                <strong>Clean &amp; Inspected Every Time</strong>
-                                <span>All equipment is sanitized, inspected, and safe before every rental.</span>
-                            </div>
-                        </li>
-                        <li class="why-item">
-                            <div class="why-item-icon">💯</div>
-                            <div class="why-item-text">
-                                <strong>Satisfaction Guaranteed</strong>
-                                <span>If something isn't right, we fix it. Your event success is our priority.</span>
-                            </div>
-                        </li>
-                    </ul>
-
-                    <!-- ✅ AJAX PREFETCH — both CTAs trigger prefetch on hover via fj-link -->
-                    <div style="display:flex;gap:12px;flex-wrap:wrap">
-                        <a href="/book-now/" class="btn btn-white btn-lg fj-link">Book Your Event →</a>
-                        <a href="/about-us/" class="btn btn-ghost-white btn-lg fj-link">Our Story</a>
-                    </div>
-                </div>
-
-                <div class="why-stats" data-aos="fade-left">
-                    <div class="why-stat">
-                        <span class="why-stat-num">26+</span>
-                        <span class="why-stat-label">Years in Business</span>
-                    </div>
-                    <div class="why-stat">
-                        <span class="why-stat-num">4.9★</span>
-                        <span class="why-stat-label">Google Rating</span>
-                    </div>
-                    <div class="why-stat">
-                        <span class="why-stat-num">5k+</span>
-                        <span class="why-stat-label">Events Served</span>
-                    </div>
-                    <div class="why-stat">
-                        <span class="why-stat-num">100%</span>
-                        <span class="why-stat-label">Satisfaction Guaranteed</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!--@include partials/why-fiesta.html-->
 
     <!-- ══ SEO CONTENT + RELATED LINKS ══════════════════════════ -->
     <section class="seo-section">
         <div class="container">
             <div class="seo-grid">
 
-                <div class="seo-text">
-                    <h2>Classic Bounce House Rentals in Santa Barbara, CA</h2>
-                    <p>Inflatable bounce houses are the perfect centerpiece for any party or event. At Fiesta Jumps, we
-                        specialize in classic castle designs, themed bouncers, and units with built-in extras like
-                        basketball hoops. We serve Santa Barbara, Goleta, Montecito, Carpinteria, Santa Ynez, Los
-                        Olivos, and Buellton.</p>
-                    <p>All of our bounce houses are thoroughly cleaned and inspected before every rental. We handle
-                        delivery, professional setup, and breakdown — so you can focus entirely on enjoying your event.
-                        Our equipment is licensed, insured, and approved for use at Santa Barbara City Parks, so no
-                        extra permits are required.</p>
-                    <p>Whether it's a small backyard birthday party for 10 kids or a large school field day for 200
-                        students, we have the right bounce house for your event. <a href="/service-area/"
-                            class="fj-link">Check if we deliver to your area →</a></p>
+                                <div class="seo-text">
+                    <!-- SEO from audit-seo-bleed-batch1.json (category-specific; was Classic Bounce bleed) -->
+                    <p class="section-label">Tent Rentals</p>
+                    <h2>Tent Rentals in Santa Barbara, CA</h2>
+                    <p>Party tents provide shade or rain shelter and create an organized space for dining, dancing, and seating at outdoor events.</p>
+                    <p>Fiesta Jumps rents tents in multiple sizes, including popular 20×30 options and carnival canopies, with delivery across our service area.</p>
+                    <p>Match a tent to your guest count and venue. <a href="/service-area/" class="fj-link">Check if we deliver to your area →</a></p>
+
 
                     <div class="seo-btn-row">
                         <!-- ✅ AJAX PREFETCH — all category chips use fj-link -->
@@ -377,40 +304,7 @@
                     </div>
                 </div>
 
-                <div>
-                    <!-- ✅ ALL RELATED LINKS USE fj-link — hover prefetch fires on each one -->
-                    <div class="related-card">
-                        <h4>Related Categories</h4>
-                        <a href="/combo-bounce-house-rentals/" class="related-link fj-link">Combo Bounce Houses <span
-                                class="related-link-arr">→</span></a>
-                        <a href="/water-slides-rentals/" class="related-link fj-link">Water Slide Rentals <span
-                                class="related-link-arr">→</span></a>
-                        <a href="/dry-slide-rentals/" class="related-link fj-link">Dry Slide Rentals <span
-                                class="related-link-arr">→</span></a>
-                        <a href="/obstacle-course-rentals/" class="related-link fj-link">Obstacle Courses <span
-                                class="related-link-arr">→</span></a>
-                        <a href="/foam-cannon-rentals/" class="related-link fj-link">Foam Cannon <span
-                                class="related-link-arr">→</span></a>
-                        <a href="/concessions-machine/" class="related-link fj-link">Concession Machines <span
-                                class="related-link-arr">→</span></a>
-                        <a href="/bundle-deals/" class="related-link related-link--featured fj-link">🔥 Bundle Deals —
-                            Save More <span class="related-link-arr">→</span></a>
-                    </div>
-
-                    <div class="related-card">
-                        <h4>Service Areas</h4>
-                        <a href="/service-area/#montecito" class="related-link fj-link">Montecito <span
-                                class="related-link-arr">→</span></a>
-                        <a href="/service-area/#goleta" class="related-link fj-link">Goleta <span
-                                class="related-link-arr">→</span></a>
-                        <a href="/service-area/#carpinteria" class="related-link fj-link">Carpinteria <span
-                                class="related-link-arr">→</span></a>
-                        <a href="/service-area/#santa-ynez" class="related-link fj-link">Santa Ynez <span
-                                class="related-link-arr">→</span></a>
-                        <a href="/service-area/#buellton" class="related-link fj-link">Buellton <span
-                                class="related-link-arr">→</span></a>
-                    </div>
-                </div>
+                <!--@include partials/related-sidebar.html-->
 
             </div>
         </div>
@@ -531,33 +425,7 @@
     </aside>
 
     <script src="/main.js"></script>
-    <script>
-        /* ── Filter pills ───────────────────────────────────────── */
-        const pills = document.querySelectorAll('.filter-pill');
-        const cards = document.querySelectorAll('.pcard[data-filter]');
-        const countEl = document.getElementById('filterCount');
 
-        pills.forEach(pill => {
-            pill.addEventListener('click', () => {
-                pills.forEach(p => p.classList.remove('active'));
-                pill.classList.add('active');
-
-                const f = pill.dataset.filter;
-                let vis = 0;
-
-                cards.forEach(card => {
-                    const cats = card.dataset.filter || '';
-                    const show = f === 'all' || cats.split(' ').includes(f);
-                    card.style.display = show ? '' : 'none';
-                    if (show) vis++;
-                });
-
-                if (countEl) {
-                    countEl.textContent = `${vis} unit${vis !== 1 ? 's' : ''} available`;
-                }
-            });
-        });
-    </script>
 
 </body>
 

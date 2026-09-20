@@ -15,10 +15,6 @@
   const cartOverlay = document.getElementById('cartOverlay');
   const cartSidebar = document.getElementById('cartSidebar');
   const cartCount = document.getElementById('cartCount');
-  const hcTrack = document.getElementById('hcTrack');
-  const hcPrev = document.getElementById('hcPrev');
-  const hcNext = document.getElementById('hcNext');
-  const hcDots = document.getElementById('hcDots');
   const revTrack = document.getElementById('revTrack');
   const revPrev = document.getElementById('revPrev');
   const revNext = document.getElementById('revNext');
@@ -37,58 +33,302 @@
     On click:   overlay fades IN  (page disappears to black)
     On back:    pageshow event resets overlay instantly
   ═══════════════════════════════════════════════════════════════ */
+  /* ══ LIVE PRICES: Google Sheet, read straight from the browser ═
+     Your price sheet is fetched as CSV on every page (no server needed, so it
+     works on localhost, GitHub Pages and WordPress alike) and the numbers on
+     the product cards + the Details popup are swapped for the sheet's.
+
+     How a sheet row finds its product card:
+       1. "Web ID" column (optional). Type the product's id there, i.e. the
+          value after ?item= in its Get Quote link. Several ids can share one
+          row, separated by commas.
+       2. Otherwise the row's Item Name is looked up in PRICE_NAME_MAP below.
+     Products with no matching row simply keep the price already in the HTML,
+     and if the sheet can't be reached nothing changes at all.
+  ════════════════════════════════════════════════════════════ */
+  // "Fiesta Jumps Prices (website)": one flat tab holding every product on the site. It must be shared
+  // as "Anyone with the link: Viewer". Only its first tab is read.
+  const PRICE_SHEET_ID = '1m6kAjiEGG3M5-mG4sRrAWLy7DDX4WWNn_roi5En_icU';
+  const PRICE_SHEET_URL =
+    'https://docs.google.com/spreadsheets/d/' + PRICE_SHEET_ID + '/gviz/tq?tqx=out:csv';
+  const PRICE_CACHE_KEY = 'fj-sheet-prices';
+  const PRICE_REFRESH_MS = 5 * 60 * 1000;
+
+  // sheet Item Name (lowercase)  ->  product ids on the site
+  const PRICE_NAME_MAP = {
+    // classic bounce houses
+    'rainbow castle': ['rainbow-castle-bounce-house'],
+    'red castle bounce house': ['red-castle-bounce-house'],
+    'tropical bouncer': ['tropical-bounce-house'],
+    'pink castle': ['pink-castle'],
+    'tropical bounce house': ['tropical-bouncer-large'],
+    'rainbow castle bounce house': ['rainbow-castle-large-bouncer', 'rainbow-castle-large'],
+    'unicorn bounce house': ['unicorn-bounce-house-largee'],
+    'pink castle bounce house': ['pink-castle-large-bounce-house', 'pink-castle-large'],
+    'lava castle w/ basketball hoop': ['lava-castle-16x16-w-basket-ball-hoop', 'lava-castle'],
+    'white castle': ['white-castle-bouncer'],
+    // combos
+    'pink mini combo #1': ['pink-mini-combo-1'],
+    'pink mini combo #2': ['pink-mini-combo-2'],
+    'tropical mini combo': ['tropical-mini-combo'],
+    'sports combo': ['sports-mini-combo'],
+    'hot air balloon mini combo': ['hot-air-balloon-mini-combo-2'],
+    'castle combo': ['castle-medium-combo'],
+    'tropical medium combo': ['tropical-medium-combo'],
+    'dalmation 5-in-1 combo': ['dalmatian-5-in-1-combo'],
+    'blue gray castle 5-in-1 combo': ['blue-grey-castle-5in1-combo'],
+    'candy kidzone': ['candy-kidzone'],
+    'princess kidzone': ['princess-kidzone'],
+    'giant combo 3 in 1': ['giant-3in1-combo'],
+    'tropical water combo': ['tropical-water-combo'],
+    // slides
+    'king croc 28 ft dual slide': ['king-croc-28-ft-dual-slide'],
+    '27 ft super dual slide': ['27-super-dual-slide'],
+    "24' super dual slide": ['24-ft-dual-slide'],
+    'climb & slide': ['climb-slide'],
+    'tropical water slide': ['tropical-water-slide'],
+    'giant dual water slides': ['giant-dual-water-slides'],
+    // obstacle courses
+    'mini obstacle course': ['mini-obstacle-course-35-ft'],
+    'wacky mini obstacle course': ['35-ft-wacky-obstacle-course'],
+    'high voltage mini obstacle course': ['high-voltage-mini-obstacle-course'],
+    'ocean obstacle course': ['50-ft-ocean-obstacle-course'],
+    'obstacle course (55 ft)': ['55-ft-obstacle-course'],
+    'obstacle course (65 ft)': ['65ft-obstacle-course'],
+    '75 ft obstacle course': ['75-ft-obstacle-course'],
+    '85 ft obstacle challenge course': ['85-ft-obstacle-challenge-course'],
+    '100 ft ultimate obstacle challenge': ['100-ft-ultimate-obstacle-challenge'],
+    '150 ft mega obstacle challenge': ['150-ft-ultra-obstacle'],
+    // interactive + carnival games
+    'dunk tank': ['dunk-tank'],
+    'water tag maze (incl. water guns & vests for 6 players)': ['water-tag-maze'],
+    'velcro wall': ['velcro-wall'],
+    'lazer tag maze (incl. lazer guns & vests for 6 players)': ['lazer-tag-maze'],
+    'basketball shootout (incl. 4 basketballs)': ['basketball-shootout'],
+    'boxing ring (incl. 4 jumbo boxing gloves & headgear)': ['boxing-ring'],
+    'football throw (incl. 2 footballs)': ['football-throw'],
+    'bungee run': ['bungee-run'],
+    'sumo suits with mat': ['sumo-suits-with-mat'],
+    'joust gladiator arena (incl. 2 joust sticks & 2 headgears)': ['joust-gladiator-arena'],
+    'floor is lava wrecking ball': ['lava-is-floor-wrecking-ball'],
+    'play-a-round golf (3-hole mini golf)': ['play-around-golf-3-holes'],
+    'mechanical bull': ['mechanical-bull-with-mat'],
+    'stand the bottle (floor table, one bottle, two sticks)': ['stand-the-bottle'],
+    'jumping frog (floor table, game table, launcher, rubber mallet, two frogs)': ['jumping-frog'],
+    'hole in one (floor table, two golf balls, golf club)': ['hole-in-one'],
+    '3 milk cans (canopy, walls, floor table, stand, 3 milk cans, 2 soft balls)': ['3-milk-cans'],
+    'basket toss (floor table, basket stand, two balls)': ['basket-toss'],
+    'marvels game (2 floor tables, 4 game tables & marbles)': ['marvels-game'],
+    // tents
+    'instant pop up white canopy 10x10': ['instant-pop-up-white-canopy-10x10'],
+    'carnival canopy red/white 10x10': ['carnival-canopy-red-white-9x9'],
+    'white canopy 20x20 (walls included)': ['white-canopy-20x20-walls-included'],
+    'white canopy 20x30 (walls included)': ['white-canopy-20-x-30-walls-included'],
+    // concessions + foam
+    'cotton candy machine': ['cotton-candy-machine'],
+    'popcorn machine': ['pop-corn-machine'],
+    'snow cone machine': ['snow-cone-machine'],
+    'extra 50 servings supplies': ['additional-50-serving-supplies-for-concession-machine-2'],
+    'foam cannon (incl. 2 foam bottles, enough for 2 hours)': ['foamtastik-cannon'],
+
+    // products that are not in the sheet yet: paste price-sheet/rows-to-add.tsv under the last row and these go live too
+    "hot air balloon bouncer large": ["hot-air-balloon-bouncer-large-2", "hot-air-balloon"],
+    "mini castle 9'x9'": ["mini-castle"],
+    "red castle large": ["red-castle-large"],
+    "sports large bouncer": ["sports-large-bouncer"],
+    "under the sea large bouncer": ["under-the-sea-large-bouncer"],
+    "castle mini combo": ["castle-mini-combo"],
+    "crayons mini combo": ["crayons-mini-combo"],
+    "wacky castle 5-in-1 combo": ["wacky-castle-5in1-combo"],
+    "concession station": ["concession-station"],
+    "15ft high striker": ["15ft-high-striker"],
+    "6 ft kiddie striker": ["6-ft-kiddie-striker-2"],
+    "rock & joust": ["rock-joust"],
+    "50 ft wacky obstacle course": ["50-ft-wacky-obstacle-course"],
+    "50ft high voltage obstacle course": ["50-ft-high-voltage-obstacle-course"],
+    "90ft high voltage obstacle challenge": ["90-ft-high-voltage-obstacle-challenge"],
+    "retro mirror booth": ["retro-mirror-booth"],
+    "trackless train (12-18 passengers)": ["trackless-train-12-18-passengers"],
+    "trackless train (18-24 passengers)": ["trackless-train-18-24-passengers"],
+    "generator 3500 watts": ["generator-3500-watts"],
+    "generator 8000 watts": ["generator-8000-watts"],
+    "fully staffed attendants for inflatables (minimum 4hrs)": ["fully-staffed-attendants-for-inflatables"],
+    "cocktail tables / high table": ["cocktail-tables"],
+    "folding chairs": ["folding-chairs"],
+    "kid chair": ["kid-chair"],
+    "kids table": ["kids-table"],
+    "linen": ["linen"],
+    "long table": ["long-table"],
+    "resin chair": ["resin-chair"],
+    "round table": ["round-table"],
+    "white canopy 20x30 tent": ["white-canopy-20x30-tent"],
+    "white canopy 20x40 tent": ["white-canopy-20x40-tent"],
+    "basic package: save $56.00": ["basic-package-save-56-00"],
+    "deluxe package save $100": ["deluxe-package-save-100"],
+    "corporate package save $150": ["corporate-package-save-150"],
+    "wet package deals save $126": ["wet-package-deals-save-126"]
+  };
+
+  function parseSheetCsv(text) {
+    const rows = [];
+    let row = [];
+    let cur = '';
+    let inQ = false;
+    for (let i = 0; i < text.length; i++) {
+      const ch = text[i];
+      if (inQ) {
+        if (ch === '"') {
+          if (text[i + 1] === '"') { cur += '"'; i++; } else inQ = false;
+        } else cur += ch;
+      } else if (ch === '"') inQ = true;
+      else if (ch === ',') { row.push(cur); cur = ''; }
+      else if (ch === '\n') { row.push(cur); rows.push(row); row = []; cur = ''; }
+      else if (ch !== '\r') cur += ch;
+    }
+    if (cur.length || row.length) { row.push(cur); rows.push(row); }
+    return rows;
+  }
+
+  // CSV text  ->  { product id: dollars }
+  function sheetPricesBySlug(csv) {
+    const table = parseSheetCsv(csv);
+    // Column positions come from whichever row says "Price" (Google's own header line, or a
+    // repeated "Item Name / Price" row inside a tab). Without one, the usual layout applies:
+    // name in column A, price in column C. A flat layout with "Category" first also works.
+    let nameCol = 0;
+    let priceCol = 2;
+    let idCol = -1;
+    const out = {};
+    for (let r = 0; r < table.length; r++) {
+      const row = table[r];
+      if (row.some(c => /^price$/i.test((c || '').trim()))) {
+        priceCol = row.findIndex(c => /^price$/i.test((c || '').trim()));
+        idCol = row.findIndex(c => /web\s*id/i.test(c || ''));
+        const n = row.findIndex(c => /item\s*name/i.test(c || ''));
+        nameCol = n >= 0 ? n : 0;
+        continue;
+      }
+      const name = (row[nameCol] || '').replace(/\s+/g, ' ').trim();
+      const price = Number(String(row[priceCol] || '').replace(/[^0-9.]/g, ''));
+      if (!name || !price) continue; // section titles, blank prices: leave the page as it is
+      const ids = (idCol >= 0 ? String(row[idCol] || '').split(/[,;\s]+/) : [])
+        .concat(PRICE_NAME_MAP[name.toLowerCase()] || [])
+        .filter(Boolean);
+      ids.forEach(id => { out[id.toLowerCase()] = Math.round(price); });
+    }
+    return out;
+  }
+
+  function applySheetPrices(bySlug) {
+    let applied = 0;
+    document.querySelectorAll('[data-book*="item="], a[href*="item="]').forEach(el => {
+      const m = (el.getAttribute('data-book') || el.getAttribute('href') || '').match(/[?&]item=([^&]+)/);
+      if (!m) return;
+      const price = bySlug[decodeURIComponent(m[1]).toLowerCase()];
+      if (price == null) return;
+      applied++;
+      if (el.hasAttribute('data-price')) el.setAttribute('data-price', 'from $' + price);
+      const card = el.closest('.pcard, .pc');
+      if (!card) return;
+      // swap only the number so the emoji / "· 12-18 passengers" text around it survives
+      card.querySelectorAll('.pcard-tag--warm, .pc-size, .pcard-tag--green').forEach(tag => {
+        // green tags also hold "Save $56" style badges, so only touch the ones that read "From $..."
+        if (tag.classList.contains('pcard-tag--green') && !/^\s*from\s*\$/i.test(tag.textContent)) return;
+        tag.textContent = tag.textContent.replace(/\$\s?[\d,]+(?:\.\d+)?/, () => '$' + price);
+      });
+    });
+    document.documentElement.dataset.pricesApplied = String(applied);
+  }
+
+  function initLivePrices() {
+    // Same-tab cache: the next page shows the latest prices instantly instead of
+    // flashing the old ones while the sheet loads again.
+    let cached = null;
+    try { cached = JSON.parse(sessionStorage.getItem(PRICE_CACHE_KEY)); } catch (e) { }
+    if (cached && cached.prices) applySheetPrices(cached.prices);
+
+    // If the sheet can't be reached, every product keeps the price already in the HTML.
+    const load = () => {
+      fetch(PRICE_SHEET_URL, { cache: 'no-store' })
+        .then(r => (r.ok ? r.text() : ''))
+        .catch(() => '')
+        .then(csv => {
+          const prices = sheetPricesBySlug(csv);
+          if (!Object.keys(prices).length) return;
+          applySheetPrices(prices);
+          try { sessionStorage.setItem(PRICE_CACHE_KEY, JSON.stringify({ t: Date.now(), prices })); } catch (e) { }
+        });
+    };
+
+    if (!cached || Date.now() - cached.t > PRICE_REFRESH_MS / 5) load();
+    setInterval(load, PRICE_REFRESH_MS); // an open tab picks up sheet edits
+  }
+
   function initPageTransitions() {
-    // ── Create the overlay div ────────────────────────────────
-    const overlay = document.createElement('div');
-    overlay.id = 'fj-overlay';
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)')
+      .matches;
+    const DARK = '#1C1410';
+    const outMs = reduce ? 0 : 280;
+
+    // Enter/refresh: remove first-paint boot cover (no late overlay pop)
+    const reveal = () => {
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          document.documentElement.classList.remove('fj-booting');
+        });
+      });
+    };
+    if (document.documentElement.classList.contains('fj-booting')) {
+      reveal();
+    }
+
+    // Exit navigation overlay (created lazily, starts hidden)
+    let overlay = document.getElementById('fj-overlay');
+    if (!overlay) {
+      overlay = document.createElement('div');
+      overlay.id = 'fj-overlay';
+      document.body.appendChild(overlay);
+    }
     Object.assign(overlay.style, {
       position: 'fixed',
       inset: '0',
-      background: '#1C1410',   // warm dark — matches footer/mission bg
+      background: DARK,
       zIndex: '99999',
-      opacity: '1',
+      opacity: '0',
+      display: 'none',
       pointerEvents: 'none',
-      transition: 'opacity 0.38s ease',
+      transition: reduce ? 'none' : 'opacity 0.28s ease',
       willChange: 'opacity',
     });
-    document.body.appendChild(overlay);
 
-    // Fade IN the page (overlay fades out → page visible)
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        overlay.style.opacity = '0';
-      });
-    });
-
-    // After fade completes, remove pointer-events so it doesn't
-    // block clicks (opacity 0 but still in DOM for back-button)
-    overlay.addEventListener('transitionend', () => {
-      overlay.style.display = overlay.style.opacity === '0' ? 'none' : 'block';
-    }, { passive: true });
-
-    // ── Back / Forward (bfcache restore) ─────────────────────
-    window.addEventListener('pageshow', e => {
-      if (e.persisted) {
-        // Restore from bfcache — instantly hide overlay
-        overlay.style.transition = 'none';
-        overlay.style.opacity = '0';
-        overlay.style.display = 'none';
-      }
-    });
-
-    // Safety net: ensure page is never stuck invisible
-    setTimeout(() => {
+    window.addEventListener('pageshow', (e) => {
+      if (!e.persisted) return;
+      document.documentElement.classList.remove('fj-booting');
+      overlay.style.transition = 'none';
       overlay.style.opacity = '0';
       overlay.style.display = 'none';
-    }, 1000);
+    });
+
+    // Safety: never leave boot cover stuck
+    setTimeout(() => {
+      document.documentElement.classList.remove('fj-booting');
+      document.getElementById('fj-boot-style')?.remove();
+    }, 1200);
 
     const prefetched = new Set();
     let isNavigating = false;
 
     function isInternal(href, target) {
       if (!href || target === '_blank') return false;
-      if (href.startsWith('#') || href.startsWith('tel:') || href.startsWith('mailto:')) return false;
-      if (href.startsWith('http') && !href.startsWith(window.location.origin)) return false;
+      if (
+        href.startsWith('#') ||
+        href.startsWith('tel:') ||
+        href.startsWith('mailto:')
+      ) return false;
+      if (
+        href.startsWith('http') &&
+        !href.startsWith(window.location.origin)
+      ) return false;
       return true;
     }
 
@@ -105,28 +345,27 @@
       }
       prefetched.add(url);
       const l = document.createElement('link');
-      l.rel = 'prefetch'; l.as = 'document'; l.href = url;
+      l.rel = 'prefetch';
+      l.as = 'document';
+      l.href = url;
       document.head.appendChild(l);
     }
 
-    // Prefetch on hover
-    document.addEventListener('mouseover', e => {
+    document.addEventListener('mouseover', (e) => {
       const link = e.target.closest('a.fj-link');
       if (!link) return;
       const h = getHref(link);
       if (isInternal(h, link.target)) prefetchUrl(h);
     }, { passive: true });
 
-    // Prefetch on touchstart
-    document.addEventListener('touchstart', e => {
+    document.addEventListener('touchstart', (e) => {
       const link = e.target.closest('a.fj-link');
       if (!link) return;
       const h = getHref(link);
       if (isInternal(h, link.target)) prefetchUrl(h);
     }, { passive: true });
 
-    // Click: fade overlay IN then navigate
-    document.addEventListener('click', e => {
+    document.addEventListener('click', (e) => {
       const link = e.target.closest('a.fj-link');
       if (!link || isNavigating) return;
       const h = getHref(link);
@@ -135,20 +374,20 @@
       e.preventDefault();
       isNavigating = true;
 
-      // Show overlay (page fades to dark)
       overlay.style.display = 'block';
-      overlay.style.transition = 'opacity 0.28s ease';
+      overlay.style.transition = reduce ? 'none' : 'opacity 0.28s ease';
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
           overlay.style.opacity = '1';
         });
       });
 
-      // Warm up cache
-      fetch(h, { credentials: 'same-origin', cache: 'force-cache' }).catch(() => null);
+      fetch(h, { credentials: 'same-origin', cache: 'force-cache' })
+        .catch(() => null);
 
-      // Navigate after fade
-      setTimeout(() => { window.location.href = h; }, 300);
+      setTimeout(() => {
+        window.location.href = h;
+      }, outMs + 20);
     });
   }
 
@@ -202,7 +441,10 @@
 
       item.addEventListener('mouseenter', () => { clearTimeout(timers[i]); open(); });
       item.addEventListener('mouseleave', close);
-      item.querySelector('.drop-panel')?.addEventListener('mouseenter', () => clearTimeout(timers[i]));
+      item.querySelector('.drop-panel')?.addEventListener(
+        'mouseenter',
+        () => clearTimeout(timers[i])
+      );
 
       // Keyboard
       btn && btn.addEventListener('keydown', e => {
@@ -315,150 +557,300 @@
     });
   }
 
-  /* ══ HERO CAROUSEL — smooth infinite loop ═══════════════════
-     Uses cloned first/last slides so the wrap-around is seamless.
-     No jump: clone technique = real infinite feel.
+  /* ══ DRAG / SWIPE HELPER ════════════════════════════════════
+     One pointer-events implementation shared by every carousel: mouse
+     click-and-drag, touch and pen all take the same path, so the track
+     follows the pointer 1:1 and hands back the release velocity for a
+     natural flick. Vertical touch gestures are left to the browser
+     (touch-action: pan-y on the track), so page scrolling never gets stuck.
+
+       onStart()                      drag just began (past a 6px dead zone)
+       onMove(dx)                     total horizontal distance since press
+       onEnd({ dx, vx, cancelled })   vx = release speed in px/ms (+ = right)
   ════════════════════════════════════════════════════════════ */
-  function initHeroCarousel() {
-    if (!hcTrack) return;
-    const origSlides = Array.from(hcTrack.querySelectorAll('.hc-slide'));
-    if (!origSlides.length) return;
+  const clamp = (v, lo, hi) => Math.min(hi, Math.max(lo, v));
 
+  function attachDrag(el, { onStart, onMove, onEnd }) {
+    const DEAD_ZONE = 6;
+    let pid = null;
+    let sx = 0;
+    let sy = 0;
+    let active = false;
+    let samples = [];
+
+    function finish(cancelled) {
+      if (pid === null) return;
+      const id = pid;
+      const wasActive = active;
+      pid = null;
+      active = false;
+      try { el.releasePointerCapture(id); } catch (e) { }
+      el.classList.remove('is-dragging');
+      if (!wasActive) return;
+
+      // Speed over the last ~100ms of the gesture
+      const last = samples[samples.length - 1];
+      const first = samples.find(s => last.t - s.t <= 100) || last;
+      const vx = last.t > first.t ? (last.x - first.x) / (last.t - first.t) : 0;
+
+      // A drag must not also count as a click on whatever is under the pointer
+      const swallow = ev => { ev.preventDefault(); ev.stopPropagation(); };
+      el.addEventListener('click', swallow, { capture: true, once: true });
+      setTimeout(() => el.removeEventListener('click', swallow, { capture: true }), 0);
+
+      onEnd({ dx: last.x - sx, vx, cancelled });
+    }
+
+    el.addEventListener('pointerdown', e => {
+      if (pid !== null) return;
+      if (e.pointerType === 'mouse' && e.button !== 0) return;
+      pid = e.pointerId;
+      sx = e.clientX;
+      sy = e.clientY;
+      active = false;
+      samples = [{ x: e.clientX, t: e.timeStamp }];
+    });
+
+    el.addEventListener('pointermove', e => {
+      if (e.pointerId !== pid) return;
+      const dx = e.clientX - sx;
+      const dy = e.clientY - sy;
+      if (!active) {
+        if (Math.abs(dx) < DEAD_ZONE && Math.abs(dy) < DEAD_ZONE) return;
+        if (Math.abs(dy) > Math.abs(dx)) { pid = null; return; } // vertical — page scroll
+        active = true;
+        try { el.setPointerCapture(pid); } catch (err) { }
+        el.classList.add('is-dragging');
+        onStart();
+      }
+      samples.push({ x: e.clientX, t: e.timeStamp });
+      if (samples.length > 12) samples.shift();
+      onMove(dx);
+    });
+
+    el.addEventListener('pointerup', e => { if (e.pointerId === pid) finish(false); });
+    el.addEventListener('pointercancel', e => { if (e.pointerId === pid) finish(true); });
+  }
+
+  /* ══ HERO CAROUSELS — drag, flick & seamless infinite loop ═══
+     Every .hero-carousel on the site (home gallery, trackless-train
+     gallery) runs through this one function.
+
+     Layout: [clone of last] [1] [2] … [N] [clone of first]. Sliding onto a
+     clone and then silently jumping to its twin is what makes the loop
+     endless — the jump is invisible because both look identical.
+
+     Position is tracked in px (translate3d) so it can be read back mid-flight:
+     a click, swipe or arrow press while the track is still gliding picks it
+     up exactly where it is instead of being ignored or snapping.
+  ════════════════════════════════════════════════════════════ */
+  function initHeroCarousels() {
+    document.querySelectorAll('.hero-carousel').forEach(initHeroCarousel);
+  }
+
+  function initHeroCarousel(carousel) {
+    const track = carousel.querySelector('.hc-track');
+    if (!track) return;
+    const origSlides = Array.from(track.querySelectorAll('.hc-slide'));
     const total = origSlides.length;
-    let current = 1;     // real index starts at 1 (after clone)
-    let isMoving = false;
-    let autoTimer = null;
-    let touchStartX = 0;
+    if (total < 2) return;
 
-    // ── Clone first and last slide for seamless wrap ──
+    const prevBtn = carousel.querySelector('.hc-prev');
+    const nextBtn = carousel.querySelector('.hc-next');
+    const dotsEl = carousel.querySelector('.hc-dots');
+
+    const EASE_OUT = 'cubic-bezier(.22, .8, .26, 1)';  // decelerates like a real flick
+    const EASE_IO = 'cubic-bezier(.65, 0, .35, 1)';    // arrows, dots, autoplay
+    const AUTO_DELAY = 4500;
+    const SLIDE_MS = 550;
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    let current = 1;        // index in the extended track (0 and total+1 are clones)
+    let curX = 0;           // last px offset applied to the track
+    let animating = false;
+    let dragging = false;
+    let hovering = false;
+    let dragBase = 0;
+    let settleTimer = null;
+    let autoTimer = null;
+
+    // ── Clones for the seamless wrap ──
     const cloneFirst = origSlides[0].cloneNode(true);
     const cloneLast = origSlides[total - 1].cloneNode(true);
-    hcTrack.appendChild(cloneFirst);
-    hcTrack.insertBefore(cloneLast, origSlides[0]);
-    // Track now: [cloneLast, slide1, slide2, ..., slideN, cloneFirst]
+    cloneFirst.setAttribute('aria-hidden', 'true');
+    cloneLast.setAttribute('aria-hidden', 'true');
+    track.appendChild(cloneFirst);
+    track.insertBefore(cloneLast, origSlides[0]);
 
-    const allSlides = () => hcTrack.querySelectorAll('.hc-slide');
+    const slideW = () => track.clientWidth || carousel.clientWidth;
 
-    // ── Position instantly (no animation) to real slide 1 ──
-    setPos(current, false);
+    function place(px, ms, ease) {
+      curX = px;
+      if (ms) void track.offsetWidth; // commit any un-animated jump first so the transition starts from it
+      track.style.transition = ms ? `transform ${ms}ms ${ease}` : 'none';
+      track.style.transform = `translate3d(${px}px, 0, 0)`;
+    }
 
-    // ── Build dots (one per REAL slide) ──
-    if (hcDots) {
+    // ── Dots (one per REAL slide) ──
+    const dots = [];
+    if (dotsEl) {
+      dotsEl.innerHTML = '';
       origSlides.forEach((_, i) => {
         const dot = document.createElement('button');
         dot.className = 'hc-dot' + (i === 0 ? ' active' : '');
         dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
-        dot.addEventListener('click', () => { goTo(i + 1); resetAuto(); });
-        hcDots.appendChild(dot);
+        dot.addEventListener('click', () => {
+          if (animating) freeze();
+          snapTo(i + 1, reduce ? 0 : SLIDE_MS, EASE_IO);
+          startAuto();
+        });
+        dotsEl.appendChild(dot);
+        dots.push(dot);
       });
     }
 
-    function setPos(idx, animate) {
-      hcTrack.style.transition = animate
-        ? 'transform 0.55s cubic-bezier(0.76, 0, 0.24, 1)'
-        : 'none';
-      hcTrack.style.transform = `translateX(-${idx * 100}%)`;
+    function updateDots() {
+      const real = current <= 0 ? total : current > total ? 1 : current;
+      dots.forEach((d, i) => d.classList.toggle('active', i === real - 1));
     }
 
-    function updateDots(realIdx) {
-      // realIdx is 1-based; dots are 0-based
-      const dotEls = hcDots?.querySelectorAll('.hc-dot') || [];
-      dotEls.forEach((d, i) => d.classList.toggle('active', i === realIdx - 1));
-    }
-
-    function goTo(idx) {
-      if (isMoving) return;
-      isMoving = true;
-      current = idx;
-      setPos(current, true);
-      updateDots(
-        current <= 0 ? total : current > total ? 1 : current
-      );
-
-      // After animation ends, silently jump to real clone if at edge
-      setTimeout(() => {
-        if (current === 0) {
-          current = total;
-          setPos(current, false);
-          updateDots(current);
-        } else if (current === total + 1) {
-          current = 1;
-          setPos(current, false);
-          updateDots(current);
-        }
-        isMoving = false;
-      }, 560);
-    }
-
-    function next() { goTo(current + 1); }
-    function prev() { goTo(current - 1); }
-
-    hcNext && hcNext.addEventListener('click', () => { resetAuto(); next(); });
-    hcPrev && hcPrev.addEventListener('click', () => { resetAuto(); prev(); });
-
-    // Touch swipe — distinguishes horizontal swipe from vertical scroll
-    let touchStartY = 0;
-    let touchLocked = false; // true = horizontal swipe captured
-
-    hcTrack.addEventListener('touchstart', e => {
-      touchStartX = e.touches[0].clientX;
-      touchStartY = e.touches[0].clientY;
-      touchLocked = false;
-    }, { passive: true });
-
-    hcTrack.addEventListener('touchmove', e => {
-      const dx = Math.abs(e.touches[0].clientX - touchStartX);
-      const dy = Math.abs(e.touches[0].clientY - touchStartY);
-      if (!touchLocked && dx > dy && dx > 8) {
-        touchLocked = true; // horizontal — capture it
+    // After gliding onto a clone, silently jump to its identical twin
+    function settle() {
+      clearTimeout(settleTimer);
+      animating = false;
+      if (current <= 0) {
+        current = total;
+        place(-current * slideW(), 0);
+      } else if (current > total) {
+        current = 1;
+        place(-current * slideW(), 0);
       }
-      // Only prevent default if clearly horizontal (stops page scroll)
-      if (touchLocked) e.preventDefault();
-    }, { passive: false }); // passive:false required to call preventDefault
+    }
 
-    hcTrack.addEventListener('touchend', e => {
-      const diff = touchStartX - e.changedTouches[0].clientX;
-      if (Math.abs(diff) > 44) { resetAuto(); diff > 0 ? next() : prev(); }
-      touchLocked = false;
-    }, { passive: true });
+    function snapTo(idx, ms, ease) {
+      clearTimeout(settleTimer);
+      current = idx;
+      animating = ms > 0;
+      place(-idx * slideW(), ms, ease);
+      updateDots();
+      // transitionend does the real work; the timer is only a safety net
+      if (animating) settleTimer = setTimeout(settle, ms + 200);
+      else settle();
+    }
 
-    // ── Auto-play: full 4.5s gap after ANY manual interaction ──
-    // resetAuto() clears the old interval and starts a fresh one,
-    // guaranteeing the next auto-advance is always 4.5s from now.
-    const AUTO_DELAY = 4500;
+    track.addEventListener('transitionend', e => {
+      if (e.target === track && e.propertyName === 'transform') settle();
+    });
+
+    // Stop wherever the track visually is right now (mid-glide) and fold the
+    // position back onto the real slides so it can be moved on from there.
+    function freeze() {
+      clearTimeout(settleTimer);
+      if (!animating) return;
+      animating = false;
+      const w = slideW();
+      const x = new DOMMatrixReadOnly(getComputedStyle(track).transform).m41;
+      let p = -x / w;                                     // fractional slide index
+      if (p < 0.5) p += total;
+      else if (p >= total + 0.5) p -= total;
+      place(-p * w, 0);
+      current = Math.round(p);
+    }
+
+    function step(dir) {
+      // Mid-glide onto a clone can't be retargeted — fold it onto the real slides first
+      if (animating && (current <= 0 || current > total)) freeze();
+      else if (!animating && (current <= 0 || current > total)) settle();
+      snapTo(current + dir, reduce ? 0 : SLIDE_MS, EASE_IO);
+    }
+
+    prevBtn && prevBtn.addEventListener('click', () => { step(-1); startAuto(); });
+    nextBtn && nextBtn.addEventListener('click', () => { step(1); startAuto(); });
+
+    // ── Click-and-drag / touch swipe ──
+    attachDrag(track, {
+      onStart() {
+        stopAuto();
+        if (animating) freeze();
+        dragging = true;
+        dragBase = curX;
+      },
+      onMove(dx) {
+        const w = slideW();
+        place(dragBase + clamp(dx, -w, w), 0);
+      },
+      onEnd({ dx, vx, cancelled }) {
+        dragging = false;
+        const w = slideW();
+        const shown = dragBase + clamp(dx, -w, w);
+        // Where the flick would land if it kept its speed for another ~180ms
+        const projected = dx + vx * 180;
+        let dir = 0;
+        if (!cancelled && Math.abs(projected) > w * 0.22) dir = projected < 0 ? 1 : -1;
+        const dist = Math.abs(-(current + dir) * w - shown);
+        const ms = reduce || dist < 1 ? 0 : clamp(dist / Math.max(Math.abs(vx), 0.9), 240, 600);
+        snapTo(current + dir, ms, EASE_OUT);
+        startAuto();
+      }
+    });
+
+    // ── Horizontal trackpad / tilt-wheel: one slide per gesture ──
+    let lastWheel = 0;
+    carousel.addEventListener('wheel', e => {
+      if (Math.abs(e.deltaX) < 8 || Math.abs(e.deltaX) <= Math.abs(e.deltaY)) return;
+      e.preventDefault();
+      const now = performance.now();
+      const fresh = now - lastWheel > 150; // inertia keeps events flowing — count each swipe once
+      lastWheel = now;
+      if (!fresh || dragging) return;
+      step(e.deltaX > 0 ? 1 : -1);
+      startAuto();
+    }, { passive: false });
+
+    // ── Auto-play: full delay after ANY interaction, paused while hovered/dragged ──
+    function stopAuto() { clearInterval(autoTimer); autoTimer = null; }
     function startAuto() {
+      stopAuto();
       autoTimer = setInterval(() => {
-        // Only advance if carousel isn't mid-animation
-        if (!isMoving) next();
+        if (!animating && !dragging && !hovering && !document.hidden) step(1);
       }, AUTO_DELAY);
     }
-    function resetAuto() {
-      clearInterval(autoTimer); // kill current countdown
-      startAuto();              // start a brand new 4.5s countdown
-    }
+    // pointerType check: a touch tap must not leave autoplay "hovered" forever
+    carousel.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') hovering = true; });
+    carousel.addEventListener('pointerleave', e => {
+      if (e.pointerType !== 'mouse') return;
+      hovering = false;
+      startAuto();
+    });
 
-    const carousel = hcTrack.closest('.hero-carousel');
-    // Pause auto when user hovers (they're looking at a slide)
-    carousel?.addEventListener('mouseenter', () => clearInterval(autoTimer));
-    // Resume from full 4.5s when they leave (not mid-cycle)
-    carousel?.addEventListener('mouseleave', resetAuto);
+    // Keep the slide aligned if the width changes (rotate phone, resize window)
+    window.addEventListener('resize', () => {
+      if (dragging) return;
+      clearTimeout(settleTimer);
+      animating = false;
+      if (current <= 0) current = total;
+      else if (current > total) current = 1;
+      place(-current * slideW(), 0);
+    });
+
+    place(-current * slideW(), 0);
     startAuto();
   } // end initHeroCarousel
 
   /* ══ REVIEWS CAROUSEL — fixed offset & reachable dots ═══════
-     Bug fixes:
-     1. Gap measured from getComputedStyle (not hardcoded 18px)
-     2. Each dot maps to one card position — all dots reachable
-     3. Auto-advances by one card at a time, wraps correctly
+    Bug fixes:
+    1. Gap measured from getComputedStyle (not hardcoded 18px)
+    2. Each dot maps to one card position — all dots reachable
+    3. Auto-advances by one card at a time, wraps correctly
   ════════════════════════════════════════════════════════════ */
   function initReviews() {
     if (!revTrack) return;
-    const cards = Array.from(revTrack.querySelectorAll('.rev-card'));
+    let cards = Array.from(revTrack.querySelectorAll('.rev-card'));
     if (!cards.length) return;
 
     let idx = 0;
     let autoTimer = null;
-    let touchStartX = 0;
+    const REV_EASE = 'cubic-bezier(.22, .8, .26, 1)'; // decelerates like a real flick
 
     function getVisible() {
       if (window.innerWidth <= 580) return 1;
@@ -500,7 +892,8 @@
       idx = Math.min(max, Math.max(0, n));
       const cardW = cards[0].offsetWidth;
       const gap = getGap();
-      revTrack.style.transform = `translateX(-${idx * (cardW + gap)}px)`;
+      revTrack.style.transition = `transform .55s ${REV_EASE}`;
+      revTrack.style.transform = `translate3d(-${idx * (cardW + gap)}px, 0, 0)`;
       revDots?.querySelectorAll('.rev-dot').forEach((d, i) =>
         d.classList.toggle('active', i === idx)
       );
@@ -519,27 +912,32 @@
     revNext && revNext.addEventListener('click', () => { next(); resetRevAuto(); });
     revPrev && revPrev.addEventListener('click', () => { prev(); resetRevAuto(); });
 
-    let revTouchStartY = 0;
-    let revTouchLocked = false;
+    // Click-and-drag / touch swipe — the track follows the pointer, then glides
+    // to the nearest card (a fast flick can carry across several)
+    let dragBase = 0;
+    const cardStep = () => cards[0].offsetWidth + getGap();
+    const trackX = () => new DOMMatrixReadOnly(getComputedStyle(revTrack).transform).m41;
 
-    revTrack.addEventListener('touchstart', e => {
-      touchStartX = e.touches[0].clientX;
-      revTouchStartY = e.touches[0].clientY;
-      revTouchLocked = false;
-    }, { passive: true });
-
-    revTrack.addEventListener('touchmove', e => {
-      const dx = Math.abs(e.touches[0].clientX - touchStartX);
-      const dy = Math.abs(e.touches[0].clientY - revTouchStartY);
-      if (!revTouchLocked && dx > dy && dx > 8) revTouchLocked = true;
-      if (revTouchLocked) e.preventDefault();
-    }, { passive: false });
-
-    revTrack.addEventListener('touchend', e => {
-      const diff = touchStartX - e.changedTouches[0].clientX;
-      if (Math.abs(diff) > 44) { diff > 0 ? next() : prev(); resetRevAuto(); }
-      revTouchLocked = false;
-    }, { passive: true });
+    attachDrag(revTrack, {
+      onStart() {
+        clearInterval(autoTimer);
+        dragBase = trackX();            // also catches the track mid-glide
+        revTrack.style.transition = 'none';
+        revTrack.style.transform = `translate3d(${dragBase}px, 0, 0)`;
+      },
+      onMove(dx) {
+        const min = -getMax() * cardStep();
+        let x = dragBase + dx;
+        // rubber-band past either end
+        if (x > 0) x *= 0.35;
+        else if (x < min) x = min + (x - min) * 0.35;
+        revTrack.style.transform = `translate3d(${x}px, 0, 0)`;
+      },
+      onEnd({ dx, vx, cancelled }) {
+        goTo(cancelled ? idx : Math.round(-(dragBase + dx + vx * 180) / cardStep()));
+        resetRevAuto();
+      }
+    });
 
     function startRevAuto() {
       autoTimer = setInterval(() => {
@@ -553,7 +951,7 @@
 
     const section = revTrack.closest('.reviews-section');
     section?.addEventListener('mouseenter', () => clearInterval(autoTimer));
-    section?.addEventListener('mouseleave', startRevAuto);
+    section?.addEventListener('mouseleave', resetRevAuto); // reset (not start) so timers never stack
 
     // Rebuild on resize so dots + offsets stay accurate
     window.addEventListener('resize', debounce(() => {
@@ -561,14 +959,18 @@
       goTo(0);
     }, 200));
 
+    // Live reviews replace the static cards (see initReviewDots) — re-read
+    // them and rebuild the dots instead of re-running initReviews, which
+    // would stack a second set of listeners and timers.
+    document.addEventListener('revRefresh', () => {
+      cards = Array.from(revTrack.querySelectorAll('.rev-card'));
+      if (!cards.length) return;
+      buildDots();
+      goTo(0);
+    });
+
     buildDots();
     startRevAuto();
-  }
-
-  /* Public re-init for when live reviews replace static HTML cards */
-  function initReviewDots() {
-    // Re-run initReviews logic after dynamic card injection
-    initReviews();
   }
 
   /* ══ TRAIN GALLERY THUMBS ═══════════════════════════════════ */
@@ -616,7 +1018,10 @@
         switchTab(tab.dataset.tab);
         // Smooth scroll to the section top on mobile
         if (window.innerWidth < 900) {
-          document.getElementById('rentals')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          document.getElementById('rentals')?.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start',
+          });
         }
       });
     });
@@ -696,9 +1101,9 @@
       if (starsDisp) {
         const pct = (rating / 5) * 100;
         starsDisp.innerHTML = `
-          <span class="rev-stars-partial" aria-label="${rounded} out of 5 stars">
+          <span class="rev-stars-partial" aria-label="${Number(rounded).toFixed(1)} out of 5 stars">
             ★★★★★
-            <span class="rev-stars-fill" style="width:${pct}%">★★★★★</span>
+            <span class="rev-stars-fill" style="width:${Number(pct).toFixed(2)}%">★★★★★</span>
           </span>`;
       }
 
@@ -720,6 +1125,23 @@
       console.warn('Google Places fetch failed:', err.message);
       // Static fallback cards in HTML remain visible — no action needed
     }
+  }
+
+  function escapeHtml(str) {
+    return String(str == null ? '' : str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
+  function safeHttpUrl(url) {
+    try {
+      const u = new URL(String(url || ""), window.location.origin);
+      if (u.protocol === 'http:' || u.protocol === 'https:') return u.href;
+    } catch (_) { /* ignore */ }
+    return '#';
   }
 
   // Avatar background colors — cycles through for each reviewer
@@ -758,14 +1180,16 @@
 
     // Render each live review card
     reviews.forEach((review, i) => {
-      const name = review.authorAttribution?.displayName || 'Google Reviewer';
-      const text = review.text?.text || '';
-      const rating = review.rating || 5;
-      const time = timeAgo(review);
+      const name = escapeHtml(review.authorAttribution?.displayName || 'Google Reviewer');
+      const text = escapeHtml(review.text?.text || '');
+      const rating = Number(review.rating) || 5;
+      const time = escapeHtml(timeAgo(review));
       const color = AVATAR_COLORS[i % AVATAR_COLORS.length];
-      const initial = initials(name);
+      const initial = escapeHtml(
+        initials(review.authorAttribution?.displayName || 'Google Reviewer')
+      );
       const stars = starsFromRating(rating);
-      const profile = review.authorAttribution?.uri || '#';
+      const profile = safeHttpUrl(review.authorAttribution?.uri);
 
       const card = document.createElement('div');
       card.className = 'rev-card';
@@ -792,23 +1216,10 @@
     initReviewDots();
   }
 
+  /* Called after live reviews replace the static cards — tells the slider
+     built in initReviews to pick up the new cards and rebuild its dots. */
   function initReviewDots() {
-    const dots = document.getElementById('revDots');
-    const cards = document.querySelectorAll('.rev-card');
-    if (!dots || !cards.length) return;
-    dots.innerHTML = '';
-    cards.forEach((_, i) => {
-      const dot = document.createElement('button');
-      dot.className = 'rev-dot' + (i === 0 ? ' active' : '');
-      dot.setAttribute('aria-label', `Review ${i + 1}`);
-      dot.addEventListener('click', () => {
-        // reuse goTo from initReviews closure via dataset
-        dot.dataset.idx = i;
-        const event = new CustomEvent('revGoTo', { detail: i });
-        document.dispatchEvent(event);
-      });
-      dots.appendChild(dot);
-    });
+    document.dispatchEvent(new CustomEvent('revRefresh'));
   }
 
   function initGoogleRating() {
@@ -827,7 +1238,13 @@
         if (countLive) countLive.textContent = `· ${cached.count.toLocaleString()} Google Reviews`;
         if (starsDisp) {
           const pct = (cached.rating / 5) * 100;
-          starsDisp.innerHTML = `<span class="rev-stars-partial" aria-label="${rounded} out of 5 stars">★★★★★<span class="rev-stars-fill" style="width:${pct}%">★★★★★</span></span>`;
+          starsDisp.innerHTML =
+            `<span class="rev-stars-partial"
+              aria-label="${Number(rounded).toFixed(1)} out of 5 stars">
+              ★★★★★
+              <span class="rev-stars-fill"
+                style="width:${Number(pct).toFixed(2)}%">★★★★★</span>
+            </span>`;
         }
         if (liveBadge) liveBadge.style.display = 'inline-flex';
 
@@ -869,7 +1286,9 @@
         try {
           // Reverse geocode using the free OpenStreetMap Nominatim API
           const res = await fetch(
-            `https://nominatim.openstreetmap.org/reverse?lat=${latitude}&lon=${longitude}&format=json&accept-language=en`,
+            'https://nominatim.openstreetmap.org/reverse' +
+            `?lat=${latitude}&lon=${longitude}` +
+            '&format=json&accept-language=en',
             { headers: { 'Accept': 'application/json' } }
           );
           const data = await res.json();
@@ -889,7 +1308,7 @@
             if (inArea && mapGeoNote && mapGeoText) {
               mapGeoNote.style.display = 'flex';
               mapGeoText.textContent =
-                `Your location (${city}) was automatically detected — we deliver to your area!`;
+                `We detected your location (${city}) and we deliver to your area!`;
             }
 
             // Store for booking form pre-fill
@@ -967,12 +1386,141 @@
     });
   }
 
-  /* ══ ANNOUNCEMENTS BAR PAUSE ════════════════════════════════ */
+  /* ══ ANNOUNCEMENTS BAR — seamless, position-preserving marquee ═
+     Every page here is a full reload, so a plain CSS animation restarts from
+     zero on each navigation, and the old setup() also restarted it whenever a
+     font finished loading or the window resized (alt-tab out of fullscreen).
+     Now:
+       • One Web Animation drives the loop; its currentTime IS the position.
+       • Re-measuring (fonts, resize) swaps the animation for a new one at the
+         SAME position — nothing ever restarts from 0.
+       • The position is saved when the page is left and resumed on the next
+         page, advanced by the time spent in between, so it looks like the bar
+         never stopped — one continuous "gif loop" across the whole site.
+  ════════════════════════════════════════════════════════════ */
   function initAnnBar() {
+    const bar = document.querySelector('.ann-bar');
     const track = document.querySelector('.ann-track');
-    if (!track) return;
-    track.addEventListener('mouseenter', () => track.style.animationPlayState = 'paused');
-    track.addEventListener('mouseleave', () => track.style.animationPlayState = 'running');
+    if (!bar || !track) return;
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const canAnimate = typeof track.animate === 'function';
+    const SPEED = 42;            // px per second — calm production speed
+    const KEY = 'fj-ann-pos';
+    const RESUME_WINDOW = 15000; // only credit the gap between pages if it was short
+
+    let group = track.querySelector('.ann-group');
+    if (!group) {
+      // Legacy markup fallback: wrap existing children once
+      group = document.createElement('div');
+      group.className = 'ann-group';
+      while (track.firstChild) group.appendChild(track.firstChild);
+      track.appendChild(group);
+    }
+
+    let anim = null;
+    let loopPx = 0;      // exact width of one group = length of one full loop
+    let hovering = false;
+
+    const loopMs = () => (loopPx / SPEED) * 1000;
+
+    // Current position inside the loop, in px (null until the first build)
+    function currentPx() {
+      if (!anim || !loopPx) return null;
+      const t = Number(anim.currentTime) || 0;
+      return ((t % loopMs()) / loopMs()) * loopPx;
+    }
+
+    // Where the previous page left off, advanced by however long the page
+    // change took, as if the bar had kept moving the whole time.
+    function restoredPx(loop) {
+      try {
+        const s = JSON.parse(sessionStorage.getItem(KEY));
+        if (!s || typeof s.f !== 'number') return 0;
+        let px = s.f * loop;
+        const gap = Date.now() - s.t;
+        if (s.run && gap >= 0 && gap < RESUME_WINDOW) px += (gap / 1000) * SPEED;
+        return px;
+      } catch (e) { return 0; }
+    }
+
+    function savePosition() {
+      const px = currentPx();
+      if (px === null) return;
+      try {
+        sessionStorage.setItem(KEY, JSON.stringify({ f: px / loopPx, t: Date.now(), run: !hovering }));
+      } catch (e) { }
+    }
+
+    function build(startPx) {
+      if (anim) { anim.cancel(); anim = null; }
+      while (track.children.length > 1) track.removeChild(track.lastChild);
+
+      const one = group.getBoundingClientRect().width;
+      if (!one) return;
+
+      // Enough copies that the visible strip is always covered, wherever the loop is
+      const need = Math.max(2, Math.ceil(bar.clientWidth / one) + 1);
+      for (let n = 1; n < need; n++) {
+        const clone = group.cloneNode(true);
+        clone.setAttribute('aria-hidden', 'true');
+        track.appendChild(clone);
+      }
+
+      // Loop length = distance from the 1st group to the 2nd, unrounded, so the
+      // seam is exact to the sub-pixel and never drifts or ticks
+      loopPx = track.children[1].getBoundingClientRect().left - group.getBoundingClientRect().left;
+
+      if (reduceMotion || !canAnimate) return; // static strip
+
+      anim = track.animate(
+        [
+          { transform: 'translate3d(0, 0, 0)' },
+          { transform: `translate3d(${-loopPx}px, 0, 0)` }
+        ],
+        { duration: loopMs(), iterations: Infinity, easing: 'linear' }
+      );
+      anim.currentTime = ((startPx % loopPx) / SPEED) * 1000;
+      if (hovering) anim.pause();
+    }
+
+    // Idempotent: does nothing unless the width of a group changed (fonts/emoji
+    // settling) or a wider window needs more copies — and even then keeps the
+    // position, so it can be called as often as needed without a visible seam.
+    function refresh() {
+      const one = group.getBoundingClientRect().width;
+      if (!one) return;
+      const need = Math.max(2, Math.ceil(bar.clientWidth / one) + 1);
+      if (loopPx && Math.abs(one - loopPx) < 0.5 && track.children.length >= need) return;
+      const px = currentPx();
+      build(px === null ? restoredPx(one) : px);
+    }
+
+    refresh();
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(refresh).catch(() => { });
+    }
+    window.addEventListener('resize', debounce(refresh, 120));
+    if (typeof ResizeObserver !== 'undefined') {
+      new ResizeObserver(debounce(refresh, 120)).observe(bar);
+    }
+
+    // Save on every way of leaving: navigation, tab switch, app switch on mobile
+    window.addEventListener('pagehide', savePosition);
+    document.addEventListener('visibilitychange', () => { if (document.hidden) savePosition(); });
+
+    // Pause while a mouse is over the bar. pointerType check: on touch screens a
+    // tap would otherwise leave it "hovered" (paused) until the next tap elsewhere.
+    bar.addEventListener('pointerenter', e => {
+      if (e.pointerType !== 'mouse') return;
+      hovering = true;
+      if (anim) anim.pause();
+    });
+    bar.addEventListener('pointerleave', e => {
+      if (e.pointerType !== 'mouse') return;
+      hovering = false;
+      if (anim) anim.play();
+    });
   }
 
   /* ══ UTIL ═══════════════════════════════════════════════════ */
@@ -1013,6 +1561,7 @@
     if (!overlay) return;
 
     const mEmoji = document.getElementById('prodModalEmoji');
+    const mPhoto = document.getElementById('prodModalPhoto');
     const mTitle = document.getElementById('prodModalTitle');
     const mBadge = document.getElementById('prodModalBadge');
     const mDesc = document.getElementById('prodModalDesc');
@@ -1027,9 +1576,23 @@
     const mRequirement = document.getElementById('prodModalRequirement');
 
     function openModal(data) {
-      if (mEmoji) mEmoji.textContent = data.emoji || '🏰';
+      if (mPhoto && data.image) {
+        mPhoto.src = data.image;
+        mPhoto.alt = data.title || '';
+        mPhoto.hidden = false;
+        if (mEmoji) mEmoji.style.display = 'none';
+      } else {
+        if (mPhoto) {
+          mPhoto.removeAttribute('src');
+          mPhoto.hidden = true;
+        }
+        if (mEmoji) {
+          mEmoji.style.display = '';
+          mEmoji.textContent = data.emoji || '🏰';
+        }
+      }
       if (mTitle) mTitle.textContent = data.title || '';
-      
+
       if (mBadge) {
         if (data.badge) {
           mBadge.textContent = data.badge;
@@ -1056,7 +1619,11 @@
       if (mPower) mPower.textContent = data.power || 'N/A';
       if (mPrice) mPrice.textContent = data.price || 'N/A';
       if (mCta) mCta.href = data.book || '#';
-      if (mRequirement) mRequirement.textContent = data.requirement || 'Electric outlet within 50 feet of setup area';
+      if (mRequirement) {
+        mRequirement.textContent =
+          data.requirement ||
+          'Electric outlet within 50 feet of setup area';
+      }
 
       overlay.classList.add('open');
       overlay.setAttribute('aria-hidden', 'false');
@@ -1095,13 +1662,46 @@
   }
 
   /* ══ INIT ═══════════════════════════════════════════════════ */
+  /* Catalog filter pills — noun via #filterCount[data-count-noun] (default: unit) */
+  function initFilterPills() {
+    const pills = document.querySelectorAll('.filter-pill');
+    const cards = document.querySelectorAll('.pcard[data-filter]');
+    const countEl = document.getElementById('filterCount');
+    if (!pills.length || !cards.length) return;
+
+    const noun = (countEl && countEl.getAttribute('data-count-noun')) || 'unit';
+
+    function setCount(vis) {
+      if (!countEl) return;
+      const label = vis === 1 ? noun : noun + 's';
+      countEl.textContent = vis + ' ' + label + ' available';
+    }
+
+    pills.forEach(function (pill) {
+      pill.addEventListener('click', function () {
+        pills.forEach(function (p) { p.classList.remove('active'); });
+        pill.classList.add('active');
+
+        const f = pill.dataset.filter;
+        let vis = 0;
+        cards.forEach(function (card) {
+          const cats = card.dataset.filter || '';
+          const show = f === 'all' || cats.split(' ').includes(f);
+          card.style.display = show ? '' : 'none';
+          if (show) vis++;
+        });
+        setCount(vis);
+      });
+    });
+  }
+
   function init() {
     initPageTransitions();
     initHeader();
     initDropdowns();
     initMobileNav();
     initCart();
-    initHeroCarousel();
+    initHeroCarousels();
     initReviews();
     initTrainGallery();
     initScrollAnim();
@@ -1113,6 +1713,9 @@
     initSmoothScroll();
     initAnnBar();
     initThemeToggle();
+    initFilterPills();
+    initLivePrices();
+    initPartnerLogoFallbacks();
   }
 
   if (document.readyState === 'loading') {
@@ -1122,3 +1725,13 @@
   }
 
 })();
+
+function initPartnerLogoFallbacks() {
+  document.querySelectorAll('img.partner-logo').forEach(function (img) {
+    img.addEventListener('error', function () {
+      img.style.display = 'none';
+      var fb = img.nextElementSibling;
+      if (fb) fb.style.display = 'flex';
+    });
+  });
+}

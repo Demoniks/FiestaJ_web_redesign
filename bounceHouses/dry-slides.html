@@ -5,15 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Set theme before first paint so there's no flash of the wrong theme -->
-    <script>(function () { try { var t = localStorage.getItem('fj-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); document.documentElement.setAttribute('data-theme', t); } catch (e) { } })();</script>
+    <script>(function () { try { var t = localStorage.getItem('fj-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); document.documentElement.setAttribute('data-theme', t); } catch (e) { } document.documentElement.classList.add('fj-booting'); if (!document.getElementById('fj-boot-style')) { var _s = document.createElement('style'); _s.id = 'fj-boot-style'; _s.textContent = 'html.fj-booting::before{content:"";position:fixed;inset:0;background:#1C1410;z-index:99999;pointer-events:none}'; (document.head || document.documentElement).appendChild(_s); } })();</script>
     <title>Dry Slide Rentals in Santa Barbara, CA | Fiesta Jumps</title>
     <meta name="description"
-        content="Rent dry slides in Santa Barbara, CA. Fiesta Jumps offers single and double-lane dry slides for parties and events — delivered, set up, and ready to go.">
+        content="Rent dry slides in Santa Barbara, CA. Fiesta Jumps offers single and double lane dry slides for parties and events, all delivered, set up, and ready to go.">
     <meta name="robots" content="index, follow">
     <!-- Open Graph -->
-    <meta property="og:title" content="Dry Slide Rentals — Fiesta Jumps Santa Barbara">
+    <meta property="og:title" content="Dry Slide Rentals | Fiesta Jumps Santa Barbara">
     <meta property="og:description"
-        content="Santa Barbara's #1 party rental company. Dry slides for any event — licensed, insured, and ready year-round.">
+        content="Santa Barbara's #1 party rental company. Dry slides for any event, licensed, insured, and ready all year.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://fiestajumps.com/dry-slide-rentals/">
 
@@ -38,7 +38,7 @@
     <link rel="prefetch" href="/combo-bounce-house-rentals/" as="document">
     <link rel="prefetch" href="/water-slides-rentals/" as="document">
     <link rel="prefetch" href="/bundle-deals/" as="document">
-    <link rel="prefetch" href="/book-now/" as="document">
+    <link rel="prefetch" href="/contact/" as="document">
 
 </head>
 
@@ -56,8 +56,8 @@
         "crumbMiddle": "<a href=\"/#rentals\" class=\"fj-link\">Rentals</a><span class=\"bc-sep\">›</span>",
         "breadcrumbCurrent": "Dry Slides",
         "catTag": "🎢 Dry Slide Rentals",
-        "title": "Dry Slide <em>Rentals</em> in Santa Barbara",
-        "desc": "Looking for the thrill of a slide without the water? Our dry slides bring big air and big smiles to any party — perfect for cooler days or whenever you want the fun without the splash.",
+        "title": "Dry Slide <em>Rentals</em>",
+        "desc": "Looking for the thrill of a slide without the water? Our dry slides bring big air and big smiles to any party. They're perfect for cooler days or whenever you want the fun without the splash.",
         "badges": [
             "✅ Delivery &amp; Setup Included",
             "☀️ Fun Rain or Shine",
@@ -65,21 +65,20 @@
             "🧹 Clean &amp; Inspected"
         ],
         "ctaPrimaryText": "Set Event Date",
-        "ctaPrimaryHref": "/book-now/"
+        "ctaPrimaryHref": "/contact/"
     }
     -->
 
-    <!-- ══ FILTER BAR ══ edit buttons for each category ══ -->
-    <nav class="filter-bar" aria-label="Filter bounce houses">
+    <!-- Source: https://fiestajumps.com/rentals/dry-slide-rentals/ · audit: /workspace/fiesta-content/audit-dry-slide-rentals.json · cards rendered from products[] -->
+    <nav class="filter-bar" aria-label="Filter dry slides">
         <div class="container filter-bar-inner">
             <fieldset class="filter-pills" aria-label="Filter options">
-                <button class="filter-pill active" data-filter="all">All Units</button>
-                <button class="filter-pill" data-filter="standard">Standard</button>
-                <button class="filter-pill" data-filter="large">Large</button>
+                <button class="filter-pill active" data-filter="all">All Slides</button>
+                <button class="filter-pill" data-filter="dual">Dual Lane</button>
+                <button class="filter-pill" data-filter="climb">Climb &amp; Slide</button>
                 <button class="filter-pill" data-filter="themed">Themed</button>
-                <button class="filter-pill" data-filter="basketball">w/ Basketball</button>
             </fieldset>
-            <span class="filter-count" id="filterCount" aria-live="polite">4 units available</span>
+            <span class="filter-count" id="filterCount" aria-live="polite">4 slides available</span>
         </div>
     </nav>
 
@@ -88,134 +87,129 @@
         <div class="container">
             <div class="products-grid" id="productsGrid">
 
-        <!-- ─────────────────────────────────────────────────────
-        PRODUCT CARDS
-        To use a real photo: replace the <div class="pcard-emoji">
-        with <img src="YOUR-URL" alt="Product name">
-        inside <div class="pcard-img">
+                <!-- cards rendered from products[] in audit-dry-slide-rentals.json — emoji/gradient placeholders only; Get Quote → /contact/?item=SLUG -->
 
-        EventHawk booking URL format:
-        href="/book-now/?item=PRODUCT-SLUG"
-        ───────────────────────────────────────────────────── -->
-
-        <!-- 24ft Dual Slide -->
-                <div class="pcard" data-filter="large" data-aos="fade-up" style="--d:0ms">
+                <!-- 24ft Dual Slide -->
+                <div class="pcard" data-filter="dual" data-aos="fade-up" style="--d:0ms">
                     <div class="pcard-img" style="background:linear-gradient(135deg,#EBF5FF,#BFDBFE)">
-                        <div class="pcard-emoji">🎢</div>
-                        <span class="pcard-badge">⏳ Limited</span>
+                        <img class="pcard-photo" src="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e522e1edfe82f3caf2.png" alt="24ft Dual Slide" loading="lazy">
                         <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
                     </div>
                     <div class="pcard-body">
                         <h3>24ft Dual Slide</h3>
-                        <p>A 24-foot dry slide with two side-by-side racing lanes — big air and a fast finish, no water
-                            required.</p>
+                        <p>24ft Dual Slide. Great for hot days and backyard parties.</p>
                         <div class="pcard-meta">
-                            <span class="pcard-tag pcard-tag--blue">📐 24ft</span>
-                            
+                            <span class="pcard-tag pcard-tag--warm">💵 from $599</span>
+                            <span class="pcard-tag pcard-tag--blue">📐 35'Lx17'Wx24'H</span>
                         </div>
                     </div>
                     <div class="pcard-actions">
-                        <a href="/book-now/?item=24ft-dual-slide" class="pcard-btn pcard-btn--primary fj-link">Get
-                            Quote</a>
-                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal"
-                            data-badge="⏳ Limited"
-                            data-emoji="🎢"f
+                        <a href="/contact/?item=24-ft-dual-slide" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal" data-image="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e522e1edfe82f3caf2.png"
+                            data-emoji="🛝"
                             data-title="24ft Dual Slide"
-                            data-desc="A 24-foot dry slide with two side-by-side racing lanes — big air and a fast finish, no water required."
-                            data-dims="35'W x 17'L x 24'H"
-                            data-area="37'W x 19'L x 25'H"
-                            data-price="from $599.00"
-                            data-book="/book-now/?item=24ft-dual-slide">Details</a>
+                            data-desc="24ft Dual Slide. Great for hot days and backyard parties."
+                            data-dims="35'Lx17'Wx24'H; space required: 35'Lx17'Wx24'H"
+                            data-area="Confirm setup space when booking"
+                            data-cap="Confirm on booking"
+                            data-power="Confirm on booking"
+                            data-price="from $599"
+                            data-includes="Extension Cord · Blower · Safety Stakes to secure to ground"
+                            data-book="/contact/?item=24-ft-dual-slide"
+                            data-requirement="Confirm delivery space and site needs when booking">Details</a>
                     </div>
                 </div>
 
                 <!-- 27ft Super Dual Slide -->
-                <div class="pcard" data-filter="large" data-aos="fade-up" style="--d:60ms">
-                    <div class="pcard-img" style="background:linear-gradient(135deg,#EFF6FF,#93C5FD)">
-                        <div class="pcard-emoji">🎢</div>
-                        <span class="pcard-badge">⏳ Limited</span>
+                <div class="pcard" data-filter="dual" data-aos="fade-up" style="--d:60ms">
+                    <div class="pcard-img" style="background:linear-gradient(135deg,#FFF7ED,#FED7AA)">
+                        <img class="pcard-photo" src="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e522e1edcd0ff3caf1.png" alt="27ft Super Dual Slide" loading="lazy">
                         <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
                     </div>
                     <div class="pcard-body">
                         <h3>27ft Super Dual Slide</h3>
-                        <p>Our tallest dual-lane dry slide at 27 feet — an even bigger drop for thrill-seekers who want
-                            the ultimate race to the bottom.</p>
+                        <p>27ft Super Dual Slide. Great for hot days and backyard parties.</p>
                         <div class="pcard-meta">
-                            <span class="pcard-tag pcard-tag--blue">📐 27ft</span>
-                            
+                            <span class="pcard-tag pcard-tag--warm">💵 from $899</span>
+                            <span class="pcard-tag pcard-tag--blue">📐 39'Lx14'Wx27'H</span>
                         </div>
                     </div>
                     <div class="pcard-actions">
-                        <a href="/book-now/?item=27ft-super-dual-slide" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
-                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal"
-                            data-badge="⏳ Limited"
-                            data-emoji="🎢"
+                        <a href="/contact/?item=27-super-dual-slide" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal" data-image="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e522e1edcd0ff3caf1.png"
+                            data-emoji="🏔️"
                             data-title="27ft Super Dual Slide"
-                            data-desc="Our tallest dual-lane dry slide at 27 feet — an even bigger drop for thrill-seekers who want the ultimate race to the bottom."
-                            data-dims="39'W x 14'L x 27'H"
-                            data-area="45'W x 17'L x 28'H"
-                            data-price="from $899.00"
-                            data-book="/book-now/?item=27ft-super-dual-slide">Details</a>
+                            data-desc="27ft Super Dual Slide. Great for hot days and backyard parties."
+                            data-dims="39'Lx14'Wx27'H; space required: 45'Lx17'Wx27'H"
+                            data-area="Confirm setup space when booking"
+                            data-cap="Confirm on booking"
+                            data-power="Confirm on booking"
+                            data-price="from $899"
+                            data-includes="Extension Cord · Blower · Safety Stakes to secure to ground"
+                            data-book="/contact/?item=27-super-dual-slide"
+                            data-requirement="Confirm delivery space and site needs when booking">Details</a>
                     </div>
                 </div>
 
-                <!-- Climb & Slide -->
-                <div class="pcard" data-filter="standard" data-aos="fade-up" style="--d:120ms">
+                <!-- Climb &amp; Slide -->
+                <div class="pcard" data-filter="climb" data-aos="fade-up" style="--d:120ms">
                     <div class="pcard-img" style="background:linear-gradient(135deg,#F0FDF4,#A7F3D0)">
-                        <img class="pcard-photo" loading="lazy"
-                            src="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e55155109fc3b598df.png"
-                            alt="Climb &amp; Slide">
+                        <img class="pcard-photo" src="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e55155109fc3b598df.png" alt="Climb &amp;amp; Slide" loading="lazy">
                         <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
                     </div>
                     <div class="pcard-body">
                         <h3>Climb &amp; Slide</h3>
-                        <p>A climbing wall paired with a slide — kids scale up, then slide right back down for
-                            nonstop repeat fun.</p>
+                        <p>Climb &amp;amp; Slide. A big dry slide kids line up for.</p>
                         <div class="pcard-meta">
-                            <span class="pcard-tag pcard-tag--blue">📐 Standard</span>
-                            
+                            <span class="pcard-tag pcard-tag--warm">💵 from $450</span>
+                            <span class="pcard-tag pcard-tag--blue">📐 Space required</span>
                         </div>
                     </div>
                     <div class="pcard-actions">
-                        <a href="/book-now/?item=climb-and-slide" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
-                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal"
+                        <a href="/contact/?item=climb-slide" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal" data-image="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e55155109fc3b598df.png"
                             data-emoji="🧗"
                             data-title="Climb &amp; Slide"
-                            data-desc="A climbing wall paired with a slide — kids scale up, then slide right back down for nonstop repeat fun."
-                            data-dims="35'W x 17'L x 26'H"
-                            data-area="40'W x 20'L x 27'H"
-                            data-price="from $450.00"
-                            data-book="/book-now/?item=climb-and-slide">Details</a>
+                            data-desc="Climb &amp; Slide. A big dry slide kids line up for."
+                            data-dims="Space required"
+                            data-area="Confirm setup space when booking"
+                            data-cap="Confirm on booking"
+                            data-power="Confirm on booking"
+                            data-price="from $450"
+                            data-includes="Extension Cord · Blower · Safety Stakes to secure to ground"
+                            data-book="/contact/?item=climb-slide"
+                            data-requirement="Confirm delivery space and site needs when booking">Details</a>
                     </div>
                 </div>
 
                 <!-- King Croc 28ft Dual Slide -->
-                <div class="pcard" data-filter="large themed" data-aos="fade-up" style="--d:0ms">
-                    <div class="pcard-img" style="background:linear-gradient(135deg,#F0FDF4,#86EFAC)">
-                        <div class="pcard-emoji">🐊</div>
-                        <span class="pcard-badge">⏳ Limited</span>
+                <div class="pcard" data-filter="dual themed" data-aos="fade-up" style="--d:0ms">
+                    <div class="pcard-img" style="background:linear-gradient(135deg,#FEF3C7,#FCD34D)">
+                        <img class="pcard-photo" src="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e5515510f051b598e2.png" alt="King Croc 28ft Dual Slide" loading="lazy">
                         <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
                     </div>
                     <div class="pcard-body">
                         <h3>King Croc 28ft Dual Slide</h3>
-                        <p>A crocodile-themed 28-foot dual-lane dry slide — our biggest and boldest slide, built for
-                            big groups and big excitement.</p>
+                        <p>King Croc 28ft Dual Slide. Great for hot days and backyard parties.</p>
                         <div class="pcard-meta">
-                            <span class="pcard-tag pcard-tag--blue">📐 28ft</span>
-                            <span class="pcard-tag pcard-tag--warm">🐊 Themed</span>
+                            <span class="pcard-tag pcard-tag--warm">💵 from $1200</span>
+                            <span class="pcard-tag pcard-tag--blue">📐 40'Lx16'Wx28'H</span>
                         </div>
                     </div>
                     <div class="pcard-actions">
-                        <a href="/book-now/?item=king-croc-28ft-dual-slide" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
-                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal"
-                            data-badge="⏳ Limited"
+                        <a href="/contact/?item=king-croc-28-ft-dual-slide" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal" data-image="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e5515510f051b598e2.png"
                             data-emoji="🐊"
                             data-title="King Croc 28ft Dual Slide"
-                            data-desc="A crocodile-themed 28-foot dual-lane dry slide — our biggest and boldest slide, built for big groups and big excitement."
-                            data-dims="40'W x 16'L x 28'H"
-                            data-area="50'W x 20'L x 29'H"
-                            data-price="from $1,200.00"
-                            data-book="/book-now/?item=king-croc-28ft-dual-slide">Details</a>
+                            data-desc="King Croc 28ft Dual Slide. Great for hot days and backyard parties."
+                            data-dims="40'Lx16'Wx28'H; space required: 50'lx20'wx28'h"
+                            data-area="Confirm setup space when booking"
+                            data-cap="Confirm on booking"
+                            data-power="Confirm on booking"
+                            data-price="from $1200"
+                            data-includes="Extension Cord · Blower · Safety Stakes to secure to ground"
+                            data-book="/contact/?item=king-croc-28-ft-dual-slide"
+                            data-requirement="Confirm delivery space and site needs when booking">Details</a>
                     </div>
                 </div>
 
@@ -224,93 +218,21 @@
     </section>
 
     <!-- ══ WHY RENT FROM FIESTA JUMPS ════════════════════════════ -->
-    <section class="why-rent" id="whyRent">
-        <div class="container">
-            <div class="why-rent-grid">
-                <div class="why-rent-content" data-aos="fade-right">
-                    <p class="section-label">Why Fiesta Jumps?</p>
-                    <h2 class="section-title">Santa Barbara's most trusted bounce house company</h2>
-                    <p class="section-sub">For 26 years we've delivered clean, inspected equipment and stress-free setup
-                        for every type of event — from backyard birthdays to large school events.</p>
-
-                    <ul class="why-list">
-                        <li class="why-item">
-                            <div class="why-item-icon">🚚</div>
-                            <div class="why-item-text">
-                                <strong>Delivery &amp; Setup Included</strong>
-                                <span>We bring it, set it up, and pick it up. You don't lift a finger.</span>
-                            </div>
-                        </li>
-                        <li class="why-item">
-                            <div class="why-item-icon">🏅</div>
-                            <div class="why-item-text">
-                                <strong>City Park Approved</strong>
-                                <span>We're an approved vendor — no extra permits needed for SB city parks.</span>
-                            </div>
-                        </li>
-                        <li class="why-item">
-                            <div class="why-item-icon">🧹</div>
-                            <div class="why-item-text">
-                                <strong>Clean &amp; Inspected Every Time</strong>
-                                <span>All equipment is sanitized, inspected, and safe before every rental.</span>
-                            </div>
-                        </li>
-                        <li class="why-item">
-                            <div class="why-item-icon">💯</div>
-                            <div class="why-item-text">
-                                <strong>Satisfaction Guaranteed</strong>
-                                <span>If something isn't right, we fix it. Your event success is our priority.</span>
-                            </div>
-                        </li>
-                    </ul>
-
-                    <!-- ✅ AJAX PREFETCH — both CTAs trigger prefetch on hover via fj-link -->
-                    <div style="display:flex;gap:12px;flex-wrap:wrap">
-                        <a href="/book-now/" class="btn btn-white btn-lg fj-link">Book Your Event →</a>
-                        <a href="/about-us/" class="btn btn-ghost-white btn-lg fj-link">Our Story</a>
-                    </div>
-                </div>
-
-                <div class="why-stats" data-aos="fade-left">
-                    <div class="why-stat">
-                        <span class="why-stat-num">26+</span>
-                        <span class="why-stat-label">Years in Business</span>
-                    </div>
-                    <div class="why-stat">
-                        <span class="why-stat-num">4.9★</span>
-                        <span class="why-stat-label">Google Rating</span>
-                    </div>
-                    <div class="why-stat">
-                        <span class="why-stat-num">5k+</span>
-                        <span class="why-stat-label">Events Served</span>
-                    </div>
-                    <div class="why-stat">
-                        <span class="why-stat-num">100%</span>
-                        <span class="why-stat-label">Satisfaction Guaranteed</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!--@include partials/why-fiesta.html-->
 
     <!-- ══ SEO CONTENT + RELATED LINKS ══════════════════════════ -->
     <section class="seo-section">
         <div class="container">
             <div class="seo-grid">
 
-                <div class="seo-text">
-                    <h2>Classic Bounce House Rentals in Santa Barbara, CA</h2>
-                    <p>Inflatable bounce houses are the perfect centerpiece for any party or event. At Fiesta Jumps, we
-                        specialize in classic castle designs, themed bouncers, and units with built-in extras like
-                        basketball hoops. We serve Santa Barbara, Goleta, Montecito, Carpinteria, Santa Ynez, Los
-                        Olivos, and Buellton.</p>
-                    <p>All of our bounce houses are thoroughly cleaned and inspected before every rental. We handle
-                        delivery, professional setup, and breakdown — so you can focus entirely on enjoying your event.
-                        Our equipment is licensed, insured, and approved for use at Santa Barbara City Parks, so no
-                        extra permits are required.</p>
-                    <p>Whether it's a small backyard birthday party for 10 kids or a large school field day for 200
-                        students, we have the right bounce house for your event. <a href="/service-area/"
-                            class="fj-link">Check if we deliver to your area →</a></p>
+                                <div class="seo-text">
+                    <!-- SEO from audit-seo-bleed-batch1.json (category-specific; was Classic Bounce bleed) -->
+                    <p class="section-label">Dry Slides</p>
+                    <h2>Dry Slide Rentals in Santa Barbara, CA</h2>
+                    <p>Dry inflatable slides bring big thrills without a water hookup, which makes them ideal for parks, school fields, and backyard parties all year.</p>
+                    <p>We deliver and set up dry slides throughout Santa Barbara and surrounding communities. Equipment is cleaned, inspected, and ready for kids of all ages.</p>
+                    <p>Reserve a dry slide for your next event. <a href="/service-area/" class="fj-link">Check if we deliver to your area →</a></p>
+
 
                     <div class="seo-btn-row">
                         <!-- ✅ AJAX PREFETCH — all category chips use fj-link -->
@@ -322,40 +244,7 @@
                     </div>
                 </div>
 
-                <div>
-                    <!-- ✅ ALL RELATED LINKS USE fj-link — hover prefetch fires on each one -->
-                    <div class="related-card">
-                        <h4>Related Categories</h4>
-                        <a href="/combo-bounce-house-rentals/" class="related-link fj-link">Combo Bounce Houses <span
-                                class="related-link-arr">→</span></a>
-                        <a href="/water-slides-rentals/" class="related-link fj-link">Water Slide Rentals <span
-                                class="related-link-arr">→</span></a>
-                        <a href="/dry-slide-rentals/" class="related-link fj-link">Dry Slide Rentals <span
-                                class="related-link-arr">→</span></a>
-                        <a href="/obstacle-course-rentals/" class="related-link fj-link">Obstacle Courses <span
-                                class="related-link-arr">→</span></a>
-                        <a href="/foam-cannon-rentals/" class="related-link fj-link">Foam Cannon <span
-                                class="related-link-arr">→</span></a>
-                        <a href="/concessions-machine/" class="related-link fj-link">Concession Machines <span
-                                class="related-link-arr">→</span></a>
-                        <a href="/bundle-deals/" class="related-link related-link--featured fj-link">🔥 Bundle Deals —
-                            Save More <span class="related-link-arr">→</span></a>
-                    </div>
-
-                    <div class="related-card">
-                        <h4>Service Areas</h4>
-                        <a href="/service-area/#montecito" class="related-link fj-link">Montecito <span
-                                class="related-link-arr">→</span></a>
-                        <a href="/service-area/#goleta" class="related-link fj-link">Goleta <span
-                                class="related-link-arr">→</span></a>
-                        <a href="/service-area/#carpinteria" class="related-link fj-link">Carpinteria <span
-                                class="related-link-arr">→</span></a>
-                        <a href="/service-area/#santa-ynez" class="related-link fj-link">Santa Ynez <span
-                                class="related-link-arr">→</span></a>
-                        <a href="/service-area/#buellton" class="related-link fj-link">Buellton <span
-                                class="related-link-arr">→</span></a>
-                    </div>
-                </div>
+                <!--@include partials/related-sidebar.html-->
 
             </div>
         </div>
@@ -477,33 +366,7 @@
 
     <!--@include partials/product-modal.html-->
     <script src="/main.js"></script>
-    <script>
-        /* ── Filter pills ───────────────────────────────────────── */
-        const pills = document.querySelectorAll('.filter-pill');
-        const cards = document.querySelectorAll('.pcard[data-filter]');
-        const countEl = document.getElementById('filterCount');
 
-        pills.forEach(pill => {
-            pill.addEventListener('click', () => {
-                pills.forEach(p => p.classList.remove('active'));
-                pill.classList.add('active');
-
-                const f = pill.dataset.filter;
-                let vis = 0;
-
-                cards.forEach(card => {
-                    const cats = card.dataset.filter || '';
-                    const show = f === 'all' || cats.split(' ').includes(f);
-                    card.style.display = show ? '' : 'none';
-                    if (show) vis++;
-                });
-
-                if (countEl) {
-                    countEl.textContent = `${vis} unit${vis !== 1 ? 's' : ''} available`;
-                }
-            });
-        });
-    </script>
 
 </body>
 

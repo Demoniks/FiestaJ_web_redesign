@@ -1,0 +1,118 @@
+Category,Item Name,Dimensions / Notes,Price,Rental Time,Extra Hour,Overnight,Quantity Available,Circuit Breakers (20A) Needed,Web ID
+Bounce Houses,Rainbow Castle,,$198,6 Hours,$50,$75,1,1,rainbow-castle-bounce-house
+Bounce Houses,Red Castle Bounce House,,$198,6 Hours,$50,$75,1,1,red-castle-bounce-house
+Bounce Houses,Tropical Bouncer,,$198,6 Hours,$50,$75,1,1,tropical-bounce-house
+Bounce Houses,Pink Castle,,$198,6 Hours,$50,$75,1,1,pink-castle
+Bounce Houses,13x13 Jumpers,,$198,6 Hours,$50,$75,1,1,
+Bounce Houses,15x15 Jumpers (Large Jumpers),,,,,,1,,
+Bounce Houses,Tropical Bounce House,,$219,6 Hours,$50,$75,1,1,tropical-bouncer-large
+Bounce Houses,Rainbow Castle Bounce House,,$219,6 Hours,$50,$75,1,1,"rainbow-castle-large-bouncer, rainbow-castle-large"
+Bounce Houses,Rainbow Castle Bounce House #2,,$219,6 Hours,$50,$75,1,1,
+Bounce Houses,Unicorn Bounce House,,$219,6 Hours,$50,$75,1,1,unicorn-bounce-house-largee
+Bounce Houses,Pink Castle Bounce House,,$219,6 Hours,$50,$75,1,1,"pink-castle-large-bounce-house, pink-castle-large"
+Bounce Houses,Lava Castle w/ Basketball Hoop,16x16,$219,6 Hours,$50,$75,1,1,"lava-castle-16x16-w-basket-ball-hoop, lava-castle"
+Bounce Houses,Hot Air Balloon Bouncer Large,,$219,,,,,,hot-air-balloon-bouncer-large-2
+Bounce Houses,Mini Castle 9'x9',,$180,,,,,,mini-castle
+Bounce Houses,Red Castle Large,,$219,,,,,,red-castle-large
+Bounce Houses,Sports Large Bouncer,,$219,,,,,,sports-large-bouncer
+Bounce Houses,Under The Sea Large Bouncer,,$219,,,,,,under-the-sea-large-bouncer
+Combos,Pink Mini Combo #1,22L x 14W x 14H,$280,6 Hours,$70,$99,1,1,pink-mini-combo-1
+Combos,Pink Mini Combo #2,22L x 14W x 14H,$280,6 Hours,$70,$99,1,1,pink-mini-combo-2
+Combos,Tropical Mini Combo,22L x 14W x 14H,$280,6 Hours,$70,$99,1,1,tropical-mini-combo
+Combos,Sports Combo,22L x 14W x 14H,$280,6 Hours,$70,$99,1,1,sports-mini-combo
+Combos,Hot Air Balloon Mini Combo,22L x 14W x 14H,$280,6 Hours,$70,$99,1,1,hot-air-balloon-mini-combo-2
+Combos,Castle Combo,32L x 16W x 14H,$360,6 Hours,$80,$120,1,1,castle-medium-combo
+Combos,Tropical Medium Combo,32L x 16W x 14H,$360,6 Hours,$80,$120,1,1,tropical-medium-combo
+Combos,Dalmation 5-in-1 Combo,16W x 20L x 16H,$399,6 Hours,$90,$150,1,1,dalmatian-5-in-1-combo
+Combos,Pink Castle 5-in-1 Combo,16W x 20L x 16H,$399,6 Hours,$90,$150,1,1,
+Combos,Blue Gray Castle 5-in-1 Combo,16W x 20L x 16H,$399,6 Hours,$90,$150,1,1,blue-grey-castle-5in1-combo
+Combos,Candy KidZone,16W x 16L x 16H,$399,6 Hours,$90,$150,1,1,candy-kidzone
+Combos,Princess Kidzone,16W x 16L x 16H,$399,6 Hours,$90,$150,1,1,princess-kidzone
+Combos,Giant Combo 3 in 1,46L x 16W x 20H,$499,6 Hours,$100,$190,1,2,giant-3in1-combo
+Combos,Castle Mini Combo,,$280,,,,,,castle-mini-combo
+Combos,Crayons Mini Combo,,$280,,,,,,crayons-mini-combo
+Combos,Wacky Castle 5-in-1 Combo,,$399,,,,,,wacky-castle-5in1-combo
+Dry Slides,King Croc 28 Ft Dual Slide,40L x 20W x 30H,"$1,200",6 Hours,$200,$600,1,3,king-croc-28-ft-dual-slide
+Dry Slides,27 Ft Super Dual Slide,30L x 17W x 27H,$800,6 Hours,$150,$450,1,2,27-super-dual-slide
+Dry Slides,24' Super Dual Slide,35L x 20W x 24H,$599,6 Hours,$100,$400,1,1,24-ft-dual-slide
+Dry Slides,Climb & Slide,35L x 17W x 28H,$599,6 Hours,$100,$400,1,1,climb-slide
+Water Slides,Dunk Tank,10W x 10L x 8H,$550,6 Hours,$100,$150,1,1,dunk-tank
+Water Slides,Tropical Water Slide,25L x 14W x 16H,$399,6 Hours,$90,$170,1,1,tropical-water-slide
+Water Slides,Giant Dual Water Slides,36L x 18W x 20H,$499,6 Hours,$100,$190,1,1,giant-dual-water-slides
+Water Slides,Water Tag Maze (incl. water guns & vests for 6 players),18L x 20W x 7H,$399,6 Hours,$80,$100,1,1,water-tag-maze
+Water Slides,Tropical Water Combo,36L x 16W x 14H,$399,6 Hours,$80,$100,1,1,tropical-water-combo
+Obstacle Courses,Mini Obstacle Course,35L x 13W x 8H,$399,6 Hours,$80,$150,1,1,mini-obstacle-course-35-ft
+Obstacle Courses,Wacky Mini Obstacle Course,35L x 13W x 8H,$450,6 Hours,$80,$150,1,1,35-ft-wacky-obstacle-course
+Obstacle Courses,High Voltage Mini Obstacle Course,35L x 13W x 8H,$499,6 Hours,$90,$150,1,1,high-voltage-mini-obstacle-course
+Obstacle Courses,Ocean Obstacle Course,50L x 13W x 8H,$499,6 Hours,$90,$150,1,1,50-ft-ocean-obstacle-course
+Obstacle Courses,Obstacle Course w/ 16 ft Slide,50L x 16W x 20H,$550,6 Hours,$100,$199,1,2,
+Obstacle Courses,Obstacle Course (55 ft),55L x 13W x 8H,$550,6 Hours,$100,$199,1,2,55-ft-obstacle-course
+Obstacle Courses,Obstacle Course (65 ft),65L x 13W x 20H,$650,6 Hours,$100,$199,1,3,65ft-obstacle-course
+Obstacle Courses,75 ft Obstacle Course,75L x 13W x 20H,$799,6 Hours,$110,$199,1,2,75-ft-obstacle-course
+Obstacle Courses,85 Ft Obstacle Challenge Course,85L x 13W x 20H,$899,6 Hours,$110,$250,1,3,85-ft-obstacle-challenge-course
+Obstacle Courses,100 ft Ultimate Obstacle Challenge,100L x 13W x 20H,$999,6 Hours,$150,$350,1,4,100-ft-ultimate-obstacle-challenge
+Obstacle Courses,150 ft Mega Obstacle Challenge,150L x 13W x 20H,"$1,300",6 Hours,$199,$450,1,6,150-ft-ultra-obstacle
+Obstacle Courses,50 ft Wacky Obstacle Course,,$550,,,,,,50-ft-wacky-obstacle-course
+Obstacle Courses,50ft High Voltage Obstacle Course,,$550,,,,,,50-ft-high-voltage-obstacle-course
+Obstacle Courses,90ft High Voltage Obstacle Challenge,,$950,,,,,,90-ft-high-voltage-obstacle-challenge
+Interactive Games,Velcro Wall,16L x 14W x 16H,$399,6 Hours,$80,$150,1,1,velcro-wall
+Interactive Games,Dunk Tank,10L x 10W x 7H,$550,6 Hours,$100,$150,1,,dunk-tank
+Interactive Games,Lazer Tag Maze (incl. lazer guns & vests for 6 players),30L x 30W x 8H,$499,6 Hours,$100,$200,1,1,lazer-tag-maze
+Interactive Games,Basketball Shootout (incl. 4 basketballs),16L x 14W x 16H,$299,6 Hours,$60,$120,1,1,basketball-shootout
+Interactive Games,Boxing Ring (incl. 4 jumbo boxing gloves & headgear),16L x 16W x 8H,$299,6 Hours,$60,$120,1,1,boxing-ring
+Interactive Games,Football Throw (incl. 2 footballs),10L x 8W x 7H,$199,6 Hours,$40,$100,1,1,football-throw
+Interactive Games,Bungee Run,36L x 11W x 7H,$399,6 Hours,$80,$150,2,1,bungee-run
+Interactive Games,Sumo Suits with Mat,10L x 10W,$399,6 Hours,$80,$199,1,,sumo-suits-with-mat
+Interactive Games,Joust Gladiator Arena (incl. 2 joust sticks & 2 headgears),25L x 25W x 7H,$399,6 Hours,$80,$150,1,1,joust-gladiator-arena
+Interactive Games,Floor is Lava Wrecking Ball,20L x 20W x 14H,$550,6 Hours,$110,$199,1,1,lava-is-floor-wrecking-ball
+Interactive Games,Play-A-Round Golf (3-Hole Mini Golf),22L x 22W x 7H,$399,6 Hours,$100,$180,1,1,play-around-golf-3-holes
+Interactive Games,15ft High Striker,,$250,,,,,,15ft-high-striker
+Interactive Games,6 ft Kiddie Striker,,$160,,,,,,6-ft-kiddie-striker-2
+Interactive Games,Rock & Joust,,$399,,,,,,rock-joust
+Carnival Games,"Stand The Bottle (floor table, one bottle, two sticks)",,$120,6 Hours,$20,$50,1,,stand-the-bottle
+Carnival Games,"Jumping Frog (floor table, game table, launcher, rubber mallet, two frogs)",,$199,6 Hours,$30,$60,1,,jumping-frog
+Carnival Games,"Hole in One (floor table, two golf balls, golf club)",,$199,6 Hours,$30,$60,1,,hole-in-one
+Carnival Games,"3 Milk Cans (canopy, walls, floor table, stand, 3 milk cans, 2 soft balls)",,$199,6 Hours,$30,$60,1,,3-milk-cans
+Carnival Games,"Basket Toss (floor table, basket stand, two balls)",,$150,6 Hours,$25,$50,1,,basket-toss
+Carnival Games,"Marvels Game (2 floor tables, 4 game tables & marbles)",,$199,6 Hours,$30,$60,1,,marvels-game
+Carnival Games,Carnival Canopies,,$150,6 Hours,$20,$40,10,,
+Tents,Instant Pop Up White Canopy 10x10,,$120,8 Hours,,,6,,instant-pop-up-white-canopy-10x10
+Tents,Carnival Canopy Red/White 10x10,,$150,8 Hours,,,10,,carnival-canopy-red-white-9x9
+Tents,White Canopy 12x20 (walls included),,$250,8 Hours,,,1,,
+Tents,White Canopy 20x20 (walls included),,$299,8 Hours,,,,,white-canopy-20x20-walls-included
+Tents,White Canopy 20x30 (walls included),,$350,8 Hours,,,,,white-canopy-20-x-30-walls-included
+Tents,White Canopy 20x40 (walls included),,$399,8 Hours,,,,,
+Tents,White Canopy 20X30 Tent,,$399,,,,,,white-canopy-20x30-tent
+Tents,White Canopy 20X40 Tent,,$499,,,,,,white-canopy-20x40-tent
+Concessions,Cotton Candy Machine,,$100,6 Hours,,,1,,cotton-candy-machine
+Concessions,Popcorn Machine,,$100,6 Hours,,,1,,pop-corn-machine
+Concessions,Snow Cone Machine,,$100,6 Hours,,,1,,snow-cone-machine
+Concessions,Extra 50 Servings Supplies,,$25,,,,,,additional-50-serving-supplies-for-concession-machine-2
+Concessions,Concession Station,,$300,,,,,,concession-station
+Banners,Banner,,,,,,10,,
+Special Occasion Jumpers,White Castle,,$350,6 Hours,$60,$199,1,1,white-castle-bouncer
+Special Occasion Jumpers,"FOAM Cannon (incl. 2 foam bottles, enough for 2 hours)",,$399,2 Hours,$50,,1,1,foamtastik-cannon
+Special Occasion Jumpers,Mechanical Bull,18L x 18W x 8H,$800,2 Hours,$150,,1,2,mechanical-bull-with-mat
+Furniture & Extras,Long Tables (6 ft),,,,,,40,,
+Furniture & Extras,"Round Table (120"")",,,,,,10,,
+Furniture & Extras,Folding Chairs (Eco),,,,,,250,,
+Furniture & Extras,Resin Chairs,,,,,,300,,
+Furniture & Extras,Trackless Train,,,,,,1,,
+Furniture & Extras,Cocktail Tables / High Table,,$30,,,,,,cocktail-tables
+Furniture & Extras,Folding Chairs,,$2,,,,,,folding-chairs
+Furniture & Extras,Kid Chair,,$2,,,,,,kid-chair
+Furniture & Extras,Kids Table,,$15,,,,,,kids-table
+Furniture & Extras,LINEN,,$15,,,,,,linen
+Furniture & Extras,Long Table,,$15,,,,,,long-table
+Furniture & Extras,Resin Chair,,$4,,,,,,resin-chair
+Furniture & Extras,Round Table,,$20,,,,,,round-table
+Photo Booth,Retro Mirror Booth,,$699,,,,,,retro-mirror-booth
+Trackless Train,Trackless Train (12-18 passengers),,$1100,,,,,,trackless-train-12-18-passengers
+Trackless Train,Trackless Train (18-24 passengers),,$1300,,,,,,trackless-train-18-24-passengers
+Generators,Generator 3500 Watts,,$95,,,,,,generator-3500-watts
+Generators,Generator 8000 Watts,,$195,,,,,,generator-8000-watts
+Staffed Attendants,fully Staffed Attendants for Inflatables (Minimum 4hrs),,$130,,,,,,fully-staffed-attendants-for-inflatables
+Bundle Deals,BASIC PACKAGE: SAVE $56.00,,$319,,,,,,basic-package-save-56-00
+Bundle Deals,DELUXE PACKAGE SAVE $100,,$599,,,,,,deluxe-package-save-100
+Bundle Deals,CORPORATE PACKAGE SAVE $150,,$900,,,,,,corporate-package-save-150
+Bundle Deals,WET PACKAGE DEALS SAVE $126,,$950,,,,,,wet-package-deals-save-126

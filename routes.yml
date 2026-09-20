@@ -28,12 +28,12 @@ pages:
   # ── HOMEPAGE ───────────────────────────────────────────────
   - route: "/"
     file: "homePage/index.html"
-    title: "Fiesta Jumps – Best Party Rentals in Santa Barbara, CA"
+    title: "Fiesta Jumps | Best Party Rentals in Santa Barbara, CA"
     prefetch:
       - "/bounce-house-rentals/"
       - "/water-slides-rentals/"
       - "/bundle-deals/"
-      - "/book-now/"
+      - "/contact/"
 
   # ── BOUNCE HOUSES ──────────────────────────────────────────
   - route: "/bounce-house-rentals/"
@@ -43,7 +43,7 @@ pages:
       - "/combo-bounce-house-rentals/"
       - "/water-slides-rentals/"
       - "/bundle-deals/"
-      - "/book-now/"
+      - "/contact/"
 
   - route: "/combo-bounce-house-rentals/"
     file: "bounceHouses/combo-bounce-houses.html"
@@ -146,38 +146,32 @@ pages:
     title: "Party Bundle Deals & Packages in Santa Barbara | Fiesta Jumps"
     prefetch:
       - "/bounce-house-rentals/"
-      - "/book-now/"
+      - "/contact/"
 
   # ── COMPANY ────────────────────────────────────────────────
   - route: "/about-us/"
     file: "company/about.html"
-    title: "About Fiesta Jumps – 26 Years Serving Santa Barbara"
+    title: "About Fiesta Jumps | 26 Years Serving Santa Barbara"
     prefetch:
       - "/service-area/"
       - "/contact/"
 
   - route: "/service-area/"
     file: "company/service-area.html"
-    title: "Our Service Area – Santa Barbara & Central Coast | Fiesta Jumps"
+    title: "Our Service Area in Santa Barbara & the Central Coast | Fiesta Jumps"
     prefetch:
       - "/bounce-house-rentals/"
-      - "/book-now/"
+      - "/contact/"
 
   - route: "/coupons/"
     file: "company/coupons.html"
     title: "Coupons & Discounts | Fiesta Jumps Santa Barbara"
     prefetch:
-      - "/book-now/"
+      - "/contact/"
 
   - route: "/contact/"
     file: "company/contact.html"
     title: "Contact Fiesta Jumps Santa Barbara"
-    prefetch:
-      - "/book-now/"
-
-  - route: "/book-now/"
-    file: "company/book-now.html"
-    title: "Book Your Rental – Fiesta Jumps Santa Barbara"
     prefetch: []
 
   - route: "/privacy-policy/"
@@ -245,5 +239,4 @@ pages:
 #   Service Area:                service-area
 #   Coupons:                     coupons
 #   Contact:                     contact
-#   Book Now:                    book-now
 #   Privacy Policy:              privacy-policy

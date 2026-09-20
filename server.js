@@ -14,6 +14,7 @@
 const http = require('node:http');
 const fs = require('node:fs');
 const path = require('node:path');
+const pricesApi = require('./prices');
 
 const PORT = 3000;
 const ROOT = __dirname;
@@ -44,7 +45,6 @@ const ROUTES = {
   '/service-area/': 'company/service-area.html',
   '/coupons/': 'company/coupons.html',
   '/contact/': 'company/contact.html',
-  '/book-now/': 'company/book-now.html',
   '/privacy-policy/': 'company/privacy.html',
 };
 
@@ -82,6 +82,21 @@ function injectBase(data, ext, urlPath) {
   if (!html.includes('<base ')) {
     // Insert right after <head>
     html = html.replace(/(<head[^>]*>)/i, '$1\n  <base href="/">');
+  }
+  if (!html.includes('fj-booting')) {
+    html = html.replace(
+      /(<html[^>]*)>/i,
+      '$1 class="fj-booting">'
+    );
+    if (!html.includes('fj-boot-style')) {
+      html = html.replace(
+        /(<head[^>]*>)/i,
+        '$1\n  <style id="fj-boot-style">' +
+          'html.fj-booting::before{content:"";position:fixed;' +
+          'inset:0;background:#1C1410;z-index:99999;' +
+          'pointer-events:none}</style>'
+      );
+    }
   }
   html = processIncludes(html);
   return Buffer.from(html, 'utf8');
@@ -140,21 +155,35 @@ const NOT_FOUND_HTML = `<!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>404 — Fiesta Jumps</title>
+<title>404 | Fiesta Jumps</title>
 <base href="/">
 <link rel="stylesheet" href="/style.css">
 <script src="/router.js"></script>
 <style>
-  .err-wrap{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 24px;background:var(--off-white)}
-  .err-code{font-family:'Nunito',sans-serif;font-size:clamp(80px,15vw,160px);font-weight:900;line-height:1;background:var(--grad-orange);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px}
+  .err-wrap{min-height:100svh;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;text-align:center;
+    padding:40px 24px;background:var(--off-white)}
+  .err-code{font-family:'Nunito',sans-serif;
+    font-size:clamp(80px,15vw,160px);font-weight:900;line-height:1;
+    background:var(--grad-orange);-webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;background-clip:text;
+    margin-bottom:8px}
   .err-emoji{font-size:56px;margin-bottom:20px}
-  .err-title{font-family:'Nunito',sans-serif;font-size:clamp(22px,4vw,36px);font-weight:900;color:var(--ink);margin-bottom:14px}
+  .err-title{font-family:'Nunito',sans-serif;
+    font-size:clamp(22px,4vw,36px);font-weight:900;
+    color:var(--ink);margin-bottom:14px}
   .err-sub{font-size:16px;color:var(--ink3);line-height:1.7;max-width:480px;margin:0 auto 32px}
   .err-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
   .err-links{margin-top:48px;display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
-  .err-chip{font-family:'Poppins',sans-serif;font-size:13px;font-weight:600;color:var(--ink2);background:#fff;border:1.5px solid var(--border);padding:8px 16px;border-radius:var(--r-full);text-decoration:none;transition:all .15s}
+  .err-chip{font-family:'Poppins',sans-serif;font-size:13px;
+    font-weight:600;color:var(--ink2);background:#fff;
+    border:1.5px solid var(--border);padding:8px 16px;
+    border-radius:var(--r-full);text-decoration:none;
+    transition:all .15s}
   .err-chip:hover{border-color:var(--orange);color:var(--orange)}
-  .err-path{font-family:var(--font-mono,monospace);font-size:13px;color:var(--ink4);background:var(--surface);padding:6px 14px;border-radius:8px;margin-bottom:28px;display:inline-block}
+  .err-path{font-family:var(--font-mono,monospace);font-size:13px;
+    color:var(--ink4);background:var(--surface);padding:6px 14px;
+    border-radius:8px;margin-bottom:28px;display:inline-block}
 </style>
 </head>
 <body>
@@ -162,7 +191,8 @@ const NOT_FOUND_HTML = `<!DOCTYPE html>
   <div class="err-emoji">🏰</div>
   <div class="err-code">404</div>
   <h1 class="err-title">This page bounced away!</h1>
-  <p class="err-sub">The page you're looking for doesn't exist yet, or the link may have changed. Let's get you back to the fun.</p>
+  <p class="err-sub">The page you're looking for doesn't exist yet,
+    or the link may have changed. Let's get you back to the fun.</p>
   <div class="err-btns">
     <a href="/" class="btn btn-orange btn-lg fj-link">Back to Homepage</a>
     <a href="/bounce-house-rentals/" class="btn btn-ghost btn-lg fj-link">Browse Rentals</a>
@@ -191,6 +221,51 @@ const server = http.createServer((req, res) => {
 
   // 1. Check if it's a clean-slug route
   let filePath = null;
+  // Live prices from Google Sheets
+  if (
+    urlPath === '/api/prices' ||
+    urlPath === '/api/prices/' ||
+    urlPath === '/api/prices.json'
+  ) {
+    pricesApi
+      .refresh(false)
+      .then((c) => {
+        const body = JSON.stringify(
+          pricesApi.publicPayload(c)
+        );
+        res.writeHead(c.ok ? 200 : 503, {
+          'Content-Type':
+            'application/json; charset=utf-8',
+          'Cache-Control': 'public, max-age=30',
+        });
+        res.end(body);
+      })
+      .catch((err) => {
+        res.writeHead(503, {
+          'Content-Type':
+            'application/json; charset=utf-8',
+        });
+        res.end(
+          JSON.stringify({
+            ok: false,
+            fail_message: pricesApi.FAIL_MSG,
+            error: err.message,
+            prices: {},
+          })
+        );
+      });
+    return;
+  }
+  // Legacy aliases
+  const REDIRECTS = {
+    '/about/': '/about-us/',
+  };
+  if (REDIRECTS[urlPath]) {
+    res.writeHead(301, { Location: REDIRECTS[urlPath] });
+    res.end();
+    return;
+  }
+
   if (ROUTES[urlPath]) {
     filePath = path.join(ROOT, ROUTES[urlPath]);
   }
@@ -242,15 +317,8 @@ const server = http.createServer((req, res) => {
     // always resolve from root — even pages served at /bounce-house-rentals/
     const body = injectBase(data, ext, urlPath);
 
-    // Cache static assets (js/css/images) in browser
-    const headers = { 'Content-Type': mime };
-    if (['.css', '.js', '.png', '.jpg', '.webp', '.svg', '.woff2'].includes(ext)) {
-      headers['Cache-Control'] = 'no-cache';
-    } else {
-      headers['Cache-Control'] = 'no-cache';
-    }
-
-    res.writeHead(200, headers);
+    // no-cache for everything so dev edits always show up on refresh
+    res.writeHead(200, { 'Content-Type': mime, 'Cache-Control': 'no-cache' });
     res.end(body);
   });
 });

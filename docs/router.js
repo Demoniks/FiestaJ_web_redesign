@@ -25,7 +25,7 @@ This file exposes window.FJ_ROUTER so main.js can:
                 '/bounce-house-rentals/',
                 '/water-slides-rentals/',
                 '/bundle-deals/',
-                '/book-now/'
+                '/contact/'
             ]
         },
         '/bounce-house-rentals/': {
@@ -34,7 +34,7 @@ This file exposes window.FJ_ROUTER so main.js can:
                 '/combo-bounce-house-rentals/',
                 '/water-slides-rentals/',
                 '/bundle-deals/',
-                '/book-now/'
+                '/contact/'
             ]
         },
         '/combo-bounce-house-rentals/': {
@@ -134,7 +134,7 @@ This file exposes window.FJ_ROUTER so main.js can:
             file: 'deals/bundle-deals.html',
             prefetch: [
                 '/bounce-house-rentals/',
-                '/book-now/'
+                '/contact/'
             ]
         },
         '/about-us/': {
@@ -148,14 +148,13 @@ This file exposes window.FJ_ROUTER so main.js can:
             file: 'company/service-area.html',
             prefetch: [
                 '/bounce-house-rentals/',
-                '/book-now/'
+                '/contact/'
             ]
         },
         '/coupons/': {
-            file: 'company/coupons.html', prefetch: ['/book-now/']
+            file: 'company/coupons.html', prefetch: ['/contact/']
         },
-        '/contact/': { file: 'company/contact.html', prefetch: ['/book-now/'] },
-        '/book-now/': { file: 'company/book-now.html', prefetch: [] },
+        '/contact/': { file: 'company/contact.html', prefetch: [] },
         '/privacy-policy/': { file: 'company/privacy.html', prefetch: [] },
     };
 

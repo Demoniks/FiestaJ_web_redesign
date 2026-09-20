@@ -39,9 +39,9 @@ All tokens (colors, shadows, radii) from style.css :root
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: .09em;
-    color: var(--orange);
+    color: var(--green-dk, var(--green));
     margin-bottom: 14px;
-    background: var(--orange-lt);
+    background: var(--green-lt);
     padding: 5px 14px;
     border-radius: var(--r-full);
     border: 1px solid rgba(255, 90, 31, .2);
@@ -84,8 +84,8 @@ All tokens (colors, shadows, radii) from style.css :root
     font-size: 13px;
     font-weight: 600;
     color: var(--ink2);
-    background: rgba(255, 255, 255, .9);
-    border: 1.5px solid var(--border);
+    background: color-mix(in srgb, var(--green-lt) 75%, #fff);
+    border: 1.5px solid color-mix(in srgb, var(--green) 35%, var(--border));
     padding: 7px 14px;
     border-radius: var(--r-full);
     backdrop-filter: blur(8px);
@@ -148,12 +148,17 @@ All tokens (colors, shadows, radii) from style.css :root
 }
 
 .filter-pills {
+    /* filter-pills scroll: mobile row, desktop wrap */
     display: flex;
     gap: 8px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     border: none;
     margin: 0;
-    padding: 0;
+    padding: 0 2px 2px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    max-width: 100%;
 }
 
 .filter-pill {
@@ -168,6 +173,7 @@ All tokens (colors, shadows, radii) from style.css :root
     cursor: pointer;
     transition: all var(--t1);
     white-space: nowrap;
+    flex: 0 0 auto;
 }
 
 .filter-pill:hover {
@@ -247,7 +253,7 @@ All tokens (colors, shadows, radii) from style.css :root
 .pcard-img img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     transition: transform var(--t3) var(--ease);
     display: block;
 }
@@ -267,7 +273,7 @@ All tokens (colors, shadows, radii) from style.css :root
 .pcard-photo {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 /* Emoji placeholder — replace with real <img> when you have photos */
@@ -645,7 +651,8 @@ All tokens (colors, shadows, radii) from style.css :root
 
 /* Related links sidebar */
 .related-card {
-    background: var(--surface);
+    /* Keep original warm cream — Park Day green surface must not tint these sidebars */
+    background: #FBF7F2;
     border: 1.5px solid var(--border);
     border-radius: var(--r-lg);
     padding: 22px;
@@ -932,4 +939,24 @@ All tokens (colors, shadows, radii) from style.css :root
     .train-types-grid {
         grid-template-columns: 1fr;
     }
+}
+
+
+@media (min-width: 900px) {
+    .filter-pills {
+        flex-wrap: wrap;
+        overflow: visible;
+    }
+}
+/* Trackless-train .pc cards — photo swap (mirrors .pcard-photo) */
+.pc-img img,
+.pc-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+.pc:hover .pc-img img,
+.pc:hover .pc-photo {
+    transform: scale(1.06);
 }

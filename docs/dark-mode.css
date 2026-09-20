@@ -11,10 +11,13 @@
    the whole site automatically. The selector list below only covers
    the handful of places that hardcode a literal #fff / rgba(255,255,255,*)
    "card on a light page" background instead of a token.
+
+   Park Day (dark): brighter grass green so the field color stays visible
+   on dark surfaces; orange/yellow CTAs retained from the logo.
 ═══════════════════════════════════════════════════════════════ */
 
 :root[data-theme="dark"] {
-  /* ── Brand — brightened slightly so they hold contrast on dark surfaces ── */
+  /* ── Brand ── */
   --orange: #FF7A45;
   --orange-dk: #FF5A1F;
   --orange-lt: #3A2014;
@@ -23,8 +26,10 @@
   --yellow-dk: #FFC107;
   --yellow-lt: #332B10;
 
-  --green: #94D52E;
-  --green-lt: #1F2E0E;
+  /* Park Day grass — luminous on dark UI */
+  --green: #8FD94A;
+  --green-dk: #6FBF32;
+  --green-lt: #1A2F12;
 
   --blue: #5C8AE0;
   --blue-md: #4674C8;
@@ -37,15 +42,15 @@
   --ink4: #71665A;
   --border: #332B23;
   --border2: #443A2F;
-  --surface: #211B16;
-  --white: #211B16;
-  --off-white: #15110D;
+  --surface: #1C2418;
+  --white: #1C2418;
+  --off-white: #12180F;
 
-  /* ── Gradients ── */
-  --grad-hero: linear-gradient(150deg, #2A2410 0%, #241F0C 35%, #16223A 100%);
+  /* ── Gradients — green field → amber → night blue ── */
+  --grad-hero: linear-gradient(150deg, #1F3A14 0%, #243018 32%, #2A2410 62%, #16223A 100%);
   --grad-blue: linear-gradient(135deg, #1E4A96 0%, #16223A 100%);
 
-  /* ── Shadows — drop the colored glow, use real elevation against dark bg ── */
+  /* ── Shadows ── */
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, .4);
   --shadow-md: 0 4px 16px rgba(0, 0, 0, .45);
   --shadow-lg: 0 12px 40px rgba(0, 0, 0, .5);
@@ -56,7 +61,7 @@
 /* ── Hardcoded "#fff surface" selectors — redirected to dark tokens ── */
 [data-theme="dark"] .site-header,
 [data-theme="dark"] .filter-bar {
-  background: rgba(21, 17, 13, .94);
+  background: rgba(18, 24, 15, .94);
 }
 
 [data-theme="dark"] .drop-panel,
@@ -99,7 +104,29 @@
   border-color: var(--off-white);
 }
 
+/* Dark: keep green badges readable */
+[data-theme="dark"] .cat-tag {
+  color: var(--green);
+  background: var(--green-lt);
+  border: 1px solid color-mix(in srgb, var(--green) 40%, transparent);
+}
+
+[data-theme="dark"] .hero-badge {
+  background: color-mix(in srgb, var(--green-lt) 80%, #000);
+  border-color: color-mix(in srgb, var(--green) 45%, var(--border));
+  color: var(--ink2);
+}
+
+[data-theme="dark"] .ann-dot {
+  color: var(--green) !important;
+}
+
 /* Page background image / hero photos can look washed out on dark — dim slightly */
 [data-theme="dark"] img:not(.hdr-logo-img) {
   filter: brightness(.92);
+}
+
+[data-theme="dark"] .related-card {
+  background: #211B16;
+  border-color: var(--border);
 }

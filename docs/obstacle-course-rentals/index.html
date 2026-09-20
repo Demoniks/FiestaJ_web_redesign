@@ -6,12 +6,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Set theme before first paint so there's no flash of the wrong theme -->
-    <script>(function () { try { var t = localStorage.getItem('fj-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); document.documentElement.setAttribute('data-theme', t); } catch (e) { } })();</script>
+    <script>(function () { try { var t = localStorage.getItem('fj-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); document.documentElement.setAttribute('data-theme', t); } catch (e) { } document.documentElement.classList.add('fj-booting'); if (!document.getElementById('fj-boot-style')) { var _s = document.createElement('style'); _s.id = 'fj-boot-style'; _s.textContent = 'html.fj-booting::before{content:"";position:fixed;inset:0;background:#1C1410;z-index:99999;pointer-events:none}'; (document.head || document.documentElement).appendChild(_s); } })();</script>
     <title>Obstacle Course Rentals in Santa Barbara, CA | Fiesta Jumps</title>
     <meta name="description" content="Rent inflatable obstacle courses in Santa Barbara, CA. Fiesta Jumps delivers epic inflatable challenges for parties, school events, and team fun.">
     <meta name="robots" content="index, follow">
     <!-- Open Graph -->
-    <meta property="og:title" content="Obstacle Course Rentals — Fiesta Jumps Santa Barbara">
+    <meta property="og:title" content="Obstacle Course Rentals | Fiesta Jumps Santa Barbara">
     <meta property="og:description" content="Santa Barbara's #1 party rental company. Inflatable obstacle courses for an epic challenge at any event.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://fiestajumps.com/obstacle-course-rentals/">
@@ -37,7 +37,7 @@
     <link rel="prefetch" href="/FiestaJ_web_redesign/combo-bounce-house-rentals/" as="document">
     <link rel="prefetch" href="/FiestaJ_web_redesign/water-slides-rentals/" as="document">
     <link rel="prefetch" href="/FiestaJ_web_redesign/bundle-deals/" as="document">
-    <link rel="prefetch" href="/FiestaJ_web_redesign/book-now/" as="document">
+    <link rel="prefetch" href="/FiestaJ_web_redesign/contact/" as="document">
 
 </head>
 
@@ -46,23 +46,18 @@
     <!-- PAGE TRANSITION CURTAIN (used by main.js fade) -->
     <div class="pt-curtain" id="ptCurtain" aria-hidden="true"></div>
 
-    <!-- ══ ANNOUNCEMENT BAR ══════════════════════════════════════ -->
+    <!-- == ANNOUNCEMENT BAR == -->
 <div class="ann-bar" aria-label="Discounts and promotions">
-    <div class="ann-track" aria-hidden="true">
-        <span>🎉 10% off — First Responders &amp; Military</span><span class="ann-dot">·</span>
-        <span>🎓 Teacher Discount Available</span><span class="ann-dot">·</span>
-        <span>🔁 Return Customers Save 10%</span><span class="ann-dot">·</span>
-        <span>💚 Non-Profit Discounts</span><span class="ann-dot">·</span>
-        <span>📦 Second Item 20% Off</span><span class="ann-dot">·</span>
-        <span>📅 Second Day Rental 50% Off</span><span class="ann-dot">·</span>
-        <span>☀️ Weekday Rental 15% Off</span><span class="ann-dot">·</span>
-        <span>🎉 10% off — First Responders &amp; Military</span><span class="ann-dot">·</span>
-        <span>🎓 Teacher Discount Available</span><span class="ann-dot">·</span>
-        <span>🔁 Return Customers Save 10%</span><span class="ann-dot">·</span>
-        <span>💚 Non-Profit Discounts</span><span class="ann-dot">·</span>
-        <span>📦 Second Item 20% Off</span><span class="ann-dot">·</span>
-        <span>📅 Second Day Rental 50% Off</span><span class="ann-dot">·</span>
-        <span>☀️ Weekday Rental 15% Off</span><span class="ann-dot">·</span>
+    <div class="ann-track" id="annTrack">
+        <div class="ann-group">
+            <span>🎉 10% off for First Responders &amp; Military</span><span class="ann-dot" aria-hidden="true">·</span>
+            <span>🎓 Teacher Discount Available</span><span class="ann-dot" aria-hidden="true">·</span>
+            <span>🔁 Return Customers Save 10%</span><span class="ann-dot" aria-hidden="true">·</span>
+            <span>💚 Non-Profit Discounts</span><span class="ann-dot" aria-hidden="true">·</span>
+            <span>📦 Second Item 20% Off</span><span class="ann-dot" aria-hidden="true">·</span>
+            <span>📅 Second Day Rental 50% Off</span><span class="ann-dot" aria-hidden="true">·</span>
+            <span>☀️ Weekday Rental 15% Off</span><span class="ann-dot" aria-hidden="true">·</span>
+        </div>
     </div>
 </div>
 
@@ -81,7 +76,7 @@
 
                 <li class="hdr-nav-item has-drop">
                     <button class="hdr-nav-btn" aria-haspopup="true" aria-expanded="false">
-                        Bounce Houses
+                        Party Rentals
                         <svg class="drop-caret" viewBox="0 0 16 16" fill="none">
                             <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
                                 stroke-linejoin="round" />
@@ -181,6 +176,15 @@
             </ul>
         </nav>
 
+        <!-- Centered location badge — desktop only (hidden below 1240px, where it would collide with nav/actions) -->
+        <p class="hdr-tagline">
+            <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <path d="M10 18s6-5.2 6-10a6 6 0 10-12 0c0 4.8 6 10 6 10z" fill="currentColor" />
+                <circle cx="10" cy="8" r="2.2" fill="#fff" />
+            </svg>
+            <span>Locally owned in <strong>Santa Barbara, CA</strong></span>
+        </p>
+
         <div class="hdr-actions">
             <a href="tel:+18055630870" class="hdr-phone" aria-label="Call us">
                 <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
@@ -210,8 +214,8 @@
                         stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
             </button>
-            <!-- ✅ AJAX PREFETCH — fj-link triggers hover prefetch to /book-now/ -->
-            <a href="/FiestaJ_web_redesign/book-now/" class="btn btn-orange btn-sm fj-link">Book Now</a>
+            <!-- ✅ AJAX PREFETCH — fj-link triggers hover prefetches /contact/ -->
+            <a href="/FiestaJ_web_redesign/contact/" class="btn btn-orange btn-sm fj-link">Book Now</a>
             <button class="hdr-burger" id="burgerBtn" aria-label="Open menu" aria-expanded="false">
                 <span></span><span></span><span></span>
             </button>
@@ -254,7 +258,7 @@
             </div>
             <div class="mob-ctas">
                 <a href="tel:+18055630870" class="btn btn-outline btn-full">📞 (805) 563-0870</a>
-                <a href="/FiestaJ_web_redesign/book-now/" class="btn btn-orange btn-full fj-link">Book Your Event</a>
+                <a href="/FiestaJ_web_redesign/contact/" class="btn btn-orange btn-full fj-link">Book Your Event</a>
             </div>
         </div>
     </div>
@@ -275,7 +279,7 @@
         <p class="cat-tag">🏁 Obstacle Course Rentals</p>
         <h1>Inflatable Obstacle <em>Course</em> Rentals</h1>
         <p class="cat-hero-desc">
-            Challenge your guests with a giant inflatable obstacle course. Climb, crawl, and race through tunnels and slides — a high-energy favorite for birthdays, school field days, and church or corporate events.
+            Challenge your guests with a giant inflatable obstacle course. Climb, crawl, and race through tunnels and slides. It's a favorite for birthdays, school field days, and church or corporate events.
         </p>
 
         <div class="cat-hero-badges">
@@ -286,8 +290,8 @@
         </div>
 
         <div class="cat-hero-ctas">
-            <!-- ✅ AJAX PREFETCH — primary CTA prefetches /book-now/ on hover -->
-            <a href="/FiestaJ_web_redesign/book-now/" class="btn btn-orange btn-lg fj-link">
+            <!-- ✅ AJAX PREFETCH — primary CTA prefetches /contact/ on hover -->
+            <a href="/FiestaJ_web_redesign/contact/" class="btn btn-orange btn-lg fj-link">
                 Set Event Date
                 <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
                     <path d="M4.5 10h11m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="1.75"
@@ -307,17 +311,18 @@
 </section>
 
 
-    <!-- ══ FILTER BAR ═══════════════════════════════════════════ -->
-    <nav class="filter-bar" aria-label="Filter bounce houses">
+    <!-- Source: https://fiestajumps.com/rentals/obstacle-courses/ · audit: /workspace/fiesta-content/audit-obstacle-courses.json · cards rendered from products[] -->
+    <nav class="filter-bar" aria-label="Filter obstacle courses">
         <div class="container filter-bar-inner">
             <fieldset class="filter-pills" aria-label="Filter options">
-                <button class="filter-pill active" data-filter="all">All Units</button>
-                <button class="filter-pill" data-filter="standard">Standard</button>
-                <button class="filter-pill" data-filter="large">Large</button>
-                <button class="filter-pill" data-filter="themed">Themed</button>
-                <button class="filter-pill" data-filter="basketball">w/ Basketball</button>
+                <button class="filter-pill active" data-filter="all">All Courses</button>
+                <button class="filter-pill" data-filter="compact">Under 50ft</button>
+                <button class="filter-pill" data-filter="mid">50 to 75ft</button>
+                <button class="filter-pill" data-filter="long">90ft+</button>
+                <button class="filter-pill" data-filter="wacky">Wacky</button>
+                <button class="filter-pill" data-filter="voltage">High Voltage</button>
             </fieldset>
-            <span class="filter-count" id="filterCount" aria-live="polite">8 units available</span>
+            <span class="filter-count" id="filterCount" aria-live="polite">13 courses available</span>
         </div>
     </nav>
 
@@ -326,191 +331,408 @@
         <div class="container">
             <div class="products-grid" id="productsGrid">
 
-                <!-- ─────────────────────────────────────────────────────
-           PRODUCT CARDS
-           To use a real photo: replace the <div class="pcard-emoji">
-           with <img src="YOUR-URL" alt="Product name">
-           inside <div class="pcard-img">
+                <!-- cards rendered from products[] in audit-obstacle-courses.json — emoji/gradient placeholders only; Get Quote → /contact/?item=SLUG -->
 
-           EventHawk booking URL format:
-           href="/FiestaJ_web_redesign/book-now/?item=PRODUCT-SLUG"
-           ───────────────────────────────────────────────────── -->
-
-                <div class="pcard" data-filter="large" data-aos="fade-up" style="--d:0ms">
+                <!-- 100ft Ultimate Obstacle Challenge -->
+                <div class="pcard" data-filter="long" data-aos="fade-up" style="--d:0ms">
                     <div class="pcard-img" style="background:linear-gradient(135deg,#EBF5FF,#BFDBFE)">
-                        <!-- SWAP: <img src="https://fiestajumps.com/wp-content/uploads/hot-air-balloon.jpg" alt="Hot Air Balloon Bouncer"> -->
-                        <div class="pcard-emoji">🎈</div>
-                        <span class="pcard-badge">Large Unit</span>
+                        <img class="pcard-photo" src="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e5c2e4501653c83d9e.png" alt="100ft Ultimate Obstacle Challenge" loading="lazy">
                         <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
                     </div>
                     <div class="pcard-body">
-                        <h3>Hot Air Balloon Bouncer Large</h3>
-                        <p>A colorful and exciting large bounce house shaped like a hot air balloon — a guaranteed
-                            showstopper at any party.</p>
+                        <h3>100ft Ultimate Obstacle Challenge</h3>
+                        <p>100ft Ultimate Obstacle Challenge. Climb, crawl, and race through the course.</p>
                         <div class="pcard-meta">
-                            <span class="pcard-tag pcard-tag--blue">📐 Large</span>
-                            <span class="pcard-tag pcard-tag--green">✅ Available</span>
+                            <span class="pcard-tag pcard-tag--warm">💵 from $999</span>
+                            <span class="pcard-tag pcard-tag--blue">📐 Space required</span>
                         </div>
                     </div>
                     <div class="pcard-actions">
-                        <!-- ✅ AJAX PREFETCH — Get Quote and Details use fj-link for prefetch -->
-                        <a href="/FiestaJ_web_redesign/book-now/?item=hot-air-balloon" class="pcard-btn pcard-btn--primary fj-link">Get
-                            Quote</a>
-                        <a href="/FiestaJ_web_redesign/bounce-house-rentals/hot-air-balloon/"
-                            class="pcard-btn pcard-btn--outline fj-link">Details</a>
+                        <a href="/FiestaJ_web_redesign/contact/?item=100-ft-ultimate-obstacle-challenge" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal" data-image="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e5c2e4501653c83d9e.png"
+                            data-emoji="🏆"
+                            data-title="100ft Ultimate Obstacle Challenge"
+                            data-desc="100ft Ultimate Obstacle Challenge. Climb, crawl, and race through the course."
+                            data-dims="Space required"
+                            data-area="Confirm setup space when booking"
+                            data-cap="Confirm on booking"
+                            data-power="Confirm on booking"
+                            data-price="from $999"
+                            data-includes="Extension Cord · Blower · Safety Stakes to secure to ground"
+                            data-book="/contact/?item=100-ft-ultimate-obstacle-challenge"
+                            data-requirement="Confirm delivery space and site needs when booking">Details</a>
                     </div>
                 </div>
 
-                <div class="pcard" data-filter="basketball large" data-aos="fade-up" style="--d:60ms">
+                <!-- 150ft Ultra Obstacle Course -->
+                <div class="pcard" data-filter="long" data-aos="fade-up" style="--d:60ms">
                     <div class="pcard-img" style="background:linear-gradient(135deg,#FFF7ED,#FED7AA)">
-                        <div class="pcard-emoji">🏰</div>
-                        <span class="pcard-badge">⭐ Popular</span>
+                        <img class="pcard-photo" src="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e5e8fe2ed06ebc4123.png" alt="150ft Ultra Obstacle Course" loading="lazy">
                         <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
                     </div>
                     <div class="pcard-body">
-                        <h3>Lava Castle 16′ × 16′ w/ Basketball Hoop</h3>
-                        <p>Classic castle design with an integrated basketball hoop — bounce and shoot in one exciting
-                            unit.</p>
+                        <h3>150ft Ultra Obstacle Course</h3>
+                        <p>150ft Ultra Obstacle Course. Climb, crawl, and race through the course.</p>
                         <div class="pcard-meta">
-                            <span class="pcard-tag pcard-tag--blue">📐 16′ × 16′</span>
-                            <span class="pcard-tag pcard-tag--warm">🏀 Hoop Included</span>
+                            <span class="pcard-tag pcard-tag--warm">💵 from $1300</span>
+                            <span class="pcard-tag pcard-tag--blue">📐 155'Lx16'Wx20'H</span>
                         </div>
                     </div>
                     <div class="pcard-actions">
-                        <a href="/FiestaJ_web_redesign/book-now/?item=lava-castle" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
-                        <a href="/FiestaJ_web_redesign/bounce-house-rentals/lava-castle/"
-                            class="pcard-btn pcard-btn--outline fj-link">Details</a>
+                        <a href="/FiestaJ_web_redesign/contact/?item=150-ft-ultra-obstacle" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal" data-image="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e5e8fe2ed06ebc4123.png"
+                            data-emoji="🏆"
+                            data-title="150ft Ultra Obstacle Course"
+                            data-desc="150ft Ultra Obstacle Course. Climb, crawl, and race through the course."
+                            data-dims="155'Lx16'Wx20'H; space required: 155'Lx16'Wx20'H"
+                            data-area="Confirm setup space when booking"
+                            data-cap="Confirm on booking"
+                            data-power="Confirm on booking"
+                            data-price="from $1300"
+                            data-includes="Extension Cord · Blower · Safety Stakes to secure to ground"
+                            data-book="/contact/?item=150-ft-ultra-obstacle"
+                            data-requirement="Confirm delivery space and site needs when booking">Details</a>
                     </div>
                 </div>
 
-                <div class="pcard" data-filter="standard" data-aos="fade-up" style="--d:120ms">
+                <!-- 40ft High Voltage Mini Obstacle Course -->
+                <div class="pcard" data-filter="compact voltage" data-aos="fade-up" style="--d:120ms">
                     <div class="pcard-img" style="background:linear-gradient(135deg,#F0FDF4,#A7F3D0)">
-                        <div class="pcard-emoji">🏯</div>
+                        <img class="pcard-photo" src="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e53ce89e11044ff286.png" alt="40ft High Voltage Mini Obstacle Course" loading="lazy">
                         <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
                     </div>
                     <div class="pcard-body">
-                        <h3>Mini Castle 9′ × 9′</h3>
-                        <p>Perfect for smaller yards and younger children. Safe, fun, and easy to set up in tight
-                            spaces.</p>
+                        <h3>40ft High Voltage Mini Obstacle Course</h3>
+                        <p>40ft High Voltage Mini Obstacle Course. Climb, crawl, and race through the course.</p>
                         <div class="pcard-meta">
-                            <span class="pcard-tag pcard-tag--blue">📐 9′ × 9′</span>
-                            <span class="pcard-tag pcard-tag--green">✅ Available</span>
+                            <span class="pcard-tag pcard-tag--warm">💵 from $499</span>
+                            <span class="pcard-tag pcard-tag--blue">📐 40'Lx15'Wx13'H</span>
                         </div>
                     </div>
                     <div class="pcard-actions">
-                        <a href="/FiestaJ_web_redesign/book-now/?item=mini-castle" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
-                        <a href="/FiestaJ_web_redesign/bounce-house-rentals/mini-castle/"
-                            class="pcard-btn pcard-btn--outline fj-link">Details</a>
+                        <a href="/FiestaJ_web_redesign/contact/?item=high-voltage-mini-obstacle-course" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal" data-image="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e53ce89e11044ff286.png"
+                            data-emoji="⚡"
+                            data-title="40ft High Voltage Mini Obstacle Course"
+                            data-desc="40ft High Voltage Mini Obstacle Course. Climb, crawl, and race through the course."
+                            data-dims="40'Lx15'Wx13'H; space required: 40'Lx15'Wx13'H"
+                            data-area="Confirm setup space when booking"
+                            data-cap="Confirm on booking"
+                            data-power="Confirm on booking"
+                            data-price="from $499"
+                            data-includes="Extension Cord · Blower · Safety Stakes to secure to ground"
+                            data-book="/contact/?item=high-voltage-mini-obstacle-course"
+                            data-requirement="Confirm delivery space and site needs when booking">Details</a>
                     </div>
                 </div>
 
-                <div class="pcard" data-filter="themed" data-aos="fade-up" style="--d:0ms">
+                <!-- 40ft Wacky Obstacle Course -->
+                <div class="pcard" data-filter="compact wacky" data-aos="fade-up" style="--d:0ms">
+                    <div class="pcard-img" style="background:linear-gradient(135deg,#FEF3C7,#FCD34D)">
+                        <img class="pcard-photo" src="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e5146bc52576e450d5.png" alt="40ft Wacky Obstacle Course" loading="lazy">
+                        <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
+                    </div>
+                    <div class="pcard-body">
+                        <h3>40ft Wacky Obstacle Course</h3>
+                        <p>40ft Wacky Obstacle Course. Climb, crawl, and race through the course.</p>
+                        <div class="pcard-meta">
+                            <span class="pcard-tag pcard-tag--warm">💵 from $450</span>
+                            <span class="pcard-tag pcard-tag--blue">📐 40'Lx15'Wx13'H</span>
+                        </div>
+                    </div>
+                    <div class="pcard-actions">
+                        <a href="/FiestaJ_web_redesign/contact/?item=35-ft-wacky-obstacle-course" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal" data-image="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e5146bc52576e450d5.png"
+                            data-emoji="🌀"
+                            data-title="40ft Wacky Obstacle Course"
+                            data-desc="40ft Wacky Obstacle Course. Climb, crawl, and race through the course."
+                            data-dims="40'Lx15'Wx13'H; space required:40'Lx15'Wx13'H"
+                            data-area="Confirm setup space when booking"
+                            data-cap="Confirm on booking"
+                            data-power="Confirm on booking"
+                            data-price="from $450"
+                            data-includes="Extension Cord · Blower · Safety Stakes to secure to ground"
+                            data-book="/contact/?item=35-ft-wacky-obstacle-course"
+                            data-requirement="Confirm delivery space and site needs when booking">Details</a>
+                    </div>
+                </div>
+
+                <!-- 50 ft Wacky Obstacle Course -->
+                <div class="pcard" data-filter="mid wacky" data-aos="fade-up" style="--d:60ms">
                     <div class="pcard-img" style="background:linear-gradient(135deg,#FDF2F8,#FBCFE8)">
-                        <div class="pcard-emoji">🎀</div>
+                        <img class="pcard-photo" src="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e55ebd492fd56fed14.png" alt="50 ft Wacky Obstacle Course" loading="lazy">
                         <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
                     </div>
                     <div class="pcard-body">
-                        <h3>Pink Castle</h3>
-                        <p>A beautiful pink princess castle — the ultimate themed bouncer for girls' birthday parties
-                            and princess events.</p>
+                        <h3>50 ft Wacky Obstacle Course</h3>
+                        <p>50 ft Wacky Obstacle Course. Climb, crawl, and race through the course.</p>
                         <div class="pcard-meta">
-                            <span class="pcard-tag pcard-tag--blue">📐 Standard</span>
-                            <span class="pcard-tag pcard-tag--warm">🎀 Themed</span>
+                            <span class="pcard-tag pcard-tag--warm">💵 from $550</span>
+                            <span class="pcard-tag pcard-tag--blue">📐 55'Lx16'Wx20'H</span>
                         </div>
                     </div>
                     <div class="pcard-actions">
-                        <a href="/FiestaJ_web_redesign/book-now/?item=pink-castle" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
-                        <a href="/FiestaJ_web_redesign/bounce-house-rentals/pink-castle/"
-                            class="pcard-btn pcard-btn--outline fj-link">Details</a>
+                        <a href="/FiestaJ_web_redesign/contact/?item=50-ft-wacky-obstacle-course" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal" data-image="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e55ebd492fd56fed14.png"
+                            data-emoji="🌀"
+                            data-title="50 ft Wacky Obstacle Course"
+                            data-desc="50 ft Wacky Obstacle Course. Climb, crawl, and race through the course."
+                            data-dims="55'Lx16'Wx20'H; space required: 55'Lx16'Wx20'H"
+                            data-area="Confirm setup space when booking"
+                            data-cap="Confirm on booking"
+                            data-power="Confirm on booking"
+                            data-price="from $550"
+                            data-includes="Extension Cord · Blower · Safety Stakes to secure to ground"
+                            data-book="/contact/?item=50-ft-wacky-obstacle-course"
+                            data-requirement="Confirm delivery space and site needs when booking">Details</a>
                     </div>
                 </div>
 
-                <div class="pcard" data-filter="themed large" data-aos="fade-up" style="--d:60ms">
+                <!-- 50ft High Voltage Obstacle Course -->
+                <div class="pcard" data-filter="mid voltage" data-aos="fade-up" style="--d:120ms">
+                    <div class="pcard-img" style="background:linear-gradient(135deg,#EEF2FF,#C7D2FE)">
+                        <img class="pcard-photo" src="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e59619ac3403927c23.png" alt="50ft High Voltage Obstacle Course" loading="lazy">
+                        <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
+                    </div>
+                    <div class="pcard-body">
+                        <h3>50ft High Voltage Obstacle Course</h3>
+                        <p>50ft High Voltage Obstacle Course. Climb, crawl, and race through the course.</p>
+                        <div class="pcard-meta">
+                            <span class="pcard-tag pcard-tag--warm">💵 from $550</span>
+                            <span class="pcard-tag pcard-tag--blue">📐 55'Lx15'Wx20'H</span>
+                        </div>
+                    </div>
+                    <div class="pcard-actions">
+                        <a href="/FiestaJ_web_redesign/contact/?item=50-ft-high-voltage-obstacle-course" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal" data-image="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e59619ac3403927c23.png"
+                            data-emoji="⚡"
+                            data-title="50ft High Voltage Obstacle Course"
+                            data-desc="50ft High Voltage Obstacle Course. Climb, crawl, and race through the course."
+                            data-dims="55'Lx15'Wx20'H; space required: 55'Lx15'Wx20'H"
+                            data-area="Confirm setup space when booking"
+                            data-cap="Confirm on booking"
+                            data-power="Confirm on booking"
+                            data-price="from $550"
+                            data-includes="Extension Cord · Blower · Safety Stakes to secure to ground"
+                            data-book="/contact/?item=50-ft-high-voltage-obstacle-course"
+                            data-requirement="Confirm delivery space and site needs when booking">Details</a>
+                    </div>
+                </div>
+
+                <!-- 50ft Ocean Obstacle Course -->
+                <div class="pcard" data-filter="mid" data-aos="fade-up" style="--d:0ms">
+                    <div class="pcard-img" style="background:linear-gradient(135deg,#ECFEFF,#A5F3FC)">
+                        <img class="pcard-photo" src="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e581e6bcdf0c70579e.png" alt="50ft Ocean Obstacle Course" loading="lazy">
+                        <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
+                    </div>
+                    <div class="pcard-body">
+                        <h3>50ft Ocean Obstacle Course</h3>
+                        <p>50ft Ocean Obstacle Course. Climb, crawl, and race through the course.</p>
+                        <div class="pcard-meta">
+                            <span class="pcard-tag pcard-tag--warm">💵 from $450</span>
+                            <span class="pcard-tag pcard-tag--blue">📐 Space required</span>
+                        </div>
+                    </div>
+                    <div class="pcard-actions">
+                        <a href="/FiestaJ_web_redesign/contact/?item=50-ft-ocean-obstacle-course" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal" data-image="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e581e6bcdf0c70579e.png"
+                            data-emoji="🌊"
+                            data-title="50ft Ocean Obstacle Course"
+                            data-desc="50ft Ocean Obstacle Course. Climb, crawl, and race through the course."
+                            data-dims="Space required"
+                            data-area="Confirm setup space when booking"
+                            data-cap="Confirm on booking"
+                            data-power="Confirm on booking"
+                            data-price="from $450"
+                            data-includes="Extension Cord · Blower · Safety Stakes to secure to ground"
+                            data-book="/contact/?item=50-ft-ocean-obstacle-course"
+                            data-requirement="Confirm delivery space and site needs when booking">Details</a>
+                    </div>
+                </div>
+
+                <!-- 55ft Obstacle Course -->
+                <div class="pcard" data-filter="mid" data-aos="fade-up" style="--d:60ms">
+                    <div class="pcard-img" style="background:linear-gradient(135deg,#FEE2E2,#FCA5A5)">
+                        <img class="pcard-photo" src="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e53ce89e7fc14ff287.png" alt="55ft Obstacle Course" loading="lazy">
+                        <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
+                    </div>
+                    <div class="pcard-body">
+                        <h3>55ft Obstacle Course</h3>
+                        <p>55ft Obstacle Course. Climb, crawl, and race through the course.</p>
+                        <div class="pcard-meta">
+                            <span class="pcard-tag pcard-tag--warm">💵 from $499</span>
+                            <span class="pcard-tag pcard-tag--blue">📐 Space required</span>
+                        </div>
+                    </div>
+                    <div class="pcard-actions">
+                        <a href="/FiestaJ_web_redesign/contact/?item=55-ft-obstacle-course" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal" data-image="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e53ce89e7fc14ff287.png"
+                            data-emoji="🏃"
+                            data-title="55ft Obstacle Course"
+                            data-desc="55ft Obstacle Course. Climb, crawl, and race through the course."
+                            data-dims="70'W x 18'L x 20'H"
+                            data-area="Confirm setup space when booking"
+                            data-cap="Confirm on booking"
+                            data-power="Confirm on booking"
+                            data-price="from $499"
+                            data-includes="Extension Cord · Blower · Safety Stakes to secure to ground"
+                            data-book="/contact/?item=55-ft-obstacle-course"
+                            data-requirement="Confirm delivery space and site needs when booking">Details</a>
+                    </div>
+                </div>
+
+                <!-- 65ft Obstacle Course -->
+                <div class="pcard" data-filter="mid" data-aos="fade-up" style="--d:120ms">
+                    <div class="pcard-img" style="background:linear-gradient(135deg,#EBF5FF,#BFDBFE)">
+                        <img class="pcard-photo" src="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e53201b00eca94ea42.png" alt="65ft Obstacle Course" loading="lazy">
+                        <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
+                    </div>
+                    <div class="pcard-body">
+                        <h3>65ft Obstacle Course</h3>
+                        <p>65ft Obstacle Course. Climb, crawl, and race through the course.</p>
+                        <div class="pcard-meta">
+                            <span class="pcard-tag pcard-tag--warm">💵 from $650</span>
+                            <span class="pcard-tag pcard-tag--blue">📐 70'W x 18'L x 20'H</span>
+                        </div>
+                    </div>
+                    <div class="pcard-actions">
+                        <a href="/FiestaJ_web_redesign/contact/?item=65ft-obstacle-course" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal" data-image="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e53201b00eca94ea42.png"
+                            data-emoji="🏃"
+                            data-title="65ft Obstacle Course"
+                            data-desc="65ft Obstacle Course. Climb, crawl, and race through the course."
+                            data-dims="70'W x 18'L x 20'H"
+                            data-area="72'W x 20'L x 21'H"
+                            data-cap="Confirm on booking"
+                            data-power="Confirm on booking"
+                            data-price="from $650"
+                            data-includes="Extension Cord · Blower · Safety Stakes to secure to ground"
+                            data-book="/contact/?item=65ft-obstacle-course"
+                            data-requirement="Confirm delivery space and site needs when booking">Details</a>
+                    </div>
+                </div>
+
+                <!-- 75ft Obstacle Course -->
+                <div class="pcard" data-filter="mid" data-aos="fade-up" style="--d:0ms">
+                    <div class="pcard-img" style="background:linear-gradient(135deg,#FFF7ED,#FED7AA)">
+                        <img class="pcard-photo" src="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e55ebd4935176fed12.png" alt="75ft Obstacle Course" loading="lazy">
+                        <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
+                    </div>
+                    <div class="pcard-body">
+                        <h3>75ft Obstacle Course</h3>
+                        <p>75ft Obstacle Course. Climb, crawl, and race through the course.</p>
+                        <div class="pcard-meta">
+                            <span class="pcard-tag pcard-tag--warm">💵 from $799</span>
+                            <span class="pcard-tag pcard-tag--blue">📐 Space required 85’lx16’wx20’H</span>
+                        </div>
+                    </div>
+                    <div class="pcard-actions">
+                        <a href="/FiestaJ_web_redesign/contact/?item=75-ft-obstacle-course" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal" data-image="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e55ebd4935176fed12.png"
+                            data-emoji="🏃"
+                            data-title="75ft Obstacle Course"
+                            data-desc="75ft Obstacle Course. Climb, crawl, and race through the course."
+                            data-dims="Space required 85’lx16’wx20’H"
+                            data-area="Confirm setup space when booking"
+                            data-cap="Confirm on booking"
+                            data-power="Confirm on booking"
+                            data-price="from $799"
+                            data-includes="Extension Cord · Blower · Safety Stakes to secure to ground"
+                            data-book="/contact/?item=75-ft-obstacle-course"
+                            data-requirement="Confirm delivery space and site needs when booking">Details</a>
+                    </div>
+                </div>
+
+                <!-- 90ft High Voltage Obstacle Challenge -->
+                <div class="pcard" data-filter="long voltage" data-aos="fade-up" style="--d:60ms">
+                    <div class="pcard-img" style="background:linear-gradient(135deg,#F0FDF4,#A7F3D0)">
+                        <img class="pcard-photo" src="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e5146bc550ebe450d6.png" alt="90ft High Voltage Obstacle Challenge" loading="lazy">
+                        <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
+                    </div>
+                    <div class="pcard-body">
+                        <h3>90ft High Voltage Obstacle Challenge</h3>
+                        <p>90ft High Voltage Obstacle Challenge. Climb, crawl, and race through the course.</p>
+                        <div class="pcard-meta">
+                            <span class="pcard-tag pcard-tag--warm">💵 from $950</span>
+                            <span class="pcard-tag pcard-tag--blue">📐 95'Lx16'Wx20'H</span>
+                        </div>
+                    </div>
+                    <div class="pcard-actions">
+                        <a href="/FiestaJ_web_redesign/contact/?item=90-ft-high-voltage-obstacle-challenge" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal" data-image="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e5146bc550ebe450d6.png"
+                            data-emoji="⚡"
+                            data-title="90ft High Voltage Obstacle Challenge"
+                            data-desc="90ft High Voltage Obstacle Challenge. Climb, crawl, and race through the course."
+                            data-dims="95'Lx16'Wx20'H; space required: 95'Lx16'Wx20'H"
+                            data-area="Confirm setup space when booking"
+                            data-cap="Confirm on booking"
+                            data-power="Confirm on booking"
+                            data-price="from $950"
+                            data-includes="Extension Cord · Blower · Safety Stakes to secure to ground"
+                            data-book="/contact/?item=90-ft-high-voltage-obstacle-challenge"
+                            data-requirement="Confirm delivery space and site needs when booking">Details</a>
+                    </div>
+                </div>
+
+                <!-- 90ft Wacky Obstacle Challenge Course -->
+                <div class="pcard" data-filter="long wacky" data-aos="fade-up" style="--d:120ms">
+                    <div class="pcard-img" style="background:linear-gradient(135deg,#FEF3C7,#FCD34D)">
+                        <img class="pcard-photo" src="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e5da918a351ac437d7.png" alt="90ft Wacky Obstacle Challenge Course" loading="lazy">
+                        <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
+                    </div>
+                    <div class="pcard-body">
+                        <h3>90ft Wacky Obstacle Challenge Course</h3>
+                        <p>90ft Wacky Obstacle Challenge Course. Climb, crawl, and race through the course.</p>
+                        <div class="pcard-meta">
+                            <span class="pcard-tag pcard-tag--warm">💵 from $899</span>
+                            <span class="pcard-tag pcard-tag--blue">📐 Space required</span>
+                        </div>
+                    </div>
+                    <div class="pcard-actions">
+                        <a href="/FiestaJ_web_redesign/contact/?item=85-ft-obstacle-challenge-course" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal" data-image="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e5da918a351ac437d7.png"
+                            data-emoji="🌀"
+                            data-title="90ft Wacky Obstacle Challenge Course"
+                            data-desc="90ft Wacky Obstacle Challenge Course. Climb, crawl, and race through the course."
+                            data-dims="Space required"
+                            data-area="Confirm setup space when booking"
+                            data-cap="Confirm on booking"
+                            data-power="Confirm on booking"
+                            data-price="from $899"
+                            data-includes="Extension Cord · Blower · Safety Stakes to secure to ground"
+                            data-book="/contact/?item=85-ft-obstacle-challenge-course"
+                            data-requirement="Confirm delivery space and site needs when booking">Details</a>
+                    </div>
+                </div>
+
+                <!-- Mini Obstacle Course 35ft -->
+                <div class="pcard" data-filter="compact" data-aos="fade-up" style="--d:0ms">
                     <div class="pcard-img" style="background:linear-gradient(135deg,#FDF2F8,#FBCFE8)">
-                        <div class="pcard-emoji">🏰</div>
-                        <span class="pcard-badge pcard-badge--blue">Large</span>
+                        <img class="pcard-photo" src="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e5c2e450cb64c83d9f.png" alt="Mini Obstacle Course 35ft" loading="lazy">
                         <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
                     </div>
                     <div class="pcard-body">
-                        <h3>Pink Castle Large Bounce House</h3>
-                        <p>The larger version of our beloved Pink Castle — more room, more fun for bigger parties and
-                            events.</p>
+                        <h3>Mini Obstacle Course 35ft</h3>
+                        <p>Mini Obstacle Course 35ft. Climb, crawl, and race through the course.</p>
                         <div class="pcard-meta">
-                            <span class="pcard-tag pcard-tag--blue">📐 Large Unit</span>
-                            <span class="pcard-tag pcard-tag--warm">🎀 Themed</span>
+                            <span class="pcard-tag pcard-tag--warm">💵 from $399</span>
+                            <span class="pcard-tag pcard-tag--blue">📐 38'Lx15'Wx8'H</span>
                         </div>
                     </div>
                     <div class="pcard-actions">
-                        <a href="/FiestaJ_web_redesign/book-now/?item=pink-castle-large" class="pcard-btn pcard-btn--primary fj-link">Get
-                            Quote</a>
-                        <a href="/FiestaJ_web_redesign/bounce-house-rentals/pink-castle-large/"
-                            class="pcard-btn pcard-btn--outline fj-link">Details</a>
-                    </div>
-                </div>
-
-                <div class="pcard" data-filter="standard large" data-aos="fade-up" style="--d:120ms">
-                    <div class="pcard-img" style="background:linear-gradient(135deg,#EFF6FF,#BFDBFE)">
-                        <div class="pcard-emoji">🌈</div>
-                        <span class="pcard-badge pcard-badge--green">🔥 Best Seller</span>
-                        <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
-                    </div>
-                    <div class="pcard-body">
-                        <h3>Rainbow Castle Large Bouncer</h3>
-                        <p>Our most popular model — bigger space and vivid colors make this the go-to for large parties
-                            and events.</p>
-                        <div class="pcard-meta">
-                            <span class="pcard-tag pcard-tag--blue">📐 Large Unit</span>
-                            <span class="pcard-tag pcard-tag--green">✅ Available</span>
-                        </div>
-                    </div>
-                    <div class="pcard-actions">
-                        <a href="/FiestaJ_web_redesign/book-now/?item=rainbow-castle-large" class="pcard-btn pcard-btn--primary fj-link">Get
-                            Quote</a>
-                        <a href="/FiestaJ_web_redesign/bounce-house-rentals/rainbow-castle-large/"
-                            class="pcard-btn pcard-btn--outline fj-link">Details</a>
-                    </div>
-                </div>
-
-                <div class="pcard" data-filter="standard" data-aos="fade-up" style="--d:0ms">
-                    <div class="pcard-img" style="background:linear-gradient(135deg,#EFF6FF,#BFDBFE)">
-                        <div class="pcard-emoji">🌈</div>
-                        <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
-                    </div>
-                    <div class="pcard-body">
-                        <h3>Rainbow Castle Bounce House</h3>
-                        <p>A vibrant multi-color castle with classic bounce design — loved by kids of all ages at every
-                            party.</p>
-                        <div class="pcard-meta">
-                            <span class="pcard-tag pcard-tag--blue">📐 Standard</span>
-                            <span class="pcard-tag pcard-tag--green">✅ Available</span>
-                        </div>
-                    </div>
-                    <div class="pcard-actions">
-                        <a href="/FiestaJ_web_redesign/book-now/?item=rainbow-castle" class="pcard-btn pcard-btn--primary fj-link">Get
-                            Quote</a>
-                        <a href="/FiestaJ_web_redesign/bounce-house-rentals/rainbow-castle/"
-                            class="pcard-btn pcard-btn--outline fj-link">Details</a>
-                    </div>
-                </div>
-
-                <div class="pcard" data-filter="standard" data-aos="fade-up" style="--d:60ms">
-                    <div class="pcard-img" style="background:linear-gradient(135deg,#FEF2F2,#FCA5A5)">
-                        <div class="pcard-emoji">🔴</div>
-                        <div class="pcard-overlay"><span class="pcard-overlay-text">Quick View</span></div>
-                    </div>
-                    <div class="pcard-body">
-                        <h3>Red Castle Bounce House</h3>
-                        <p>A bold, bright red castle that stands out at any event and excites every guest who sees it.
-                        </p>
-                        <div class="pcard-meta">
-                            <span class="pcard-tag pcard-tag--blue">📐 Standard</span>
-                            <span class="pcard-tag pcard-tag--green">✅ Available</span>
-                        </div>
-                    </div>
-                    <div class="pcard-actions">
-                        <a href="/FiestaJ_web_redesign/book-now/?item=red-castle" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
-                        <a href="/FiestaJ_web_redesign/bounce-house-rentals/red-castle/"
-                            class="pcard-btn pcard-btn--outline fj-link">Details</a>
+                        <a href="/FiestaJ_web_redesign/contact/?item=mini-obstacle-course-35-ft" class="pcard-btn pcard-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pcard-btn pcard-btn--outline fj-link js-open-modal" data-image="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e5c2e450cb64c83d9f.png"
+                            data-emoji="🏁"
+                            data-title="Mini Obstacle Course 35ft"
+                            data-desc="Mini Obstacle Course 35ft. Climb, crawl, and race through the course."
+                            data-dims="38'Lx15'Wx8'H; space required: 38'Lx15'Wx8'H"
+                            data-area="Confirm setup space when booking"
+                            data-cap="Confirm on booking"
+                            data-power="Confirm on booking"
+                            data-price="from $399"
+                            data-includes="Extension Cord · Blower · Safety Stakes to secure to ground"
+                            data-book="/contact/?item=mini-obstacle-course-35-ft"
+                            data-requirement="Confirm delivery space and site needs when booking">Details</a>
                     </div>
                 </div>
 
@@ -519,93 +741,95 @@
     </section>
 
     <!-- ══ WHY RENT FROM FIESTA JUMPS ════════════════════════════ -->
-    <section class="why-rent" id="whyRent">
-        <div class="container">
-            <div class="why-rent-grid">
-                <div class="why-rent-content" data-aos="fade-right">
-                    <p class="section-label">Why Fiesta Jumps?</p>
-                    <h2 class="section-title">Santa Barbara's most trusted bounce house company</h2>
-                    <p class="section-sub">For 26 years we've delivered clean, inspected equipment and stress-free setup
-                        for every type of event — from backyard birthdays to large school events.</p>
+    <!-- ══ WHY FIESTA JUMPS (shared blue section) ═══════════════════
+     One copy for every page. Edit the text or stats here and every page
+     that includes this partial updates. Pages pull it in with an include
+     directive naming partials/why-fiesta.html (same as the product modal).
+════════════════════════════════════════════════════════════ -->
+<section class="why-rent" id="whyRent">
+    <div class="container">
+        <div class="why-rent-grid">
+            <div class="why-rent-content" data-aos="fade-right">
+                <p class="section-label">Why Fiesta Jumps?</p>
+                <h2 class="section-title">Santa Barbara's most trusted bounce house company</h2>
+                <p class="section-sub">For 26 years we've delivered clean, inspected equipment and easy setups for
+                    every kind of event, from backyard birthdays to big school days.</p>
 
-                    <ul class="why-list">
-                        <li class="why-item">
-                            <div class="why-item-icon">🚚</div>
-                            <div class="why-item-text">
-                                <strong>Delivery &amp; Setup Included</strong>
-                                <span>We bring it, set it up, and pick it up. You don't lift a finger.</span>
-                            </div>
-                        </li>
-                        <li class="why-item">
-                            <div class="why-item-icon">🏅</div>
-                            <div class="why-item-text">
-                                <strong>City Park Approved</strong>
-                                <span>We're an approved vendor — no extra permits needed for SB city parks.</span>
-                            </div>
-                        </li>
-                        <li class="why-item">
-                            <div class="why-item-icon">🧹</div>
-                            <div class="why-item-text">
-                                <strong>Clean &amp; Inspected Every Time</strong>
-                                <span>All equipment is sanitized, inspected, and safe before every rental.</span>
-                            </div>
-                        </li>
-                        <li class="why-item">
-                            <div class="why-item-icon">💯</div>
-                            <div class="why-item-text">
-                                <strong>Satisfaction Guaranteed</strong>
-                                <span>If something isn't right, we fix it. Your event success is our priority.</span>
-                            </div>
-                        </li>
-                    </ul>
+                <ul class="why-list">
+                    <li class="why-item">
+                        <div class="why-item-icon">🚚</div>
+                        <div class="why-item-text">
+                            <strong>Delivery &amp; Setup Included</strong>
+                            <span>We bring it, set it up, and pick it up. You don't lift a finger.</span>
+                        </div>
+                    </li>
+                    <li class="why-item">
+                        <div class="why-item-icon">🏅</div>
+                        <div class="why-item-text">
+                            <strong>City Park Approved</strong>
+                            <span>We're an approved vendor, so there are no extra permits to worry about at Santa
+                                Barbara city parks.</span>
+                        </div>
+                    </li>
+                    <li class="why-item">
+                        <div class="why-item-icon">🧹</div>
+                        <div class="why-item-text">
+                            <strong>Clean &amp; Inspected Every Time</strong>
+                            <span>Every piece of equipment is sanitized, inspected, and safe before every rental.</span>
+                        </div>
+                    </li>
+                    <li class="why-item">
+                        <div class="why-item-icon">💯</div>
+                        <div class="why-item-text">
+                            <strong>Satisfaction Guaranteed</strong>
+                            <span>If something isn't right, we fix it. Your event's success is our priority.</span>
+                        </div>
+                    </li>
+                </ul>
 
-                    <!-- ✅ AJAX PREFETCH — both CTAs trigger prefetch on hover via fj-link -->
-                    <div style="display:flex;gap:12px;flex-wrap:wrap">
-                        <a href="/FiestaJ_web_redesign/book-now/" class="btn btn-white btn-lg fj-link">Book Your Event →</a>
-                        <a href="/FiestaJ_web_redesign/about-us/" class="btn btn-ghost-white btn-lg fj-link">Our Story</a>
-                    </div>
+                <!-- ✅ AJAX PREFETCH: both CTAs trigger prefetch on hover via fj-link -->
+                <div style="display:flex;gap:12px;flex-wrap:wrap">
+                    <a href="/FiestaJ_web_redesign/contact/" class="btn btn-white btn-lg fj-link">Get a Quote →</a>
+                    <a href="/FiestaJ_web_redesign/about-us/" class="btn btn-ghost-white btn-lg fj-link">Our Story</a>
                 </div>
+            </div>
 
-                <div class="why-stats" data-aos="fade-left">
-                    <div class="why-stat">
-                        <span class="why-stat-num">26+</span>
-                        <span class="why-stat-label">Years in Business</span>
-                    </div>
-                    <div class="why-stat">
-                        <span class="why-stat-num">4.9★</span>
-                        <span class="why-stat-label">Google Rating</span>
-                    </div>
-                    <div class="why-stat">
-                        <span class="why-stat-num">5k+</span>
-                        <span class="why-stat-label">Events Served</span>
-                    </div>
-                    <div class="why-stat">
-                        <span class="why-stat-num">100%</span>
-                        <span class="why-stat-label">Satisfaction Guaranteed</span>
-                    </div>
+            <div class="why-stats" data-aos="fade-left">
+                <div class="why-stat">
+                    <span class="why-stat-num">26+</span>
+                    <span class="why-stat-label">Years in Business</span>
+                </div>
+                <div class="why-stat">
+                    <span class="why-stat-num">4.9★</span>
+                    <span class="why-stat-label">Google Rating</span>
+                </div>
+                <div class="why-stat">
+                    <span class="why-stat-num">5k+</span>
+                    <span class="why-stat-label">Events Served</span>
+                </div>
+                <div class="why-stat">
+                    <span class="why-stat-num">100%</span>
+                    <span class="why-stat-label">Satisfaction Guaranteed</span>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
 
     <!-- ══ SEO CONTENT + RELATED LINKS ══════════════════════════ -->
     <section class="seo-section">
         <div class="container">
             <div class="seo-grid">
 
-                <div class="seo-text">
-                    <h2>Classic Bounce House Rentals in Santa Barbara, CA</h2>
-                    <p>Inflatable bounce houses are the perfect centerpiece for any party or event. At Fiesta Jumps, we
-                        specialize in classic castle designs, themed bouncers, and units with built-in extras like
-                        basketball hoops. We serve Santa Barbara, Goleta, Montecito, Carpinteria, Santa Ynez, Los
-                        Olivos, and Buellton.</p>
-                    <p>All of our bounce houses are thoroughly cleaned and inspected before every rental. We handle
-                        delivery, professional setup, and breakdown — so you can focus entirely on enjoying your event.
-                        Our equipment is licensed, insured, and approved for use at Santa Barbara City Parks, so no
-                        extra permits are required.</p>
-                    <p>Whether it's a small backyard birthday party for 10 kids or a large school field day for 200
-                        students, we have the right bounce house for your event. <a href="/FiestaJ_web_redesign/service-area/"
-                            class="fj-link">Check if we deliver to your area →</a></p>
+                                <div class="seo-text">
+                    <!-- SEO from audit-seo-bleed-batch1.json (category-specific; was Classic Bounce bleed) -->
+                    <p class="section-label">Obstacle Courses</p>
+                    <h2>Obstacle Course Rentals in Santa Barbara, CA</h2>
+                    <p>Inflatable obstacle courses add racing, climbing, and interactive play, which is more engaging than a standard bounce house for older kids and group challenges.</p>
+                    <p>We offer a wide range of lengths and themes with delivery and setup across Santa Barbara and nearby cities.</p>
+                    <p>Pick a course that fits your space and guest count. <a href="/FiestaJ_web_redesign/service-area/" class="fj-link">Check if we deliver to your area →</a></p>
+
 
                     <div class="seo-btn-row">
                         <!-- ✅ AJAX PREFETCH — all category chips use fj-link -->
@@ -617,57 +841,47 @@
                     </div>
                 </div>
 
-                <div>
-                    <!-- ✅ ALL RELATED LINKS USE fj-link — hover prefetch fires on each one -->
-                    <div class="related-card">
-                        <h4>Related Categories</h4>
-                        <a href="/FiestaJ_web_redesign/combo-bounce-house-rentals/" class="related-link fj-link">Combo Bounce Houses <span
-                                class="related-link-arr">→</span></a>
-                        <a href="/FiestaJ_web_redesign/water-slides-rentals/" class="related-link fj-link">Water Slide Rentals <span
-                                class="related-link-arr">→</span></a>
-                        <a href="/FiestaJ_web_redesign/dry-slide-rentals/" class="related-link fj-link">Dry Slide Rentals <span
-                                class="related-link-arr">→</span></a>
-                        <a href="/FiestaJ_web_redesign/obstacle-course-rentals/" class="related-link fj-link">Obstacle Courses <span
-                                class="related-link-arr">→</span></a>
-                        <a href="/FiestaJ_web_redesign/foam-cannon-rentals/" class="related-link fj-link">Foam Cannon <span
-                                class="related-link-arr">→</span></a>
-                        <a href="/FiestaJ_web_redesign/concessions-machine/" class="related-link fj-link">Concession Machines <span
-                                class="related-link-arr">→</span></a>
-                        <a href="/FiestaJ_web_redesign/bundle-deals/" class="related-link related-link--featured fj-link">🔥 Bundle Deals —
-                            Save More <span class="related-link-arr">→</span></a>
-                    </div>
+                <!-- ══ RELATED CATEGORIES + SERVICE AREAS (shared sidebar) ══════
+     The right hand column of the SEO section. Each page keeps its own
+     left column (heading, paragraphs, chips) and pulls this in with an
+     include directive naming partials/related-sidebar.html.
+════════════════════════════════════════════════════════════ -->
+<div>
+    <!-- ✅ ALL RELATED LINKS USE fj-link: hover prefetch fires on each one -->
+    <div class="related-card">
+        <h4>Related Categories</h4>
+        <a href="/FiestaJ_web_redesign/combo-bounce-house-rentals/" class="related-link fj-link">Combo Bounce Houses <span
+                class="related-link-arr">→</span></a>
+        <a href="/FiestaJ_web_redesign/water-slides-rentals/" class="related-link fj-link">Water Slide Rentals <span
+                class="related-link-arr">→</span></a>
+        <a href="/FiestaJ_web_redesign/dry-slide-rentals/" class="related-link fj-link">Dry Slide Rentals <span
+                class="related-link-arr">→</span></a>
+        <a href="/FiestaJ_web_redesign/obstacle-course-rentals/" class="related-link fj-link">Obstacle Courses <span
+                class="related-link-arr">→</span></a>
+        <a href="/FiestaJ_web_redesign/foam-cannon-rentals/" class="related-link fj-link">Foam Cannon <span
+                class="related-link-arr">→</span></a>
+        <a href="/FiestaJ_web_redesign/concessions-machine/" class="related-link fj-link">Concession Machines <span
+                class="related-link-arr">→</span></a>
+        <a href="/FiestaJ_web_redesign/bundle-deals/" class="related-link related-link--featured fj-link">🔥 Save More with Bundle
+            Deals <span class="related-link-arr">→</span></a>
+    </div>
 
-                    <div class="related-card">
-                        <h4>Service Areas</h4>
-                        <a href="/FiestaJ_web_redesign/service-area/#montecito" class="related-link fj-link">Montecito <span
-                                class="related-link-arr">→</span></a>
-                        <a href="/FiestaJ_web_redesign/service-area/#goleta" class="related-link fj-link">Goleta <span
-                                class="related-link-arr">→</span></a>
-                        <a href="/FiestaJ_web_redesign/service-area/#carpinteria" class="related-link fj-link">Carpinteria <span
-                                class="related-link-arr">→</span></a>
-                        <a href="/FiestaJ_web_redesign/service-area/#santa-ynez" class="related-link fj-link">Santa Ynez <span
-                                class="related-link-arr">→</span></a>
-                        <a href="/FiestaJ_web_redesign/service-area/#buellton" class="related-link fj-link">Buellton <span
-                                class="related-link-arr">→</span></a>
-                    </div>
-                </div>
+    <div class="related-card">
+        <h4>Service Areas</h4>
+        <a href="/FiestaJ_web_redesign/service-area/#montecito" class="related-link fj-link">Montecito <span
+                class="related-link-arr">→</span></a>
+        <a href="/FiestaJ_web_redesign/service-area/#goleta" class="related-link fj-link">Goleta <span
+                class="related-link-arr">→</span></a>
+        <a href="/FiestaJ_web_redesign/service-area/#carpinteria" class="related-link fj-link">Carpinteria <span
+                class="related-link-arr">→</span></a>
+        <a href="/FiestaJ_web_redesign/service-area/#santa-ynez" class="related-link fj-link">Santa Ynez <span
+                class="related-link-arr">→</span></a>
+        <a href="/FiestaJ_web_redesign/service-area/#buellton" class="related-link fj-link">Buellton <span
+                class="related-link-arr">→</span></a>
+    </div>
+</div>
 
-            </div>
-        </div>
-    </section>
 
-    <!-- ══ CTA BANNER ════════════════════════════════════════════ -->
-    <section class="cta-banner">
-        <div class="container cta-inner">
-            <div>
-                <h2 class="cta-title">Ready to book your bounce house?</h2>
-                <p class="cta-sub">Set your event date and we'll confirm availability same-day. Easy online booking,
-                    professional delivery, stress-free setup.</p>
-            </div>
-            <div class="cta-btns">
-                <!-- ✅ AJAX PREFETCH — primary CTA uses fj-link -->
-                <a href="/FiestaJ_web_redesign/book-now/" class="btn btn-white btn-lg fj-link">Set Event Date</a>
-                <a href="tel:+18055630870" class="btn btn-ghost-white btn-lg">(805) 563-0870</a>
             </div>
         </div>
     </section>
@@ -786,34 +1000,110 @@
         </div>
     </aside>
 
+    <!-- ══ PRODUCT MODAL ══════════════════════════════════════════ -->
+<div class="prod-modal-overlay" id="prodModalOverlay" aria-hidden="true">
+  <div class="prod-modal-content" id="prodModalContent" role="dialog" aria-modal="true"
+    aria-labelledby="prodModalTitle">
+
+    <!-- Close Button -->
+    <button class="prod-modal-close" id="prodModalClose" aria-label="Close modal">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+        stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+
+    <!-- Modal Body -->
+    <div class="prod-modal-body">
+      <!-- Image / Icon Header -->
+      <div class="prod-modal-hero" id="prodModalHero">
+        <img id="prodModalPhoto" class="prod-modal-photo" alt="" hidden>
+        <span class="prod-modal-emoji" id="prodModalEmoji">🏰</span>
+      </div>
+
+      <!-- Content -->
+      <div class="prod-modal-info">
+        <div class="prod-modal-title-row">
+          <h2 class="prod-modal-title" id="prodModalTitle">Product Title</h2>
+          <span class="prod-modal-badge" id="prodModalBadge" style="display: none;"></span>
+        </div>
+        <p class="prod-modal-desc" id="prodModalDesc">Product description goes here.</p>
+
+        <!-- Includes — optional, only shown when a product sets data-includes -->
+        <div class="prod-modal-includes" id="prodModalIncludes" style="display: none;">
+          <span class="includes-label">📦 Includes</span>
+          <span class="includes-value" id="prodModalIncludesText"></span>
+        </div>
+
+        <!-- Details Grid -->
+        <div class="prod-modal-specs">
+          <div class="spec-item">
+            <span class="spec-label">Product Dimensions</span>
+            <strong class="spec-value" id="prodModalDims">15' x 15' x 16'</strong>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Area Required</span>
+            <strong class="spec-value" id="prodModalArea">17' x 17' x 18'</strong>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Capacity</span>
+            <strong class="spec-value" id="prodModalCap">Up to 6 kids</strong>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Outlet Req.</span>
+            <strong class="spec-value" id="prodModalPower">1 Standard Outlet (110v)</strong>
+          </div>
+        </div>
+
+        <!-- Cross-Selling -->
+        <div class="prod-modal-addons">
+          <span class="addon-title">Recommended Add-ons:</span>
+          <div class="addon-list">
+            <a href="/FiestaJ_web_redesign/concessions-machine/" class="addon-item">🍿 Popcorn Machine</a>
+            <a href="/FiestaJ_web_redesign/tables-chairs-linen/" class="addon-item">🪑 Tables & Chairs</a>
+          </div>
+        </div>
+
+        <!-- Trust Checklist -->
+        <div class="prod-modal-trust">
+          <ul class="trust-badges">
+            <li><span class="trust-ico">✓</span>Professional Setup</li>
+            <li><span class="trust-ico">✓</span>Cleaned &amp; Sanitized</li>
+            <li><span class="trust-ico">✓</span>Guaranteed On-Time</li>
+            <li><span>🥳</span>Lots of Fun</li>
+          </ul>
+
+          <div class="trust-requirements">
+            <span class="trust-requirements-label">🔌 What you need</span>
+            <span class="just-dark" id="prodModalRequirement">Electric outlet within 50 feet of setup area</span>
+          </div>
+
+          <p class="trust-notice">🌧️ Maximum 24-hour notice for rain reschedule</p>
+
+          <a href="https://fiestajumps.com/coupon-form/" class="trust-coupon">🎟️ Click here for available coupons</a>
+        </div>
+
+        <!-- Price & CTA -->
+        <div class="prod-modal-footer">
+          <div class="prod-price-box">
+            <span class="price-label">Price</span>
+            <strong class="price-value" id="prodModalPrice">$150 / day</strong>
+          </div>
+          <a href="#" class="btn btn-orange btn-lg fj-link prod-modal-cta" id="prodModalCta">
+            Book Now
+            <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M4.5 10h11m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                stroke-linejoin="round"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
     <script src="/FiestaJ_web_redesign/main.js"></script>
-    <script>
-        /* ── Filter pills ───────────────────────────────────────── */
-        const pills = document.querySelectorAll('.filter-pill');
-        const cards = document.querySelectorAll('.pcard[data-filter]');
-        const countEl = document.getElementById('filterCount');
 
-        pills.forEach(pill => {
-            pill.addEventListener('click', () => {
-                pills.forEach(p => p.classList.remove('active'));
-                pill.classList.add('active');
-
-                const f = pill.dataset.filter;
-                let vis = 0;
-
-                cards.forEach(card => {
-                    const cats = card.dataset.filter || '';
-                    const show = f === 'all' || cats.split(' ').includes(f);
-                    card.style.display = show ? '' : 'none';
-                    if (show) vis++;
-                });
-
-                if (countEl) {
-                    countEl.textContent = `${vis} unit${vis !== 1 ? 's' : ''} available`;
-                }
-            });
-        });
-    </script>
 
 </body>
 

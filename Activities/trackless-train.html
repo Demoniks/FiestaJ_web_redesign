@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script>(function () { try { var t = localStorage.getItem('fj-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); document.documentElement.setAttribute('data-theme', t); } catch (e) { } })();</script>
+    <script>(function () { try { var t = localStorage.getItem('fj-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); document.documentElement.setAttribute('data-theme', t); } catch (e) { } document.documentElement.classList.add('fj-booting'); if (!document.getElementById('fj-boot-style')) { var _s = document.createElement('style'); _s.id = 'fj-boot-style'; _s.textContent = 'html.fj-booting::before{content:"";position:fixed;inset:0;background:#1C1410;z-index:99999;pointer-events:none}'; (document.head || document.documentElement).appendChild(_s); } })();</script>
     <title>SB Trackless Train | Fiesta Jumps Santa Barbara</title>
     <meta name="description"
         content="Rent the unique SB Trackless Train for your event in Santa Barbara. A unique attraction for any party, festival, or corporate event.">
     <meta name="robots" content="index, follow">
     <!-- Open Graph -->
-    <meta property="og:title" content="SB Trackless Train — Fiesta Jumps Santa Barbara">
+    <meta property="og:title" content="SB Trackless Train | Fiesta Jumps Santa Barbara">
     <meta property="og:description" content="A unique trackless train attraction for your next event in Santa Barbara.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://fiestajumps.com/sb-trackless-train/">
@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="/dark-mode.css">
     <script src="/router.js"></script>
 
-    <link rel="prefetch" href="/book-now/" as="document">
+    <link rel="prefetch" href="/contact/" as="document">
     <link rel="prefetch" href="/bundle-deals/" as="document">
 
     <!-- Trackless Train: Red + Grass Green Theme Override -->
@@ -295,7 +295,7 @@
                 Barbara. Perfect for festivals, school events, and large celebrations.</p>
             <div class="hero-red-ctas">
                 <a href="#train-products" class="btn btn-white btn-lg">View Packages</a>
-                <a href="/book-now/" class="btn btn-ghost-white btn-lg fj-link">Book Now</a>
+                <a href="/contact/" class="btn btn-ghost-white btn-lg fj-link">Get a Quote</a>
             </div>
         </div>
         <!-- Decorative tracks or waves -->
@@ -474,44 +474,61 @@
 
             <div class="pc-grid train-types-grid">
 
-                <!-- TYPE 1 -->
+                <!-- Source: https://fiestajumps.com/rentals/trackless-train/ · audit: /workspace/fiesta-content/audit-trackless-train.json · cards rendered from products[] -->
+
+                <!-- Trackless Train (12-18 passengers) -->
                 <div class="pc" data-aos="fade-up" style="--d:0ms">
                     <div class="pc-img" style="background:linear-gradient(135deg,#FFEAEA,#F5A3A3)">
-                        
-                        <!-- <div class="pc-emoji">🚂</div> -->
+                        <img class="pc-photo" src="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e5da918a44f9c437da.png" alt="Trackless Train (12-18 passengers)" loading="lazy">
                         <span class="pc-badge">Popular</span>
                     </div>
                     <div class="pc-body">
-                        <h3>Standard Train Rental</h3>
-                        <p>Perfect for neighborhood parties, small church events, and birthdays. Includes our beautiful
-                            train and carriages.</p>
-                        <span class="pc-size">🎟️ Up to 12 Kids</span>
+                        <h3>Trackless Train (12-18 passengers)</h3>
+                        <p>Trackless Train (18-24 passengers) for rides guests of all ages will love.</p>
+                        <span class="pc-size">💵 from $1100 · 12-18 passengers (kids &amp; adults)</span>
                     </div>
                     <div class="pc-actions">
-                        <a href="/book-now/?item=trackless-train-standard" class="pc-btn pc-btn--primary fj-link">Book
-                            Now</a>
-                        <a href="#" class="pc-btn pc-btn--outline js-open-modal" data-title="Standard Train Rental"
-                            data-price="Call for Quote">Details</a>
+                        <a href="/contact/?item=trackless-train-12-18-passengers" class="pc-btn pc-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pc-btn pc-btn--outline js-open-modal" data-image="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e5da918a44f9c437da.png"
+                            data-emoji="🚂"
+                            data-title="Trackless Train (12-18 passengers)"
+                            data-desc="Trackless train rides for about 12 to 18 passengers."
+                            data-dims="Ask for size"
+                            data-area="Confirm route and setup space when booking"
+                            data-cap="12-18 passengers (kids &amp; adults)"
+                            data-power="None needed"
+                            data-price="from $1100"
+                            data-includes="1 Locomotive · 2 Wagons · 1 Caboose (ADA / Wheelchair Accessible) · 1 Conductor · Extra Hour: $200"
+                            data-book="/contact/?item=trackless-train-12-18-passengers"
+                            data-requirement="Confirm route and site needs when booking">Details</a>
                     </div>
                 </div>
 
-                <!-- TYPE 2 -->
+                <!-- Trackless Train (18-24 passengers) -->
                 <div class="pc" data-aos="fade-up" style="--d:100ms">
                     <div class="pc-img" style="background:linear-gradient(135deg,#E8F5E9,#81C784)">
-                        <div class="pc-emoji">👨‍✈️</div>
-                        <span class="pc-badge" style="background: #2E7D32;">VIP Package</span>
+                        <img class="pc-photo" src="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e57794bf008848584f.png" alt="Trackless Train (18-24 passengers)" loading="lazy">
+                        <span class="pc-badge" style="background: #2E7D32;">Larger Capacity</span>
                     </div>
                     <div class="pc-body">
-                        <h3>Train + Engineer Package</h3>
-                        <p>The ultimate stress-free experience for large festivals, school carnivals, and corporate
-                            events. Includes our professional driver.</p>
-                        <span class="pc-size">🎟️ Up to 18 Kids</span>
+                        <h3>Trackless Train (18-24 passengers)</h3>
+                        <p>Step aboard this trackless train designed to carry 18 to 24 passengers, ideal for large events, corporate events, nonprofits, parades, and more.</p>
+                        <span class="pc-size">💵 from $1300 · 18-24 passengers (kids &amp; adults)</span>
                     </div>
                     <div class="pc-actions">
-                        <a href="/book-now/?item=trackless-train-vip" class="pc-btn pc-btn--primary fj-link">Book
-                            Now</a>
-                        <a href="#" class="pc-btn pc-btn--outline js-open-modal" data-title="Train + Engineer Package"
-                            data-price="Call for Quote">Details</a>
+                        <a href="/contact/?item=trackless-train-18-24-passengers" class="pc-btn pc-btn--primary fj-link">Get Quote</a>
+                        <a href="#" class="pc-btn pc-btn--outline js-open-modal" data-image="https://assets.cdn.filesafe.space/eMQhHZHd01T7RQTLu3Jo/media/69c5a3e57794bf008848584f.png"
+                            data-emoji="👨‍✈️"
+                            data-title="Trackless Train (18-24 passengers)"
+                            data-desc="Trackless train rides for about 18 to 24 passengers."
+                            data-dims="Ask for size"
+                            data-area="Confirm route and setup space when booking"
+                            data-cap="18-24 passengers (kids &amp; adults)"
+                            data-power="None needed"
+                            data-price="from $1300"
+                            data-includes="1 Locomotive · 3 Wagons · 1 Caboose (ADA / Wheelchair Accessible) · 1 Conductor · Extra Hour: $200 · Extra Attendant: $120"
+                            data-book="/contact/?item=trackless-train-18-24-passengers"
+                            data-requirement="Confirm route and site needs when booking">Details</a>
                     </div>
                 </div>
 
@@ -626,49 +643,8 @@
         </div>
     </aside>
 
+    <!--@include partials/product-modal.html-->
     <script src="/main.js"></script>
-    <script>
-        // Custom Carousel Logic for the Train Page
-        document.addEventListener('DOMContentLoaded', () => {
-            const track = document.getElementById('trainHcTrack');
-            const prev = document.getElementById('trainPrev');
-            const next = document.getElementById('trainNext');
-            const dotsContainer = document.getElementById('trainDots');
-
-            if (!track || !prev || !next || !dotsContainer) return;
-
-            const slides = track.querySelectorAll('.hc-slide');
-            let idx = 0;
-            const total = slides.length;
-
-            // Create dots
-            for (let i = 0; i < total; i++) {
-                const d = document.createElement('span');
-                d.className = 'hc-dot' + (i === 0 ? ' active' : '');
-                d.dataset.idx = i;
-                d.addEventListener('click', () => go(i));
-                dotsContainer.appendChild(d);
-            }
-            const dots = dotsContainer.querySelectorAll('.hc-dot');
-
-            function go(n) {
-                if (n < 0) n = total - 1;
-                if (n >= total) n = 0;
-                idx = n;
-                const offset = -idx * 100;
-                track.style.transform = `translateX(${offset}%)`;
-
-                dots.forEach(d => d.classList.remove('active'));
-                dots[idx].classList.add('active');
-            }
-
-            prev.addEventListener('click', () => go(idx - 1));
-            next.addEventListener('click', () => go(idx + 1));
-
-            // Auto play
-            setInterval(() => go(idx + 1), 5000);
-        });
-    </script>
 </body>
 
 </html>

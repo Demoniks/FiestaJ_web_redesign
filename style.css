@@ -67,9 +67,8 @@ iframe {
 }
 
 /* ── DESIGN TOKENS ─────────────────────────────────────────── */
-/* All colors pulled directly from the Fiesta Jumps logo:
-   Blue circle, orange-red text gradient, yellow-gold gradient,
-   yellow-green accent — softened ~15% for web readability      */
+/* Park Day palette (sitewide) — Fiesta Jumps logo greens/yellow/orange/blue.
+   Green is intentionally visible (grass field) while body text stays on --ink. */
 :root {
   /* ── Primary brand — logo orange-red gradient ── */
   --orange: #FF5A1F;
@@ -88,17 +87,18 @@ iframe {
   /* pale yellow tint      */
 
   /* ── Accent — logo yellow-green ── */
-  --green: #7DC400;
+  --green: #4CAD3A;
+  --green-dk: #3A8F2C; /* deeper grass press */
   /* J-letter lime green   */
-  --green-lt: #F1FADA;
+  --green-lt: #E3F5DC;
   /* pale green tint       */
 
   /* ── Primary blue — logo circle ── */
-  --blue: #2B5BA8;
+  --blue: #1E5BB8;
   /* logo cobalt blue      */
-  --blue-md: #1E4A96;
+  --blue-md: #163A7A;
   /* slightly deeper       */
-  --blue-lt: #E8F0FF;
+  --blue-lt: #E8F1FC;
   /* pale blue tint        */
 
   /* ── Neutrals ── */
@@ -114,14 +114,14 @@ iframe {
   /* warm cream border     */
   --border2: #DDD0C0;
   /* slightly darker       */
-  --surface: #FBF7F2;
+  --surface: #F2F9EC;
   /* warm off-white card   */
   --white: #FFFFFF;
-  --off-white: #FFFDF8;
+  --off-white: #F7FCF2;
   /* warm page background  */
 
   /* ── Gradients (reusable) ── */
-  --grad-hero: linear-gradient(150deg, #FFFBE8 0%, #FFF5DC 35%, #E8F0FF 100%);
+  --grad-hero: linear-gradient(150deg, #B8E08A 0%, #E3F5DC 28%, #FFFBE8 58%, #E8F1FC 100%);
   --grad-orange: linear-gradient(135deg, #FF5A1F 0%, #FF8C00 60%, #FFD015 100%);
   --grad-blue: linear-gradient(135deg, #2B5BA8 0%, #1E4A96 100%);
   --grad-cta: linear-gradient(135deg, #FF5A1F 0%, #FF8C00 50%, #E04400 100%);
@@ -134,7 +134,7 @@ iframe {
   --r-full: 9999px;
 
   /* ── Shadows ── */
-  --shadow-sm: 0 1px 3px rgba(255, 90, 31, .08);
+  --shadow-sm: 0 1px 3px rgba(76, 173, 58, .10);
   --shadow-md: 0 4px 16px rgba(255, 90, 31, .12);
   --shadow-lg: 0 12px 40px rgba(43, 91, 168, .14);
   --shadow-xl: 0 24px 60px rgba(43, 91, 168, .18);
@@ -315,11 +315,43 @@ iframe {
   border-color: rgba(255, 255, 255, .8)
 }
 
-/* ── PAGE TRANSITION — clean opacity fade (animsition-style) ─ */
-/* The JS handles opacity on <html> directly.                   */
-/* .pt-curtain kept in HTML but invisible — not used anymore.   */
+/* ── PAGE TRANSITION — first-paint boot cover + exit overlay ─ */
+/* Early head script adds .fj-booting so ::before covers before */
+/* main.js runs (stops enter/refresh blink). Exit uses #fj-overlay */
 .pt-curtain {
+  display: none
+}
+
+html::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: #1C1410;
+  z-index: 99999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.38s ease
+}
+
+html.fj-booting::before {
+  opacity: 1;
+  transition: none
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html::before {
+    transition: none
+  }
+}
+
+#fj-overlay {
+  position: fixed;
+  inset: 0;
+  background: #1C1410;
+  z-index: 99999;
+  opacity: 0;
   display: none;
+  pointer-events: none
 }
 
 /* ── ANNOUNCEMENT BAR ──────────────────────────────────────── */
@@ -328,43 +360,54 @@ iframe {
      footer, intentionally not theme-driven, so don't use var(--ink) here. */
   background: #1C1410;
   height: 36px;
+  min-height: 36px;
+  max-height: 36px;
   overflow: hidden;
   display: flex;
-  align-items: center
+  align-items: center;
+  line-height: 36px;
 }
 
 .ann-track {
   display: flex;
   align-items: center;
-  gap: 20px;
+  width: max-content;
   white-space: nowrap;
-  animation: ann-scroll 34s linear infinite;
-  will-change: transform
+  height: 36px;
+  will-change: transform;
+  /* The loop is driven by initAnnBar() in main.js (Web Animations API), not by
+     CSS keyframes — that's what lets it resume from the same position after a
+     page change, a font swap or a window resize instead of restarting. Until
+     JS runs, the first group simply sits still. */
+}
+
+.ann-group {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-shrink: 0;
+  height: 36px;
+  padding-right: 20px; /* seam gap = group gap so clone butts cleanly */
 }
 
 .ann-track span {
   font-size: 12.5px;
   font-weight: 600;
   color: #fff;
-  flex-shrink: 0
+  flex-shrink: 0;
+  line-height: 1;
 }
 
 .ann-dot {
-  color: var(--orange) !important;
-  font-size: 18px !important
+  color: var(--green) !important;
+  font-size: 18px !important;
+  line-height: 1 !important;
 }
 
-.ann-bar:hover .ann-track {
-  animation-play-state: paused
-}
-
-@keyframes ann-scroll {
-  0% {
-    transform: translateX(0)
-  }
-
-  100% {
-    transform: translateX(-50%)
+@media (prefers-reduced-motion: reduce) {
+  .ann-track {
+    animation: none !important;
+    transform: none !important;
   }
 }
 
@@ -612,6 +655,54 @@ iframe {
 
 .hdr-phone span {
   display: none
+}
+
+/* Centered location badge — absolutely centred on the header bar itself, so it
+   sits in the true middle regardless of how wide the nav / actions are. Only
+   shown once there's room for it between them (nav ends ≈ 425px in, actions
+   start ≈ 800px in at the 1240px container). */
+.hdr-tagline {
+  display: none;
+}
+
+@media(min-width:1240px) {
+  .hdr-inner {
+    position: relative;
+  }
+
+  .hdr-tagline {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    padding: 6px 14px;
+    border-radius: var(--r-full);
+    background: rgba(255, 90, 31, .07);
+    border: 1px solid rgba(255, 90, 31, .16);
+    font-family: 'Poppins', sans-serif;
+    font-size: 12.5px;
+    font-weight: 500;
+    letter-spacing: .01em;
+    color: var(--ink3);
+    white-space: nowrap;
+    pointer-events: none;
+  }
+
+  .hdr-tagline svg {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+    color: var(--orange);
+  }
+
+  .hdr-tagline strong {
+    font-weight: 700;
+    color: var(--ink);
+  }
 }
 
 @media(min-width:900px) {
@@ -1023,9 +1114,13 @@ iframe {
   /* Critical: tell browser this scrolls horizontally so vertical page scroll works */
   touch-action: pan-y;
   cursor: grab;
+  /* Dragging with a mouse must not select text or drag ghost images */
+  user-select: none;
+  -webkit-user-select: none;
 }
 
-.hc-track:active {
+.hc-track:active,
+.hc-track.is-dragging {
   cursor: grabbing
 }
 
@@ -1224,9 +1319,12 @@ iframe {
   /* Allow vertical page scroll, capture horizontal for carousel */
   touch-action: pan-y;
   cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
-.rev-track:active {
+.rev-track:active,
+.rev-track.is-dragging {
   cursor: grabbing
 }
 
@@ -1364,13 +1462,29 @@ iframe {
 }
 
 /* ── RENTAL TAB BAR ────────────────────────────────────────── */
+/* Mobile: horizontal scroll. Desktop: wrap + center */
 .rtab-bar {
   display: flex;
   gap: 8px;
-  flex-wrap: wrap;
-  margin-bottom: 32px;
-  padding-bottom: 16px;
+  flex-wrap: nowrap;
+  align-items: center;
+  margin: 0 -4px 28px;
+  padding: 4px 4px 14px;
   border-bottom: 2px solid var(--border);
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scroll-snap-type: x proximity;
+}
+
+.rtab-bar::-webkit-scrollbar {
+  height: 4px
+}
+
+.rtab-bar::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px
 }
 
 .rtab {
@@ -1380,11 +1494,13 @@ iframe {
   color: var(--ink3);
   background: #fff;
   border: 1.5px solid var(--border);
-  padding: 9px 18px;
+  padding: 9px 16px;
   border-radius: var(--r-full);
   cursor: pointer;
   transition: all var(--t1);
   white-space: nowrap;
+  flex: 0 0 auto;
+  scroll-snap-align: start;
 }
 
 .rtab:hover {
@@ -1400,10 +1516,21 @@ iframe {
   box-shadow: 0 2px 0 var(--orange-dk)
 }
 
-@media(max-width:600px) {
+@media (min-width: 900px) {
+  .rtab-bar {
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow: visible;
+    margin: 0 0 32px;
+    padding: 0 0 16px;
+    scroll-snap-type: none
+  }
+}
+
+@media (max-width: 600px) {
   .rtab {
     font-size: 12px;
-    padding: 7px 14px
+    padding: 8px 14px
   }
 }
 
@@ -1483,7 +1610,7 @@ iframe {
 .pc-img img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   transition: transform var(--t3) var(--ease)
 }
 
@@ -2754,6 +2881,13 @@ a.ftr-sm-link:hover {
   border-radius: var(--r-xl) var(--r-xl) 0 0;
   position: relative;
   overflow: hidden;
+}
+
+.prod-modal-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .prod-modal-emoji {

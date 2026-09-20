@@ -12,7 +12,7 @@
 
                 <li class="hdr-nav-item has-drop">
                     <button class="hdr-nav-btn" aria-haspopup="true" aria-expanded="false">
-                        Bounce Houses
+                        Party Rentals
                         <svg class="drop-caret" viewBox="0 0 16 16" fill="none">
                             <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
                                 stroke-linejoin="round" />
@@ -112,6 +112,15 @@
             </ul>
         </nav>
 
+        <!-- Centered location badge — desktop only (hidden below 1240px, where it would collide with nav/actions) -->
+        <p class="hdr-tagline">
+            <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <path d="M10 18s6-5.2 6-10a6 6 0 10-12 0c0 4.8 6 10 6 10z" fill="currentColor" />
+                <circle cx="10" cy="8" r="2.2" fill="#fff" />
+            </svg>
+            <span>Locally owned in <strong>Santa Barbara, CA</strong></span>
+        </p>
+
         <div class="hdr-actions">
             <a href="tel:+18055630870" class="hdr-phone" aria-label="Call us">
                 <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
@@ -141,8 +150,8 @@
                         stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
             </button>
-            <!-- ✅ AJAX PREFETCH — fj-link triggers hover prefetch to /book-now/ -->
-            <a href="/book-now/" class="btn btn-orange btn-sm fj-link">Book Now</a>
+            <!-- ✅ AJAX PREFETCH — fj-link triggers hover prefetches /contact/ -->
+            <a href="/contact/" class="btn btn-orange btn-sm fj-link">Book Now</a>
             <button class="hdr-burger" id="burgerBtn" aria-label="Open menu" aria-expanded="false">
                 <span></span><span></span><span></span>
             </button>
@@ -185,7 +194,7 @@
             </div>
             <div class="mob-ctas">
                 <a href="tel:+18055630870" class="btn btn-outline btn-full">📞 (805) 563-0870</a>
-                <a href="/book-now/" class="btn btn-orange btn-full fj-link">Book Your Event</a>
+                <a href="/contact/" class="btn btn-orange btn-full fj-link">Book Your Event</a>
             </div>
         </div>
     </div>

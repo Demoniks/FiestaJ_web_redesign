@@ -52,7 +52,7 @@
   const PRICE_SHEET_URL =
     'https://docs.google.com/spreadsheets/d/' + PRICE_SHEET_ID + '/gviz/tq?tqx=out:csv';
   const PRICE_CACHE_KEY = 'fj-sheet-prices';
-  const PRICE_REFRESH_MS = 30 * 1000;
+  const PRICE_REFRESH_MS = 5 * 60 * 1000;
 
   // sheet Item Name (lowercase)  ->  product ids on the site
   const PRICE_NAME_MAP = {
